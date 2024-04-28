@@ -1,0 +1,23 @@
+/*Navbar css */
+.navbar {
+  text-align: center;
+  background-color: rgb(193, 189, 189);
+}
+
+.navbar a{
+  color: black;
+  text-decoration: none;
+
+}
+
+.navbar a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.navbar nav button, a{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/**/
