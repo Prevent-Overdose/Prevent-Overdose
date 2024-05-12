@@ -2,6 +2,7 @@ import { useEffect } from "react"
 
 
 
+
 const AboutUs = ()=>{
     useEffect(()=>{
         document.title = "About Us"
@@ -9,7 +10,13 @@ const AboutUs = ()=>{
     return(
         <div className="AboutUs-page">
             <h1>About Us</h1>
+        
         </div>
+        
+
+        
+        
+
     )
 }
 

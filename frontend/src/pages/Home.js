@@ -9,6 +9,9 @@ const Home = ()=>{
     return(
         <div className="Home-page">
             <h1>Home</h1>
+
+            <p>Welcome to Prevent Overdose</p>
+
         </div>
     )
 }
