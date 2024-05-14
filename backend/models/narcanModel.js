@@ -31,4 +31,4 @@ const narcanSchema = new Schema({
         
 },{timestamps: true})
 
-module.exports = mongoose.model('Narcan', narcanSchema)
+module.exports = mongoose.model('Narcan form', narcanSchema)

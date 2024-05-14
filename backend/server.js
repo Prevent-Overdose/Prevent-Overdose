@@ -3,7 +3,8 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 
-const formRoutes = require('./routes/forms')
+const narcanRoutes = require('./routes/narcanRoutes')
+const reductionRoutes = require('./routes/reductionRoutes')
 
 //express app
 const app = express()
@@ -17,7 +18,8 @@ app.use((req,res,next)=>{
 })
 
 //routes
-app.use('/api/narcan',formRoutes)
+app.use('/api/narcan',narcanRoutes)
+app.use('/api/otherforms',reductionRoutes)
 
 //connect to db 
 mongoose.connect(process.env.MONGO_URI)
