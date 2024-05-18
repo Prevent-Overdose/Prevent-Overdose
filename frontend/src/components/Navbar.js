@@ -11,7 +11,6 @@ const Navbar = () => {
   return (
     <header>
       <div className="navbar">
-        <h1>PreventOD</h1>
         <nav>
         <Link to="/">Home</Link>
         
