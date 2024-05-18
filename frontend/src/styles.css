@@ -8,3 +8,82 @@ body{
 #root{
     height: 100%;
 }
+
+.AboutUs-page {
+    position: relative;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url('./images/City skyline black fog transparent.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Ensures the background fills the entire viewport height */
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.leadership-image-container {
+    position: relative; /* To enable positioning of the child image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.leadership-image-container img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 10px; 
+    padding-top: 115px;
+}
+
+.button-left {
+    position: absolute;
+    left: 360px;
+    top: 210%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-right {
+    position: absolute;
+    right: 400px;
+    top: 210%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.leadership-image-container {
+    position: relative;
+    text-align: center;
+}
+
+.additional-text {
+    font-size: 500px;
+    margin-top: 20px;
+}
+
+.apply-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.apply-image {
+    max-width: 30%; 
+    height: auto;
+    border-radius: 10px;
+    padding-top: 90px;
+    margin-left: 35px;
+}
