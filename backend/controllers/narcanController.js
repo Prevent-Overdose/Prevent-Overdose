@@ -1,5 +1,48 @@
 const Narcan = require('../models/narcanModel')
 const mongoose = require('mongoose')
+const xlsx = require('xlsx')
+const fs = require('fs')
+const path = require('path')
+
+//Excel file paths 
+const exportDir = path.join(__dirname,'..','exports')
+const excelPath = path.join(exportDir, 'narcan_forms.xlsx')
+
+if (!fs.existsSync(exportDir)) {
+    fs.mkdirSync(exportDir, { recursive: true });
+}
+
+const writeExcel = (data) =>{
+    let workbook 
+    let worksheet 
+
+    if (fs.existsSync(excelPath)) {
+        workbook = xlsx.readFile(excelPath);
+        worksheet = workbook.Sheets['Narcan Forms'];
+      } else {
+        workbook = xlsx.utils.book_new();
+        worksheet = xlsx.utils.json_to_sheet([]);
+        xlsx.utils.book_append_sheet(workbook, worksheet, 'Narcan Forms');
+    }
+
+    xlsx.utils.sheet_add_json(worksheet, data, { skipHeader: true, origin: -1 });
+    xlsx.writeFile(workbook, excelPath);
+}
+
+
+if (!fs.existsSync(excelPath)){
+    writeExcel([
+        { Organization: 'Organization', 
+        Address: "Address", 
+        Telephone: 'Telephone #', 
+        number: '# of Overdoses seen per month ', 
+        time: 'Availability', 
+        createdAt: 'Requested On' }
+
+    ])
+}
+
+
 
 //get all narcan forms
 const getNarcan = async(req,res)=>{
@@ -14,9 +57,33 @@ const createNarcan = async(req,res)=>{
    //add to db
    try{
     const form = await Narcan.create({description, address, telephone, number, time})
+    //format date
+    const formCreatedAt = form.createdAt.toLocaleString('en-US', {
+        timeZone: 'America/New_York', 
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+
+    //add to excel sheet 
+    const newRequest = {
+        Organization: form.description, 
+        Address: form.address,
+        Telephone: form.telephone, 
+        Number: form.number,
+        Availability: form.time, 
+        RequestedOn: formCreatedAt + " ET"
+    }
+    writeExcel([newRequest]) 
+    
     res.status(200).json(form)
 
    } catch(error){
+    if (error.code === 'EBUSY') {
+        return res.status(400).json({ error: 'We are currently carrying out requests, please try again in a moment' });
+    }
     res.status(400).json({error:error.message})
    }
 }

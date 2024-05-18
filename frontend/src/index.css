@@ -56,14 +56,14 @@
   
 }
 .recognition p{
-  color: black;
+  color: #ff23fd;
 }
 
 /*Resources page Cards*/
 .card{
-  border: 1px solid black;
+  border: 1px solid #ff23fd;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: 5px 5px 5px #ff23fd;
   padding: 10px;
   margin: 10px;
   text-align: center;
