@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.home-container {
+  width: 100%;
+}
+
+body { /* Reset the default body styles */
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.hero-section { /* Styles for the hero (opening) section */
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-image { /* Background ambulance image for the hero section */
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 20px);
+  object-fit: cover;
+  z-index: -1;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for any transformations */
+}
+
+.motto { /* Styles for the motto text */
+  font-size: 3em;
+  font-family: 'Bebas Neue', sans-serif; /* Singleweight font which doesn't have built-in bold styling */
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+}
+
+.bold-effect { /* Provides a bold effect on the emphasized words in the motto */
+  text-shadow: 
+    1px 0 1px rgba(0,0,0,0.3), 
+    -1px 0 1px rgba(0,0,0,0.3), 
+    0 1px 1px rgba(0,0,0,0.3), 
+    0 -1px 1px rgba(0,0,0,0.3), 
+    1px 1px 1px rgba(0,0,0,0.3), 
+    -1px -1px 1px rgba(0,0,0,0.3), 
+    1px -1px 1px rgba(0,0,0,0.3), 
+    -1px 1px 1px rgba(0,0,0,0.3); 
+}
+
+
+.hero-content { /* Styles for the whole hero section (motto, request button, and request prompt) */
+  position: relative;
+  top: -40px;
+}
+
+@keyframes fadeIn { /* Keyframes for the fade animation */
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.request-prompt { /* Styles for the request prompt */
+  color: white;
+  font-family: 'Bebas Neue';
+  font-size: 1.5em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  margin: 20px 0;
+}
+
+.btn-primary { /* Styles for the request button */
+  padding: 15px 30px;
+  background-color: #8D00A2;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adds shadow for 3D effect */
+  animation: fadeIn 3s ease-out; /* Sets the fade animation length */
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #B800DB;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Larger shadow on hover */
+}
+
+
+.header-section .main-header {
+  text-align: center;
+  color: purple;
+  margin-bottom: 20px;
+}
+
+.stat-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.stat-box {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  background-color: lavender; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mission-statement {
+  background-color: purple;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.prevent-overdose-stats {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
