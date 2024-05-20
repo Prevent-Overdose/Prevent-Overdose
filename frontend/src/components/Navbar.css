@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); /* Link Font Style, can be changed if a more aesthetic font is found */
+
+header {
+  width: 100%; /* Ensures the header is the full width of the viewport */
+  position: fixed; /* Fixes the navbar at the top */
+  top: 0; /* Aligns the navbar at the top of the viewport */
+  left: 0; /* Aligns the navbar to the left edge of the viewport */
+  z-index: 1000; /* Ensures the navbar stays on top of other content */
+  height: 100px; 
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: black; 
+  height: 100%; /* Makes the navbar fill the header */
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 55px;
+  width: auto;
+  margin-left: 10px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  position:relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px; 
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+
+.navbar-links a:hover {
+  color: #ff23fd; /* Slightly lighter color on hover */
+}
+
+.navbar-links a::before {
+  content: '|';
+  color: white;
+  margin-right: 15px;
+  transform: translateX(-50%);
+}
+
+.navbar-request-narcan {
+  display: flex;
+  align-items: center;
+
+}
+
+.navbar-request-narcan img {
+  height: 200px; 
+  width: auto;
+  vertical-align: middle;
+  margin-left: 15px;
+  margin-right: 15px; 
+}
+
+.navbar-request-narcan img:hover {
+  filter: brightness(1.5); /* Light up effect on hover */
+}
+
+.dropdown {
+  position: relative;
+  margin-right: 20px; 
+  margin-left: 10px 
+}
+
+.dropdown-toggle { 
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.dropdown-menu { /* Styles for the dropdown menu */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9); 
+  border: 1px solid #444;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001; /* Ensure dropdown is above other elements */
+  min-width: 150px; 
+}
+
+.dropdown-menu a { /* Styles for the dropdown menu items */
+  padding: 10px 20px; 
+  text-decoration: none;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #ff23fd; /* Highlight color on hover */
+  color: black; /* Change text color on hover */
+}
