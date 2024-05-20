@@ -34,7 +34,7 @@ const Navbar = () => {
           <Link to="/about">About Us</Link>
           <Link to="/resources">Resources</Link>
           <Link to="/request-narcan" className="navbar-request-narcan">
-            <img src="/Request Narcan.png" alt="Request Narcan" />
+            <img src="Request Narcan.png" alt="Request Narcan" />
           </Link>
         </nav>
       </div>
