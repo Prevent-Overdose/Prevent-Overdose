@@ -5,7 +5,7 @@ const router = express.Router()
 const {
     getNarcan,
     createNarcan,
-    deleteNarcan
+    deleteNarcan, mergeFiles
 } = require('../controllers/narcanController')
 
 

@@ -7,12 +7,13 @@ const path = require('path')
 //Excel file paths 
 const exportDir = path.join(__dirname,'..','exports')
 const excelPath = path.join(exportDir, 'narcan_forms.xlsx')
+const tempExcelPath = path.join(exportDir, 'narcan_forms_temp.xlsx')
 
 if (!fs.existsSync(exportDir)) {
     fs.mkdirSync(exportDir, { recursive: true });
 }
 
-const writeExcel = (data) =>{
+const writeExcel = (data, excelPath) =>{
     let workbook 
     let worksheet 
 
@@ -29,6 +30,40 @@ const writeExcel = (data) =>{
     xlsx.writeFile(workbook, excelPath);
 }
 
+//handler function for writing  if 
+//to temp file original excel sheet is open 
+
+const handleWriteExcel = (data) => {
+    try {
+        writeExcel(data, excelPath)
+
+    } catch(error){
+        if (error.code === 'EBUSY' || error.code === 'EPERM'){
+            //write to the temporary file if the main excel form is open
+            writeExcel(data,tempExcelPath )
+        }
+        else{
+            throw error;
+        }
+    }
+}
+
+//function that merges temp excel file with main after main file is closed
+const mergeFiles = ()=>{
+    if (fs.existsSync(tempExcelPath)){
+        
+        const tempWorkbook = xlsx.readFile(tempExcelPath);
+        const tempWorksheet = tempWorkbook.Sheets['Narcan Forms'];
+        const tempData = xlsx.utils.sheet_to_json(tempWorksheet);
+
+        handleWriteExcel(tempData)
+        fs.unlinkSync(tempExcelPath) 
+        //delete temp file after merge
+    }
+
+}
+
+
 
 if (!fs.existsSync(excelPath)){
     writeExcel([
@@ -39,10 +74,10 @@ if (!fs.existsSync(excelPath)){
         time: 'Availability', 
         createdAt: 'Requested On' }
 
-    ])
+    ], excelPath)
 }
 
-
+mergeFiles()
 
 //get all narcan forms
 const getNarcan = async(req,res)=>{
@@ -76,7 +111,11 @@ const createNarcan = async(req,res)=>{
         Availability: form.time, 
         RequestedOn: formCreatedAt + " ET"
     }
-    writeExcel([newRequest]) 
+
+    //temp data merges before new data is posted
+    mergeFiles() 
+    handleWriteExcel([newRequest]) 
+
     
     res.status(200).json(form)
 
