@@ -54,7 +54,7 @@ const Home = () => {
     <div className="home-container">
       <div className="hero-section">
         <div className="hero-background">
-          <img src="/ambulance.jpg" className="hero-image" />
+          <img src="/ambulance.jpg" className="hero-image" alt='ambulance'/>
         </div>
         <div className="hero-content">
         <h1 className="motto">{renderMotto()}</h1>

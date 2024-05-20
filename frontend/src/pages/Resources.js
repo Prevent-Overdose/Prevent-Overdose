@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import {Link} from 'react-router-dom';
+import './Resources.css'
 
 
 
@@ -31,7 +32,7 @@ const Resources = ()=>{
 
 
                 <div className="card">
-                    <Link to = 'https://gsomxcc.brightspace.com/course/19/saret-screening-for-substance-use-disorders'>
+                    <Link to = 'https://gsomxcc.brightspace.com/course/19/saret-screening-for-substance-use-disorders' target="blank" rel="noopener noreferrer">
                      <img className="card-image" src={require('../images/Nyu1.png')} alt="Screening for Substance Use module" />
                     </Link>
                     <h2 className="card-title">Learn More</h2>
@@ -39,7 +40,7 @@ const Resources = ()=>{
                 </div>    
 
                 <div className="card">
-                    <Link to='https://gsomxcc.brightspace.com/course/13/saret-personal-impact-of-substance-use'>
+                    <Link to='https://gsomxcc.brightspace.com/course/13/saret-personal-impact-of-substance-use' target="blank" rel="noopener noreferrer">
                     <img className="card-image" src={require('../images/Nyu2.png')} alt="Personal Impact of Substance module" />
                     </Link>
                     <h2 className="card-title">Learn More</h2>
@@ -47,7 +48,7 @@ const Resources = ()=>{
                 </div>  
 
                 <div className="card">
-                    <Link to='https://gsomxcc.brightspace.com/course/17/saret-epidemiology-of-substance-use-disorders'>
+                    <Link to='https://gsomxcc.brightspace.com/course/17/saret-epidemiology-of-substance-use-disorders' target="blank" rel="noopener noreferrer">
                     <img className="card-image" src={require('../images/Nyu3.png')} alt="Personal Impact of Substance module" />
                     </Link>
                     <h2 className="card-title">Learn More</h2>
@@ -55,7 +56,7 @@ const Resources = ()=>{
                 </div>  
 
                 <div className="card">
-                    <Link to='https://gsomxcc.brightspace.com/course/18/saret-treatment-modalities-for-substance-use-disorders'>
+                    <Link to='https://gsomxcc.brightspace.com/course/18/saret-treatment-modalities-for-substance-use-disorders' target="blank" rel="noopener noreferrer">
                     <img className="card-image" src={require('../images/Nyu4.png')} alt="Personal Impact of Substance module" />
                     </Link>
                     <h2 className="card-title">Learn More</h2>
