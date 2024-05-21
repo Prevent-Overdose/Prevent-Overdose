@@ -17,7 +17,7 @@ const AboutUs = () => {
             <p style={{ fontSize: '20px', marginTop: '50px'}}>Empowering Change: Student Leaders Committed to the Equitable</p>
             <p style={{ fontSize: '20px'}}>Distribution of Harm Reduction Service Nationwide</p>
             <div className="apply-image-container">
-                <img src={applyToJoin} alt="apply Image" className="apply-image" />
+                <img src={applyToJoin} alt="apply" className="apply-image" />
             </div>
         </div>
     );
