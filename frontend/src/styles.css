@@ -39,7 +39,7 @@ body{
 
 .button-left {
     position: absolute;
-    left: 360px;
+    left: 330px;
     top: 210%;
     transform: translateY(-50%);
     padding: 10px 20px;
@@ -52,7 +52,7 @@ body{
 
 .button-right {
     position: absolute;
-    right: 400px;
+    right: 370px;
     top: 210%;
     transform: translateY(-50%);
     padding: 10px 20px;
@@ -85,5 +85,19 @@ body{
     height: auto;
     border-radius: 10px;
     padding-top: 90px;
-    margin-left: 35px;
+    margin-left: 55px;
+}
+
+.button-left,
+.button-right {
+
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; /* Remove default underline for links */
+}
+
+.button-left:hover,
+.button-right:hover {
+    background-color: transparent;
+    color: black;
 }
