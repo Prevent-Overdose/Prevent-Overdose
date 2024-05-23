@@ -1,19 +1,25 @@
 const Narcan = require('../models/narcanModel')
 const mongoose = require('mongoose')
+
+
+/*
 const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    service: '',
+    
     auth:{
         user: process.env.USER,
         pass: process.env.PASS
     }
 })
 
+
 const sendEmail = (formData) =>{
     const mailOptions = {
-        from: process.env.USER,
+        from: '"PreventOd" <process.env.USER>',
         to: 'Kingzewdie16@gmail.com',
+        
         subject: '**New Narcan Request**' ,
         text: `New Narcan Request Details:\n\n
         Organization: ${formData.Organization}\n
@@ -33,6 +39,7 @@ const sendEmail = (formData) =>{
         }
     })
 }
+*/
 
 const getNarcan = async(req,res)=>{
     const forms = await Narcan.find({}).sort({createdAt: -1})
@@ -44,6 +51,7 @@ const createNarcan = async(req,res)=>{
 
    
    try{
+    
     const form = await Narcan.create({description, address, telephone, number, time})
     //format date
     const formCreatedAt = form.createdAt.toLocaleString('en-US', {
@@ -64,7 +72,10 @@ const createNarcan = async(req,res)=>{
         Availability: form.time, 
         RequestedOn: formCreatedAt + " ET"
     }
-    sendEmail(newRequest)
+    ///write to excel sheet here
+
+
+    
     
     res.status(200).json(form)
 
