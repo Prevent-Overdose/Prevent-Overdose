@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css'; 
 import { useState } from 'react';
+import Sidenav from './SideNav';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +18,6 @@ const Navbar = () => {
             <button className="dropdown-toggle" onClick={toggleDropdown}>
               ☰
             </button>
-            {isOpen && (
-              <div className="dropdown-menu">
-                <Link to="/" onClick={toggleDropdown}>Home</Link>
-                <Link to="/about" onClick={toggleDropdown}>About Us</Link>
-                <Link to="/resources" onClick={toggleDropdown}>Resources</Link>
-              </div>
-            )}
           </div>
           <Link to="/" className="navbar-logo">
             <img src="/preventOD white logo.png" alt="PreventOD Logo" />
@@ -38,6 +32,7 @@ const Navbar = () => {
           </Link>
         </nav>
       </div>
+      <Sidenav isOpen={isOpen} toggle={toggleDropdown} />
     </header>
   );
 }
