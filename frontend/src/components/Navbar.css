@@ -51,7 +51,7 @@ header {
 }
 
 .navbar-links a::before {
-  content: '|';
+  content: '';
   color: white;
   margin-right: 15px;
   transform: translateX(-50%);
@@ -105,6 +105,8 @@ header {
   min-width: 150px; 
 }
 
+
+
 .dropdown-menu a { /* Styles for the dropdown menu items */
   padding: 10px 20px; 
   text-decoration: none;
@@ -117,4 +119,27 @@ header {
 .dropdown-menu a:hover {
   background-color: #ff23fd; /* Highlight color on hover */
   color: black; /* Change text color on hover */
+}
+
+
+/* Media query to hide navbar-links on mobile and center the logo and button */
+@media (max-width: 768px) {
+  
+  .navbar-links {
+    display: none;
+  }
+
+  .left-section {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbar-logo {
+    margin: 0 auto;
+  }
+
+  .dropdown {
+    position: absolute;
+    left: 0px;
+  }
 }
