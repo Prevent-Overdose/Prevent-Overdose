@@ -47,14 +47,18 @@ const getNarcan = async(req,res)=>{
 }
 
 const createNarcan = async(req,res)=>{
-    const {description, address, telephone, number, time} = req.body
+    const {organizationName, state, county, address, phoneNumber,email, 
+        boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
+        reversedOverdoses} = req.body
 
    
    try{
     
-    const form = await Narcan.create({description, address, telephone, number, time})
+    const form = await Narcan.create({organizationName, state, county, address, phoneNumber,email, 
+        boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
+        reversedOverdoses})
     //format date
-    const formCreatedAt = form.createdAt.toLocaleString('en-US', {
+    const reqSent = form.createdAt.toLocaleString('en-US', {
         timeZone: 'America/New_York', 
         year: 'numeric',
         month: 'short',
@@ -65,12 +69,18 @@ const createNarcan = async(req,res)=>{
 
      
     const newRequest = {
-        Organization: form.description, 
+        Organization: form.OrganizationName, 
+        State: form.state,
+        County: form.county,
         Address: form.address,
         Telephone: form.telephone, 
-        Number: form.number,
-        Availability: form.time, 
-        RequestedOn: formCreatedAt + " ET"
+        Email: form.email,
+        boxesOfNarcan: form.boxesOfNarcan,
+        Availability: form.availability, 
+        fatalOverdoses: form.fatalOverdoses,
+        nonFatalOverdoses: form.nonFatalOverdoses,
+        reversedOverdoses: form.reversedOverdoses,
+        createdAt: formCreatedAt + " ET"
     }
     ///write to excel sheet here
 
