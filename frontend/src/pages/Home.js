@@ -3,9 +3,7 @@ import './Home.css';
 
 const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
-  const requestPrompt = "Save lives with Narcan.";
   const [displayText, setDisplayText] = useState('');
-  const [displayRequestText, setDisplayRequestText] = useState('');
   const [showButton, setShowButton] = useState(false);
   
   useEffect(() => {
@@ -17,28 +15,16 @@ const Home = () => {
         setDisplayText(motto.substring(0, currentIndex + 1));
         currentIndex++;
         setTimeout(typeMottoEffect, 100); // 2nd parameter adjusts typing speed
-      } else {
-        typeRequestEffect();
+      }
+      
+      else {
+        setShowButton(true); // Show the Narcan button after the motto is typed
       }
     };
 
-    const typeRequestEffect = () => { // Request Narcan prompt
-      let requestIndex = 0;
-      const typeEffect = () => {
-        if (requestIndex < requestPrompt.length) {
-          setDisplayRequestText(requestPrompt.substring(0, requestIndex + 1));
-          requestIndex++;
-          setTimeout(typeEffect, 100); //2nd parameter adjusts typing speeed
-        }
-         else {
-        setShowButton(true); // Starts the button fade animation only when the request narcan prompt is fully typed
-        }
-      };
-      typeEffect();
-    };
-
+  
     typeMottoEffect();
-  }, [motto, requestPrompt]);
+  }, [motto]);
 
   const renderMotto = () => { // Bold effect for "DIRECT" and "DEADLY" in the motto
     const words = displayText.split(' ');
@@ -46,7 +32,7 @@ const Home = () => {
       if (word === "DIRECT" || word === "DEADLY") {
         return <span key={index} className="bold-effect">{word} </span>;
       }
-      return `${word} `;
+      return <span key={index}>{word} </span>;
     });
   };
 
@@ -54,13 +40,17 @@ const Home = () => {
     <div className="home-container">
       <div className="hero-section">
         <div className="hero-background">
-          <img src="/ambulance.jpg" className="hero-image" alt='ambulance'/>
+          <video autoPlay loop muted className="hero-video">
+            <source src="/Ambulance.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="hero-content">
-        <h1 className="motto">{renderMotto()}</h1>
-        <p className="request-prompt">{displayRequestText} </p>
+          <h1 className="motto">{renderMotto()}</h1>
         {showButton && (
-            <a href="/request-narcan" className="btn btn-primary fade-in">Request Narcan</a>
+            <a href="/request-narcan" className="request-narcan">
+              <img src="Request Narcan.png" alt="Request Narcan" />
+            </a>
           )}
         </div>
       </div>
