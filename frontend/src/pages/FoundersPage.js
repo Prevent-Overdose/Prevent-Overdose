@@ -57,7 +57,7 @@ const FoundersPage = () => {
                     </div>
                     <div className="additional-image-container">
                         <img style={{width: '1000px', height: '20px'}}src={founder3Title} alt="Additional Image 3" className="additional-image" /> {/* Additional image below the third box */}
-                        <h3>Cheif Financial Officer</h3>
+                        <h3>Chief Financial Officer</h3>
                     </div>
                 </div>
             </div>
