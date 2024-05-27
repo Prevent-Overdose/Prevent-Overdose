@@ -26,7 +26,8 @@ header {
 .navbar-logo img {
   height: 55px;
   width: auto;
-  margin-left: 10px;
+  margin-left: 30px;
+  margin-top: 5px;
 }
 
 .navbar-links {
@@ -72,7 +73,7 @@ header {
 }
 
 .navbar-request-narcan img:hover {
-  filter: brightness(1.5); /* Light up effect on hover */
+  filter: brightness(2); /* Light up effect on hover */
 }
 
 .dropdown {
@@ -142,4 +143,10 @@ header {
     position: absolute;
     left: 0px;
   }
+
+  .dropdown-toggle { 
+    padding: 0 0 0 0;
+  }
+
+  
 }
