@@ -5,28 +5,33 @@ const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
   const [displayText, setDisplayText] = useState('');
   const [showButton, setShowButton] = useState(false);
-  
+
   useEffect(() => {
-    document.title = "PREVENT OVERDOSE - Fighting the Opioid Crisis";
+    document.title = "Prevent Overdose Inc.";
     let currentIndex = 0;
 
-    const typeMottoEffect = () => { // PreventOD motto
+    const typeMottoEffect = () => {
       if (currentIndex < motto.length) {
         setDisplayText(motto.substring(0, currentIndex + 1));
         currentIndex++;
-        setTimeout(typeMottoEffect, 100); // 2nd parameter adjusts typing speed
-      }
-      
-      else {
-        setShowButton(true); // Show the Narcan button after the motto is typed
+        setTimeout(typeMottoEffect, 80);
+      } else {
+        setShowButton(true);
       }
     };
 
-  
-    typeMottoEffect();
+    // Check if the screen is mobile size
+    if (window.innerWidth < 768) {
+      // Fade in the motto immediately
+      setDisplayText(motto);
+      setShowButton(true);
+    } else {
+      // Use typing effect for larger screens
+      typeMottoEffect();
+    }
   }, [motto]);
 
-  const renderMotto = () => { // Bold effect for "DIRECT" and "DEADLY" in the motto
+  const renderMotto = () => {
     const words = displayText.split(' ');
     return words.map((word, index) => {
       if (word === "DIRECT" || word === "DEADLY") {
@@ -39,15 +44,17 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="hero-section">
-        <div className="hero-background">
-          <video autoPlay loop muted className="hero-video">
-            <source src="/Ambulance.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        {window.innerWidth >= 768 && (
+          <div className="hero-background">
+            <video autoPlay loop muted className="hero-video">
+              <source src="/ambulance.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        )}
         <div className="hero-content">
-          <h1 className="motto">{renderMotto()}</h1>
-        {showButton && (
+          <h1 className={`motto ${window.innerWidth < 768 ? 'fade-in' : ''}`}>{renderMotto()}</h1>
+          {showButton && (
             <a href="/request-narcan" className="request-narcan">
               <img src="Request Narcan.png" alt="Request Narcan" />
             </a>
@@ -55,9 +62,7 @@ const Home = () => {
         </div>
       </div>
       <div className="header-section">
-        <h1 className="main-header">
-        Join Us in the Fight Against Opioid Overdose!
-        </h1>
+        <h1 className="main-header">Join Us in the Fight Against Opioid Overdose!</h1>
         <div className="stat-boxes">
           <div className="stat-box us-stats">
             <h2>In the U.S. ...</h2>
