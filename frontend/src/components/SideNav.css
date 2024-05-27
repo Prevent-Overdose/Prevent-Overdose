@@ -45,7 +45,7 @@
   right: 25px;
   font-size: 36px;
   color: white;
-  background-color: black;
+  background-color: #111;
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -114,29 +114,43 @@
 
 @media (max-width: 768px) {
 
-    .navbar-request-narcan2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-      }
+  .dropdown-toggle { 
+    padding: 0px 8px 8px 24px;
+  }
 
-    .navbar-request-narcan2 img {
-        color: #ff23fd;
-        display: block;
-        width: 60%;
-        padding: 0;
-        margin: 0 auto;
-        clip-path: inset(20% 0 0 0); /* Crop the top 20% of the image */
-        margin-top: -70px; /* Adjust top margin to reduce space */
+  .navbar-request-narcan2 {
+      display: flex;
+      justify-content: flex-start; /* Align the button to the left */
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      transition: none;
+      position: absolute;
+      left: 40px;
+
+  }
+
+  .navbar-request-narcan2 img {
+      color: #ff23fd;
+      display: block;
+      width: 240px;
+      padding: 0;
+      margin: 0 auto;
+      clip-path: inset(20% 0 0 0); /* Crop the top 20% of the image */
+      margin-top: -60px; /* Adjust top margin to reduce space */
+      height: 240px;
+      max-width: 500px; /* Set a max width to prevent scaling beyond this size */
+      transition: none;
+      position: absolute;
+
+      
 
 
-      }
+    }
 
-      .sidenav a.navbar-request-narcan2 {
-        padding: 0; /* Remove padding for the link */
-        margin: 0;  /* Remove margin for the link */
-      }
+    .sidenav a.navbar-request-narcan2 {
+      padding: 0; /* Remove padding for the link */
+      margin: 0;  /* Remove margin for the link */
+    }
 }

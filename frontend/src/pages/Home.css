@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .home-container {
+  height: 100%;
   width: 100%;
   z-index: 0;
 }
@@ -9,6 +10,7 @@ body { /* Reset the default body styles */
   margin: 0;
   padding: 0;
   background-color: black;
+  overflow-x: hidden;
 }
 
 .hero-section { /* Styles for the hero (opening) section */
@@ -25,18 +27,18 @@ body { /* Reset the default body styles */
 
 .hero-background {
   position: absolute;
-  top: -20%;
   left: 0;
   width: 100%;
-  height: 130%;
+  height: 100%;
   z-index: -1; /* Ensure background is behind content */
+  overflow: hidden;
 }
 
 .hero-video {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  transform: translateY(20%); /* Move the video up by 20% */
+  transform: translateY(12%); /* Move the video up by 20% */
 }
 
 .motto { /* Styles for the motto text */
@@ -46,6 +48,16 @@ body { /* Reset the default body styles */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
 }
 
+.fade-in { /* Fade-in effect for mobile */
+  opacity: 0;
+  animation: fadeInEffect 5s forwards;
+}
+
+@keyframes fadeInEffect {
+  to {
+    opacity: 1;
+  }
+}
 
 .bold-effect { /* Provides a bold effect on the emphasized words in the motto */
   text-shadow: 
@@ -55,7 +67,6 @@ body { /* Reset the default body styles */
     8px 8px 8px rgba(0,0,0,0.6),
     10px 10px 10px rgba(0,0,0,0.5);
 }
-
 
 .hero-content { /* Styles for the whole hero section (motto, request button, and request prompt) */
   position: relative;
@@ -67,7 +78,6 @@ body { /* Reset the default body styles */
   to { opacity: 1; }
 }
 
-
 .request-narcan img {
   height: 200px; 
   width: auto;
@@ -77,7 +87,7 @@ body { /* Reset the default body styles */
 }
 
 .request-narcan img:hover {
-  filter: brightness(1.5); /* Light up effect on hover */
+  filter: brightness(2); /* Light up effect on hover */
 }
 
 .header-section .main-header {
@@ -112,4 +122,34 @@ body { /* Reset the default body styles */
   color: white;
   padding: 20px;
   text-align: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .hero-background {
+    display: none; /* Hide the video on mobile */
+  }
+  
+  .motto {
+    animation: fadeInEffect 4s forwards; /* Apply slower fade-in effect on mobile */
+    padding-left: 25px; /* Add left padding */
+    padding-right: 25px; /* Add right padding */
+    margin-top: 50px; /* Reduce top margin */
+  }
+
+  .hero-content {
+    top: 0px; /* Reduce top space to minimize space between navbar and motto */
+  }
+
+  .request-narcan img {
+    padding-top: 20px;
+    animation: fadeIn 5s; /* Apply the fade animation */
+    height: 250px;
+  }
+  
+}
+
+@keyframes fadeInButtonEffect {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

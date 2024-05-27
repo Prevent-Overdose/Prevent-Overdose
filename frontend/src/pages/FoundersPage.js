@@ -11,12 +11,15 @@ const FoundersPage = () => {
     return (
         <div className="founders-page-container">
             <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Lucida Console", "Courier New", monospace'}}>FOUNDERS</h1>
-            <p style={{textAlign: 'center'}}>Founded by three passionate University of South Florida undergraduates 
-            <br></br> Prevent Overdose embodies the vision of empowering students to enact
-            <br></br> meaningful change within their communities. With a shared commitment to
-            <br></br> addressing the critical issue of overdose prevention through education
-            <br></br> advocacy, and community engagement, our founders lead a diverse team
-            <br></br> of individuals to be active in the welfare of their communities.</p>
+            <p style={{textAlign: 'center'}}>
+            Founded by three passionate University of South Florida undergraduates 
+             Prevent Overdose embodies the vision of empowering students to enact
+             meaningful change within their communities. With a shared commitment to
+             addressing the critical issue of overdose prevention through education
+             advocacy, and community engagement, our founders lead a diverse team
+             of individuals to be active in the welfare of their communities.
+            
+            </p>
             
             <div className="box-container">
                 <div className="box-wrapper">
