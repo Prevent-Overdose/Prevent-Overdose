@@ -117,7 +117,7 @@ const NarcanForm = () => {
           type="text"
           name="organizationName"
           value={formData.organizationName}
-          placeholder="Enter organization name"
+          placeholder="ex. Prevent Overdose Inc."
           onChange={handleChange}
           required
         />
@@ -129,7 +129,7 @@ const NarcanForm = () => {
           type="text"
           name="state"
           value={formData.state}
-          placeholder="Enter state"
+          placeholder="ex. Florida"
           onChange={handleChange}
           required
         />
@@ -141,7 +141,7 @@ const NarcanForm = () => {
           type="text"
           name="county"
           value={formData.county}
-          placeholder="Enter county"
+          placeholder="ex. Hillsborough"
           onChange={handleChange}
           required
         />
@@ -165,7 +165,7 @@ const NarcanForm = () => {
           type="text"
           name="phoneNumber"
           value={formData.phoneNumber}
-          placeholder="Enter phone number"
+          placeholder="ex. 123-456-7890"
           onChange={handleChange}
           required
         />
@@ -177,7 +177,7 @@ const NarcanForm = () => {
           type="email"
           name="email"
           value={formData.email}
-          placeholder="Enter email"
+          placeholder="ex. example@gmail.com"
           onChange={handleChange}
           required
         />
@@ -189,7 +189,7 @@ const NarcanForm = () => {
           type="number"
           name="boxesOfNarcan"
           value={formData.boxesOfNarcan}
-          placeholder="Enter number of boxes of Narcan"
+          placeholder="Enter number "
           onChange={handleChange}
           min="0"
           required
@@ -240,7 +240,7 @@ const NarcanForm = () => {
           type="number"
           name="fatalOverdoses"
           value={formData.fatalOverdoses}
-          placeholder="Enter number of fatal overdoses"
+          placeholder="Enter number"
           onChange={handleChange}
           min="0"
           required
@@ -253,7 +253,7 @@ const NarcanForm = () => {
           type="number"
           name="nonFatalOverdoses"
           value={formData.nonFatalOverdoses}
-          placeholder="Enter number of non-fatal overdoses"
+          placeholder="Enter number"
           onChange={handleChange}
           min="0"
           required
@@ -266,7 +266,7 @@ const NarcanForm = () => {
           type="number"
           name="reversedOverdoses"
           value={formData.reversedOverdoses}
-          placeholder="Enter number of reversed overdoses"
+          placeholder="Enter number"
           onChange={handleChange}
           min="0"
           required
