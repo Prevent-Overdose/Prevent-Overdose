@@ -101,7 +101,7 @@ const BoardPage = () => {
                             <img src={countyDirector3} alt="countyDirector 3" />
                             <div className="description">
                                 <p>SAIF KHAN
-                                <br></br>
+                                <div className="position">Hillsborough County Director </div>
                                 <br></br> After losing a close friend to an opioid overdose I was motivated to work to address the problem of overdoses within our community and provide support to those struggling with addiction.
                                 </p>
                             </div>
