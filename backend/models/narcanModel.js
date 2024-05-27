@@ -46,7 +46,8 @@ const narcanSchema = new Schema({
                 type: String, 
                 required: true
             }
-        }]
+        }],
+        required: true
     },
     fatalOverdoses: {
         type: Number,
@@ -60,6 +61,10 @@ const narcanSchema = new Schema({
         type: Number,
         required: true
     },
+    createdAt: {
+        type: String,
+        required: false
+    }
     
 
 }, { timestamps: true });
