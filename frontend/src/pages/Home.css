@@ -367,20 +367,17 @@ body { /* Reset the default body styles */
   color: black;
 }
 
-.request-narcan-button:hover {
-  background-color: black;
-  color: white;
-}
 
 .report-overdose-button {
   background-color: black;
   color: white;
 }
 
-.report-overdose-button:hover {
-  background-color: white;
-  color: black;
+.closing-button:hover {
+  transform: scale(1.05); /* Slightly increase size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
+
 
 
 /* MEDIA QUERY FOR MOBILE DEVICES */
