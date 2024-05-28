@@ -13,11 +13,16 @@
 }
 
 .formcontainer h4, .form-info ,.confirmation-message {
-text-align: center;}
+text-align: center;
+}
+.formcontainer h4{
+  font-size: larger;
+}
 
 form .MuiInputBase-input {
   border-bottom: 2px solid #ff23fd;
   color: #ff23fd;
+  padding: 0;
 
 }
 
@@ -34,4 +39,9 @@ form .MuiInputBase-input {
   margin-top: 10px;
   justify-content: center;  
   
+}
+.error{
+  margin-top: 10px;
+  text-align: center;
+  color: red;
 }
