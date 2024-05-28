@@ -26,7 +26,7 @@ const Navbar = () => {
         <nav className="navbar-links">
           <Link to="/">Home</Link>
           <Link to="/about">About Us</Link>
-          <Link to="/resources">Resources</Link>
+          {/*<Link to="/resources">Resources</Link>*/}
           <Link to="/request-narcan" className="navbar-request-narcan">
             <img src="Request Narcan.png" alt="Request Narcan" />
           </Link>

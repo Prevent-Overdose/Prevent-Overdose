@@ -15,7 +15,10 @@ const NarcanForm = () => {
     phoneNumber: '',
     email: '',
     boxesOfNarcan: '',
-    availability: [{ date: null, startTime: null, endTime: null }],
+    availability: [
+      { date: null, startTime: null, endTime: null },
+      { date: null, startTime: null, endTime: null },
+      { date: null, startTime: null, endTime: null }],
     fatalOverdoses: '',
     nonFatalOverdoses: '',
     reversedOverdoses: '',
@@ -265,7 +268,7 @@ const NarcanForm = () => {
         </div>
         <br />
         <div>
-          <label>What is your availability this month?</label>
+          <label>What is your availability this month? (add at least three dates)</label>
           {formData.availability.map((avail, index) => (
             <div key={index}>
               <DatePicker
