@@ -76,7 +76,7 @@ const NarcanForm = () => {
     }
 
     try {
-      const response = await fetch("/api/narcan", {
+      const response = await fetch("http://localhost:4000/api/narcan", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
