@@ -81,6 +81,81 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="mission-section">
+        <div className="mission-left">
+          <h2 className="mission-header">OUR <span className="mission-highlight">MISSION</span></h2>
+        </div>
+      <div className="mission-right">
+        <div className="hands-image">
+          <img src="Overdose Ribbon_Hand.jpeg" alt="Hands with Ribbon" />
+        </div>
+        <div className="mission-text">
+          Safeguarding communities through Harm Reduction Education, Training, Resources, and Advocacy.
+        </div>
+      </div>
+    </div>
+    <div className="services-section">
+        <h2 className="services-header">OUR <span className="services-highlight">SERVICES</span></h2>
+        <div className="services-content">
+          <div className="service">
+            <div className="service-image">
+              <img src="narcan-distribution.png" alt="Narcan Distribution" />
+            </div>
+            <p className="service-title">NARCAN DISTRIBUTION</p>
+          </div>
+          <div className="service">
+            <div className="service-image">
+              <img src="education.png" alt="Education" />
+            </div>
+            <p className="service-title">EDUCATION</p>
+          </div>
+          <div className="service">
+            <div className="service-image">
+              <img src="resource-allocation.png" alt="Resource Allocation" />
+            </div>
+            <p className="service-title">RESOURCE ALLOCATION</p>
+          </div>
+          <div className="service">
+            <div className="service-image">
+              <img src="outreach.png" alt="Outreach" />
+            </div>
+            <p className="service-title">OUTREACH</p>
+          </div>
+          <div className="service">
+            <div className="service-image">
+              <img src="research-advocacy.png" alt="Research & Advocacy" />
+            </div>
+            <p className="service-title">RESEARCH & ADVOCACY</p>
+            <p className="service-description">
+              We are committed to advancing harm reduction policies and practices through research and advocacy. By partnering with academic institutions and policymakers, we work to influence public health strategies and promote evidence-based approaches to harm reduction.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="impact-section">
+        <h2 className="impact-header">OUR <span className="impact-highlight">IMPACT</span></h2>
+        <div className="impact-content">
+          <div className="impact-item">
+            <h3 className="impact-number">1.7k</h3>
+            <p className="impact-text">Kits of Narcan distributed</p>
+          </div>
+          <div className="impact-item">
+            <h3 className="impact-number">15+</h3>
+            <p className="impact-text">Overdoses Reversed</p>
+          </div>
+          <div className="impact-item">
+            <h3 className="impact-number">500</h3>
+            <p className="impact-text">Hygiene care packages dispensed</p>
+          </div>
+        </div>
+      </div>
+      <div className="closing-section">
+        <p className="closing-text">Are You or Someone You Know At Risk of Experiencing or Witnessing an Opioid Overdose?</p>
+        <div className="closing-buttons">
+          <a href="/request-narcan" className="closing-button request-narcan-button">REQUEST NARCAN</a>
+          <a href="/report-overdose" className="closing-button report-overdose-button">REPORT OVERDOSE</a>
+        </div>
+      </div>
     </div>
   );
 }
