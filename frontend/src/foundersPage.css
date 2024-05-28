@@ -12,6 +12,7 @@
 .founders-page-container p {
     margin-left: 350px; 
     margin-right: 350px; 
+    text-align: center;
 }
 
 .box-container {
@@ -85,7 +86,7 @@
     white-space: nowrap; 
 }
 
-@media (max-width: 400px) and (max-height: 620px) {
+@media (max-width: 480px) {
     .founders-page-container p {
         display: block;
         font-size: 11px;
@@ -99,7 +100,7 @@
         align-items: flex-start; 
         width: 80%;
         height: auto;
-        margin: 20px 70px;
+        margin: 20px 30px;
         flex-direction: column;
     }
 

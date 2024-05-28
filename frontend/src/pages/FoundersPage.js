@@ -11,7 +11,7 @@ const FoundersPage = () => {
     return (
         <div className="founders-page-container">
             <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Lucida Console", "Courier New", monospace'}}>FOUNDERS</h1>
-            <p style={{textAlign: 'center'}}>
+            <p>
             Founded by three passionate University of South Florida undergraduates 
              Prevent Overdose embodies the vision of empowering students to enact
              meaningful change within their communities. With a shared commitment to
