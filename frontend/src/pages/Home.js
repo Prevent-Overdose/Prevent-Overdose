@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 
+
+
 const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
   const [displayText, setDisplayText] = useState('');

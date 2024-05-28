@@ -11,7 +11,7 @@ const FoundersPage = () => {
     return (
         <div className="founders-page-container">
             <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Lucida Console", "Courier New", monospace'}}>FOUNDERS</h1>
-            <p style={{textAlign: 'center'}}>
+            <p>
             Founded by three passionate University of South Florida undergraduates 
              Prevent Overdose embodies the vision of empowering students to enact
              meaningful change within their communities. With a shared commitment to
@@ -57,7 +57,7 @@ const FoundersPage = () => {
                     </div>
                     <div className="additional-image-container">
                         <img style={{width: '1000px', height: '20px'}}src={founder3Title} alt="Additional Image 3" className="additional-image" /> {/* Additional image below the third box */}
-                        <h3>Cheif Financial Officer</h3>
+                        <h3>Chief Financial Officer</h3>
                     </div>
                 </div>
             </div>

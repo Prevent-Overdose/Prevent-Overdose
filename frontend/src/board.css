@@ -45,6 +45,7 @@
 
 .box-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     overflow-x: auto; 
@@ -63,6 +64,7 @@
     display: inline-block;
     overflow: hidden;
     flex: 0 0 auto;
+    
 }
 
 .box img {
@@ -85,7 +87,7 @@
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     display: flex;
-    flex-direction: column; 
+    flex-direction: row; /* Stack content vertically */
     justify-content: center; 
     align-items: center; 
     opacity: 0;
@@ -139,23 +141,23 @@
 .sparkle:nth-child(10) { animation-delay: 1.8s; }
 
 
-
-
-@media (max-width: 600px) {
+/* Styles for mobile screens */
+@media (max-width: 480px) {
     .box-container {
-        flex-wrap: nowrap;
-        overflow-x: auto; 
-        justify-content: flex-start; 
+        flex-direction: column; /* Ensure column direction on mobile screens */
+        align-items: center; /* Center boxes horizontally on mobile screens */
     }
 
     .box {
-        width: 180px; 
-        height: 180px; 
-        margin: 10px;
+        width: 80%; /* Adjust width to fit the screen */
+        max-width: 300px; /* Set maximum width for better display */
+        height: auto; /* Auto adjust height to maintain aspect ratio */
+        margin: 20px 0; /* Adjust margin for better spacing */
     }
+}
 
-    .description {
-        padding: 5px; 
-        font-size: 14px;
+@media (min-width: 400px) and (max-width: 600px) {
+    .box-container {
+        flex-direction: column; /* Ensure column direction for screens between 400px and 600px */
     }
 }

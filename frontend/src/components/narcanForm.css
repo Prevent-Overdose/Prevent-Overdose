@@ -1,0 +1,47 @@
+
+.formcontainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  border: 4px solid #ff23fd;
+  padding: 20px; 
+  border-radius: 22px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  margin: 100px auto 20px; 
+  width: 50%;
+}
+
+.formcontainer h4, .form-info ,.confirmation-message {
+text-align: center;
+}
+.formcontainer h4{
+  font-size: larger;
+}
+
+form .MuiInputBase-input {
+  border-bottom: 2px solid #ff23fd;
+  color: #ff23fd;
+  padding: 0;
+
+}
+
+.formcontainer span{
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0;
+}
+
+
+ .submit-button{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;  
+  
+}
+.error{
+  margin-top: 10px;
+  text-align: center;
+  color: red;
+}

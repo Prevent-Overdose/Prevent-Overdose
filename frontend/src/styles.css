@@ -65,7 +65,6 @@ body {
     background-color: #f23dff;
     opacity: 55%;
     color: black;
-    border-radius: 60px;
 }
 
 .additional-text {
@@ -86,42 +85,15 @@ body {
     border-radius: 10px;
     padding-top: 90px;
     margin-left: 55px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Added transition for hover effect */
+}
+
+.apply-image:hover {
+    transform: scale(1.1); /* Scale image slightly */
+    
 }
 
 /* Mobile View */
-@media (max-width: 768px) {
-    .leadership-image-container img {
-        max-width: 80%;
-        padding-top: 50px;
-    }
-
-    .button-left,
-    .button-right {
-        position: absolute;
-        top: 75%;
-        width: auto;
-        padding: 10px 20px;
-    }
-
-    .button-left {
-        left: 10%;
-    }
-
-    .button-right {
-        right: 10%;
-    }
-
-    .additional-text {
-        font-size: 70px; 
-    }
-
-    .apply-image {
-        max-width: 80%;
-        padding-top: 30px;
-        margin-left: 0;
-    }
-}
-
 @media (max-width: 480px) {
     .leadership-image-container img {
         max-width: 90%;
@@ -130,13 +102,18 @@ body {
 
     .button-left,
     .button-right {
-        top: 210%; 
+        top: 220%; 
         padding: 6px 92px; 
         font-size: 22px; 
+        color: white;
+      
+        
+
     }
 
     .button-left {
         left: 40%;
+        background-color: transparent;
     }
 
     .button-right {
@@ -151,5 +128,6 @@ body {
         max-width: 100%;
         padding-top: 30px;
         margin-left: 0;
+        top: 20%;
     }
 }

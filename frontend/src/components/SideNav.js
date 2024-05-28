@@ -38,7 +38,7 @@ const Sidenav = ({ isOpen, toggle }) => {
             <Link to="/founders" onClick={toggle}>Founders</Link>
             <Link to="/board" onClick={toggle}>Board</Link>
         </div>
-        <Link to="/resources" onClick={toggle}>Resources</Link>
+        {/*<Link to="/resources" onClick={toggle}>Resources</Link>*/}
       </div>
         <Link to="/request-narcan" className="navbar-request-narcan2">
             <img src="Request Narcan.png" alt="Request Narcan" />
