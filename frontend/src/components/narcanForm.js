@@ -1,10 +1,10 @@
+
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 import './narcanForm.css';
-import {TextField} from '@mui/material/';
-
+import { TextField } from '@mui/material/';
 
 const NarcanForm = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ const NarcanForm = () => {
     reversedOverdoses: '',
   });
   const [error, setError] = useState(null);
-  const [submitted,setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false);
 
   const formatPhoneNumber = (value) => {
     if (!value) return value;
@@ -41,7 +41,15 @@ const NarcanForm = () => {
       const formattedPhoneNumber = formatPhoneNumber(value);
       setFormData({ ...formData, [name]: formattedPhoneNumber });
     } else {
-      setFormData({ ...formData, [name]: value });
+      const numericFields = ['boxesOfNarcan', 'fatalOverdoses', 'nonFatalOverdoses', 'reversedOverdoses'];
+      if (numericFields.includes(name)) {
+        const numericValue = value === '' ? '' : Math.max(0, parseInt(value, 10));
+        if (!isNaN(numericValue) && Number.isInteger(numericValue)) {
+          setFormData({ ...formData, [name]: numericValue });
+        }
+      } else {
+        setFormData({ ...formData, [name]: value });
+      }
     }
   };
 
@@ -95,10 +103,13 @@ const NarcanForm = () => {
     }));
   };
 
- 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if(formData.availability.length < 3){
+      setError('Please provide at least 3 dates of availability.')
+      return
+    }
 
     for (const avail of formData.availability) {
       if (avail.startTime && avail.endTime && avail.startTime >= avail.endTime) {
@@ -137,10 +148,9 @@ const NarcanForm = () => {
         fatalOverdoses: '',
         nonFatalOverdoses: '',
         reversedOverdoses: '',
-        
       });
       setError(null);
-      setSubmitted(true)
+      setSubmitted(true);
     } catch (error) {
       setError(error.message);
     }
@@ -149,8 +159,8 @@ const NarcanForm = () => {
   return (
     <div className="formcontainer">
       <form className="create" onSubmit={handleSubmit}>
-        <h4>Send a Request</h4>
-        <div >
+        <h4><strong>Send a Request</strong></h4>
+        <div>
           <p className='form-info'>
             This is a form to receive bulk shipments of free 
             Narcan, monthly. Our Narcan is supplied by state-specific government agencies. 
@@ -165,97 +175,95 @@ const NarcanForm = () => {
         <div>
           <span>What is your organization's name?</span>
           <TextField
-              type="text"
-              name="organizationName"
-              value={formData.organizationName}
-              placeholder="ex. Prevent Overdose Inc."
-              onChange={handleChange}
-              required
-              style={{background: 'black' }}
-            />
-          
+            type="text"
+            name="organizationName"
+            value={formData.organizationName}
+            placeholder=" ex. Prevent Overdose Inc."
+            onChange={handleChange}
+            required
+            style={{ background: 'black' }}
+          />
         </div>
-          <br />
+        <br />
         <div>
           <span>What state is your organization located in?</span>
           <TextField
-              type="text"
-              name="state"
-              value={formData.state}
-              placeholder="ex. Florida"
-              onChange={handleChange}
-              required
-              style={{ background: 'black' }} 
-            />
+            type="text"
+            name="state"
+            value={formData.state}
+            placeholder=" ex. Florida"
+            onChange={handleChange}
+            required
+            style={{ background: 'black' }}
+          />
         </div>
         <br />
         <div>
           <span>What county is your organization located in?</span>
           <TextField
-              type="text"
-              name="county"
-              value={formData.county}
-              placeholder="ex. Hillsborough"
-              onChange={handleChange}
-              required
-              style={{ background: 'black' }} 
-            />
+            type="text"
+            name="county"
+            value={formData.county}
+            placeholder=" ex. Hillsborough"
+            onChange={handleChange}
+            required
+            style={{ background: 'black' }}
+          />
         </div>
         <br />
         <div>
           <span>Provide an address that can serve as the meeting point to receive Narcan shipments:</span>
           <TextField
-              type="text"
-              name="address"
-              value={formData.address}
-              placeholder="Enter address"
-              onChange={handleChange}
-              required
-              style={{ background: 'black'}}
-            />
+            type="text"
+            name="address"
+            value={formData.address}
+            placeholder=" Enter address"
+            onChange={handleChange}
+            required
+            style={{ background: 'black' }}
+          />
         </div>
         <br />
         <div>
-          <span>Provide a phone number within your organization that can respond to monthly Narcan</span>
+          <span>Provide a phone number within your organization that can respond to monthly Narcan:</span>
           <TextField
-              type="text"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              placeholder="Enter phone number"
-              onChange={handleChange}
-              required
-              style={{ background: 'black'}}
-            />
+            type="text"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            placeholder=" Enter phone number"
+            onChange={handleChange}
+            required
+            style={{ background: 'black' }}
+          />
         </div>
         <br />
         <div>
           <span>Provide an email to contact the organization:</span>
           <TextField
-              type="email"
-              name="email"
-              value={formData.email}
-              placeholder="ex. example@gmail.com"
-              onChange={handleChange}
-              required
-              style={{ background: 'black'}}
-            />
+            type="email"
+            name="email"
+            value={formData.email}
+            placeholder=" ex. example@gmail.com"
+            onChange={handleChange}
+            required
+            style={{ background: 'black' }}
+          />
         </div>
         <br />
         <div>
           <span>How many boxes of Narcan do you need?</span>
           <TextField
-            
             type="number"
             name="boxesOfNarcan"
             value={formData.boxesOfNarcan}
-            placeholder="Enter number"
+            placeholder=" Enter number"
             onChange={handleChange}
             min="0"
             required
-            style={{ background: 'black'}}
+            style={{ background: 'black' }}
           />
-      </div>
-      <br />
+        </div>
+        <br />
         <div>
           <label>What is your availability this month?</label>
           {formData.availability.map((avail, index) => (
@@ -294,19 +302,18 @@ const NarcanForm = () => {
           ))}
           <button type="button" onClick={addAvailability}>Add Availability</button>
         </div>
-        
+        <br />
         <div>
-          <br />
           <span>How many fatal overdoses have you seen in the past month?</span>
           <TextField
             type="number"
             name="fatalOverdoses"
             value={formData.fatalOverdoses}
-            placeholder="Enter number"
+            placeholder=" Enter number"
             onChange={handleChange}
             min="0"
             required
-            style={{ background: 'black'}}
+            style={{ background: 'black' }}
           />
         </div>
         <br />
@@ -316,11 +323,11 @@ const NarcanForm = () => {
             type="number"
             name="nonFatalOverdoses"
             value={formData.nonFatalOverdoses}
-            placeholder="Enter number"
+            placeholder=" Enter number"
             onChange={handleChange}
             min="0"
             required
-            style={{ background: 'black'}}
+            style={{ background: 'black' }}
           />
         </div>
         <br />
@@ -330,22 +337,23 @@ const NarcanForm = () => {
             type="number"
             name="reversedOverdoses"
             value={formData.reversedOverdoses}
-            placeholder="Enter number"
+            placeholder=" Enter number"
             onChange={handleChange}
             min="0"
             required
             style={{ background: 'black' }}
           />
         </div>
-        
-        <button type="submit" className='submit-button'>Submit Request</button>
+        <div className="submit-button">
+          <button type="submit" >Submit Request</button>
+        </div>
         {submitted && (
-        <p className='confirmation-message'>
-          We will send a text message to confirm 
-          that your order has been received and 
-          will update you with the progress of the order 
-          through the phone number provided. 
-        </p>
+          <p className='confirmation-message'>
+            We will send a text message to confirm 
+            that your order has been received and 
+            will update you with the progress of the order 
+            through the phone number provided. 
+          </p>
         )}
         {error && <div className="error">{error}</div>}
       </form>
