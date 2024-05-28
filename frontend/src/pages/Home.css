@@ -90,38 +90,59 @@ body { /* Reset the default body styles */
   filter: brightness(2); /* Light up effect on hover */
 }
 
-.header-section .main-header {
+.overdose-data-section {
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
   text-align: center;
-  color: purple;
+}
+
+.overdose-data-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3em;
   margin-bottom: 20px;
 }
 
-.stat-boxes {
+.overdose {
+  color: #e80f07;
+}
+
+.data {
+  color: white;
+}
+
+.overdose-statistics {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  align-items: flex-start;
 }
 
-.stat-box {
-  flex: 1;
-  margin: 10px;
-  padding: 20px;
-  background-color: purple; 
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.statistics-left {
+  display: flex;
+  flex-direction: column;
+  margin-left: 210px;
 }
 
-.mission-statement {
-  background-color: purple;
-  color: white;
-  padding: 20px;
-  text-align: center;
+.total-overdoses, .opioid-overdoses {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #e80f07;
+  font-size: 2em;
 }
 
-.prevent-overdose-stats {
-  background-color: black;
-  color: white;
-  padding: 20px;
-  text-align: center;
+.total-overdoses p, .opioid-overdoses p {
+  opacity: 0.7; /* Reduced opacity for emphasis */
+}
+
+.overdose-chart {
+  margin-right: 40px;
+  margin-top: -25px;
+}
+
+.overdose-chart img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
 }
 
 /* Media query for mobile devices */
