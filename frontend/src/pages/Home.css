@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* HOME PAGE BACKGROUND */
+
 .home-container {
   height: 100%;
   width: 100%;
@@ -12,6 +14,8 @@ body { /* Reset the default body styles */
   background-color: black;
   overflow-x: hidden;
 }
+
+/* HERO SECTION */
 
 .hero-section { /* Styles for the hero (opening) section */
   position: relative;
@@ -90,6 +94,9 @@ body { /* Reset the default body styles */
   filter: brightness(2); /* Light up effect on hover */
 }
 
+
+/* OVERDOSE DATA SECTION */
+
 .overdose-data-section {
   margin-top: 20px;
   background-color: black;
@@ -145,7 +152,236 @@ body { /* Reset the default body styles */
   height: auto;
 }
 
-/* Media query for mobile devices */
+/* MISSION SECTION */
+
+.mission-section {
+  display:flex;
+  background-color: #000;
+  color: white;
+  text-align: center;
+
+}
+.mission-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mission-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3em;
+  margin-bottom: 20px;
+  margin-left: 3px;
+}
+
+.mission-highlight {
+  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); /* Gradient colors */
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.mission-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.hands-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hands-image img {
+  width: 100%;
+  max-width: 500px; 
+}
+
+.mission-text {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  max-width: 800px;
+}
+
+/* SERVICES SECTION*/
+
+.services-section {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.services-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.services-highlight {
+  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); 
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.services-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service {
+  flex: 1;
+  max-width: 20%;
+  margin: 10px;
+  position: relative;
+}
+
+.service-image img {
+  width: 100%;
+  max-width: 200px; 
+  display: block;
+  margin: 0 auto;
+}
+
+.service-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.service-description {
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  padding: 0 10px;
+  text-align: left;
+}
+
+/* IMPACT SECTION*/
+
+.impact-section {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.impact-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.impact-highlight {
+  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); 
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.impact-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.impact-item {
+  flex: 1;
+  max-width: 30%;
+  margin: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.impact-item::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 1px;
+  background-color: white;
+  margin: 0 auto 10px auto;
+}
+
+.impact-number {
+  font-family: 'Arial', sans-serif;
+  font-size: 4em;
+  color: #ff23fd; 
+  font-style: italic;
+}
+
+.impact-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* CLOSING SECTION */
+
+.closing-section {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.closing-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+}
+
+.closing-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.closing-button {
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  border: 2px solid white;
+  display: inline-block;
+  width: 175px; /* Ensures buttons have the same width */
+  text-align: center;
+
+}
+
+.request-narcan-button {
+  margin-top: 20px; ;
+  background-color: white;
+  color: black;
+}
+
+
+.report-overdose-button {
+  background-color: black;
+  color: white;
+}
+
+.closing-button:hover {
+  transform: scale(1.05); /* Slightly increase size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+
+
+/* MEDIA QUERY FOR MOBILE DEVICES */
+
 @media (max-width: 768px) {
   .hero-background {
     display: none; /* Hide the video on mobile */
@@ -167,8 +403,76 @@ body { /* Reset the default body styles */
     animation: fadeIn 5s; /* Apply the fade animation */
     height: 250px;
   }
-  
+
+  .overdose-statistics {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .statistics-left {
+    margin-right: 0;
+  }
+
+  .overdose-chart {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .mission-section {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .mission-left {
+    margin-bottom: 20px;
+  }
+
+  .mission-header {
+    font-size: 2.5em;
+  }
+
+  .hands-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .mission-text {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+
+  .services-content {
+    flex-direction: column;
+  }
+
+  .service {
+    max-width: 100%;
+    margin: 20px 0;
+  }
+
+  .service-image img {
+    max-width: 100%;
+  }
+
+  .impact-content {
+    flex-direction: column;
+  }
+
+  .impact-item {
+    max-width: 100%;
+    margin: 20px 0;
+  }
+
+  .closing-buttons {
+    gap: 10px;
+  }
+
+  .closing-button {
+    margin: 10px 0;
+  }
+
 }
+  
 
 @keyframes fadeInButtonEffect {
   from { opacity: 0; }
