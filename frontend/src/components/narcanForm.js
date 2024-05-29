@@ -113,12 +113,12 @@
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    /*
+    
     if(formData.availability.length < 3){
       setError('Please provide at least 3 dates of availability.')
       return
     }
-    */
+    
    if(!isFormValid){
       setError('Please enter valid numbers in the numeric fields.');
       return;
