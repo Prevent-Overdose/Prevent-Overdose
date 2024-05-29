@@ -392,10 +392,8 @@ body { /* Reset the default body styles */
 
   /* HERO SECTION */
 
-  .hero-video {
-    width: 100vw; 
-    height: 70vh; /* Ensure the video covers the full height */
-
+  .hero-background {
+    display: none; /* Hide the video on mobile */
   }
   
   .motto {
