@@ -391,11 +391,8 @@ body { /* Reset the default body styles */
 @media (max-width: 768px) {
 
   /* HERO SECTION */
-  
-  .hero-video {
-    width: 100vw; /* Adjust width for better coverage */
-    height: 70vh; /* Ensure the video covers the full height */
-
+  .hero-background {
+    display: none; /* Hide the video on mobile */
   }
   
   .motto {
@@ -442,6 +439,8 @@ body { /* Reset the default body styles */
 
   .overdose-chart {
     margin: 20px 0;
+    margin-top: -10px;
+    margin-bottom: 10px;
   }
 
   .overdose-chart img {
