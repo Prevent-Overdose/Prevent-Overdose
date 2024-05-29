@@ -270,13 +270,14 @@ const NarcanForm = () => {
         <div>
           <label>What is your availability this month? (add at least three dates)</label>
           {formData.availability.map((avail, index) => (
-            <div key={index}>
+            <div key={index} className='availability-input'>
               <DatePicker
                 selected={avail.date}
                 onChange={(date) => handleDateChange(index, date)}
                 dateFormat="yyyy-MM-dd"
                 placeholderText="Select a date"
                 required
+                className='date-input'
               />
               <DatePicker
                 selected={avail.startTime}
@@ -288,6 +289,7 @@ const NarcanForm = () => {
                 dateFormat="h:mm aa"
                 placeholderText="Select start time"
                 required
+                className='date-input'
               />
               <DatePicker
                 selected={avail.endTime}
@@ -299,11 +301,14 @@ const NarcanForm = () => {
                 dateFormat="h:mm aa"
                 placeholderText="Select end time"
                 required
+                className='date-input'
               />
-              <button type="button" onClick={() => deleteAvailability(index)}>Delete</button>
+              <div>
+                <button type="button" className="material-symbols-outlined" onClick={() => deleteAvailability(index)} >Delete</button>
+              </div>
             </div>
           ))}
-          <button type="button" onClick={addAvailability}>Add Availability</button>
+          <button type="button" onClick={addAvailability} >Add Availability</button>
         </div>
         <br />
         <div>

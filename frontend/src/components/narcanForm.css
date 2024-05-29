@@ -33,6 +33,25 @@ form .MuiInputBase-input {
   margin-left: 0;
 }
 
+.availability-input{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.date-input{
+  border-bottom: 2px solid #ff23fd;
+  color: #ff23fd;
+  background: black;
+  margin-right: 0;
+  padding: 3px;
+  width: 60%;
+}
+
+.material-symbols-outlined{
+  color: black;
+}
 
  .submit-button{
   display: flex;
