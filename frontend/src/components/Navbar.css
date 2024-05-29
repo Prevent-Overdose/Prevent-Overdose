@@ -135,9 +135,10 @@ header {
     width: 100%;
   }
 
-  .navbar-logo {
-    margin: 0 auto;
+  .navbar-logo img{
+    margin-left: 0;
   }
+  
 
   .dropdown {
     position: absolute;

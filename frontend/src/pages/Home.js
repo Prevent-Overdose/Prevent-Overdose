@@ -65,7 +65,7 @@ const Home = () => {
       </div>
       <div className="overdose-data-section">
         <h2 className="overdose-data-header">
-          <span className="overdose">OVERDOSE</span> <span className="data">DATA</span>
+          <span className="overdose">NATIONAL OVERDOSE</span> <span className="data">DATA</span>
         </h2>
         <div className="overdose-statistics">
           <div className="statistics-left">
@@ -89,7 +89,7 @@ const Home = () => {
         </div>
       <div className="mission-right">
         <div className="mission-text">
-          Safeguarding communities through Harm Reduction Education, Training, Resources, and Advocacy.
+          Safeguarding communities through harm reduction education, training, resources, and advocacy.
         </div>
       </div>
     </div>
@@ -122,7 +122,7 @@ const Home = () => {
           </div>
           <div className="impact-item">
             <h3 className="impact-number">15+</h3>
-            <p className="impact-text">Overdoses Reversed</p>
+            <p className="impact-text">Overdoses reversed</p>
           </div>
           <div className="impact-item">
             <h3 className="impact-number">500</h3>
@@ -131,7 +131,7 @@ const Home = () => {
         </div>
       </div>
       <div className="closing-section">
-        <p className="closing-text">Are You or Someone You Know At Risk of Experiencing or Witnessing an Opioid Overdose?</p>
+        <p className="closing-text">Are you or someone you know at risk of experiencing or witnessing an opioid overdose?</p>
         <div className="closing-buttons">
           <a href="/request-narcan" className="closing-button request-narcan-button">REQUEST NARCAN</a>
           <a href="/report-overdose" className="closing-button report-overdose-button">REPORT OVERDOSE</a>
