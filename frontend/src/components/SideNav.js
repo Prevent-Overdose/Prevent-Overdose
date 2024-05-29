@@ -37,10 +37,10 @@ const Sidenav = ({ isOpen, toggle }) => {
         <div className="sidenav-about-children">
             <Link to="/founders" onClick={toggle}>Founders</Link>
             <Link to="/board" onClick={toggle}>Board</Link>
+            {/*<Link to="/resources" onClick={toggle}>Resources</Link>*/}
         </div>
-        {/*<Link to="/resources" onClick={toggle}>Resources</Link>*/}
       </div>
-        <Link to="/request-narcan" className="navbar-request-narcan2">
+        <Link to="/request-narcan" className="navbar-request-narcan2" onClick={toggle}>
             <img src="Request Narcan.png" alt="Request Narcan" />
         </Link>
     </div>
