@@ -176,6 +176,7 @@ const NarcanForm = () => {
           </p>
         </div>
         <div>
+          <br />
           <span>What is your organization's name?</span>
           <TextField
             type="text"
