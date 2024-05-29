@@ -40,6 +40,14 @@ form .MuiInputBase-input {
   margin-bottom: 10px;
 }
 
+.delete-button{
+  padding:5px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 3px;
+
+}
+
 .date-input{
   border-bottom: 2px solid #ff23fd;
   color: #ff23fd;

@@ -1,4 +1,3 @@
-
   import React, { useState } from 'react';
   import DatePicker from 'react-datepicker';
   import 'react-datepicker/dist/react-datepicker.css';
@@ -313,9 +312,7 @@
                 required
                 className='date-input'
               />
-              <div>
-                <button type="button" className="material-symbols-outlined" onClick={() => deleteAvailability(index)} >Delete</button>
-              </div>
+              
             </div>
           ))}
           <button type="button" onClick={addAvailability} >Add Availability</button>
