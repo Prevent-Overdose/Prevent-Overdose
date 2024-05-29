@@ -193,8 +193,6 @@ body { /* Reset the default body styles */
   position: relative; /* Positioning context for the text */
 }
 
-
-
 .mission-text {
   position: absolute;
   text-align: center;
@@ -420,7 +418,7 @@ body { /* Reset the default body styles */
   }
 
   .overdose-data-header {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 15px;
   }
 
@@ -452,6 +450,7 @@ body { /* Reset the default body styles */
     height: auto; /* Allow auto height for mobile */
     align-items: center; /* Center align items horizontally */
     background-position: top; /* Adjust background position if needed */
+    padding: 20px 0; /* Add padding to the section */
   }
 
   .mission-left {
@@ -473,12 +472,13 @@ body { /* Reset the default body styles */
     width: 100%;
     justify-content: center; /* Center align items horizontally */
     padding: 10px 0; /* Adjust padding for mobile */
+   
   }
 
   .mission-text {
     font-size: 1.2em;
     text-align: center;
-    padding: 0 10px; /* Adjust padding for mobile */
+    padding: 20px; /* Adjust padding for mobile */
   }
 
   /* SERVICES SECTION */
