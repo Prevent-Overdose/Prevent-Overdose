@@ -26,7 +26,6 @@ const BoardPage = () => {
         }));
     };
 
-
     const renderSparkles = () => {
         const sparkles = [];
         for (let i = 0; i < 10; i++) {
@@ -42,29 +41,35 @@ const BoardPage = () => {
     return (
         <div className="board-container">
             <h1 className="board-heading">MEET THE BOARD</h1>
+
             <div className="team-section" id="founders">
                 <button className="team-heading" onClick={() => toggleDropdown('founders')}>
                     Co-Executive Directors
                 </button>
                 {dropdowns.founders && (
                     <div className="box-container">
-                        <div className="box">
-                            <img src={founder1} alt="Founder 1" />
-                            <div className="description">
-                                <p>COLE OLSON
-                                <br></br>
-                                <br></br> My experience of losing both friends and family members due to drug use fueled my desire for change and inspired me to found this organization.
-                                </p>
+                        <div className="box-wrapper">
+                            <div className="box">
+                                <img src={founder1} alt="Founder 1" />
+                                <div className="description">
+                                    My experience of losing both friends and family members due to drug use fueled my desire for change and inspired me to found this organization.
+                                </div>
+                            </div>
+                            <div className="additional-image-container">
+                                <h3 className="name">COLE OLSON</h3>
+                                <div className="position">Co-Executive Director</div>
                             </div>
                         </div>
-                        <div className="box">
-                            <img src={founder2} alt="Founder 2" />
-                            <div className="description">
-                                <p>SAMAY SHAH 
-                                <br></br>
-                                <br></br> Seeing people fight addiction while volunteering at my local harm reduction clinic inspired me to do everything I can to make the fight easier.
-                                
-                                </p>
+                        <div className="box-wrapper">
+                            <div className="box">
+                                <img src={founder2} alt="Founder 2" />
+                                <div className="description">
+                                    Seeing people fight addiction while volunteering at my local harm reduction clinic inspired me to do everything I can to make the fight easier.
+                                </div>
+                            </div>
+                            <div className="additional-image-container">
+                                <h3 className="name">SAMAY SHAH</h3>
+                                <div className="position">Co-Executive Director</div>
                             </div>
                         </div>
                     </div>
@@ -77,33 +82,40 @@ const BoardPage = () => {
                 </button>
                 {dropdowns.alachua && (
                     <div className="box-container">
-                        <div className="box">
-                            <img src={countyDirector1} alt="countyDirector 1" />
-                            <div className="description">
-                                <p>DEVIKA KUMAR
-                                <div className="position">Allegheny County Director </div>
-                                <br></br>Seeing the widespread impact of overdose death in my community drives me to prevent suffering through education and harm reduction initiatives. 
-                                </p>
+                        <div className="box-wrapper">
+                            <div className="box">
+                                <img src={countyDirector1} alt="County Director 1" />
+                                <div className="description">
+                                    Seeing the widespread impact of overdose death in my community drives me to prevent suffering through education and harm reduction initiatives.
+                                </div>
+                            </div>
+                            <div className="additional-image-container">
+                                <h3 className="name">DEVIKA KUMAR</h3>
+                                <div className="position">Allegheny County Director</div>
                             </div>
                         </div>
-
-                        <div className="box">
-                            <img src={countyDirector2} alt="countyDirector 2" />
-                            <div className="description">
-                                <p>NEBIYOU DANIEL
-                                <div className="position">Pinellas County Director </div>
-                                <br></br> Seeing the toll overdoses took on my community and family in Pinellas County motivated me to take action.
-                                </p>
+                        <div className="box-wrapper">
+                            <div className="box">
+                                <img src={countyDirector2} alt="County Director 2" />
+                                <div className="description">
+                                    Seeing the toll overdoses took on my community and family in Pinellas County motivated me to take action.
+                                </div>
+                            </div>
+                            <div className="additional-image-container">
+                                <h3 className="name">NEBIYOU DANIEL</h3>
+                                <div className="position">Pinellas County Director</div>
                             </div>
                         </div>
-
-                        <div className="box">
-                            <img src={countyDirector3} alt="countyDirector 3" />
-                            <div className="description">
-                                <p>SAIF KHAN
+                        <div className="box-wrapper">
+                            <div className="box">
+                                <img src={countyDirector3} alt="County Director 3" />
+                                <div className="description">
+                                    After losing a close friend to an opioid overdose I was motivated to work to address the problem of overdoses within our community and provide support to those struggling with addiction.
+                                </div>
+                            </div>
+                            <div className="additional-image-container">
+                                <h3 className="name">SAIF KHAN</h3>
                                 <div className="position">Hillsborough County Director</div>
-                                <br></br> After losing a close friend to an opioid overdose I was motivated to work to address the problem of overdoses within our community and provide support to those struggling with addiction.
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -116,48 +128,55 @@ const BoardPage = () => {
                 </button>
                 {dropdowns.softwareTeam && (
                     <div>
-                        {/* Separate container for Project Manager */}
-                        <div className="board1-container"> 
-                            <div className="box">
-                                <img src={board1} alt="Board Member 1" />
-                                <div className="description">
-                                    <div className="name" style={{marginTop: '-30px'}}>RAHUL CHARI</div>
-                                    <div className="position">Project Manager</div>
-                                    <br></br>
-                                    <div className="description-text">
+                        <div className="board1-container">
+                            <div className="box-wrapper">
+                                <div className="box">
+                                    <img src={board1} alt="Board Member 1" />
+                                    <div className="description">
                                         I want to use my technical experience to combat real-world issues and witness meaningful change in my community.
                                     </div>
+                                </div>
+                                <div className="additional-image-container">
+                                    <h3 className="name">RAHUL CHARI</h3>
+                                    <div className="position">Project Manager</div>
                                 </div>
                             </div>
                         </div>
                         <div className="box-container">
-                            <div className="box">
-                                <img src={board2} alt="Board Member 2" />
-                                <div className="description">
-                                RUTVI SHUKLA
-                                <div className="position">Software Developer</div>
-                                <br></br>
-                                I aspire to apply my software development skills to tackle real-world issues related to drug overdose and drive meaningful change in the community.  
+                            <div className="box-wrapper">
+                                <div className="box">
+                                    <img src={board2} alt="Board Member 2" />
+                                    <div className="description">
+                                        I aspire to apply my software development skills to tackle real-world issues related to drug overdose and drive meaningful change in the community.
+                                    </div>
+                                </div>
+                                <div className="additional-image-container">
+                                    <h3 className="name">RUTVI SHUKLA</h3>
+                                    <div className="position">Software Developer</div>
                                 </div>
                             </div>
-                            <div className="box">
-                                <img src={board3} alt="Board Member 3" />
-                                <div className="description">
-                                ANTENEH ZEWDIE
-                                <div className="position">Software Developer</div>
-                                <br></br>
-                                Gain real-world experience by applying my technical skills to developing a platform with resources for those who are struggling with or combating
-                                <br></br>   
-                                <br></br>
+                            <div className="box-wrapper">
+                                <div className="box">
+                                    <img src={board3} alt="Board Member 3" />
+                                    <div className="description">
+                                        Gain real-world experience by applying my technical skills to developing a platform with resources for those who are struggling with or combating.
+                                    </div>
+                                </div>
+                                <div className="additional-image-container">
+                                    <h3 className="name">ANTENEH ZEWDIE</h3>
+                                    <div className="position">Software Developer</div>
                                 </div>
                             </div>
-                            <div className="box">
-                                <img src={board4} alt="Board Member 4" />
-                                <div className="description">
-                                DANIEL D'SOUZA
-                                <div className="position">Software Developer</div>
-                                <br></br>
-                                My goal was to use my technical expertise to create an application that tackles pressing issues in today’s world and benefits society in a meaningful manner.
+                            <div className="box-wrapper">
+                                <div className="box">
+                                    <img src={board4} alt="Board Member 4" />
+                                    <div className="description">
+                                        My goal was to use my technical expertise to create an application that tackles pressing issues in today’s world and benefits society in a meaningful manner.
+                                    </div>
+                                </div>
+                                <div className="additional-image-container">
+                                    <h3 className="name">DANIEL D'SOUZA</h3>
+                                    <div className="position">Software Developer</div>
                                 </div>
                             </div>
                         </div>
