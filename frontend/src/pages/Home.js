@@ -88,9 +88,6 @@ const Home = () => {
           <h2 className="mission-header">OUR <span className="mission-highlight">MISSION</span></h2>
         </div>
       <div className="mission-right">
-        <div className="hands-image">
-          <img src="Overdose Ribbon_Hand.jpeg" alt="Hands with Ribbon" />
-        </div>
         <div className="mission-text">
           Safeguarding communities through Harm Reduction Education, Training, Resources, and Advocacy.
         </div>
@@ -99,38 +96,20 @@ const Home = () => {
     <div className="services-section">
         <h2 className="services-header">OUR <span className="services-highlight">SERVICES</span></h2>
         <div className="services-content">
-          <div className="service">
-            <div className="service-image">
-              <img src="narcan-distribution.png" alt="Narcan Distribution" />
-            </div>
+          <div className="service service-1">
             <p className="service-title">NARCAN DISTRIBUTION</p>
           </div>
-          <div className="service">
-            <div className="service-image">
-              <img src="education.png" alt="Education" />
-            </div>
+          <div className="service service-2">
             <p className="service-title">EDUCATION</p>
           </div>
-          <div className="service">
-            <div className="service-image">
-              <img src="resource-allocation.png" alt="Resource Allocation" />
-            </div>
+          <div className="service service-3">
             <p className="service-title">RESOURCE ALLOCATION</p>
           </div>
-          <div className="service">
-            <div className="service-image">
-              <img src="outreach.png" alt="Outreach" />
-            </div>
+          <div className="service service-4">
             <p className="service-title">OUTREACH</p>
           </div>
-          <div className="service">
-            <div className="service-image">
-              <img src="research-advocacy.png" alt="Research & Advocacy" />
-            </div>
+          <div className="service service-5">
             <p className="service-title">RESEARCH & ADVOCACY</p>
-            <p className="service-description">
-              We are committed to advancing harm reduction policies and practices through research and advocacy. By partnering with academic institutions and policymakers, we work to influence public health strategies and promote evidence-based approaches to harm reduction.
-            </p>
           </div>
         </div>
       </div>

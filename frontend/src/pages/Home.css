@@ -158,9 +158,13 @@ body { /* Reset the default body styles */
   display:flex;
   background-color: #000;
   color: white;
-  text-align: center;
-
+  background-image: url('/public/overdose_hand_ribbon.png'); 
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  
 }
+
 .mission-left {
   flex: 1;
   display: flex;
@@ -171,8 +175,7 @@ body { /* Reset the default body styles */
 .mission-header {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
-  margin-bottom: 20px;
-  margin-left: 3px;
+  margin-left: 20px;
 }
 
 .mission-highlight {
@@ -184,32 +187,21 @@ body { /* Reset the default body styles */
 .mission-right {
   flex: 2;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.hands-image {
-  width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
+  
+  position: relative; /* Positioning context for the text */
 }
 
-.hands-image img {
-  width: 100%;
-  max-width: 500px; 
-}
+
 
 .mission-text {
   position: absolute;
   text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  color: white;
   font-family: 'Arial', sans-serif;
-  font-size: 1.2em;
-  max-width: 800px;
+  font-size: 1.5em;
+  max-width: 80%;
 }
 
 /* SERVICES SECTION*/
@@ -244,13 +236,35 @@ body { /* Reset the default body styles */
   max-width: 20%;
   margin: 10px;
   position: relative;
+  background-image: url('/public/city masked.png'); 
+  background-size: 400%; /* Image division percentage */
+  height: 300px; /* Grid Height */
+  background-repeat: no-repeat;  /* self explanatory */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text horizontally */
 }
 
-.service-image img {
-  width: 100%;
-  max-width: 200px; 
-  display: block;
-  margin: 0 auto;
+.service-1 {
+  background-position: 0% 0%; /* Adjust to show the first part of the image */
+}
+
+.service-2 {
+  background-position: 25% 0%; /* Adjust to show the second part of the image */
+}
+
+.service-3 {
+  background-position: 50% 0%; /* Adjust to show the third part of the image */
+}
+
+.service-4 {
+  background-position: 75% 0%; /* Adjust to show the fourth part of the image */
+}
+
+.service-5 {
+  background-position: 100% 0%; /* Adjust to show the fifth part of the image */
 }
 
 .service-title {
@@ -259,12 +273,6 @@ body { /* Reset the default body styles */
   margin: 10px 0;
 }
 
-.service-description {
-  font-family: 'Arial', sans-serif;
-  font-size: 1em;
-  padding: 0 10px;
-  text-align: left;
-}
 
 /* IMPACT SECTION*/
 
@@ -420,27 +428,25 @@ body { /* Reset the default body styles */
 
   .mission-section {
     flex-direction: column;
-    padding: 20px 10px;
+    height: auto; /* Allow auto height for mobile */
   }
 
-  .mission-left {
-    margin-bottom: 20px;
+  .mission-left, .mission-right {
+    flex: 1;
+    width: 100%;
+    justify-content: center; /* Center align items horizontally on mobile */
   }
 
   .mission-header {
     font-size: 2.5em;
-  }
-
-  .hands-image img {
-    width: 100%;
-    max-width: 300px;
+    text-align: center;
   }
 
   .mission-text {
-    font-size: 1em;
-    padding: 0 10px;
+    font-size: 1.2em;
+    text-align: center;
   }
-
+  
   .services-content {
     flex-direction: column;
   }
@@ -448,10 +454,6 @@ body { /* Reset the default body styles */
   .service {
     max-width: 100%;
     margin: 20px 0;
-  }
-
-  .service-image img {
-    max-width: 100%;
   }
 
   .impact-content {
