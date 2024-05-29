@@ -1,60 +1,65 @@
 
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
-import './narcanForm.css';
-import { TextField } from '@mui/material/';
-
-const NarcanForm = () => {
-  const [formData, setFormData] = useState({
-    organizationName: '',
-    state: '',
-    county: '',
-    address: '',
-    phoneNumber: '',
-    email: '',
-    boxesOfNarcan: '',
-    availability: [
-      { date: null, startTime: null, endTime: null },
-      { date: null, startTime: null, endTime: null },
-      { date: null, startTime: null, endTime: null }],
-    fatalOverdoses: '',
-    nonFatalOverdoses: '',
-    reversedOverdoses: '',
-  });
-  const [error, setError] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
-
-  const formatPhoneNumber = (value) => {
-    if (!value) return value;
-    const phoneNumber = value.replace(/[^\d]/g, '');
-    const phoneNumberLength = phoneNumber.length;
-    if (phoneNumberLength < 4) return phoneNumber;
-    if (phoneNumberLength < 7) {
-      return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3)}`;
-    }
-    return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === 'phoneNumber') {
-      const formattedPhoneNumber = formatPhoneNumber(value);
-      setFormData({ ...formData, [name]: formattedPhoneNumber });
-    } else {
-      const numericFields = ['boxesOfNarcan', 'fatalOverdoses', 'nonFatalOverdoses', 'reversedOverdoses'];
-      if (numericFields.includes(name)) {
-        const numericValue = value === '' ? '' : Math.max(0, parseInt(value, 10));
-        if (!isNaN(numericValue) && Number.isInteger(numericValue)) {
-          setFormData({ ...formData, [name]: numericValue });
-        }
-      } else {
-        setFormData({ ...formData, [name]: value });
+  import React, { useState } from 'react';
+  import DatePicker from 'react-datepicker';
+  import 'react-datepicker/dist/react-datepicker.css';
+  import moment from 'moment';
+  import './narcanForm.css';
+  import { TextField } from '@mui/material/';
+  
+  const NarcanForm = () => {
+    const [formData, setFormData] = useState({
+      organizationName: '',
+      state: '',
+      county: '',
+      address: '',
+      phoneNumber: '',
+      email: '',
+      boxesOfNarcan: '',
+      availability: [
+        { date: null, startTime: null, endTime: null },
+        { date: null, startTime: null, endTime: null },
+        { date: null, startTime: null, endTime: null }
+      ],
+      fatalOverdoses: '',
+      nonFatalOverdoses: '',
+      reversedOverdoses: '',
+    });
+    const [error, setError] = useState(null);
+    const [submitted, setSubmitted] = useState(false);
+    const [isFormValid, setIsFormValid] = useState(true);
+  
+    const formatPhoneNumber = (value) => {
+      if (!value) return value;
+      const phoneNumber = value.replace(/[^\d]/g, '');
+      const phoneNumberLength = phoneNumber.length;
+      if (phoneNumberLength < 4) return phoneNumber;
+      if (phoneNumberLength < 7) {
+        return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3)}`;
       }
-    }
-  };
+      return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+    };
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+  
+      if (name === 'phoneNumber') {
+        const formattedPhoneNumber = formatPhoneNumber(value);
+        setFormData({ ...formData, [name]: formattedPhoneNumber });
+      } else {
+        const numericFields = ['boxesOfNarcan', 'fatalOverdoses', 'nonFatalOverdoses', 'reversedOverdoses'];
+        if (numericFields.includes(name)) {
+          const isValidNumber = /^([1-9][0-9]*|0)$/.test(value);
+          if (value === '' || isValidNumber) {
+            setFormData({ ...formData, [name]: value });
+            setIsFormValid(isValidNumber);
+          } else {
+            setIsFormValid(false);
+          }
+        } else {
+          setFormData({ ...formData, [name]: value });
+        }
+      }
+    };
 
   const handleDateChange = (index, date) => {
     const newAvailability = formData.availability.map((avail, i) => {
@@ -108,12 +113,16 @@ const NarcanForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    /*
     if(formData.availability.length < 3){
       setError('Please provide at least 3 dates of availability.')
       return
     }
-
+    */
+   if(!isFormValid){
+      setError('Please enter valid numbers in the numeric fields.');
+      return;
+   }
     for (const avail of formData.availability) {
       if (avail.startTime && avail.endTime && avail.startTime >= avail.endTime) {
         setError('End time cannot be earlier than or the same as start time.');
