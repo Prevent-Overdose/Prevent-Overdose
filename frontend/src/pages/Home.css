@@ -391,8 +391,11 @@ body { /* Reset the default body styles */
 @media (max-width: 768px) {
 
   /* HERO SECTION */
-  .hero-background {
-    display: none; /* Hide the video on mobile */
+
+  .hero-video {
+    width: 100vw; 
+    height: 70vh; /* Ensure the video covers the full height */
+
   }
   
   .motto {
