@@ -46,14 +46,12 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="hero-section">
-        {window.innerWidth >= 768 && (
           <div className="hero-background">
             <video autoPlay loop muted className="hero-video">
               <source src="/ambulance.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
-        )}
         <div className="hero-content">
           <h1 className={`motto ${window.innerWidth < 768 ? 'fade-in' : ''}`}>{renderMotto()}</h1>
           {showButton && (
@@ -117,7 +115,7 @@ const Home = () => {
         <h2 className="impact-header">OUR <span className="impact-highlight">IMPACT</span></h2>
         <div className="impact-content">
           <div className="impact-item">
-            <h3 className="impact-number">1.7k</h3>
+            <h3 className="impact-number">1,000</h3>
             <p className="impact-text">Kits of Narcan distributed</p>
           </div>
           <div className="impact-item">

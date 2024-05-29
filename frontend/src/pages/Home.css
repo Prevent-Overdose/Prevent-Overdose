@@ -391,8 +391,11 @@ body { /* Reset the default body styles */
 @media (max-width: 768px) {
 
   /* HERO SECTION */
-  .hero-background {
-    display: none; /* Hide the video on mobile */
+  
+  .hero-video {
+    width: 100vw; /* Adjust width for better coverage */
+    height: 70vh; /* Ensure the video covers the full height */
+
   }
   
   .motto {
@@ -415,6 +418,7 @@ body { /* Reset the default body styles */
   /* OVERDOSE DATA SECTION */
   .overdose-data-section {
     padding: 20px 10px;
+    margin-top: -10px;
   }
 
   .overdose-data-header {
@@ -451,6 +455,7 @@ body { /* Reset the default body styles */
     align-items: center; /* Center align items horizontally */
     background-position: top; /* Adjust background position if needed */
     padding: 20px 0; /* Add padding to the section */
+    height: 30vh; /* Increase the height for mobile view */
   }
 
   .mission-left {
@@ -462,7 +467,7 @@ body { /* Reset the default body styles */
   }
 
   .mission-header {
-    font-size: 2.5em;
+    font-size: 3em;
     text-align: center;
     padding: 10px 0; /* Add padding to separate from image */
   }
