@@ -96,10 +96,6 @@
     });
   };
 
-  const deleteAvailability = (index) => {
-    const newAvailability = formData.availability.filter((_, i) => i !== index);
-    setFormData({ ...formData, availability: newAvailability });
-  };
 
   const formatAvailabilityForBackend = (availability) => {
     return availability.map((avail) => ({
@@ -155,7 +151,11 @@
         phoneNumber: '',
         email: '',
         boxesOfNarcan: '',
-        availability: [{ date: null, startTime: null, endTime: null }],
+        availability: [
+          { date: null, startTime: null, endTime: null },
+          { date: null, startTime: null, endTime: null },
+          { date: null, startTime: null, endTime: null }
+        ],
         fatalOverdoses: '',
         nonFatalOverdoses: '',
         reversedOverdoses: '',
@@ -278,13 +278,15 @@
         <br />
         <div>
           <label>What is your availability this month? (add at least three dates)</label>
+          <br />
+          
           {formData.availability.map((avail, index) => (
             <div key={index} className='availability-input'>
               <DatePicker
                 selected={avail.date}
                 onChange={(date) => handleDateChange(index, date)}
                 dateFormat="yyyy-MM-dd"
-                placeholderText="Select a date"
+                placeholderText="Date"
                 required
                 className='date-input'
               />
@@ -296,7 +298,7 @@
                 timeIntervals={15}
                 timeCaption="Start Time"
                 dateFormat="h:mm aa"
-                placeholderText="Select start time"
+                placeholderText="Start Time"
                 required
                 className='date-input'
               />
@@ -308,7 +310,7 @@
                 timeIntervals={15}
                 timeCaption="End Time"
                 dateFormat="h:mm aa"
-                placeholderText="Select end time"
+                placeholderText="End Time"
                 required
                 className='date-input'
               />
