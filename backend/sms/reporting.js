@@ -20,9 +20,9 @@ const questions = [
 // Object to store user responses
 const userResponses = {};
 
-cron.schedule('11 11 * * *', () => {
+cron.schedule('4 17 * * *', () => {
     // Retrieve phone numbers from a database or another source
-    const phoneNumbers = ['+18504591972'];
+    const phoneNumbers = [];
 
     const intro = 'Hello from Prevent Overdose Inc. Thank you for joining our monthly overdose reporting survey. Your participation helps us make a difference. Please respond to the following three questions with positive numbers only: ';
 
@@ -88,7 +88,7 @@ router.post('/sms', (req, res) => {
         }
     }
 
-    res.sendStatus(200);
+    // res.sendStatus(200);
 });
 
 
