@@ -7,6 +7,7 @@ const cors = require('cors');
 
 const narcanRoutes = require('./routes/narcanRoutes')
 const reductionRoutes = require('./routes/reductionRoutes')
+const reporting = require('./sms/reporting')
 
 //express app
 const app = express()
@@ -23,6 +24,7 @@ app.use((req,res,next)=>{
 //routes
 app.use('/api/narcan',narcanRoutes)
 app.use('/api/otherforms',reductionRoutes)
+app.use('/api/reporting', reporting)
 
 //connect to db 
 mongoose.connect(process.env.MONGO_URI)

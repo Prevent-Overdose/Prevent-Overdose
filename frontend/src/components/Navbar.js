@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="navbar">
+      <div className="navbar2">
         <div className="left-section">
           <div className="dropdown">
             <button className="dropdown-toggle" onClick={toggleDropdown}>
