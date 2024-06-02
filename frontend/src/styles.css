@@ -115,10 +115,16 @@ body {
 @media (max-width: 480px) {
 
     .AboutUs-page video {
-        position: absolute;
-        height: auto;
-        width: auto;
-        object-fit: cover; /* Ensures the video covers the entire background */
+        position: fixed; /* Set position to fixed */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        min-width: 100%; /* Cover the entire viewport width */
+        min-height: 100%; /* Cover the entire viewport height */
+        width: auto; /* Ensure responsiveness */
+        height: auto; /* Ensure responsiveness */
+        transform: translate(-50%, -50%); /* Center the video */
+        z-index: -1; /* Place the video behind the content */
+        object-fit: cover; /* Ensure the video covers the entire background */
     }
     .leadership-image-container img {
         max-width: 90%;
