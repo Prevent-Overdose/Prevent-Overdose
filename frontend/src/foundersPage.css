@@ -94,15 +94,16 @@ html, body {
 .additional-image-container {
     width: 200px; 
     margin: 0 10px; 
+    margin-bottom: 10px; /* Add space between position title and LinkedIn icon */
+
 }
 
 .linkedin-logo {
     width: 15px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     margin-right:147px; /* Add margin to separate from the text */
-    margin-top: -80px;
+    margin-top: 5px; /* Add space between the title and the LinkedIn icon */    
 
-    
 }
 
 
@@ -115,6 +116,7 @@ html, body {
 .additional-image-container h3 {
     font-size: 15px;
     white-space: nowrap; 
+    margin-bottom: 10px; /* Add space between position title and LinkedIn icon */
 }
 
 @media (max-width: 480px) {
