@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../foundersPage.css"; 
 import founder1 from '../images/Cole Olson New Headshot.jpg';
 import founder1Title from '../images/Cole Olson CG.png';
@@ -11,12 +11,31 @@ import videoFile from '../images/Black Silk Background.mp4'; // Import the video
 import linkedinLogo from '../images/Linkedin logo1.png';
 
 const FoundersPage = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Check if the screen width is less than or equal to 480px (mobile view)
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 480);
+        };
+        handleResize(); // Call the function once to set initial state
+        window.addEventListener("resize", handleResize); // Add event listener for window resize
+        return () => {
+            window.removeEventListener("resize", handleResize); // Remove event listener on component unmount
+        };
+    }, []);
+
+
     return (
         <div className="founders-page-container">
-            <video autoPlay loop muted>
-                <source src={videoFile} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            {isMobile ? (
+                <div className="mobile-background" style={{ backgroundColor: 'black'}}></div>
+            ) : (
+                <video autoPlay loop muted className="founders-video">
+                    <source src={videoFile} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            )}
             <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Economica'}}>FOUNDERS</h1>
             <p>
             Founded by three passionate University of South Florida undergraduates 
