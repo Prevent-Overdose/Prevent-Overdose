@@ -127,10 +127,6 @@ body {
         background-position: center;
     }
 
-    .AboutUs-page p{
-        font-size: 25px;
-    }
-
     .leadership-image-container h1{
         font-family: 'Economica', sans-serif; /* Apply the Economica font */
         color: white;
@@ -145,7 +141,7 @@ body {
 
     .button-left,
     .button-right {
-        top: 150%; 
+        top: 185%; 
         padding: 6px 92px; 
         font-size: 22px; 
         color: white;
