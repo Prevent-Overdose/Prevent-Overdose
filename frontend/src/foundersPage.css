@@ -1,11 +1,29 @@
 .founders-page-container {
-    background-image: url('./images/Purple light.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh; 
     font-family: "Lucida Console", "Courier New", monospace;
-    
+    overflow: hidden; /* Remove scroll feature */
+    position: relative; /* Ensure absolute positioned children are contained */
+
+}
+
+html, body {
+    overflow: hidden; /* Remove scroll bar */
+    height: 100%;
+}
+
+.founders-page-container video {
+    position: absolute; /* Set position to absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 210%;
+    object-fit: cover; /* Ensure the video covers the entire container */
+    z-index: -1; /* Set z-index to keep the video in the background */
+    object-fit: cover;
+
 
 }
 
@@ -13,6 +31,8 @@
     margin-left: 350px; 
     margin-right: 350px; 
     text-align: center;
+    font-family: 'nunito sans';
+    font-size: 20px;
 }
 
 .box-container {
@@ -64,6 +84,7 @@
     padding: 10px; 
     box-sizing: border-box;
     text-align: center;
+    font-family: 'nunito sans';
 }
 
 .box:hover .description {
@@ -74,6 +95,16 @@
     width: 200px; 
     margin: 0 10px; 
 }
+
+.linkedin-logo {
+    width: 15px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right:147px; /* Add margin to separate from the text */
+    margin-top: -80px;
+
+    
+}
+
 
 .additional-image {
     max-width: 100px; 
@@ -87,6 +118,15 @@
 }
 
 @media (max-width: 480px) {
+
+    html, body {
+        overflow: auto; /* Enable scrolling on mobile */
+    }
+    .founders-page-container{
+        overflow-y: scroll; /* Enable vertical scrolling */
+        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+        font-family: 'Economica';
+    }
     .founders-page-container p {
         display: block;
         font-size: 11px;

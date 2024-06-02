@@ -14,12 +14,28 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    background-image: url('./images/City skyline black fog transparent.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     height: 100vh; 
     overflow: hidden; /* Prevents scrolling */
+}
+
+/* New style for video background */
+.AboutUs-page video {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire background */
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Places the video behind the content */
+}
+
+.leadership-image-container h1{
+    font-family: 'Economica', sans-serif; /* Apply the Economica font */
+    color: white;
+    padding-top: 175px;
+    font-size: 55px;
+
 }
 
 .leadership-image-container {
@@ -40,8 +56,8 @@ body {
 .button-left,
 .button-right {
     position: absolute;
-    top: 200%; /* Adjusted to keep the buttons centered vertically */
-    padding: 10px 120px;
+    top: 150%; /* Adjusted to keep the buttons centered vertically */
+    padding: 10px 20px;
     background-color: transparent;
     color: white;
     border: none;
@@ -49,22 +65,25 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     text-decoration: none; 
-    font-size: 55px;
+    font-size: 45px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.01); /* Drop shadow */
+
 }
 
 .button-left {
-    left: 10%; /* Adjusted to keep the button on the left */
+    left: 23%; /* Adjusted to keep the button on the left */
 }
 
 .button-right {
-    right: 10%; /* Adjusted to keep the button on the right */
+    right: 27%; /* Adjusted to keep the button on the right */
 }
 
 .button-left:hover,
 .button-right:hover {
-    background-color: #f23dff;
-    opacity: 55%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9); /* Enhanced drop shadow on hover */
     color: black;
+    
+    
 }
 
 .additional-text {
@@ -90,11 +109,17 @@ body {
 
 .apply-image:hover {
     transform: scale(1.1); /* Scale image slightly */
-    
 }
 
 /* Mobile View */
 @media (max-width: 480px) {
+
+    .AboutUs-page video {
+        position: absolute;
+        height: auto;
+        width: auto;
+        object-fit: cover; /* Ensures the video covers the entire background */
+    }
     .leadership-image-container img {
         max-width: 90%;
         padding-top: 90px;
@@ -102,13 +127,10 @@ body {
 
     .button-left,
     .button-right {
-        top: 220%; 
+        top: 180%; 
         padding: 6px 92px; 
         font-size: 22px; 
         color: white;
-      
-        
-
     }
 
     .button-left {

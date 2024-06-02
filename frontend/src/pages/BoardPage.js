@@ -40,7 +40,7 @@ const BoardPage = () => {
 
     return (
         <div className="board-container">
-            <h1 className="board-heading">MEET THE BOARD</h1>
+            <h1 className="board-heading" style={{fontFamily:'Economica'}}>MEET THE BOARD</h1>
 
             <div className="team-section" id="founders">
                 <button className="team-heading" onClick={() => toggleDropdown('founders')}>
