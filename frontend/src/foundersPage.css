@@ -133,6 +133,8 @@ html, body {
         overflow-y: scroll; /* Enable vertical scrolling */
         -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
         font-family: 'Economica';
+        background-color: black; /* Set background color to black */
+
     }
     .founders-page-container p {
         display: block;
