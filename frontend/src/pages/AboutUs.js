@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LeadershipTitle from '../images/Leadership CG.png';
 import applyToJoin from '../images/Apply To Join.png';
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
@@ -6,14 +6,31 @@ import videoFile from '../images/Black White Smoke.mp4'; // Import the video fil
 
 
 const AboutUs = () => {
+
+    const [isMobileView, setIsMobileView] = useState(false);
+
     useEffect(() => {
         document.title = "About Us";
+
+        const handleResize = () => {
+            setIsMobileView(window.innerWidth <= 480);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        // Initial check for mobile view on page load
+        setIsMobileView(window.innerWidth <= 480);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+
     }, []);
     
     return (
         <div className="AboutUs-page">
             {/* Add the video element here */}
-            <video autoPlay loop muted>
+            <video autoPlay={!isMobileView} loop muted>
                 <source src={videoFile} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
