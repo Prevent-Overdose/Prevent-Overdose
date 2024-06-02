@@ -35,6 +35,12 @@ html, body {
     font-size: 20px;
 }
 
+.position-container {
+    display: flex;
+    align-items: center;
+}
+
+
 .box-container {
     display: flex;
     justify-content: center;
@@ -102,8 +108,7 @@ html, body {
     width: 15px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     margin-right:147px; /* Add margin to separate from the text */
-    margin-top: 5px; /* Add space between the title and the LinkedIn icon */    
-
+    
 }
 
 
