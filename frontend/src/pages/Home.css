@@ -8,11 +8,11 @@
   z-index: 0;
 }
 
-body { /* Reset the default body styles */
+html, body { /* Reset the default body styles */
   margin: 0;
   padding: 0;
   background-color: black;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 /* HERO SECTION */

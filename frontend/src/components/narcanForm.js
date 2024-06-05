@@ -4,6 +4,9 @@
   import moment from 'moment';
   import './narcanForm.css';
   import { TextField } from '@mui/material/';
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
   
   const NarcanForm = () => {
     const [formData, setFormData] = useState({
@@ -139,7 +142,10 @@
         body: JSON.stringify(formattedFormData)
       });
       if (!response.ok) {
-        throw new Error('Failed to submit the form');
+        toast.error("Failed to submit the form.");
+      }
+      else {
+        toast.success("Sucessfully requested Narcan!")
       }
       const result = await response.json();
       console.log('Form submitted successfully:', result);
@@ -169,6 +175,8 @@
 
   return (
     <div className="formcontainer">
+      <ToastContainer position="bottom-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+
       <form className="create" onSubmit={handleSubmit}>
         <h4><strong>Send a Request</strong></h4>
         <div>

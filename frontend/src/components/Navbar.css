@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); /* Link Font Style, can be changed if a more aesthetic font is found */
 
 header {
-  width: 100%; /* Ensures the header is the full width of the viewport */
+  width: 99%; /* Ensures the header is the full width of the viewport */
   position: fixed; /* Fixes the navbar at the top */
   top: 0; /* Aligns the navbar at the top of the viewport */
   left: 0; /* Aligns the navbar to the left edge of the viewport */
   z-index: 1000; /* Ensures the navbar stays on top of other content */
   height: 100px; 
+  
 }
 
 .navbar2 {
@@ -148,6 +149,8 @@ header {
   .dropdown-toggle { 
     padding: 0 0 0 0;
   }
+
+  
 
   
 }
