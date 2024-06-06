@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 
 
@@ -7,6 +8,8 @@ const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
   const [displayText, setDisplayText] = useState('');
   const [showButton, setShowButton] = useState(false);
+
+  
 
   useEffect(() => {
     document.title = "Prevent Overdose Inc.";
@@ -59,6 +62,7 @@ const Home = () => {
               <img src="Request Narcan.png" alt="Request Narcan" />
             </a>
           )}
+          <div className="arrow"> ↓</div>
         </div>
       </div>
       <div className="overdose-data-section">
@@ -75,7 +79,7 @@ const Home = () => {
               <p>Opioid Overdoses:</p>
               <h3>81,806</h3>
             </div>
-          </div>
+          </div>  
           <div className="overdose-chart">
             <img src="Overdose Deaths Chart.svg" alt="Overdose Deaths: 1999-2022" />
           </div>
@@ -158,6 +162,20 @@ const Home = () => {
           <a href="/report-overdose" className="closing-button report-overdose-button">REPORT OVERDOSE</a>
         </div>
       </div>
+      <footer class="site-footer">
+        <div class="footer-left">
+            <span>Prevent Overdose Inc.</span>
+        </div>
+        <div class="footer-right">
+            <a href="https://www.linkedin.com/company/prevent-overdose" target="_blank " class="fa fa-linkedin">
+            </a>
+            <a href="https://github.com/Prevent-Overdose/Prevent-Overdose" target="_blank" class="fa fa-github">
+            </a>
+            <a href="https://www.instagram.com/prevent.overdose/" target="_blank" class="fa fa-instagram">
+            </a>
+        </div>
+    </footer>
+
     </div>
   );
 }

@@ -414,6 +414,7 @@ html, body { /* Reset the default body styles */
   display: inline-block;
   width: 175px; /* Ensures buttons have the same width */
   text-align: center;
+  transition: transform 0.3s;
 
 }
 
@@ -430,11 +431,42 @@ html, body { /* Reset the default body styles */
 }
 
 .closing-button:hover {
-  transform: scale(1.05); /* Slightly increase size */
+  transform: scale(1.02); /* Slightly increase size */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 
+.site-footer {
+  color: white;
+  background-color: rgb(20, 20, 20);
+  margin-top: 40px;
+  text-align: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.footer-left{
+  transition: color 0.3s; /* Add transition effect for color change */
+}
+
+.footer-left:hover {
+  color: #ff23fd; /* Change color to pink on hover */
+}
+
+.footer-right a {
+  color: white; /* Set default color to white */
+  margin: 0 6px; /* Adjust margin between icons */
+  font-size: 18px; /* Adjust icon size */
+  transition: color 0.3s; /* Add transition effect for color change */
+  text-decoration: none;
+}
+
+.footer-right a:hover {
+  color: #ff23fd; /* Change color to pink on hover */
+}
 
 /* MEDIA QUERY FOR MOBILE DEVICES */
 
@@ -455,6 +487,9 @@ html, body { /* Reset the default body styles */
 
   .hero-content {
     top: 0px; /* Reduce top space to minimize space between navbar and motto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .request-narcan img {
@@ -506,6 +541,8 @@ html, body { /* Reset the default body styles */
     background-position: top; /* Adjust background position if needed */
     padding: 20px 0; /* Add padding to the section */
     height: 30vh; /* Increase the height for mobile view */
+    background-image: none; 
+
   }
 
   .mission-left {
@@ -587,10 +624,34 @@ html, body { /* Reset the default body styles */
     margin: 10px 0;
   }
 
+  .arrow {
+    position: relative; /* Ensure position context for absolutely positioned arrow */
+    display: flex; /* Enable flexbox layout */
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    animation: bounce 1s infinite alternate; /* Apply bounce animation */
+  }
+
 }
   
 
 @keyframes fadeInButtonEffect {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+.arrow {
+  display: none
+}
+
+/* Keyframes for the bounce animation */
+@keyframes bounce {
+  0% {
+      transform: translateX(0%) translateY(0); /* Start position */
+  }
+  100% {
+      transform: translateX(0%) translateY(10px); /* End position */
+  }
 }
