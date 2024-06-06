@@ -468,6 +468,10 @@ html, body { /* Reset the default body styles */
   color: #ff23fd; /* Change color to pink on hover */
 }
 
+.arrow {
+  opacity: 0;
+}
+
 /* MEDIA QUERY FOR MOBILE DEVICES */
 
 @media (max-width: 768px) {
@@ -632,6 +636,7 @@ html, body { /* Reset the default body styles */
     height: 50px;
     cursor: pointer;
     animation: bounce 1s infinite alternate; /* Apply bounce animation */
+    opacity: 1;
   }
 
 }
@@ -642,9 +647,7 @@ html, body { /* Reset the default body styles */
   to { opacity: 1; }
 }
 
-.arrow {
-  display: none
-}
+
 
 /* Keyframes for the bounce animation */
 @keyframes bounce {
