@@ -8,9 +8,9 @@ We are a national nonprofit committed to the equitable distribution of harm redu
 ### Our Focus Areas
 We address key issues in the opioid crisis:
 - Overdose response
-- Wound care
-- Education
-- Policy
+- Wound care distribution
+- Harm reduction education
+- Public policy
 
 ### Target Population
 We aim to assist:
