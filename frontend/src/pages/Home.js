@@ -92,22 +92,45 @@ const Home = () => {
       </div>
     </div>
     <div className="services-section">
-        <h2 className="services-header">OUR <span className="services-highlight">SERVICES</span></h2>
+        <h2 className="services-header">OUR <span className="services-highlight">INITIATIVES</span></h2>
         <div className="services-content">
           <div className="service service-1">
             <p className="service-title">NARCAN DISTRIBUTION</p>
+            <div className="service-description">
+              <h3>What is Narcan?</h3>
+              <p>Narcan is a life-saving medication that rapidly reverses opioid overdoses by blocking the effects of opioids on the brain. We prioritize distributing Narcan to at-risk communities, including homeless shelters, halfway houses, recovery centers, pain management clinics, and addiction treatment facilities.
+              </p>
+            </div>
           </div>
           <div className="service service-2">
             <p className="service-title">EDUCATION</p>
+            <div className="service-description">
+              <h3>Educational Programs</h3>
+              <p>We offer free harm reduction education events focused on overdose prevention, recognition, and response, as well as combating stigma against people who use drugs. These sessions are tailored to the needs of diverse audiences, including healthcare professionals and community members.
+              </p>
+            </div>
           </div>
           <div className="service service-3">
             <p className="service-title">RESOURCE ALLOCATION</p>
+            <div className="service-description">
+              <h3>Allocation Strategies</h3>
+              <p>We provide wound care and hygiene packages to disadvantaged populations to prevent infections and promote overall health. Additionally, we distribute fentanyl testing strips to help users identify the presence of fentanyl in substances, reducing the risk of accidental overdoses.</p>
+            </div>
           </div>
           <div className="service service-4">
             <p className="service-title">OUTREACH</p>
+            <div className="service-description">
+              <h3>Community Outreach</h3>
+              <p>We actively engage with local communities to raise awareness about harm reduction and the resources available. Through outreach events, workshops, and collaborations with other organizations, we strive to build a supportive network for individuals affected by substance use.
+                 </p>
+            </div>
           </div>
           <div className="service service-5">
             <p className="service-title">RESEARCH & ADVOCACY</p>
+            <div className="service-description">
+              <h3>Commitment to Advocacy</h3>
+              <p>We are committed to advancing harm reduction policies and practices through research and advocacy. By partnering with academic institutions and policy makers, we work to influence public health strategies and promote evidence-based approaches to harm reduction.</p>
+            </div>
           </div>
         </div>
       </div>
