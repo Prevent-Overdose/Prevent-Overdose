@@ -29,6 +29,11 @@ header {
   width: auto;
   margin-left: 15px;
   margin-top: 5px;
+  transition: opacity 0.2s; /* Smooth fade effect on hover */
+}
+
+.navbar-logo img:hover {
+  opacity: 0.9;
 }
 
 .navbar-links {
@@ -43,9 +48,11 @@ header {
   color: white;
   font-family: 'Lato', sans-serif;
   font-size: 18px; 
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
   text-align: center;
 }
+
+
 
 
 .navbar-links a:hover {
@@ -71,6 +78,7 @@ header {
   vertical-align: middle;
   margin-left: 15px;
   margin-right: 15px; 
+  transition: filter 0.4s;
 }
 
 .navbar-request-narcan img:hover {
@@ -86,10 +94,16 @@ header {
 .dropdown-toggle { 
   background-color: transparent;
   border: none;
-  color: white;
+  color: grey;
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
+  transition: color 0.4s ease;
+
+}
+
+.dropdown-toggle:hover {
+  color: white; /* Slightly lighter color on hover */
 }
 
 .dropdown-menu { /* Styles for the dropdown menu */

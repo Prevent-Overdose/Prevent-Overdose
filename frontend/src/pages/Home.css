@@ -88,6 +88,7 @@ html, body { /* Reset the default body styles */
   vertical-align: middle;
   animation: fadeIn 3s; /* Apply the fade animation */
   margin-top: -80px;
+  transition: filter 0.4s;
 }
 
 .request-narcan img:hover {
@@ -102,6 +103,8 @@ html, body { /* Reset the default body styles */
   background-color: black;
   color: white;
   padding: 40px 20px;
+  padding-left: 100px;
+  padding-right: 100px;
   text-align: center;
 }
 
@@ -322,6 +325,8 @@ html, body { /* Reset the default body styles */
   background-color: black;
   color: white;
   padding: 40px 20px;
+  padding-left: 100px;
+  padding-right: 100px;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -389,6 +394,7 @@ html, body { /* Reset the default body styles */
   font-size: 1.2em;
   max-width: 800px;
   margin: 0 auto 20px auto;
+  margin-bottom: 40px;
 }
 
 .closing-buttons {

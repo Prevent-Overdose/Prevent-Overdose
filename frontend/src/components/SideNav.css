@@ -38,18 +38,25 @@
     padding-left: 20px;
     height: 50px; /* Adjusted height to make the logo smaller */
     width: auto;
+    transition: opacity 0.2s; /* Smooth fade effect on hover */
+  }
+
+  .sidenav .sidenav-logo img:hover {
+    opacity: 0.9;
   }
 
 .sidenav .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
-  font-size: 36px;
+  font-size: 40px;
   color: white;
   background-color: #111;
   border: none;
   padding: 10px;
+  padding-top: 20px;
   cursor: pointer;
+  transition: color 0.5s ease;
 }
 
 .sidenav .closebtn:hover {
