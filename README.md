@@ -3,7 +3,7 @@
 ## About Us
 
 ### Mission Statement
-We are a national nonprofit committed to the equitable distribution of harm reduction supplies and education to individuals likely to witness or experience an overdose.
+We are a national 501(c)(3) nonprofit committed to the equitable distribution of harm reduction supplies and education to individuals likely to witness or experience an overdose.
 
 ### Our Focus Areas
 We address key issues in the opioid crisis:
