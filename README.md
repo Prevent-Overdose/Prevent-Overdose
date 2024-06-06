@@ -21,7 +21,7 @@ We aim to assist:
 ## Build Instructions: MERN Stack
 
 ### Frontend
-1. Navigate to the frontend directory:
+1. Navigate to the `frontend` directory:
     ```bash
     cd frontend
     ```
@@ -35,7 +35,7 @@ We aim to assist:
     ```
 
 ### Backend
-1. Navigate to the backend directory:
+1. Navigate to the `backend` directory:
     ```bash
     cd backend
     ```
@@ -47,7 +47,7 @@ We aim to assist:
     ```bash
     npm run dev
     ```
-    > Note: You must have the shared `.env` file to connect to the MongoDB database.
+    > Note: You must save the shared `.env` file under `backend` to connect to the MongoDB database.
 
 ## Authors
 
