@@ -40,13 +40,13 @@ mongoose.connect(process.env.MONGO_URI)
     })
 
 // cron job to make an HTTP request every fifteen minutes
-cron.schedule('*/15 * * * *', () => {
-    console.log('Running a job every 15 minutes');
-    axios.get('https://prevent-overdose-github-io.onrender.com/api/dummy')  // Replace with your actual URL and endpoint
-        .then(response => {
-            console.log('HTTP request successful:', response.data);
-        })
-        .catch(error => {
-            console.log('Error making HTTP request:', error);
-        });
-});
+// cron.schedule('*/15 * * * *', () => {
+//     console.log('Running a job every 15 minutes');
+//     axios.get('https://prevent-overdose-github-io.onrender.com/api/dummy')  // Replace with your actual URL and endpoint
+//         .then(response => {
+//             console.log('HTTP request successful:', response.data);
+//         })
+//         .catch(error => {
+//             console.log('Error making HTTP request:', error);
+//         });
+// });
