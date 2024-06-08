@@ -167,11 +167,11 @@ const Home = () => {
             <span>Prevent Overdose Inc.</span>
         </div>
         <div class="footer-right">
-            <a href="https://www.linkedin.com/company/prevent-overdose" target="_blank " class="fa fa-linkedin">
+            <a href="https://www.linkedin.com/company/prevent-overdose" target="_blank " rel="noreferrer" class="fa fa-linkedin">
             </a>
-            <a href="https://github.com/Prevent-Overdose/Prevent-Overdose" target="_blank" class="fa fa-github">
+            <a href="https://github.com/Prevent-Overdose/Prevent-Overdose" target="_blank" rel="noreferrer" class="fa fa-github">
             </a>
-            <a href="https://www.instagram.com/prevent.overdose/" target="_blank" class="fa fa-instagram">
+            <a href="https://www.instagram.com/prevent.overdose/" target="_blank" rel="noreferrer" class="fa fa-instagram">
             </a>
         </div>
     </footer>
