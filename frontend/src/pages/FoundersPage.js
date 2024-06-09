@@ -8,7 +8,6 @@ import founder3 from '../images/Khanheadshot.png';
 import founder3Title from '../images/Saif Khan CG.png';
 
 import videoFile from '../images/Black Silk Background.mp4'; // Import the video file
-import linkedinLogo from '../images/Linkedin logo1.png';
 
 const FoundersPage = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -59,8 +58,7 @@ const FoundersPage = () => {
                             <img src={founder1Title} alt="Additional Image 1" className="additional-image" /> {/* Additional image below the first box */}
                             <h3 style={{fontSize: '17px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
                         <div className="position-container">
-                            <a href="https://www.linkedin.com/in/cole-olson-47b881262/" target="_blank" rel="noopener noreferrer">
-                                <img src={linkedinLogo} alt="LinkedIn Logo" className="linkedin-logo"  /> {/* LinkedIn logo image */}
+                            <a href="https://www.linkedin.com/in/cole-olson-47b881262/" target="_blank " class="fa fa-linkedin">
                             </a>
                         </div>
                     </div>
@@ -77,8 +75,7 @@ const FoundersPage = () => {
                         <img src={founder2Title} alt="Additional Image 2" className="additional-image" /> {/* Additional image below the second box */}
                         <h3 style={{fontSize: '17px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
                         <div className="position-container">
-                            <a href="https://www.linkedin.com/in/samay-shah-9946011b6/" target="_blank" rel="noopener noreferrer">
-                                <img src={linkedinLogo} alt="LinkedIn Logo" className="linkedin-logo"  /> {/* LinkedIn logo image */}
+                            <a href="https://www.linkedin.com/in/samay-shah-9946011b6/" target="_blank " class="fa fa-linkedin">
                             </a>
                         </div>
                     </div>
@@ -95,8 +92,7 @@ const FoundersPage = () => {
                         <img style={{width: '1000px', height: '20px'}}src={founder3Title} alt="Additional Image 3" className="additional-image" /> {/* Additional image below the third box */}
                         <h3 style={{fontFamily: 'nunito sans', fontSize: '17px'}}>Chief Financial Officer</h3>
                         <div className="position-container">
-                            <a href="https://www.linkedin.com/in/saif-khan-80395630a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">
-                                <img src={linkedinLogo} alt="LinkedIn Logo" className="linkedin-logo"  /> {/* LinkedIn logo image */}
+                            <a href="https://www.linkedin.com/in/saif-khan-80395630a/" target="_blank " class="fa fa-linkedin">
                             </a>
                         </div>
                     </div>
