@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../board.css"; 
+import "./Board.css"; 
 import board1 from '../images/Rahul Chari Headshot (1).jpg';
 import board2 from '../images/Rutvi Shukla Headshot.png';
 import board3 from '../images/Anteneh Zewdie Headshot.jpg';

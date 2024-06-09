@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../foundersPage.css"; 
+import "./FoundersPage.css"; 
 import founder1 from '../images/Cole Olson New Headshot.jpg';
 import founder1Title from '../images/Cole Olson CG.png';
 import founder2 from '../images/Samay_Shah_New_Headshot.jpg';
