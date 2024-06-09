@@ -436,37 +436,8 @@ html, body { /* Reset the default body styles */
 }
 
 
-.site-footer {
-  color: white;
-  background-color: rgb(20, 20, 20);
-  margin-top: 40px;
-  text-align: center;
-  justify-content: space-between;
-  display: flex;
-  padding: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
 
-.footer-left{
-  transition: color 0.3s; /* Add transition effect for color change */
-}
 
-.footer-left:hover {
-  color: #ff23fd; /* Change color to pink on hover */
-}
-
-.footer-right a {
-  color: white; /* Set default color to white */
-  margin: 0 6px; /* Adjust margin between icons */
-  font-size: 18px; /* Adjust icon size */
-  transition: color 0.3s; /* Add transition effect for color change */
-  text-decoration: none;
-}
-
-.footer-right a:hover {
-  color: #ff23fd; /* Change color to pink on hover */
-}
 
 .arrow {
   opacity: 0;

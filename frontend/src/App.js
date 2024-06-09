@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import {
     BrowserRouter as Router,
     Routes,
@@ -21,17 +22,20 @@ function App() {
   return (
      <Router>
             <Navbar />
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route path="/request-narcan" element={<RequestNarcan/>}></Route>
-                <Route path="/report-overdose" element={<ReportOverdose/>}></Route>
-                <Route path="/about" element={<AboutUs />} />
-                {/*<Route path="/resources" element={<Resources />} />*/}
-                
-                <Route path="/founders" element={<FoundersPage />} /> {/* Route for Founders page */}
-                <Route path="/board" element={<BoardPage />} /> {/* Route for Board page */}
-                
-            </Routes>
+            <main>
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route path="/request-narcan" element={<RequestNarcan/>}></Route>
+                    <Route path="/report-overdose" element={<ReportOverdose/>}></Route>
+                    <Route path="/about" element={<AboutUs />} />
+                    {/*<Route path="/resources" element={<Resources />} />*/}
+                    
+                    <Route path="/founders" element={<FoundersPage />} /> {/* Route for Founders page */}
+                    <Route path="/board" element={<BoardPage />} /> {/* Route for Board page */}
+                    
+                </Routes>
+            </main>
+            <Footer />
         </Router>
   );
 }

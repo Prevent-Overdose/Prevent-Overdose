@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import 'font-awesome/css/font-awesome.min.css';
-
-
+import Footer from '../components/Footer';
 
 const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
@@ -162,20 +161,6 @@ const Home = () => {
           <a href="/report-overdose" className="closing-button report-overdose-button">REPORT OVERDOSE</a>
         </div>
       </div>
-      <footer class="site-footer">
-        <div class="footer-left">
-            <span>Prevent Overdose Inc.</span>
-        </div>
-        <div class="footer-right">
-            <a href="https://www.linkedin.com/company/prevent-overdose" target="_blank " class="fa fa-linkedin">
-            </a>
-            <a href="https://github.com/Prevent-Overdose/Prevent-Overdose" target="_blank" class="fa fa-github">
-            </a>
-            <a href="https://www.instagram.com/prevent.overdose/" target="_blank" class="fa fa-instagram">
-            </a>
-        </div>
-    </footer>
-
     </div>
   );
 }

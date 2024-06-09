@@ -9,6 +9,10 @@ body {
     height: 100%;
 }
 
+main {
+    flex: 1;
+  }
+
 .AboutUs-page {
     position: relative;
     text-align: center;
