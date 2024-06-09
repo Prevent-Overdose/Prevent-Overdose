@@ -73,8 +73,8 @@ html, body { /* Reset the default body styles */
 }
 
 .hero-content { /* Styles for the whole hero section (motto, request button, and request prompt) */
-  position: relative;
-  top: 40px; /* Move the hero content slightly down */
+  position: absolute;
+  top: 300px; /* Move the hero content slightly down */
 }
 
 @keyframes fadeIn { /* Keyframes for the fade animation */
@@ -461,7 +461,7 @@ html, body { /* Reset the default body styles */
   }
 
   .hero-content {
-    top: 0px; /* Reduce top space to minimize space between navbar and motto */
+    top: 80px; /* Reduce top space to minimize space between navbar and motto */
     display: flex;
     flex-direction: column;
     align-items: center;

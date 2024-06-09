@@ -49,10 +49,6 @@ const Home = () => {
     <div className="home-container">
       <div className="hero-section">
           <div className="hero-background">
-            <video autoPlay loop muted className="hero-video">
-              <source src="/ambulance.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
           </div>
         <div className="hero-content">
           <h1 className={`motto ${window.innerWidth < 768 ? 'fade-in' : ''}`}>{renderMotto()}</h1>
