@@ -566,6 +566,41 @@ html, body { /* Reset the default body styles */
     max-width: 100%;
   }
 
+  /* DRUG INVOLVMENT SECTION */
+  .drug-involvement-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .drug-involvement-header {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .drug-involvement-content {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+  }
+
+  .drug-involvement-text {
+    max-width: 100%;
+    text-align: center;
+    padding: 0 10px; /* Add padding for better readability */
+  }
+
+  .drug-involvement-image {
+    max-width: 100%;
+    top: 0; /* Reset the top alignment */
+    right: 0; /* Reset the right alignment */
+    margin-top: 20px; /* Add margin to separate the text and image */
+    display: flex;
+    justify-content: center; /* Center the image */
+  }
+
+  .drug-involvement-image img {
+    max-height: 300px; /* Adjust the height for mobile */
+  }
+
   /* MISSION SECTION */
   .mission-section {
     flex-direction: column;
@@ -606,7 +641,7 @@ html, body { /* Reset the default body styles */
     padding: 20px; /* Adjust padding for mobile */
   }
 
-  /* initiatives SECTION */
+  /* INITIATIVES SECTION */
   .initiatives-content {
     flex-direction: column;
     align-items: center;
