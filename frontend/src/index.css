@@ -4,6 +4,7 @@
 ::-webkit-scrollbar {
   width: 16px; /* Increase the width of the scrollbar */
   height: 16px; /* Increase the height of the scrollbar */
+  z-index: 1000;
 }
 
 ::-webkit-scrollbar-track {

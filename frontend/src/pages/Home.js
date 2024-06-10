@@ -82,7 +82,7 @@ const Home = () => {
       </div>
       <div className="drug-involvement-section">
         <h2 className="drug-involvement-header">
-          DRUG INVOLVEMENT IN OVERDOSE FATALITIES (2022):
+          DRUG INVOLVEMENT IN OVERDOSE FATALITIES
         </h2>
         <div className="drug-involvement-content">
           <div className="drug-involvement-text">

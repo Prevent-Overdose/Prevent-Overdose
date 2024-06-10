@@ -170,6 +170,7 @@ html, body { /* Reset the default body styles */
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.3em;
   margin-bottom: 20px;
+  padding-left: 20px;
   color: #e80f07;
 }
 
@@ -519,6 +520,7 @@ html, body { /* Reset the default body styles */
   }
 
   .hero-content {
+    position: absolute;
     top: 80px; /* Reduce top space to minimize space between navbar and motto */
     display: flex;
     flex-direction: column;
