@@ -598,7 +598,7 @@ html, body { /* Reset the default body styles */
   }
 
   .drug-involvement-image img {
-    max-height: 300px; /* Adjust the height for mobile */
+    max-height: 400px; /* Adjust the height for mobile */
   }
 
   /* MISSION SECTION */
