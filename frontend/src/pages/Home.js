@@ -80,6 +80,19 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="drug-involvement-section">
+        <h2 className="drug-involvement-header">
+          DRUG INVOLVEMENT IN OVERDOSE FATALITIES (2022):
+        </h2>
+        <div className="drug-involvement-content">
+          <div className="drug-involvement-text">
+            <p>This bubble chart presents the 2022 fatal overdose data for various drugs in the United States, as sourced from the CDC. Bubble size correlates with overdose fatalities involving each drug, with red bubbles signifying opioids and white bubbles denoting non-opioid substances. The total number of drug overdoses in 2022 was 107,941, with many cases involving multiple drugs. The prevalence of poly-drug involvement complicates the attribution of fatalities to a single substance, highlighting the complexity of the overdose epidemic.</p>
+          </div>
+          <div className="drug-involvement-image">
+            <img src="bubble graph.png" alt="Drug Involvement in Overdose Fatalities (2022)" />
+          </div>
+        </div>
+      </div>
       <div className="mission-section">
         <div className="mission-left">
           <h2 className="mission-header">OUR <span className="mission-highlight">MISSION</span></h2>
@@ -90,43 +103,43 @@ const Home = () => {
         </div>
       </div>
     </div>
-    <div className="services-section">
-        <h2 className="services-header">OUR <span className="services-highlight">INITIATIVES</span></h2>
-        <div className="services-content">
-          <div className="service service-1">
-            <p className="service-title">NARCAN DISTRIBUTION</p>
-            <div className="service-description">
+    <div className="initiatives-section">
+        <h2 className="initiatives-header">OUR <span className="initiatives-highlight">INITIATIVES</span></h2>
+        <div className="initiatives-content">
+          <div className="initiative initiative-1">
+            <p className="initiative-title">NARCAN DISTRIBUTION</p>
+            <div className="initiative-description">
               <h3>What is Narcan?</h3>
               <p>Narcan is a life-saving medication that rapidly reverses opioid overdoses by blocking the effects of opioids on the brain. We prioritize distributing Narcan to at-risk communities, including homeless shelters, halfway houses, recovery centers, pain management clinics, and addiction treatment facilities.
               </p>
             </div>
           </div>
-          <div className="service service-2">
-            <p className="service-title">EDUCATION</p>
-            <div className="service-description">
+          <div className="initiative initiative-2">
+            <p className="initiative-title">EDUCATION</p>
+            <div className="initiative-description">
               <h3>Educational Programs</h3>
               <p>We offer free harm reduction education events focused on overdose prevention, recognition, and response, as well as combating stigma against people who use drugs. These sessions are tailored to the needs of diverse audiences, including healthcare professionals and community members.
               </p>
             </div>
           </div>
-          <div className="service service-3">
-            <p className="service-title">RESOURCE ALLOCATION</p>
-            <div className="service-description">
+          <div className="initiative initiative-3">
+            <p className="initiative-title">RESOURCE ALLOCATION</p>
+            <div className="initiative-description">
               <h3>Allocation Strategies</h3>
               <p>We provide wound care and hygiene packages to disadvantaged populations to prevent infections and promote overall health. Additionally, we distribute fentanyl testing strips to help users identify the presence of fentanyl in substances, reducing the risk of accidental overdoses.</p>
             </div>
           </div>
-          <div className="service service-4">
-            <p className="service-title">OUTREACH</p>
-            <div className="service-description">
+          <div className="initiative initiative-4">
+            <p className="initiative-title">OUTREACH</p>
+            <div className="initiative-description">
               <h3>Community Outreach</h3>
               <p>We actively engage with local communities to raise awareness about harm reduction and the resources available. Through outreach events, workshops, and collaborations with other organizations, we strive to build a supportive network for individuals affected by substance use.
                  </p>
             </div>
           </div>
-          <div className="service service-5">
-            <p className="service-title">RESEARCH & ADVOCACY</p>
-            <div className="service-description">
+          <div className="initiative initiative-5">
+            <p className="initiative-title">RESEARCH & ADVOCACY</p>
+            <div className="initiative-description">
               <h3>Commitment to Advocacy</h3>
               <p>We are committed to advancing harm reduction policies and practices through research and advocacy. By partnering with academic institutions and policy makers, we work to influence public health strategies and promote evidence-based approaches to harm reduction.</p>
             </div>

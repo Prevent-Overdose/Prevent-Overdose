@@ -155,6 +155,59 @@ html, body { /* Reset the default body styles */
   height: auto;
 }
 
+/* DRUG INVOLVEMENT SECTION */
+.drug-involvement-section {
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  text-align: left;
+}
+
+.drug-involvement-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.3em;
+  margin-bottom: 20px;
+  color: #e80f07;
+}
+
+.drug-involvement-content {
+  display: flex;
+  justify-content: space-between; /* Distribute space between elements */
+  align-items: flex-start; /* Align items at the top */
+}
+
+.drug-involvement-text {
+  flex: 1; /* Take up available space */
+  max-width: 50%;
+}
+
+.drug-involvement-text p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.drug-involvement-image {
+  flex: 1; /* Take up available space */
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end; /* Align image to the right */
+  position: relative;
+  top: -150px; 
+  right: -60px; 
+}
+
+.drug-involvement-image img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  
+}
+
 /* MISSION SECTION */
 
 .mission-section {
@@ -205,34 +258,34 @@ html, body { /* Reset the default body styles */
   max-width: 80%;
 }
 
-/* SERVICES SECTION*/
+/* initiatives SECTION*/
 
-.services-section {
+.initiatives-section {
   background-color: black;
   color: white;
   padding: 40px 20px;
   text-align: center;
 }
 
-.services-header {
+.initiatives-header {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
   margin-bottom: 20px;
 }
 
-.services-highlight {
+.initiatives-highlight {
   background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); 
   -webkit-background-clip: text;
   color: transparent;
 }
 
-.services-content {
+.initiatives-content {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.service {
+.initiative {
   flex: 1;
   max-width: 20%;
   margin: 10px;
@@ -249,27 +302,27 @@ html, body { /* Reset the default body styles */
   transition: transform 0.5s;
 }
 
-.service-1 {
+.initiative-1 {
   background-position: 0% 0%; 
 }
 
-.service-2 {
+.initiative-2 {
   background-position: 25% 0%; 
 }
 
-.service-3 {
+.initiative-3 {
   background-position: 50% 0%; 
 }
 
-.service-4 {
+.initiative-4 {
   background-position: 75% 0%; 
 }
 
-.service-5 {
+.initiative-5 {
   background-position: 100% 0%;
 }
 
-.service-title {
+.initiative-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.5em;
   margin: 10px 0;
@@ -277,7 +330,7 @@ html, body { /* Reset the default body styles */
 
 }
 
-.service-description {
+.initiative-description {
   width: 100%;
   height: 0%;
   position: absolute;
@@ -295,26 +348,31 @@ html, body { /* Reset the default body styles */
   margin-right: 20px;
 }
 
-.service-description h3 {
+.initiative-description h3 {
   margin-bottom: 0;
 }
 
 
 
-.service:hover .service-description{
+.initiative:hover .initiative-description{
   height: 100%;
 }
 
-.service:hover .service-title {
-  opacity: 0; /* Make service title text disappear */
+.initiative:hover .initiative-title {
+  opacity: 0; /* Make initiative title text disappear */
+}
+
+.initiative:hover {
+  transform: scale(1.05); /* Slightly increase size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 @media only screen and (max-width: 600px) {
-  .service-description {
+  .initiative-description {
     display: none; 
   }
-  .service:hover .service-title {
-    opacity: 1; /* Make service title text disappear */
+  .initiative:hover .initiative-title {
+    opacity: 1; /* Make initiative title text disappear */
   
   }
 }
@@ -548,13 +606,13 @@ html, body { /* Reset the default body styles */
     padding: 20px; /* Adjust padding for mobile */
   }
 
-  /* SERVICES SECTION */
-  .services-content {
+  /* initiatives SECTION */
+  .initiatives-content {
     flex-direction: column;
     align-items: center;
   }
 
-  .service {
+  .initiative {
     max-width: 100%;
     width: 100%; /* Ensure consistent width for each grid */
     margin: 10px 0; /* Adjust margin for better spacing on mobile */
@@ -562,21 +620,21 @@ html, body { /* Reset the default body styles */
     background-size: cover; /* Adjust background size to cover the whole element */
   }
 
-  .service-title {
+  .initiative-title {
     font-size: 1.2em;
   }
 
-  .service-description {
+  .initiative-description {
     font-size: 0.9em;
     padding: 0 5px; /* Adjust padding for mobile */
   }
   
   /* IMPACT SECTION */
-  .services-content {
+  .initiatives-content {
     flex-direction: column;
   }
 
-  .service {
+  .initiative {
     max-width: 100%;
     margin: 20px 0;
   }
