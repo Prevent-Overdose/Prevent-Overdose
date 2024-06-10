@@ -31,7 +31,9 @@
 }
 
 .sidenav a:hover {
-  color: #ff23fd;
+ background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); /* Gradient colors */
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .sidenav .sidenav-logo img {

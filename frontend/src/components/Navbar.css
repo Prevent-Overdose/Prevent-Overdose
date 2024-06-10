@@ -56,7 +56,9 @@ header {
 
 
 .navbar-links a:hover {
-  color: #ff23fd; /* Slightly lighter color on hover */
+  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); /* Gradient colors */
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .navbar-links a::before {
@@ -130,11 +132,6 @@ header {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-  background-color: #ff23fd; /* Highlight color on hover */
-  color: black; /* Change text color on hover */
 }
 
 
