@@ -17,7 +17,8 @@ header {
   padding: 0 20px;
   height: 100%; /* Makes the navbar fill the header */
   background-color: black;
-  margin-right: 1em;}
+  margin-right: 1em;
+}
 
 .left-section {
   display: flex;
@@ -137,7 +138,10 @@ header {
 /* Media query to hide navbar-links on mobile and center the logo and button */
 @media (max-width: 768px) {
   
- 
+  .navbar2 {
+    padding: 0;
+    margin: 0;  
+  }
 
   .navbar-links {
     display: none;
@@ -150,7 +154,6 @@ header {
 
   .navbar-logo img{
     justify-content: center;
-    margin-left: 1em;
   }
   
 

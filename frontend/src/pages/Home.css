@@ -506,6 +506,13 @@ html, body { /* Reset the default body styles */
 
 @media (max-width: 768px) {
 
+  html, body { /* Reset the default body styles */
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow-x: visible !important;
+  }
+
   /* HERO SECTION */
 
   .hero-background {
