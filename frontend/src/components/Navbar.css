@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); /* Link Font Style, can be changed if a more aesthetic font is found */
 
 header {
-  width: 99%; /* Ensures the header is the full width of the viewport */
-  position: fixed; /* Fixes the navbar at the top */
+  width: 100%; /* Ensures the header is the full width of the viewport */
+  position: absolute; /* Fixes the navbar at the top */
   top: 0; /* Aligns the navbar at the top of the viewport */
   left: 0; /* Aligns the navbar to the left edge of the viewport */
   z-index: 1000; /* Ensures the navbar stays on top of other content */
@@ -15,8 +15,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: black; 
   height: 100%; /* Makes the navbar fill the header */
+  background-color: black;
+  margin-right: 1em;
 }
 
 .left-section {
@@ -48,7 +49,6 @@ header {
   color: white;
   font-family: 'Lato', sans-serif;
   font-size: 18px; 
-  transition: color 0.5s ease;
   text-align: center;
 }
 
@@ -138,6 +138,11 @@ header {
 /* Media query to hide navbar-links on mobile and center the logo and button */
 @media (max-width: 768px) {
   
+  .navbar2 {
+    padding: 0;
+    margin: 0;  
+  }
+
   .navbar-links {
     display: none;
   }
@@ -148,7 +153,7 @@ header {
   }
 
   .navbar-logo img{
-    margin-left: 0;
+    justify-content: center;
   }
   
 
