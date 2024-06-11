@@ -96,12 +96,8 @@ const Home = () => {
       <div className="lethal-stats-section">
         <div className="lethal-stats-content">
           <div className="stat">
-            <h2>94.9%</h2>
-            <p>Of Opioid Overdoses are Preventable</p>
-          </div>
-          <div className="stat">
-            <h2>75.8%</h2>
-            <p>Of All Overdoses involve Opioids</p>
+            <h2>36%</h2>
+            <p>Of Opioid Overdoses die within seconds to minutes</p>
           </div>
           <div className="stat">
             <h2>42%</h2>
@@ -112,8 +108,12 @@ const Home = () => {
             <p>Of Fentanyl-Laced Pills Contain a Lethal Dose (>2mg)</p>
           </div>
           <div className="stat">
-            <h2>36%</h2>
-            <p>Of Opioid Overdoses die within seconds to minutes</p>
+            <h2>75.8%</h2>
+            <p>Of All Overdoses involve Opioids</p>
+          </div>
+          <div className="stat">
+            <h2>94.9%</h2>
+            <p>Of Opioid Overdoses are Preventable</p>
           </div>
         </div>
         <h2 className="lethal-dose-header">THE LETHAL DOSE OF FENTANYL</h2>
