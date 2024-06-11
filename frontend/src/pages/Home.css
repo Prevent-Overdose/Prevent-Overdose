@@ -351,7 +351,7 @@ html, body { /* Reset the default body styles */
   max-width: 20%;
   margin: 10px;
   position: relative;
-  background-image: url('/public/city masked.png'); 
+  background-image: url('/public/city background.png'); 
   background-size: 400%; /* Image division percentage */
   height: 300px; /* Grid Height */
   background-repeat: no-repeat;  /* Self explanatory */
