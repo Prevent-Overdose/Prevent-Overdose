@@ -93,6 +93,34 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="lethal-stats-section">
+        <div className="lethal-stats-content">
+          <div className="stat">
+            <h2>94.9%</h2>
+            <p>Of Opioid Overdoses are Preventable</p>
+          </div>
+          <div className="stat">
+            <h2>75.8%</h2>
+            <p>Of All Overdoses involve Opioids</p>
+          </div>
+          <div className="stat">
+            <h2>42%</h2>
+            <p>Of Illegally obtained Pills are Laced with Fentanyl</p>
+          </div>
+          <div className="stat">
+            <h2>60%</h2>
+            <p>Of Fentanyl-Laced Pills Contain a Lethal Dose (>2mg)</p>
+          </div>
+          <div className="stat">
+            <h2>36%</h2>
+            <p>Of Opioid Overdoses die within seconds to minutes</p>
+          </div>
+        </div>
+        <h2 className="lethal-dose-header">THE LETHAL DOSE OF FENTANYL</h2>
+        <div className="lethal-dose-image">
+          <img src="penny.png" alt="The lethal dose of fentanyl compared to a penny" />
+        </div>
+      </div>
       <div className="mission-section">
         <div className="mission-left">
           <h2 className="mission-header">OUR <span className="mission-highlight">MISSION</span></h2>
@@ -150,7 +178,7 @@ const Home = () => {
         <h2 className="impact-header">OUR <span className="impact-highlight">IMPACT</span></h2>
         <div className="impact-content">
           <div className="impact-item">
-            <h3 className="impact-number">1,000</h3>
+            <h3 className="impact-number">1,000+</h3>
             <p className="impact-text">Kits of Narcan distributed</p>
           </div>
           <div className="impact-item">
@@ -158,7 +186,7 @@ const Home = () => {
             <p className="impact-text">Overdoses reversed</p>
           </div>
           <div className="impact-item">
-            <h3 className="impact-number">500</h3>
+            <h3 className="impact-number">500+</h3>
             <p className="impact-text">Hygiene care packages dispensed</p>
           </div>
         </div>

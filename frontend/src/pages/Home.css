@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /* BEBAS NEUE */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap'); /* NUNITO SANS CONDENSED */
 
 /* HOME PAGE BACKGROUND */
 
@@ -156,8 +157,8 @@ html, body { /* Reset the default body styles */
 }
 
 /* DRUG INVOLVEMENT SECTION */
+
 .drug-involvement-section {
-  margin-top: 20px;
   background-color: black;
   color: white;
   padding: 40px 20px;
@@ -205,7 +206,66 @@ html, body { /* Reset the default body styles */
   width: 100%;
   height: auto;
   max-width: 100%;
-  
+  max-height: 500px;
+}
+
+/* LETHAL STATS SECTION */
+
+.lethal-stats-section {
+  margin-top: -100px;
+  margin-bottom: 100px;
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.lethal-stats-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.stat {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+}
+
+.stat::before {
+  content: '';
+  display: block;
+  width: 200px; 
+  height: 2px; /* Thickness */
+  background-color: white;
+  margin: 0 auto 10px auto; /* Center the line and add space below */
+}
+
+.stat h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 4em;
+  color: #e80f07;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.stat p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+}
+
+.lethal-dose-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5em;
+  color: #e80f07;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.lethal-dose-image img {
+  width: 150px;
+  height: auto;
 }
 
 /* MISSION SECTION */
@@ -218,6 +278,7 @@ html, body { /* Reset the default body styles */
   background-size: cover;
   background-position: center;
   height: 80vh;
+  margin-bottom: 40px;
   
 }
 
@@ -245,7 +306,6 @@ html, body { /* Reset the default body styles */
   display: flex;
   justify-content: center;
   align-items: center;
-  
   position: relative; /* Positioning context for the text */
 }
 
@@ -258,7 +318,7 @@ html, body { /* Reset the default body styles */
   max-width: 80%;
 }
 
-/* initiatives SECTION*/
+/* INITIATIVES SECTION*/
 
 .initiatives-section {
   background-color: black;
@@ -392,7 +452,7 @@ html, body { /* Reset the default body styles */
 .impact-header {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .impact-highlight {
@@ -430,6 +490,8 @@ html, body { /* Reset the default body styles */
   font-size: 4em;
   color: #ff23fd; 
   font-style: italic;
+  margin-top: 15px;
+  margin-bottom:15px;
 }
 
 .impact-text {
@@ -441,6 +503,7 @@ html, body { /* Reset the default body styles */
 /* CLOSING SECTION */
 
 .closing-section {
+  margin-top: -60px;
   background-color: black;
   color: white;
   padding: 40px 20px;
@@ -456,6 +519,7 @@ html, body { /* Reset the default body styles */
 }
 
 .closing-buttons {
+  margin-top: -20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -567,6 +631,7 @@ html, body { /* Reset the default body styles */
   }
 
   /* DRUG INVOLVMENT SECTION */
+
   .drug-involvement-section {
     padding-left: 20px;
     padding-right: 20px;
@@ -601,7 +666,23 @@ html, body { /* Reset the default body styles */
     max-height: 400px; /* Adjust the height for mobile */
   }
 
+  /* LETHAL STATS SECTION */
+
+  .lethal-stats-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .lethal-dose-image img {
+    width: 100px;
+  }
+
   /* MISSION SECTION */
+
   .mission-section {
     flex-direction: column;
     height: auto; /* Allow auto height for mobile */
@@ -642,6 +723,7 @@ html, body { /* Reset the default body styles */
   }
 
   /* INITIATIVES SECTION */
+
   .initiatives-content {
     flex-direction: column;
     align-items: center;
@@ -665,6 +747,7 @@ html, body { /* Reset the default body styles */
   }
   
   /* IMPACT SECTION */
+
   .initiatives-content {
     flex-direction: column;
   }
@@ -684,6 +767,7 @@ html, body { /* Reset the default body styles */
   }
 
   /* CLOSING SECTION */
+  
   .closing-buttons {
     gap: 10px;
   }
