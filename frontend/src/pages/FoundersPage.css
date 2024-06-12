@@ -107,9 +107,21 @@ html, body {
 .linkedin-logo {
     width: 15px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
-    margin-right:147px; /* Add margin to separate from the text */
     
 }
+
+
+.position-container a {
+    color: white; /* Set default color to white */
+    margin: 0 6px; /* Adjust margin between icons */
+    font-size: 18px; /* Adjust icon size */
+    transition: color 0.3s; /* Add transition effect for color change */
+    text-decoration: none;
+  }
+  
+  .position-container a:hover {
+    color: #ff23fd; /* Change color to pink on hover */
+  }
 
 
 .additional-image {

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /* BEBAS NEUE */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap'); /* NUNITO SANS CONDENSED */
 
 /* HOME PAGE BACKGROUND */
 
@@ -73,8 +74,8 @@ html, body { /* Reset the default body styles */
 }
 
 .hero-content { /* Styles for the whole hero section (motto, request button, and request prompt) */
-  position: relative;
-  top: 40px; /* Move the hero content slightly down */
+  position: absolute;
+  top: 300px; /* Move the hero content slightly down */
 }
 
 @keyframes fadeIn { /* Keyframes for the fade animation */
@@ -155,6 +156,119 @@ html, body { /* Reset the default body styles */
   height: auto;
 }
 
+/* DRUG INVOLVEMENT SECTION */
+
+.drug-involvement-section {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  text-align: left;
+}
+
+.drug-involvement-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.3em;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  color: #e80f07;
+}
+
+.drug-involvement-content {
+  display: flex;
+  justify-content: space-between; /* Distribute space between elements */
+  align-items: flex-start; /* Align items at the top */
+}
+
+.drug-involvement-text {
+  flex: 1; /* Take up available space */
+  max-width: 50%;
+}
+
+.drug-involvement-text p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.drug-involvement-image {
+  flex: 1; /* Take up available space */
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end; /* Align image to the right */
+  position: relative;
+  top: -150px; 
+  right: -60px; 
+}
+
+.drug-involvement-image img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 500px;
+}
+
+/* LETHAL STATS SECTION */
+
+.lethal-stats-section {
+  margin-top: -100px;
+  margin-bottom: 100px;
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.lethal-stats-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.stat {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+}
+
+.stat::before {
+  content: '';
+  display: block;
+  width: 200px; 
+  height: 2px; /* Thickness */
+  background-color: white;
+  margin: 0 auto 10px auto; /* Center the line and add space below */
+}
+
+.stat h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 4em;
+  color: #e80f07;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.stat p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+}
+
+.lethal-dose-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5em;
+  color: #e80f07;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.lethal-dose-image img {
+  width: 150px;
+  height: auto;
+}
+
 /* MISSION SECTION */
 
 .mission-section {
@@ -165,6 +279,7 @@ html, body { /* Reset the default body styles */
   background-size: cover;
   background-position: center;
   height: 80vh;
+  margin-bottom: 40px;
   
 }
 
@@ -192,7 +307,6 @@ html, body { /* Reset the default body styles */
   display: flex;
   justify-content: center;
   align-items: center;
-  
   position: relative; /* Positioning context for the text */
 }
 
@@ -205,39 +319,39 @@ html, body { /* Reset the default body styles */
   max-width: 80%;
 }
 
-/* SERVICES SECTION*/
+/* INITIATIVES SECTION*/
 
-.services-section {
+.initiatives-section {
   background-color: black;
   color: white;
   padding: 40px 20px;
   text-align: center;
 }
 
-.services-header {
+.initiatives-header {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
   margin-bottom: 20px;
 }
 
-.services-highlight {
+.initiatives-highlight {
   background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); 
   -webkit-background-clip: text;
   color: transparent;
 }
 
-.services-content {
+.initiatives-content {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.service {
+.initiative {
   flex: 1;
   max-width: 20%;
   margin: 10px;
   position: relative;
-  background-image: url('/public/city masked.png'); 
+  background-image: url('/public/city background.png'); 
   background-size: 400%; /* Image division percentage */
   height: 300px; /* Grid Height */
   background-repeat: no-repeat;  /* Self explanatory */
@@ -249,27 +363,27 @@ html, body { /* Reset the default body styles */
   transition: transform 0.5s;
 }
 
-.service-1 {
+.initiative-1 {
   background-position: 0% 0%; 
 }
 
-.service-2 {
+.initiative-2 {
   background-position: 25% 0%; 
 }
 
-.service-3 {
+.initiative-3 {
   background-position: 50% 0%; 
 }
 
-.service-4 {
+.initiative-4 {
   background-position: 75% 0%; 
 }
 
-.service-5 {
+.initiative-5 {
   background-position: 100% 0%;
 }
 
-.service-title {
+.initiative-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.5em;
   margin: 10px 0;
@@ -277,7 +391,7 @@ html, body { /* Reset the default body styles */
 
 }
 
-.service-description {
+.initiative-description {
   width: 100%;
   height: 0%;
   position: absolute;
@@ -295,26 +409,31 @@ html, body { /* Reset the default body styles */
   margin-right: 20px;
 }
 
-.service-description h3 {
+.initiative-description h3 {
   margin-bottom: 0;
 }
 
 
 
-.service:hover .service-description{
+.initiative:hover .initiative-description{
   height: 100%;
 }
 
-.service:hover .service-title {
-  opacity: 0; /* Make service title text disappear */
+.initiative:hover .initiative-title {
+  opacity: 0; /* Make initiative title text disappear */
+}
+
+.initiative:hover {
+  transform: scale(1.05); /* Slightly increase size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 @media only screen and (max-width: 600px) {
-  .service-description {
+  .initiative-description {
     display: none; 
   }
-  .service:hover .service-title {
-    opacity: 1; /* Make service title text disappear */
+  .initiative:hover .initiative-title {
+    opacity: 1; /* Make initiative title text disappear */
   
   }
 }
@@ -334,7 +453,7 @@ html, body { /* Reset the default body styles */
 .impact-header {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .impact-highlight {
@@ -372,6 +491,8 @@ html, body { /* Reset the default body styles */
   font-size: 4em;
   color: #ff23fd; 
   font-style: italic;
+  margin-top: 15px;
+  margin-bottom:15px;
 }
 
 .impact-text {
@@ -383,6 +504,7 @@ html, body { /* Reset the default body styles */
 /* CLOSING SECTION */
 
 .closing-section {
+  margin-top: -60px;
   background-color: black;
   color: white;
   padding: 40px 20px;
@@ -398,6 +520,7 @@ html, body { /* Reset the default body styles */
 }
 
 .closing-buttons {
+  margin-top: -20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -436,37 +559,8 @@ html, body { /* Reset the default body styles */
 }
 
 
-.site-footer {
-  color: white;
-  background-color: rgb(20, 20, 20);
-  margin-top: 40px;
-  text-align: center;
-  justify-content: space-between;
-  display: flex;
-  padding: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
 
-.footer-left{
-  transition: color 0.3s; /* Add transition effect for color change */
-}
 
-.footer-left:hover {
-  color: #ff23fd; /* Change color to pink on hover */
-}
-
-.footer-right a {
-  color: white; /* Set default color to white */
-  margin: 0 6px; /* Adjust margin between icons */
-  font-size: 18px; /* Adjust icon size */
-  transition: color 0.3s; /* Add transition effect for color change */
-  text-decoration: none;
-}
-
-.footer-right a:hover {
-  color: #ff23fd; /* Change color to pink on hover */
-}
 
 .arrow {
   opacity: 0;
@@ -475,6 +569,13 @@ html, body { /* Reset the default body styles */
 /* MEDIA QUERY FOR MOBILE DEVICES */
 
 @media (max-width: 768px) {
+
+  html, body { /* Reset the default body styles */
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow-x: visible !important;
+  }
 
   /* HERO SECTION */
 
@@ -490,7 +591,8 @@ html, body { /* Reset the default body styles */
   }
 
   .hero-content {
-    top: 0px; /* Reduce top space to minimize space between navbar and motto */
+    position: absolute;
+    top: 80px; /* Reduce top space to minimize space between navbar and motto */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -537,7 +639,59 @@ html, body { /* Reset the default body styles */
     max-width: 100%;
   }
 
+  /* DRUG INVOLVMENT SECTION */
+
+  .drug-involvement-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .drug-involvement-header {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .drug-involvement-content {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+  }
+
+  .drug-involvement-text {
+    max-width: 100%;
+    text-align: center;
+    padding: 0 10px; /* Add padding for better readability */
+  }
+
+  .drug-involvement-image {
+    max-width: 100%;
+    top: 0; /* Reset the top alignment */
+    right: 0; /* Reset the right alignment */
+    margin-top: 20px; /* Add margin to separate the text and image */
+    display: flex;
+    justify-content: center; /* Center the image */
+  }
+
+  .drug-involvement-image img {
+    max-height: 400px; /* Adjust the height for mobile */
+  }
+
+  /* LETHAL STATS SECTION */
+
+  .lethal-stats-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .lethal-dose-image img {
+    width: 100px;
+  }
+
   /* MISSION SECTION */
+
   .mission-section {
     flex-direction: column;
     height: auto; /* Allow auto height for mobile */
@@ -577,13 +731,14 @@ html, body { /* Reset the default body styles */
     padding: 20px; /* Adjust padding for mobile */
   }
 
-  /* SERVICES SECTION */
-  .services-content {
+  /* INITIATIVES SECTION */
+
+  .initiatives-content {
     flex-direction: column;
     align-items: center;
   }
 
-  .service {
+  .initiative {
     max-width: 100%;
     width: 100%; /* Ensure consistent width for each grid */
     margin: 10px 0; /* Adjust margin for better spacing on mobile */
@@ -591,21 +746,22 @@ html, body { /* Reset the default body styles */
     background-size: cover; /* Adjust background size to cover the whole element */
   }
 
-  .service-title {
+  .initiative-title {
     font-size: 1.2em;
   }
 
-  .service-description {
+  .initiative-description {
     font-size: 0.9em;
     padding: 0 5px; /* Adjust padding for mobile */
   }
   
   /* IMPACT SECTION */
-  .services-content {
+
+  .initiatives-content {
     flex-direction: column;
   }
 
-  .service {
+  .initiative {
     max-width: 100%;
     margin: 20px 0;
   }
@@ -620,6 +776,7 @@ html, body { /* Reset the default body styles */
   }
 
   /* CLOSING SECTION */
+  
   .closing-buttons {
     gap: 10px;
   }

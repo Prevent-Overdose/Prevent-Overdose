@@ -1,10 +1,10 @@
 .board-container {
-    background: linear-gradient(to right, #000000, #690078);
+    background: linear-gradient(to bottom, #000000, #690078);
     padding-top: 100px; /* Ensure enough space for the heading */
     min-height: 100vh; /* Ensure it covers the entire viewport height */
     color: white; /* Make text white for better readability on dark background */
     position: relative;
-    overflow-y: auto; /* Enable vertical scrolling */  
+    overflow-y: none; /* Enable vertical scrolling */  
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
   
 
@@ -12,21 +12,20 @@
 
 html, body {
     height: 100%;
-    overflow: auto; /* Enable scrolling */
+    overflow: visible; /* Enable scrolling */
 }
 
 .board-heading {
     text-align: center;
     font-size: 55px;
     margin-top: 50px;
-    background: linear-gradient(to right, #000000, #690078);
+    background: linear-gradient(to bottom, #000000, #690078);
     -webkit-background-clip: text;
     background-clip: text;
     border-radius: 50px; /* Make the heading more rounded */
 }
 
 .team-section {
-    margin-bottom: 20px;
     border-radius: 50px;
     padding: 10px 20px; 
 }
@@ -47,7 +46,7 @@ html, body {
 }
 
 .team-heading:hover {
-    background-color: #D8BFD8; /* Darker shade of light purple on hover */
+    color: rgb(99, 99, 99); /* Darker shade of light purple on hover */
 }
 
 .box-container {

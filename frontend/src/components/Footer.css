@@ -1,0 +1,35 @@
+
+.site-footer {
+    color: white;
+    background-color: rgb(20, 20, 20);
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+.footer-left{
+    font-size: smaller;
+    font-family: 'nunito sans'
+  }
+  
+  .footer-left:hover {
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); /* Gradient colors */
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .footer-right a {
+    color: white; /* Set default color to white */
+    margin: 0 6px; /* Adjust margin between icons */
+    font-size: 18px; /* Adjust icon size */
+    text-decoration: none;
+  }
+  
+  .footer-right a:hover {
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); /* Gradient colors */
+    -webkit-background-clip: text;
+    color: transparent;
+  }

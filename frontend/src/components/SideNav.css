@@ -24,14 +24,16 @@
   font-size: 25px;
   color: white;
   display: block;
-  transition: 0.3s;
   white-space: nowrap;
   text-overflow: clip;
   margin-right: 100px; /* Add margin to avoid full-width selection */
 }
 
-.sidenav a:hover {
-  color: #ff23fd;
+.sidenav .sidenav-elements a:hover {
+ background: linear-gradient(to right, #6a00f4, #f09526, #ff5fa8); /* Gradient colors */
+ -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .sidenav .sidenav-logo img {
@@ -106,7 +108,7 @@
 .sidenav-elements {
     padding-left: 30px;
     font-family: 'Lato', sans-serif;
-
+  
 }
 
 .sidenav-about-children a {

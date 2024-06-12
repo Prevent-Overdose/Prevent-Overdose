@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../board.css"; 
+import "./Board.css"; 
 import board1 from '../images/Rahul Chari Headshot (1).jpg';
 import board2 from '../images/Rutvi Shukla Headshot.png';
 import board3 from '../images/Anteneh Zewdie Headshot.jpg';
@@ -128,21 +128,19 @@ const BoardPage = () => {
                 </button>
                 {dropdowns.softwareTeam && (
                     <div>
-                        <div className="board1-container">
+                        <div className="box-container">
                             <div className="box-wrapper">
-                                <div className="box">
-                                    <img src={board1} alt="Board Member 1" />
-                                    <div className="description">
-                                        I want to use my technical experience to combat real-world issues and witness meaningful change in my community.
+                                    <div className="box">
+                                        <img src={board1} alt="Board Member 1" />
+                                        <div className="description">
+                                            I want to use my technical experience to combat real-world issues and witness meaningful change in my community.
+                                        </div>
+                                    </div>
+                                    <div className="additional-image-container">
+                                        <h3 className="name">RAHUL CHARI</h3>
+                                        <div className="position">Project Manager</div>
                                     </div>
                                 </div>
-                                <div className="additional-image-container">
-                                    <h3 className="name">RAHUL CHARI</h3>
-                                    <div className="position">Project Manager</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="box-container">
                             <div className="box-wrapper">
                                 <div className="box">
                                     <img src={board2} alt="Board Member 2" />
