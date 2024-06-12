@@ -204,7 +204,7 @@ html, body { /* Reset the default body styles */
 }
 
 .drug-involvement-image img {
-  width: 100%;
+  width: 95%;
   height: auto;
   max-width: 100%;
   max-height: 500px;
@@ -639,7 +639,7 @@ html, body { /* Reset the default body styles */
     max-width: 100%;
   }
 
-  /* DRUG INVOLVMENT SECTION */
+  /* DRUG INVOLVEMENT SECTION */
 
   .drug-involvement-section {
     padding-left: 20px;
@@ -654,9 +654,11 @@ html, body { /* Reset the default body styles */
   .drug-involvement-content {
     flex-direction: column; /* Stack elements vertically */
     align-items: center;
+    margin-bottom: 150px;
   }
 
   .drug-involvement-text {
+    font-size: 0.9em;
     max-width: 100%;
     text-align: center;
     padding: 0 10px; /* Add padding for better readability */
