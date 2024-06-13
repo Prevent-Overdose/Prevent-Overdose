@@ -611,11 +611,12 @@ html, body { /* Reset the default body styles */
   .overdose-data-section {
     padding: 20px 10px;
     margin-top: -10px;
+    padding-bottom: 0;
   }
 
   .overdose-data-header {
     font-size: 3em;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
   }
 
   .overdose-statistics {
@@ -643,6 +644,7 @@ html, body { /* Reset the default body styles */
   }
 
   .overdose-chart img {
+    margin-top: 20px;
     max-width: 100%;
   }
 
@@ -651,6 +653,7 @@ html, body { /* Reset the default body styles */
   .drug-involvement-section {
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 0;
   }
 
   .drug-involvement-header {

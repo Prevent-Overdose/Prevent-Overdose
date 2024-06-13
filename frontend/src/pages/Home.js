@@ -21,8 +21,6 @@ const Home = () => {
       return;
     }
     else {
-    
-
       const typeMottoEffect = () => {
         if (currentIndex < motto.length) {
           setDisplayText(motto.substring(0, currentIndex + 1));
