@@ -13,12 +13,15 @@ const Home = () => {
   useEffect(() => {
     document.title = "Prevent Overdose Inc.";
     let currentIndex = 0;
+    
 
     const typeMottoEffect = () => {
       if (currentIndex < motto.length) {
-        setDisplayText(motto.substring(0, currentIndex + 1));
-        currentIndex++;
-        setTimeout(typeMottoEffect, 80);
+        if (window.innerWidth >= 768) {
+          setDisplayText(motto.substring(0, currentIndex + 1));
+          currentIndex++;
+          setTimeout(typeMottoEffect, 80);
+        }
       } else {
         setShowButton(true);
       }
@@ -97,29 +100,26 @@ const Home = () => {
         <div className="lethal-stats-content">
           <div className="stat">
             <h2>36%</h2>
-            <p>Of Opioid Overdoses die within seconds to minutes</p>
+            <p>of opioid overdoses are fatal within seconds or minutes</p>
           </div>
           <div className="stat">
             <h2>42%</h2>
-            <p>Of Illegally obtained Pills are Laced with Fentanyl</p>
+            <p>of illegally obtained pills are laced with fentanyl</p>
           </div>
           <div className="stat">
             <h2>60%</h2>
-            <p>Of Fentanyl-Laced Pills Contain a Lethal Dose (&gt;2mg)</p>
+            <p>of fentanyl-laced pills contain a lethal dose (&gt;2mg)</p>
           </div>
           <div className="stat">
             <h2>75.8%</h2>
-            <p>Of All Overdoses involve Opioids</p>
+            <p>of all overdoses involve opioids</p>
           </div>
           <div className="stat">
             <h2>94.9%</h2>
-            <p>Of Opioid Overdoses are Preventable</p>
+            <p>of opioid overdoses are preventable</p>
           </div>
         </div>
-        <h2 className="lethal-dose-header">THE LETHAL DOSE OF FENTANYL</h2>
-        <div className="lethal-dose-image">
-          <img src="penny.png" alt="The lethal dose of fentanyl compared to a penny" />
-        </div>
+        
       </div>
       <div className="mission-section">
         <div className="mission-left">

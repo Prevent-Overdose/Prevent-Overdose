@@ -243,6 +243,8 @@ html, body { /* Reset the default body styles */
   margin: 0 auto 10px auto; /* Center the line and add space below */
 }
 
+
+
 .stat h2 {
   font-family: 'Arial', sans-serif;
   font-size: 4em;
@@ -481,7 +483,7 @@ html, body { /* Reset the default body styles */
   content: '';
   display: block;
   width: 50%;
-  height: 1px;
+  height: 2px;
   background-color: white;
   margin: 0 auto 10px auto;
 }
@@ -508,6 +510,7 @@ html, body { /* Reset the default body styles */
   background-color: black;
   color: white;
   padding: 40px 20px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -624,7 +627,11 @@ html, body { /* Reset the default body styles */
     margin-left: 0;
     text-align: center;
   }
-
+  
+  .stat::before {
+    width: 50%;
+  }
+  
   .total-overdoses, .opioid-overdoses {
     font-size: 1.5em;
   }
@@ -649,6 +656,7 @@ html, body { /* Reset the default body styles */
   .drug-involvement-header {
     font-size: 2em;
     text-align: center;
+    padding-left: 0;
   }
 
   .drug-involvement-content {
@@ -662,6 +670,11 @@ html, body { /* Reset the default body styles */
     max-width: 100%;
     text-align: center;
     padding: 0 10px; /* Add padding for better readability */
+    margin-left: 0;
+  }
+
+  .drug-involvement-text p{
+    margin-left: 0;
   }
 
   .drug-involvement-image {
@@ -679,9 +692,16 @@ html, body { /* Reset the default body styles */
 
   /* LETHAL STATS SECTION */
 
+  .lethal-stats-section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
   .lethal-stats-content {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .stat {
@@ -694,6 +714,15 @@ html, body { /* Reset the default body styles */
 
   /* MISSION SECTION */
 
+  .mission-header::before {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 1px;
+    background-color: white;
+    margin: 0 auto 75px auto;
+  }
+
   .mission-section {
     flex-direction: column;
     height: auto; /* Allow auto height for mobile */
@@ -702,6 +731,7 @@ html, body { /* Reset the default body styles */
     padding: 20px 0; /* Add padding to the section */
     height: 30vh; /* Increase the height for mobile view */
     background-image: none; 
+    margin-bottom: 0;
 
   }
 
@@ -717,6 +747,8 @@ html, body { /* Reset the default body styles */
     font-size: 3em;
     text-align: center;
     padding: 10px 0; /* Add padding to separate from image */
+    margin-left: 0;
+    margin-top: 25px;
   }
 
   .mission-right {
@@ -748,6 +780,10 @@ html, body { /* Reset the default body styles */
     background-size: cover; /* Adjust background size to cover the whole element */
   }
 
+  .initiatives-section {
+    margin-top: 25px;
+  }
+
   .initiative-title {
     font-size: 1.2em;
   }
@@ -768,6 +804,11 @@ html, body { /* Reset the default body styles */
     margin: 20px 0;
   }
 
+  .impact-section {
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+
   .impact-content {
     flex-direction: column;
   }
@@ -777,7 +818,22 @@ html, body { /* Reset the default body styles */
     margin: 20px 0;
   }
 
+  .impact-item::before {
+    display: none;
+  }
+
+  .impact-item::after {
+    display: none;
+  }
+
+  
+
   /* CLOSING SECTION */
+
+  .closing-section {
+    margin-top: 0;
+    padding-top: 0;
+  }
   
   .closing-buttons {
     gap: 10px;
@@ -785,6 +841,16 @@ html, body { /* Reset the default body styles */
 
   .closing-button {
     margin: 10px 0;
+  }
+
+  .closing-text::before {
+    content: '';
+    display: block;
+    width: 25%;
+    height: 1px;
+    background-color: white;
+    margin: 0 auto 75px auto;
+    
   }
 
   .arrow {
