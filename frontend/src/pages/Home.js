@@ -105,7 +105,7 @@ const Home = () => {
           </div>
           <div className="stat">
             <h2>60%</h2>
-            <p>Of Fentanyl-Laced Pills Contain a Lethal Dose (>2mg)</p>
+            <p>Of Fentanyl-Laced Pills Contain a Lethal Dose (&gt;2mg)</p>
           </div>
           <div className="stat">
             <h2>75.8%</h2>
