@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState(motto);
   const [showButton, setShowButton] = useState(false);
 
   
@@ -20,22 +20,24 @@ const Home = () => {
       setShowButton(true);
       return;
     }
+    else {
     
 
-    const typeMottoEffect = () => {
-      if (currentIndex < motto.length) {
-        setDisplayText(motto.substring(0, currentIndex + 1));
-        currentIndex++;
-        setTimeout(typeMottoEffect, 80);
-        
-      } else {
-        setShowButton(true);
-      }
-    };
+      const typeMottoEffect = () => {
+        if (currentIndex < motto.length) {
+          setDisplayText(motto.substring(0, currentIndex + 1));
+          currentIndex++;
+          setTimeout(typeMottoEffect, 80);
+          
+        } else {
+          setShowButton(true);
+        }
+      };
 
-    typeMottoEffect();
+      typeMottoEffect();
+    }
     
-  }, [motto]);
+  }, []);
 
   const renderMotto = () => {
     const words = displayText.split(' ');
