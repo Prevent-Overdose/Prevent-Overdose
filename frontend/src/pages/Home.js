@@ -10,34 +10,7 @@ const Home = () => {
 
   
 
-  useEffect(() => {
-    document.title = "Prevent Overdose Inc.";
-    let currentIndex = 0;
-    
-
-    const typeMottoEffect = () => {
-      if (currentIndex < motto.length) {
-        if (window.innerWidth >= 768) {
-          setDisplayText(motto.substring(0, currentIndex + 1));
-          currentIndex++;
-          setTimeout(typeMottoEffect, 80);
-        }
-      } else {
-        setShowButton(true);
-      }
-    };
-
-    // Check if the screen is mobile size
-    if (window.innerWidth < 768) {
-      // Fade in the motto immediately
-      setDisplayText(motto);
-      setShowButton(true);
-    } else {
-      // Use typing effect for larger screens
-      typeMottoEffect();
-    }
-  }, [motto]);
-
+  
   const renderMotto = () => {
     const words = displayText.split(' ');
     return words.map((word, index) => {
