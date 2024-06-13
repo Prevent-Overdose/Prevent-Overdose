@@ -5,12 +5,38 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
-  const [displayText, setDisplayText] = useState('A DIRECT RESPONSE TO A DEADLY PROBLEM.');
+  const [displayText, setDisplayText] = useState('');
   const [showButton, setShowButton] = useState(false);
 
   
 
-  
+  useEffect(() => {
+    document.title = "Prevent Overdose Inc.";
+    let currentIndex = 0;
+
+    if (window.innerWidth < 768) {
+      // Fade in the motto immediately
+      setDisplayText(motto);
+      setShowButton(true);
+      return;
+    }
+    
+
+    const typeMottoEffect = () => {
+      if (currentIndex < motto.length) {
+        setDisplayText(motto.substring(0, currentIndex + 1));
+        currentIndex++;
+        setTimeout(typeMottoEffect, 80);
+        
+      } else {
+        setShowButton(true);
+      }
+    };
+
+    typeMottoEffect();
+    
+  }, [motto]);
+
   const renderMotto = () => {
     const words = displayText.split(' ');
     return words.map((word, index) => {
