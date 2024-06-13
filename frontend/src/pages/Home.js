@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState('A DIRECT RESPONSE TO A DEADLY PROBLEM.');
   const [showButton, setShowButton] = useState(false);
 
   
