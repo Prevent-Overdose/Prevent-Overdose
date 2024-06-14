@@ -8,7 +8,7 @@ const AboutUs = () => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        document.title = "About Us";
+        document.title = "About Us - Prevent Overdose Inc.";
         // Check if the screen width is less than or equal to 480px (mobile view)
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 480);

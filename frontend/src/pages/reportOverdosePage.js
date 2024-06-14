@@ -7,7 +7,9 @@ const ReportOverdose = ()=>{
 
     const [isDisabled, setIsDisabled] = useState(true);
 
-    
+    useEffect(() => {
+        document.title = "Report Overdose | Prevent Overdose Inc.";
+    }, []);
 
     
     return (

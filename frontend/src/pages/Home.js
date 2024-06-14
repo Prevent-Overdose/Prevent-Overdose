@@ -21,7 +21,7 @@ const Home = () => {
   
 
   useEffect(() => {
-    document.title = "Prevent Overdose Inc.";
+    document.title = "Prevent Overdose Inc. - Home";
     let currentIndex = 0;
 
     if (window.innerWidth < 768) {
