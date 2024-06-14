@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Home.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Footer from '../components/Footer';
@@ -7,11 +7,21 @@ const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
   const [displayText, setDisplayText] = useState(motto);
   const [showButton, setShowButton] = useState(false);
+  const [animationTriggered, setAnimationTriggered] = useState(false);
+  const [impactAnimationTriggered, setImpactAnimationTriggered] = useState(false);
+  const totalOverdosesRef = useRef(null);
+  const opioidOverdosesRef = useRef(null);
+  const impactRefs = {
+    kitsDistributed: useRef(null),
+    overdosesReversed: useRef(null),
+    carePackagesDispensed: useRef(null),
+  };
+  
 
   
 
   useEffect(() => {
-    document.title = "Prevent Overdose Inc.";
+    document.title = "Prevent Overdose Inc. - Home";
     let currentIndex = 0;
 
     if (window.innerWidth < 768) {
@@ -36,6 +46,109 @@ const Home = () => {
     }
     
   }, []);
+
+  useEffect(() => {
+    const handleScroll = entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animationTriggered) {
+          startCountUpAnimation(totalOverdosesRef.current, 107941);
+          startCountUpAnimation(opioidOverdosesRef.current, 81806);
+          setAnimationTriggered(true);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleScroll, {
+      threshold: 0.1
+    });
+
+    if (totalOverdosesRef.current) {
+      observer.observe(totalOverdosesRef.current);
+    }
+    if (opioidOverdosesRef.current) {
+      observer.observe(opioidOverdosesRef.current);
+    }
+
+    return () => {
+      if (totalOverdosesRef.current) {
+        observer.unobserve(totalOverdosesRef.current);
+      }
+      if (opioidOverdosesRef.current) {
+        observer.unobserve(opioidOverdosesRef.current);
+      }
+    };
+  }, [animationTriggered]);
+
+  useEffect(() => {
+    const handleImpactScroll = entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !impactAnimationTriggered) {
+          const fixedDuration = 1000; // Fixed duration for all countingUp animations
+          startCountUpAnimationWithPlus(impactRefs.kitsDistributed.current, 1000, fixedDuration);
+          startCountUpAnimationWithPlus(impactRefs.overdosesReversed.current, 15, fixedDuration);
+          startCountUpAnimationWithPlus(impactRefs.carePackagesDispensed.current, 500, fixedDuration);
+          setImpactAnimationTriggered(true);
+        }
+      });
+    };
+
+    const impactObserver = new IntersectionObserver(handleImpactScroll, {
+      threshold: 0.1
+    });
+
+    Object.values(impactRefs).forEach(ref => {
+      if (ref.current) {
+        impactObserver.observe(ref.current);
+      }
+    });
+
+    return () => {
+      Object.values(impactRefs).forEach(ref => {
+        if (ref.current) {
+          impactObserver.unobserve(ref.current);
+        }
+      });
+    };
+  }, [impactAnimationTriggered]);
+
+  const formatNumberWithCommas = number => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const startCountUpAnimation = (element, target) => {
+    let start = 0;
+    const duration = 800; // Global CountUp duration
+    const increment = target / (duration / 16.666);
+
+    const step = () => {
+      start += increment;
+      if (start < target) {
+        element.textContent = formatNumberWithCommas(Math.ceil(start));
+        requestAnimationFrame(step);
+      } else {
+        element.textContent = formatNumberWithCommas(target);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  const startCountUpAnimationWithPlus = (element, target, duration) => {
+    let start = 0;
+    const increment = target / (duration / 16.666);
+
+    const step = () => {
+      start += increment;
+      if (start < target) {
+        element.textContent = formatNumberWithCommas(Math.ceil(start)) + "+";
+        requestAnimationFrame(step);
+      } else {
+        element.textContent = formatNumberWithCommas(target) + "+";
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
 
   const renderMotto = () => {
     const words = displayText.split(' ');
@@ -70,11 +183,11 @@ const Home = () => {
           <div className="statistics-left">
             <div className="total-overdoses">
               <p>Total Overdoses:</p>
-              <h3>107,941</h3>
+              <h3 ref={totalOverdosesRef}>0</h3>
             </div>
             <div className="opioid-overdoses">
               <p>Opioid Overdoses:</p>
-              <h3>81,806</h3>
+              <h3 ref={opioidOverdosesRef}>0</h3>
             </div>
           </div>  
           <div className="overdose-chart">
@@ -177,15 +290,15 @@ const Home = () => {
         <h2 className="impact-header">OUR <span className="impact-highlight">IMPACT</span></h2>
         <div className="impact-content">
           <div className="impact-item">
-            <h3 className="impact-number">1,000+</h3>
+            <h3 className="impact-number" ref={impactRefs.kitsDistributed}>0</h3>
             <p className="impact-text">Kits of Narcan distributed</p>
           </div>
           <div className="impact-item">
-            <h3 className="impact-number">15+</h3>
+            <h3 className="impact-number" ref={impactRefs.overdosesReversed}>0</h3>
             <p className="impact-text">Overdoses reversed</p>
           </div>
           <div className="impact-item">
-            <h3 className="impact-number">500+</h3>
+            <h3 className="impact-number" ref={impactRefs.carePackagesDispensed}>0</h3>
             <p className="impact-text">Hygiene care packages dispensed</p>
           </div>
         </div>
