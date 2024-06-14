@@ -3,7 +3,7 @@ import './Navbar.css';
 import { useState } from 'react';
 import Sidenav from './SideNav';
 
-const Navbar = () => {
+const Navbar = ({ isSideNavOpen, toggleSideNav }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="navbar2">
         <div className="left-section">
           <div className="dropdown">
-            <button className="dropdown-toggle" onClick={toggleDropdown}>
+            <button className="dropdown-toggle" onClick={toggleSideNav}>
               ☰
             </button>
           </div>
@@ -32,7 +32,7 @@ const Navbar = () => {
           </Link>
         </nav>
       </div>
-      <Sidenav isOpen={isOpen} toggle={toggleDropdown} />
+      <Sidenav isOpen={isSideNavOpen} toggle={toggleSideNav} />
     </header>
   );
 }
