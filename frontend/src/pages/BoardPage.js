@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Board.css"; 
 import board1 from '../images/Rahul Chari Headshot (1).jpg';
 import board2 from '../images/Rutvi Shukla Headshot.png';

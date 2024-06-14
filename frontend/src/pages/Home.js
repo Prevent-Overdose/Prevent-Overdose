@@ -83,7 +83,7 @@ const Home = () => {
     const handleImpactScroll = entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !impactAnimationTriggered) {
-          const fixedDuration = 800; // Fixed duration for all impact animations
+          const fixedDuration = 1000; // Fixed duration for all countingUp animations
           startCountUpAnimationWithPlus(impactRefs.kitsDistributed.current, 1000, fixedDuration);
           startCountUpAnimationWithPlus(impactRefs.overdosesReversed.current, 15, fixedDuration);
           startCountUpAnimationWithPlus(impactRefs.carePackagesDispensed.current, 500, fixedDuration);
