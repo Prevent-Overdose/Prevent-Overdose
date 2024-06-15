@@ -8,7 +8,7 @@ import './Resources.css'
 
 const Resources = ()=>{
     useEffect(()=>{
-        document.title = "Resources"
+        document.title = "Resources | Prevent Overdose Inc."
     },[])
     return(
         

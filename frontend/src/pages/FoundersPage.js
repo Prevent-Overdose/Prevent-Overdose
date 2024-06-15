@@ -13,7 +13,7 @@ const FoundersPage = () => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        document.title = "Founders - Prevent Overdose Inc.";
+        document.title = "Founders | Prevent Overdose Inc.";
         
         // Check if the screen width is less than or equal to 480px (mobile view)
         const handleResize = () => {

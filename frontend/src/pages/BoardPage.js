@@ -15,7 +15,7 @@ import countyDirector3 from '../images/Khanheadshot.png';
 const BoardPage = () => {
 
     useEffect(()=>{
-        document.title = 'Meet the Board - Prevent Overdose Inc.'
+        document.title = 'Meet the Board | Prevent Overdose Inc.'
     },[])
 
     const [dropdowns, setDropdowns] = useState({
