@@ -61,6 +61,10 @@ const narcanSchema = new Schema({
         type: Number,
         required: true
     },
+    monthly:{
+        type: Boolean,
+        required: true
+    },
     createdAt: {
         type: String,
         required: false

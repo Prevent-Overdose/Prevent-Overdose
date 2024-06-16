@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-//narcanform 
-import NarcanForm from "../components/narcanForm"
+import React, {  useState } from 'react';
 
 
 const ReportOverdose = ()=>{
