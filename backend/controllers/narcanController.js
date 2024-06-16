@@ -13,19 +13,19 @@ const getNarcan = async(req,res)=>{
 const createNarcan = async(req,res)=>{
     const {organizationName, state, county, address, phoneNumber,email, 
         boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
-        reversedOverdoses} = req.body
+        reversedOverdoses, monthly} = req.body
+
 
    
    try{
     
     const form = await Narcan.create({organizationName, state, county, address, phoneNumber,email, 
         boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
-        reversedOverdoses})
+        reversedOverdoses, monthly})
 
         
     //format date
     const formattedCreatedAt = format(form.createdAt, 'MMMM dd, yyyy hh:mm aaaa zzz', { timeZone: 'America/New_York' });
-
      
     const newRequest = {
         organizationName: form.organizationName,
@@ -39,6 +39,7 @@ const createNarcan = async(req,res)=>{
         fatalOverdoses: form.fatalOverdoses,
         nonFatalOverdoses: form.nonFatalOverdoses,
         reversedOverdoses: form.reversedOverdoses,
+        monthly: form.monthly,
         createdAt: formattedCreatedAt
     }
 

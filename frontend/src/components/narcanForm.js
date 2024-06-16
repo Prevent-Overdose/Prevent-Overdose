@@ -6,6 +6,12 @@
   import { TextField } from '@mui/material/';
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import Radio from '@mui/material/Radio';
+  import RadioGroup from '@mui/material/RadioGroup';
+  import FormControlLabel from '@mui/material/FormControlLabel';
+  import FormControl from '@mui/material/FormControl';
+  import FormLabel from '@mui/material/FormLabel';
+
 
   
   const NarcanForm = () => {
@@ -19,16 +25,18 @@
       boxesOfNarcan: '',
       availability: [
         { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null }
+        //{ date: null, startTime: null, endTime: null },
+        //{ date: null, startTime: null, endTime: null }
       ],
       fatalOverdoses: '',
       nonFatalOverdoses: '',
       reversedOverdoses: '',
+      monthly: false
     });
     const [error, setError] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [isFormValid, setIsFormValid] = useState(true);
+    const [pick, setPick] = useState('');
   
     const formatPhoneNumber = (value) => {
       if (!value) return value;
@@ -63,6 +71,13 @@
       }
     };
 
+  const handlePick = (event)=>{
+    const {value} = event.target
+    setPick(value)
+    setFormData({...formData, monthly: true})
+    
+  }
+
   const handleDateChange = (index, date) => {
     const newAvailability = formData.availability.map((avail, i) => {
       if (i === index) {
@@ -72,6 +87,7 @@
     });
     setFormData({ ...formData, availability: newAvailability });
   };
+
 
   const handleTimeChange = (index, time, timeType) => {
     const newAvailability = formData.availability.map((avail, i) => {
@@ -111,12 +127,12 @@
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    /*
     if(formData.availability.length < 3){
       setError('Please provide at least 3 dates of availability.')
       return
     }
-    
+    */
    if(!isFormValid){
       setError('Please enter valid numbers in the numeric fields.');
       return;
@@ -127,11 +143,18 @@
         return;
       }
     }
+    
+    if(!pick){
+      setError('Please select an option for monthly deliveries.')
+      return
+    }
 
-    const formattedFormData = {
-      ...formData,
-      availability: formatAvailabilityForBackend(formData.availability),
+    const formattedFormData = {...formData, 
+      availability: formatAvailabilityForBackend(formData.availability)
+    
     };
+
+    
 
     try {
       const response = await fetch("https://prevent-overdose-github-io.onrender.com/api/narcan", {
@@ -145,7 +168,7 @@
         toast.error("Failed to submit the form.");
       }
       else {
-        toast.success("Sucessfully requested Narcan!")
+        toast.success("Successfully requested Narcan!")
       }
       const result = await response.json();
       console.log('Form submitted successfully:', result);
@@ -159,12 +182,14 @@
         boxesOfNarcan: '',
         availability: [
           { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null }
+          //{ date: null, startTime: null, endTime: null },
+          //{ date: null, startTime: null, endTime: null }
         ],
         fatalOverdoses: '',
         nonFatalOverdoses: '',
         reversedOverdoses: '',
+        monthly: 0
+
       });
       setError(null);
       setSubmitted(true);
@@ -369,6 +394,30 @@
             style={{ background: 'black' }}
           />
         </div>
+        <br />
+        
+        <span>Receive monthly deliveries?</span>
+        <div>
+        <FormControl >
+          <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
+          <RadioGroup className='options'
+            row
+            aria-labelledby="demo-controlled-radio-buttons-group"
+            name="controlled-radio-buttons-group"
+            value={pick}
+            onChange={handlePick}
+            
+            >
+            <FormControlLabel  value="yes" control={<Radio />} label="Yes"  sx={{
+              '& .MuiSvgIcon-root': {
+                fontSize: 20,}, }} />
+            <FormControlLabel  value="no" control={<Radio />} label="No" sx={{
+              '& .MuiSvgIcon-root': {
+                fontSize: 20,}, }} />
+          </RadioGroup>
+        </FormControl>
+        </div>
+
         <div className="submit-button">
           <button type="submit" >Submit Request</button>
         </div>
