@@ -233,6 +233,7 @@ html, body {
 
     .team-section {
         margin-top: 20px; /* Add margin to move content down */
+        margin: 30px;
     }
 }
 
