@@ -45,11 +45,11 @@ const BoardPage = () => {
 
     return (
         <div className="board-container">
-            <h1 className="board-heading" style={{fontFamily:'Economica'}}>MEET THE BOARD</h1>
+            <h1 className="board-heading" style={{fontFamily:'Bebas Neue'}}>MEET THE BOARD</h1>
 
             <div className="team-section" id="founders">
                 <button className="team-heading" onClick={() => toggleDropdown('founders')}>
-                    Co-Executive Directors
+                    Executives
                 </button>
                 {dropdowns.founders && (
                     <div className="box-container">
@@ -63,6 +63,7 @@ const BoardPage = () => {
                             <div className="additional-image-container">
                                 <h3 className="name">COLE OLSON</h3>
                                 <div className="position">Co-Executive Director</div>
+                                <div className="position">Alachua County Director</div>
                             </div>
                         </div>
                         <div className="box-wrapper">
@@ -75,6 +76,19 @@ const BoardPage = () => {
                             <div className="additional-image-container">
                                 <h3 className="name">SAMAY SHAH</h3>
                                 <div className="position">Co-Executive Director</div>
+                            </div>
+                        </div>
+                        <div className="box-wrapper">
+                            <div className="box">
+                                <img src={countyDirector3} alt="County Director 3" />
+                                <div className="description">
+                                    After losing a close friend to an opioid overdose I was motivated to work to address the problem of overdoses within our community and provide support to those struggling with addiction.
+                                </div>
+                            </div>
+                            <div className="additional-image-container">
+                                <h3 className="name">SAIFULLAH KHAN</h3>
+                                <div className="position">Chief Financial Officer</div>
+                                <div className="position">Hillsborough County Director</div>
                             </div>
                         </div>
                     </div>
@@ -111,18 +125,7 @@ const BoardPage = () => {
                                 <div className="position">Pinellas County Director</div>
                             </div>
                         </div>
-                        <div className="box-wrapper">
-                            <div className="box">
-                                <img src={countyDirector3} alt="County Director 3" />
-                                <div className="description">
-                                    After losing a close friend to an opioid overdose I was motivated to work to address the problem of overdoses within our community and provide support to those struggling with addiction.
-                                </div>
-                            </div>
-                            <div className="additional-image-container">
-                                <h3 className="name">SAIF KHAN</h3>
-                                <div className="position">Hillsborough County Director</div>
-                            </div>
-                        </div>
+
                     </div>
                 )}
             </div>
