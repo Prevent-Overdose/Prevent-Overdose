@@ -7,8 +7,6 @@ import founder2Title from '../images/Samay Shah CG.png';
 import founder3 from '../images/Khanheadshot.png';
 import founder3Title from '../images/Saif Khan CG.png';
 
-import videoFile from '../images/Black Silk Background.mp4'; // Import the video file
-
 const FoundersPage = () => {
     const [isMobile, setIsMobile] = useState(false);
 
@@ -27,15 +25,8 @@ const FoundersPage = () => {
 
     return (
         <div className="founders-page-container">
-            {isMobile ? (
-                <div className="mobile-background" style={{ backgroundColor: 'black'}}></div>
-            ) : (
-                <video autoPlay loop muted className="founders-video">
-                    <source src={videoFile} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            )}
-            <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Economica'}}>FOUNDERS</h1>
+
+            <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Bebas Neue'}}>FOUNDERS</h1>
             <p>
             Founded by three passionate University of South Florida undergraduates 
              Prevent Overdose embodies the vision of empowering students to enact
@@ -55,8 +46,8 @@ const FoundersPage = () => {
                         </div>
                     </div>
                     <div className="additional-image-container">
-                            <img src={founder1Title} alt="Additional Image 1" className="additional-image" /> {/* Additional image below the first box */}
-                            <h3 style={{fontSize: '17px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
+                            <h2>COLE OLSON</h2>
+                            <h3 style={{fontSize: '12px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
                         <div className="position-container">
                             <a href="https://www.linkedin.com/in/cole-olson-47b881262/" target="_blank " class="fa fa-linkedin">
                             </a>
@@ -72,8 +63,8 @@ const FoundersPage = () => {
                         </div>
                     </div>
                     <div className="additional-image-container">
-                        <img src={founder2Title} alt="Additional Image 2" className="additional-image" /> {/* Additional image below the second box */}
-                        <h3 style={{fontSize: '17px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
+                        <h2>Samay Shah</h2>
+                        <h3 style={{fontSize: '12px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
                         <div className="position-container">
                             <a href="https://www.linkedin.com/in/samay-shah-9946011b6/" target="_blank " class="fa fa-linkedin">
                             </a>
@@ -89,8 +80,8 @@ const FoundersPage = () => {
                         </div>
                     </div>
                     <div className="additional-image-container">
-                        <img style={{width: '1000px', height: '20px'}}src={founder3Title} alt="Additional Image 3" className="additional-image" /> {/* Additional image below the third box */}
-                        <h3 style={{fontFamily: 'nunito sans', fontSize: '17px'}}>Chief Financial Officer</h3>
+                        <h2>SAIFULLAH KHAN</h2>
+                        <h3 style={{fontFamily: 'nunito sans', fontSize: '12px'}}>Chief Financial Officer</h3>
                         <div className="position-container">
                             <a href="https://www.linkedin.com/in/saif-khan-80395630a/" target="_blank " class="fa fa-linkedin">
                             </a>

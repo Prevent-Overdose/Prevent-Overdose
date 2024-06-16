@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /* BEBAS NEUE */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap'); /* NUNITO SANS CONDENSED */
+
 .founders-page-container {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh; 
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: 'Bebas Neue', sans-serif;
     overflow: hidden; /* Remove scroll feature */
     position: relative; /* Ensure absolute positioned children are contained */
 
@@ -14,25 +17,12 @@ html, body {
     height: 100%;
 }
 
-.founders-page-container video {
-    position: absolute; /* Set position to absolute */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 210%;
-    object-fit: cover; /* Ensure the video covers the entire container */
-    z-index: -1; /* Set z-index to keep the video in the background */
-    object-fit: cover;
-
-
-}
-
 .founders-page-container p {
     margin-left: 350px; 
     margin-right: 350px; 
     text-align: center;
-    font-family: 'nunito sans';
-    font-size: 20px;
+    font-family: 'nunito sans', sans-serif;
+    font-size: 17px;
 }
 
 .position-container {
@@ -90,7 +80,7 @@ html, body {
     padding: 10px; 
     box-sizing: border-box;
     text-align: center;
-    font-family: 'nunito sans';
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .box:hover .description {
@@ -102,6 +92,10 @@ html, body {
     margin: 0 10px; 
     margin-bottom: 10px; /* Add space between position title and LinkedIn icon */
 
+}
+
+.additional-image-container h2, .additional-image-container h3 {
+    margin: 0;
 }
 
 .linkedin-logo {
@@ -144,7 +138,7 @@ html, body {
     .founders-page-container{
         overflow-y: scroll; /* Enable vertical scrolling */
         -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-        font-family: 'Economica';
+        font-family: 'Bebas Neue';
         background-color: black; /* Set background color to black */
 
     }

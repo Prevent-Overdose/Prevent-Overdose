@@ -20,32 +20,23 @@ const AboutUs = () => {
         };
     }, []);
 
+    const openApplyForm = () => {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSchJX9mrvrWZnGEPkzjvFO7bW55HNFMbUMwDsSF9qbmeL_fRQ/viewform?usp=sf_link", "_blank");
+    };
+
     return (
-        <div className="AboutUs-page">
-            {isMobile ? (
-                <div className="mobile-image-container" style={{ backgroundImage: `url(${LeadershipTitle})` }}></div>
-            ) : (
-                <video autoPlay loop muted className="leadership-video">
-                    <source src={videoFile} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            )}
-            
+        <div className="AboutUs-page">            
             <div className="leadership-image-container">
-                <Link to="/founders" className="button-left">FOUNDERS</Link> {/* Update button to Link */}
+                <Link to="/founders" className="button-left">FOUNDERS</Link>
                 <h1>LEADERSHIP</h1>
-                <Link to="/board" className="button-right">BOARD</Link> {/* Update button to Link */}
+                <Link to="/board" className="button-right">BOARD</Link> 
             </div>
-            <p style={{ fontSize: '23px', marginTop: '-20px', fontFamily: 'nunito sans'}}>Empowering Change: Student Leaders Committed to the Equitable <br /> Distribution of Harm Reduction Service Nationwide</p>
+            <p style={{ fontSize: '23px', marginTop: '40px', fontFamily: 'nunito sans'}}>Empowering Change: Student Leaders Committed to the Equitable <br /> Distribution of Harm Reduction Service Nationwide</p>
             
             {/* Conditionally render the apply image container */}
-            {!isMobile && (
                 <div className="apply-image-container">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSchJX9mrvrWZnGEPkzjvFO7bW55HNFMbUMwDsSF9qbmeL_fRQ/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">
-                        <img src={applyToJoin} alt="Apply to Join" className="apply-image" />
-                    </a>
+                        <img src={applyToJoin} alt="Apply to Join" className="apply-image" onClick={openApplyForm} />
                 </div>
-            )}
         </div>
     );
 };

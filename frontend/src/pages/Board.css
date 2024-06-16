@@ -17,7 +17,7 @@ html, body {
 
 .board-heading {
     text-align: center;
-    font-size: 55px;
+    font-size: 65px;
     margin-top: 50px;
     background: linear-gradient(to bottom, #000000, #690078);
     -webkit-background-clip: text;
@@ -26,27 +26,33 @@ html, body {
 }
 
 .team-section {
-    border-radius: 50px;
-    padding: 10px 20px; 
+    text-align: center;
+    margin-top: 10px; /* Adjust the top margin as needed */
+    padding-top: 20px; /* Add some padding to push the content down */
+    position: relative;
 }
 
 .team-heading {
-    background-color: #E6E6FA; /* Light purple color */
-    color: #000000;
-    font-size: 24px;
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: white;
     border: none;
-    padding: 10px 20px;
+    font-size: 30px;
     cursor: pointer;
-    display: block;
-    margin: 0 auto 20px;
-    text-align: center;
-    width: 200px; 
-    border-radius: 5px;
-    
+    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
+    box-shadow: 
+        3px 3px 8px rgba(106, 0, 244, 0.7), 
+        5px 5px 15px rgba(146, 38, 240, 0.6), 
+        7px 7px 20px rgba(255, 95, 168, 0.5); /* Larger gradient shadow shifted right */
 }
 
 .team-heading:hover {
-    color: rgb(99, 99, 99); /* Darker shade of light purple on hover */
+    color: white; /* Keep the text color white */
+    box-shadow: 
+        3px 3px 8px rgba(106, 0, 244, 0.7), 
+        5px 5px 15px rgba(146, 38, 240, 0.6), 
+        7px 7px 20px rgb(247, 246, 246); /* Larger gradient shadow shifted right */
 }
 
 .box-container {
@@ -106,15 +112,16 @@ html, body {
 .name {
     font-weight: bold;
     margin-top: 50px;
-    font-family:'nunito sans';
+    font-family: 'nunito sans', sans-serif;
+    font-size: 27px;
 
 }
 
 .position {
     font-style: italic;
-    font-size: smaller;
+    font-size: 10px;
     margin-top: 1px;
-    font-family:'nunito sans';
+    font-family: 'nunito sans', sans-serif;
 
 }
 
@@ -176,13 +183,39 @@ html, body {
 }
 
 
+.button {
+    position: relative;
+    padding: 5px 10px;
+    background-color: transparent;
+    top: 350px;
+    right: 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
+    text-decoration: none;
+    font-size: 45px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.01); /* Drop shadow */
+    z-index: 1; /* Ensure the button content is above the background image */
+    overflow: visible; /* Ensure the shadow is visible */
+}
+
+.button:hover {
+    color: white; /* Keep the text color white */
+    box-shadow: 
+        3px 3px 8px rgba(106, 0, 244, 0.7), 
+        5px 5px 15px rgba(146, 38, 240, 0.6), 
+        7px 7px 20px rgba(255, 95, 168, 0.5); /* Larger gradient shadow shifted right */
+}
+
 
 /* Styles for mobile screens */
 @media (max-width: 600px) {
     .box-container {
         flex-direction: column; 
-        align-items: center; 
-
+        align-items: center;
+        padding-top: 20px; /* Add padding to move content down */
     }
 
     .box {
@@ -195,6 +228,11 @@ html, body {
     .board1-container {
         display: flex;
         justify-content: center;
+        padding-top: 20px; /* Add padding to move content down */
+    }
+
+    .team-section {
+        margin-top: 20px; /* Add margin to move content down */
     }
 }
 
