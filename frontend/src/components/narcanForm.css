@@ -15,6 +15,10 @@
 .formcontainer h4, .form-info ,.confirmation-message {
 text-align: center;
 }
+
+.formcontainer .form-info{
+  margin-bottom: 0px;
+}
 .formcontainer h4{
   font-size: larger;
 }

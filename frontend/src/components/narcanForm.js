@@ -25,13 +25,13 @@
       boxesOfNarcan: '',
       availability: [
         { date: null, startTime: null, endTime: null },
-        //{ date: null, startTime: null, endTime: null },
-        //{ date: null, startTime: null, endTime: null }
+        { date: null, startTime: null, endTime: null },
+        { date: null, startTime: null, endTime: null }
       ],
       fatalOverdoses: '',
       nonFatalOverdoses: '',
       reversedOverdoses: '',
-      monthly: false
+      monthly_narcan: false
     });
     const [error, setError] = useState(null);
     const [submitted, setSubmitted] = useState(false);
@@ -72,10 +72,8 @@
     };
 
   const handlePick = (event)=>{
-    const {value} = event.target
-    setPick(value)
-    setFormData({...formData, monthly: true})
-    
+    setPick(event.target.value)
+    setFormData({...formData, monthly_narcan: event.target.value === "yes"})
   }
 
   const handleDateChange = (index, date) => {
@@ -127,12 +125,12 @@
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    /*
+    
     if(formData.availability.length < 3){
       setError('Please provide at least 3 dates of availability.')
       return
     }
-    */
+    
    if(!isFormValid){
       setError('Please enter valid numbers in the numeric fields.');
       return;
@@ -166,6 +164,7 @@
       });
       if (!response.ok) {
         toast.error("Failed to submit the form.");
+        
       }
       else {
         toast.success("Successfully requested Narcan!")
@@ -182,17 +181,18 @@
         boxesOfNarcan: '',
         availability: [
           { date: null, startTime: null, endTime: null },
-          //{ date: null, startTime: null, endTime: null },
-          //{ date: null, startTime: null, endTime: null }
+          { date: null, startTime: null, endTime: null },
+          { date: null, startTime: null, endTime: null }
         ],
         fatalOverdoses: '',
         nonFatalOverdoses: '',
         reversedOverdoses: '',
-        monthly: 0
+        monthly_narcan: false
 
       });
       setError(null);
       setSubmitted(true);
+      setPick('');
     } catch (error) {
       setError(error.message);
     }
@@ -399,10 +399,10 @@
         <span>Receive monthly deliveries?</span>
         <div>
         <FormControl >
-          <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
+          <FormLabel id="radio-buttons"></FormLabel>
           <RadioGroup className='options'
             row
-            aria-labelledby="demo-controlled-radio-buttons-group"
+            aria-labelledby="radio-buttons-group"
             name="controlled-radio-buttons-group"
             value={pick}
             onChange={handlePick}
