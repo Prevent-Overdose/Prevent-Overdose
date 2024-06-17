@@ -15,7 +15,6 @@ const createNarcan = async(req,res)=>{
         boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
         reversedOverdoses, monthly_narcan} = req.body
 
-    console.log(req.body)
    
    try{
     
