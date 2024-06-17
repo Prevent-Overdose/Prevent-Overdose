@@ -61,7 +61,7 @@ const narcanSchema = new Schema({
         type: Number,
         required: true
     },
-    monthly:{
+    monthly_narcan:{
         type: Boolean,
         required: true
     },
