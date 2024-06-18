@@ -131,6 +131,7 @@
       return
     }
     
+
    if(!isFormValid){
       setError('Please enter valid numbers in the numeric fields.');
       return;
@@ -354,11 +355,11 @@
         </div>
         <br />
         <div>
-          <span>How many fatal overdoses have you seen in the past month?</span>
+          <span>How many overdoses have you reversed with Narcan in the past month?</span>
           <TextField
             type="number"
-            name="fatalOverdoses"
-            value={formData.fatalOverdoses}
+            name="reversedOverdoses"
+            value={formData.reversedOverdoses}
             placeholder=" Enter number"
             onChange={handleChange}
             min="0"
@@ -366,6 +367,7 @@
             style={{ background: 'black' }}
           />
         </div>
+        
         <br />
         <div>
           <span>How many non-fatal overdoses have you seen in the past month?</span>
@@ -382,11 +384,11 @@
         </div>
         <br />
         <div>
-          <span>How many overdoses have you reversed with Narcan in the past month?</span>
+          <span>How many fatal overdoses have you seen in the past month?</span>
           <TextField
             type="number"
-            name="reversedOverdoses"
-            value={formData.reversedOverdoses}
+            name="fatalOverdoses"
+            value={formData.fatalOverdoses}
             placeholder=" Enter number"
             onChange={handleChange}
             min="0"
