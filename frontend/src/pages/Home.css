@@ -661,24 +661,21 @@ html, body { /* Reset the default body styles */
   .statistics-left {
     margin-left: 0;
     text-align: center;
-    display: flex;
-    flex-direction: row; /* Change to row direction for side-by-side layout */
-    justify-content: space-around;
-    width: 100%;
+    flex-direction: column; /* Revert to column direction for stacked layout */
   }
 
   .total-overdoses, .opioid-overdoses {
-    font-size: 1.5em;
-    margin: 10px;
+    font-size: 2em; /* Match impact stats font size */
+    margin: 10px 0;
   }
 
   .total-overdoses h3, .opioid-overdoses h3 {
-    font-size: 2em;
+    font-size: 3.5em; /* Match impact stats font size */
     margin: 0 10px;
   }
 
   .total-overdoses p, .opioid-overdoses p {
-    font-size: 1em;
+    font-size: 1.5em; /* Match impact stats font size */
     margin: 0 10px;
   }
 
