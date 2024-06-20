@@ -733,24 +733,15 @@ html, body { /* Reset the default body styles */
 
   /* LETHAL STATS SECTION */
 
-  .conveyor {
-    height: 350px; 
-  }
 
+  .lethal-stats-section {
+    margin-bottom: -10px;
+  }
   .stat::before {
     width: 100%; 
   }
 
   /* MISSION SECTION */
-
-  .mission-header::before {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 1px;
-    background-color: white;
-    margin: 0 auto 75px auto;
-  }
 
   .mission-section {
     flex-direction: column;
