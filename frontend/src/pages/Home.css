@@ -734,11 +734,11 @@ html, body { /* Reset the default body styles */
   /* LETHAL STATS SECTION */
 
   .conveyor {
-    height: 300px; /* Increase height for mobile view if needed */
+    height: 300px; 
   }
 
   .stat::before {
-    width: 100%; /* Adjust width to cover the stat exactly */
+    width: 100%; 
   }
 
   /* MISSION SECTION */
