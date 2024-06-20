@@ -657,6 +657,10 @@ html, body { /* Reset the default body styles */
     flex-direction: column;
     align-items: center;
   }
+  
+  .total-overdoses, .opioid-overdoses {
+    font-size: 2em;
+  }
 
   .statistics-left {
     margin-left: 0;
@@ -667,9 +671,6 @@ html, body { /* Reset the default body styles */
     width: 50%;
   }
   
-  .total-overdoses, .opioid-overdoses {
-    font-size: 3em;
-  }
 
   .overdose-chart {
     margin: 20px 0;
