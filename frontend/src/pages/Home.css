@@ -599,10 +599,6 @@ html, body { /* Reset the default body styles */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
-
-
-
-
 .arrow {
   opacity: 0;
 }
@@ -672,7 +668,7 @@ html, body { /* Reset the default body styles */
   }
   
   .total-overdoses, .opioid-overdoses {
-    font-size: 1.5em;
+    font-size: 3em;
   }
 
   .overdose-chart {
@@ -736,6 +732,9 @@ html, body { /* Reset the default body styles */
 
   .lethal-stats-section {
     margin-bottom: -10px;
+  }
+  .lethal-dose {
+    margin-top: 0px;
   }
   .stat::before {
     width: 100%; 
