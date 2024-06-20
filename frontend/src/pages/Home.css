@@ -223,7 +223,7 @@ html, body { /* Reset the default body styles */
 }
 
 .conveyor {
-  height: 250px;
+  height: 300px;
   margin: auto;
   position: relative;
   width: 100%; 
@@ -734,7 +734,7 @@ html, body { /* Reset the default body styles */
   /* LETHAL STATS SECTION */
 
   .conveyor {
-    height: 300px; 
+    height: 350px; 
   }
 
   .stat::before {
