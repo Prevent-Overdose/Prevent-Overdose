@@ -662,23 +662,26 @@ html, body { /* Reset the default body styles */
     margin-left: 0;
     text-align: center;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row; /* Change to row direction for side-by-side layout */
     justify-content: space-around;
     width: 100%;
   }
 
   .total-overdoses, .opioid-overdoses {
-    font-size: 2em; 
+    font-size: 2em; /* Consistent font size */
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text and numbers */
   }
 
   .total-overdoses h3, .opioid-overdoses h3 {
-    font-size: 2.1em; 
+    font-size: 2.5em; /* Consistent font size */
     margin: 0 10px;
   }
 
   .total-overdoses p, .opioid-overdoses p {
-    font-size: 1.0em;
+    font-size: 1.2em; /* Consistent font size */
     margin: 0 10px;
   }
 
@@ -692,7 +695,7 @@ html, body { /* Reset the default body styles */
     margin-top: 20px;
     max-width: 100%;
   }
-
+  
   /* DRUG INVOLVEMENT SECTION */
 
   .drug-involvement-section {
