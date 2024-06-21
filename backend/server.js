@@ -9,6 +9,7 @@ const narcanRoutes = require('./routes/narcanRoutes')
 const reductionRoutes = require('./routes/reductionRoutes')
 const reporting = require('./sms/reporting')
 const dummyRoutes = require('./routes/dummyRoutes')
+const refillRoutes = require('./routes/refillRoutes')
 
 //express app
 const app = express()
@@ -26,6 +27,7 @@ app.use('/api/narcan', narcanRoutes)
 app.use('/api/otherforms', reductionRoutes)
 app.use('/api/reporting', reporting)
 app.use('/api/dummy', dummyRoutes)
+app.use('/api/refill',refillRoutes)
 
 //connect to db 
 mongoose.connect(process.env.MONGO_URI)
