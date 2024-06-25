@@ -20,7 +20,7 @@ const Navbar = ({ isSideNavOpen, toggleSideNav }) => {
             </button>
           </div>
           <Link to="/" className="navbar-logo">
-            <img src="/preventOD white logo.png" alt="PreventOD Logo" />
+            <img src="/preventOD logo.png" alt="PreventOD Logo" />
           </Link>
         </div>
         <nav className="navbar-links">
