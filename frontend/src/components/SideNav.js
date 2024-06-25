@@ -27,7 +27,7 @@ const Sidenav = ({ isOpen, toggle }) => {
     <div ref={sidenavRef} className={`sidenav ${isOpen ? 'open' : ''}`}>
       <div className="sidenav-header">
         <Link to="/" className="sidenav-logo" onClick={toggle}>
-          <img src="/preventOD white logo.png" alt="PreventOD Logo" />
+          <img src="/preventOD logo.png" alt="PreventOD Logo" />
         </Link>
         <button className="closebtn" onClick={toggle}>×</button>
       </div>
