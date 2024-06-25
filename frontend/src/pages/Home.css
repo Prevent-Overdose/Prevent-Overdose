@@ -672,12 +672,12 @@ html, body { /* Reset the default body styles */
   }
 
   .total-overdoses h3, .opioid-overdoses h3 {
-    font-size: 2.2em; 
+    font-size: 2.1em; 
     margin: 0 10px;
   }
 
   .total-overdoses p, .opioid-overdoses p {
-    font-size: 1.2em;  
+    font-size: 1.1em;  
     margin: 0 10px;
   }
 
