@@ -144,19 +144,10 @@
   .navbar-request-narcan2 img {
       color: #ff23fd;
       display: block;
-      width: 240px;
-      padding: 0;
-      margin: 0 auto;
-      clip-path: inset(20% 0 0 0); /* Crop the top 20% of the image */
-      margin-top: -60px; /* Adjust top margin to reduce space */
-      height: 240px;
-      max-width: 500px; /* Set a max width to prevent scaling beyond this size */
-      transition: none;
-      position: absolute;
-
-      
-
-
+      width: 175px;
+      margin-top: -40px; /* Adjust top margin to reduce space */
+      margin-left: -10px;
+      height: 200px;
     }
 
     .sidenav a.navbar-request-narcan2 {
