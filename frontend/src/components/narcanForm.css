@@ -18,18 +18,23 @@ text-align: center;
 
 .formcontainer .form-info{
   margin-bottom: 0px;
-}
-.formcontainer h4{
   font-size: larger;
 }
+.formcontainer h4{
+  font-size: x-large;
+}
 
 
 
-form .MuiInputBase-input {
+.formcontainer .MuiInputBase-input {
   border-bottom: 2px solid white;
   color: #ff23fd;
   padding: 0;
 
+}
+
+a {
+  color: white ;
 }
 
 .formcontainer span{
@@ -78,6 +83,8 @@ form .MuiInputBase-input {
   width: 60%;
 }
 
+
+ 
 
 
  .submit-button{

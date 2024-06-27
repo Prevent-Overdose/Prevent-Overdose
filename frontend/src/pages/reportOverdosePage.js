@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { TextField,Tooltip, IconButton } from '@mui/material/';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+
+import './reportOverdose.css'
 
 
 const ReportOverdose = ()=>{
@@ -13,41 +17,72 @@ const ReportOverdose = ()=>{
     return (
         <div>
             <div className="container">
-            <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Bebas neue, Lucida Console, Courier New, monospace'}}>MAKE A DIFFERENCE</h1>
-            <div className="p-3 shadow rounded border" style={{ backgroundColor: '#343a40', border: '1px solid #ccc' }}>
-                <label for="basic-url" class="form-label" style={{fontFamily: 'Bebas Neue', fontSize: 25}}>How many fatal overdoses have you seen in the past month?</label>
-                <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon3" style={{ backgroundColor: '#dee2e6' }}>Number of Fatal Overdoses</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
-                </div>
+            <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '30px', fontFamily: 'Bebas neue, Lucida Console, Courier New, monospace'}}>MAKE A DIFFERENCE</h1>
+            <div >
 
-                <label for="basic-url" class="form-label" style={{fontFamily: 'Bebas Neue', fontSize: 25}}>How many non-fatal overdoses have you seen in the past month?</label>
-                <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon3" style={{ backgroundColor: '#dee2e6' }}>Number of Non-Fatal Overdoses</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+                <div className="preamble">Our overdose reporting form is a three 
+                    question monthly survey sent to participating 
+                    individuals's phone numbers on the 10th of each month. 
+                    We are using this information to better distribute services 
+                    equitably in our own communities. <br /> <br />Once you fill out 
+                    this online form the questions will be sent to your phone number.
                 </div>
-
-                <label for="basic-url" class="form-label" style={{fontFamily: 'Bebas Neue', fontSize: 25}}>How many overdoses have you reversed with our Narcan in the past month?</label>
-                <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon3" style={{ backgroundColor: '#dee2e6' }}>Number of Overdoses Reversed</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+                <br />
+                
+                <div>
+                    <span>Provide an address of the nearest park in your area: </span>
+                    <Tooltip title="Nearest park location is a way
+                     to maintain reporter anonymity and give nonprofit 
+                     organizations location-specific information to 
+                     help communities in-need.">
+                        <IconButton>
+                            <HelpOutlineIcon fontSize="small" className='custom-icon'/>
+                        </IconButton>
+                    </Tooltip>
+                    
+                    <br />
+                    <TextField
+                        type="text"
+                        name="address"
+                        //value={}
+                        placeholder=" Enter address"
+                        //onChange={}
+                        required
+                        style={{ background: 'black' }}
+                    />
                 </div>
-
-                <label for="basic-url" class="form-label" style={{fontFamily: 'Bebas Neue', fontSize: 25}}>Please provide your zip code so we can better understand the geographic distribution of overdose incidents.</label>
-                <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon3" style={{ backgroundColor: '#dee2e6' }}>Zip Code</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+            
+                <div>
+                <span>Zipcode:</span>
+                <br />
+                <TextField
+                    type="text"
+                    name="address"
+                    //value={}
+                    placeholder=" Enter zipcode"
+                    //onChange={}
+                    required
+                    style={{ background: 'black' }}
+                />
                 </div>
-
-                <label for="basic-url" class="form-label" style={{fontFamily: 'Bebas Neue', fontSize: 25}}>Enter your phone number if you would like to sign up for monthly overdose reporting surveys.</label>
-                <div class="input-group mb-3">
-                <div class="input-group-text" style={{ backgroundColor: '#dee2e6' }}>
-                    <input class="form-check-input mt-0" type="checkbox" value="" onChange={() => setIsDisabled(!isDisabled)}/>
+                <div>
+                <span>What is your phone number? :</span>
+                <br />
+                <TextField
+                    type="text"
+                    name="phoneNumber"
+                    //value={}
+                    placeholder=" Enter phone number"
+                    //onChange={}
+                    required
+                    style={{ background: 'black' }}
+                />
                 </div>
-                <span class="input-group-text" id="basic-addon3" style={{ backgroundColor: '#dee2e6' }}>Phone Number</span>
-                <input type="text" class="form-control" id="basic-url" disabled={isDisabled}/>
+               
+                <br />
+                <div className="submit-btn">
+                    <button type="submit" class="btn btn-dark" >Submit</button>
                 </div>
-                <button type="submit" class="btn btn-dark">Submit</button>
             </div>
             
             </div>
