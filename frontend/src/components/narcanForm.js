@@ -11,6 +11,8 @@
   import FormControlLabel from '@mui/material/FormControlLabel';
   import FormControl from '@mui/material/FormControl';
   import FormLabel from '@mui/material/FormLabel';
+  import Checkbox from '@mui/material/Checkbox';
+
 
 
   
@@ -37,6 +39,7 @@
     const [submitted, setSubmitted] = useState(false);
     const [isFormValid, setIsFormValid] = useState(true);
     const [pick, setPick] = useState('');
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
   
     const formatPhoneNumber = (value) => {
       if (!value) return value;
@@ -48,6 +51,10 @@
       }
       return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
     };
+
+    const handleTermsChange = (event) => {
+      setAgreedToTerms(event.target.checked);
+  };
   
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -126,6 +133,10 @@
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    if(!agreedToTerms){
+      setError('Please agree to Terms of Service')
+      return
+    }
     if(formData.availability.length < 3){
       setError('Please provide at least 3 dates of availability.')
       return
@@ -412,13 +423,23 @@
             >
             <FormControlLabel  value="yes" control={<Radio />} label="Yes"  sx={{
               '& .MuiSvgIcon-root': {
-                fontSize: 20,}, }} />
+                fontSize: 18,}, }} />
             <FormControlLabel  value="no" control={<Radio />} label="No" sx={{
               '& .MuiSvgIcon-root': {
-                fontSize: 20,}, }} />
+                fontSize: 18,}, }} />
           </RadioGroup>
         </FormControl>
         </div>
+
+       
+        <FormControlLabel
+          control={<Checkbox checked={agreedToTerms} onChange={handleTermsChange} />}
+          label={<span>I agree to the <a href='https://drive.google.com/file/d/1H38HhxQW_29faTN6PRfW0w8XkIPpuwDX/view' target='blank' rel="noopener noreferrer"> Terms of Service</a></span>}
+          
+          sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
+        />
+
+        
 
         <div className="submit-button">
           <button type="submit" >Submit Request</button>
