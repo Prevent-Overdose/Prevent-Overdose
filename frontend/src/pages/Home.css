@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /* BEBAS NEUE */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap'); /* NUNITO SANS CONDENSED */
-
 /* HOME PAGE BACKGROUND */
 
 .home-container {
@@ -9,7 +6,7 @@
   z-index: 0;
 }
 
-html, body { /* Reset the default body styles */
+html, body {
   margin: 0;
   padding: 0;
   background-color: black;
@@ -18,7 +15,7 @@ html, body { /* Reset the default body styles */
 
 /* HERO SECTION */
 
-.hero-section { /* Styles for the hero (opening) section */
+.hero-section {
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -35,7 +32,7 @@ html, body { /* Reset the default body styles */
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Ensure background is behind content */
+  z-index: -1;
   overflow: hidden;
 }
 
@@ -43,17 +40,17 @@ html, body { /* Reset the default body styles */
   height: 100%;
   width: 100%;
   object-fit: cover;
-  transform: translateY(12%); /* Move the video up by 20% */
+  transform: translateY(12%);
 }
 
-.motto { /* Styles for the motto text */
+.motto {
   font-size: 4.0em;
-  font-family: 'Bebas Neue', sans-serif; /* Singleweight font which doesn't have built-in bold styling */
+  font-family: 'Bebas Neue', sans-serif;
   color: white;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
-.fade-in { /* Fade-in effect for mobile */
+.fade-in {
   opacity: 0;
   animation: fadeInEffect 5s forwards;
 }
@@ -64,7 +61,7 @@ html, body { /* Reset the default body styles */
   }
 }
 
-.bold-effect { /* Provides a bold effect on the emphasized words in the motto */
+.bold-effect {
   text-shadow: 
     2px 2px 2px rgba(0,0,0,0.9), 
     4px 4px 4px rgba(0,0,0,0.8),
@@ -73,29 +70,28 @@ html, body { /* Reset the default body styles */
     10px 10px 10px rgba(0,0,0,0.5);
 }
 
-.hero-content { /* Styles for the whole hero section (motto, request button, and request prompt) */
+.hero-content {
   position: absolute;
-  top: 300px; /* Move the hero content slightly down */
+  top: 300px;
 }
 
-@keyframes fadeIn { /* Keyframes for the fade animation */
+@keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 .request-narcan img {
-  height: 200px; 
+  height: 200px;
   width: auto;
   vertical-align: middle;
-  animation: fadeIn 3s; /* Apply the fade animation */
+  animation: fadeIn 3s;
   margin-top: -80px;
   transition: filter 0.4s;
 }
 
 .request-narcan img:hover {
-  filter: brightness(2); /* Light up effect on hover */
+  filter: brightness(2);
 }
-
 
 /* OVERDOSE DATA SECTION */
 
@@ -142,7 +138,7 @@ html, body { /* Reset the default body styles */
 }
 
 .total-overdoses p, .opioid-overdoses p {
-  opacity: 0.7; /* Reduced opacity for emphasis */
+  opacity: 0.7;
 }
 
 .overdose-chart {
@@ -163,8 +159,6 @@ html, body { /* Reset the default body styles */
   color: white;
   padding: 40px 20px;
   padding-left: 100px;
-  padding-right: 100px;
-  text-align: left;
 }
 
 .drug-involvement-header {
@@ -177,38 +171,141 @@ html, body { /* Reset the default body styles */
 
 .drug-involvement-content {
   display: flex;
-  justify-content: space-between; /* Distribute space between elements */
-  align-items: flex-start; /* Align items at the top */
 }
 
 .drug-involvement-text {
-  flex: 1; /* Take up available space */
-  max-width: 50%;
+  flex: 1;;
+  text-align:center;
+  margin-left: -40px;
+
 }
 
 .drug-involvement-text p {
   font-family: 'Arial', sans-serif;
   font-size: 1.2em;
-  margin-bottom: 20px;
-  margin-left: 20px;
 }
 
-.drug-involvement-image {
-  flex: 1; /* Take up available space */
-  max-width: 50%;
-  display: flex;
-  justify-content: flex-end; /* Align image to the right */
+.bubble-chart {
+  flex: 1;
+  max-width: 60%;
   position: relative;
-  top: -150px; 
-  right: -60px; 
+  height: 550px;
+  overflow: hidden;
+  margin-top: -200px;
+  margin-bottom: 100px;
 }
 
-.drug-involvement-image img {
-  width: 95%;
-  height: auto;
-  max-width: 100%;
-  max-height: 500px;
+.bubble {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: black;
+  background-color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
+
+.bubble.opioid {
+  background-color: red;
+}
+
+.bubble.non-opioid {
+  background-color: white;
+}
+
+.bubble-name {
+  display: block;
+  font-size: 1em;
+}
+
+.bubble-number {
+  display: none; /* Initially hidden */
+  font-size: 0.8em;
+}
+
+.bubble:hover {
+  opacity: 1;
+}
+.bubble:hover .bubble-number {
+  display: flex; /* Show number on hover */
+  font-style: oblique;
+}
+
+
+.bubble:hover::after {
+  opacity: 1;
+  position: absolute;
+  bottom: -20px;
+}
+
+.bubble.fentanyl { 
+  width: 300px; 
+  height: 300px; 
+  top: 115px; 
+  left: 75px;
+  font-size: 3vw;
+}
+
+.bubble.heroin { 
+  width: 90px; 
+  height: 90px; 
+  top: 425px; 
+  left: 200px;
+  font-size: 1.0vw;
+}
+
+.bubble.oxycodone { 
+  width: 115px; 
+  height: 115px; 
+  top: 60px; 
+  left: 340px; 
+  font-size: 1.0vw;
+}
+
+.bubble.cocaine { 
+  width: 175px; 
+  height: 175px; 
+  top: 370px; 
+  left: 310px; 
+  font-size: 1.7vw;
+}
+
+.bubble.methadone { 
+  width: 60px; 
+  height: 60px; 
+  top: 100px; 
+  left: 470px; 
+  font-size: 0.8vw; 
+}
+
+.bubble.benzodiazepines { 
+  width: 110px; 
+  height: 110px; 
+  top: 0px; 
+  left: 230px; 
+  font-size: 1.0vw;
+}
+
+.bubble.psychostimulants { 
+  width: 200px; 
+  height: 200px; 
+  top: 168px; 
+  left: 400px; 
+  font-size: 1.7vw;
+}
+
+.bubble.cannabis { 
+  width: 45px; 
+  height: 45px; 
+  top: 380px; 
+  left: 490px; 
+  font-size: 0.7vw;
+}
+
 
 /* LETHAL STATS SECTION */
 
@@ -226,7 +323,7 @@ html, body { /* Reset the default body styles */
   height: 300px;
   margin: auto;
   position: relative;
-  width: 100%; 
+  width: 100%;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -247,7 +344,7 @@ html, body { /* Reset the default body styles */
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% / 2)); /* This paired with the duplicate stats allows the animation to loop seamlessly */
+    transform: translateX(calc(-100% / 2));
   }
 }
 
@@ -255,7 +352,7 @@ html, body { /* Reset the default body styles */
   height: auto;
   display: flex;
   align-items: center;
-  padding: 0 20px; 
+  padding: 0 20px;
   perspective: 100px;
   flex-direction: column;
   text-align: center;
@@ -275,7 +372,7 @@ html, body { /* Reset the default body styles */
   color: #e80f07;
   margin-bottom: 20px;
   opacity: 0.7;
-  white-space: nowrap; /* Ensure header stays on one line */
+  white-space: nowrap;
 }
 
 .lethal-dose-image img {
@@ -291,9 +388,9 @@ html, body { /* Reset the default body styles */
   content: '';
   display: block;
   width: 200px;
-  height: 2px; /* Line thickness */
+  height: 2px;
   background-color: white;
-  margin: 0 auto 10px auto; /* Center the line and add space below */
+  margin: 0 auto 10px auto;
 }
 
 .stat h2 {
@@ -312,15 +409,14 @@ html, body { /* Reset the default body styles */
 /* MISSION SECTION */
 
 .mission-section {
-  display:flex;
+  display: flex;
   background-color: #000;
   color: white;
-  background-image: url('/public/overdose_hand_ribbon.png'); 
+  background-image: url('/public/overdose_hand_ribbon.png');
   background-size: cover;
   background-position: center;
   height: 80vh;
   margin-bottom: 40px;
-  
 }
 
 .mission-left {
@@ -337,7 +433,7 @@ html, body { /* Reset the default body styles */
 }
 
 .mission-highlight {
-  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); /* Gradient colors */
+  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -347,7 +443,7 @@ html, body { /* Reset the default body styles */
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Positioning context for the text */
+  position: relative;
 }
 
 .mission-text {
@@ -359,7 +455,7 @@ html, body { /* Reset the default body styles */
   max-width: 80%;
 }
 
-/* INITIATIVES SECTION*/
+/* INITIATIVES SECTION */
 
 .initiatives-section {
   background-color: black;
@@ -375,7 +471,7 @@ html, body { /* Reset the default body styles */
 }
 
 .initiatives-highlight {
-  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); 
+  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -391,32 +487,32 @@ html, body { /* Reset the default body styles */
   max-width: 20%;
   margin: 10px;
   position: relative;
-  background-image: url('/public/city background.png'); 
-  background-size: 400%; /* Image division percentage */
-  height: 300px; /* Grid Height */
-  background-repeat: no-repeat;  /* Self explanatory */
+  background-image: url('/public/city background.png');
+  background-size: 400%;
+  height: 300px;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Center text horizontally */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   transition: transform 0.5s;
 }
 
 .initiative-1 {
-  background-position: 0% 0%; 
+  background-position: 0% 0%;
 }
 
 .initiative-2 {
-  background-position: 25% 0%; 
+  background-position: 25% 0%;
 }
 
 .initiative-3 {
-  background-position: 50% 0%; 
+  background-position: 50% 0%;
 }
 
 .initiative-4 {
-  background-position: 75% 0%; 
+  background-position: 75% 0%;
 }
 
 .initiative-5 {
@@ -427,8 +523,7 @@ html, body { /* Reset the default body styles */
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.5em;
   margin: 10px 0;
-  transition: opacity 0.7s; /* Smooth transition for opacity */
-
+  transition: opacity 0.7s;
 }
 
 .initiative-description {
@@ -453,32 +548,29 @@ html, body { /* Reset the default body styles */
   margin-bottom: 0;
 }
 
-
-
-.initiative:hover .initiative-description{
+.initiative:hover .initiative-description {
   height: 100%;
 }
 
 .initiative:hover .initiative-title {
-  opacity: 0; /* Make initiative title text disappear */
+  opacity: 0;
 }
 
 .initiative:hover {
-  transform: scale(1.05); /* Slightly increase size */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 600px) {
   .initiative-description {
-    display: none; 
+    display: none;
   }
   .initiative:hover .initiative-title {
-    opacity: 1; /* Make initiative title text disappear */
-  
+    opacity: 1;
   }
 }
 
-/* IMPACT SECTION*/
+/* IMPACT SECTION */
 
 .impact-section {
   background-color: black;
@@ -497,7 +589,7 @@ html, body { /* Reset the default body styles */
 }
 
 .impact-highlight {
-  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); 
+  background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -529,10 +621,10 @@ html, body { /* Reset the default body styles */
 .impact-number {
   font-family: 'Arial', sans-serif;
   font-size: 4em;
-  color: #ff23fd; 
+  color: #ff23fd;
   font-style: italic;
   margin-top: 15px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
 .impact-text {
@@ -576,18 +668,16 @@ html, body { /* Reset the default body styles */
   border-radius: 25px;
   border: 2px solid white;
   display: inline-block;
-  width: 175px; /* Ensures buttons have the same width */
+  width: 175px;
   text-align: center;
   transition: transform 0.3s;
-
 }
 
 .request-narcan-button {
-  margin-top: 20px; ;
+  margin-top: 20px;
   background-color: white;
   color: black;
 }
-
 
 .report-overdose-button {
   background-color: black;
@@ -595,8 +685,8 @@ html, body { /* Reset the default body styles */
 }
 
 .closing-button:hover {
-  transform: scale(1.02); /* Slightly increase size */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .arrow {
@@ -607,7 +697,7 @@ html, body { /* Reset the default body styles */
 
 @media (max-width: 768px) {
 
-  html, body { /* Reset the default body styles */
+  html, body {
     margin: 0;
     padding: 0;
     background-color: black;
@@ -617,19 +707,19 @@ html, body { /* Reset the default body styles */
   /* HERO SECTION */
 
   .hero-background {
-    display: none; /* Hide the video on mobile */
+    display: none;
   }
   
   .motto {
-    animation: fadeInEffect 4s forwards; /* Apply slower fade-in effect on mobile */
-    padding-left: 25px; /* Add left padding */
-    padding-right: 25px; /* Add right padding */
-    margin-top: 50px; /* Reduce top margin */
+    animation: fadeInEffect 4s forwards;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 50px;
   }
 
   .hero-content {
     position: absolute;
-    top: 80px; /* Reduce top space to minimize space between navbar and motto */
+    top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -637,11 +727,12 @@ html, body { /* Reset the default body styles */
 
   .request-narcan img {
     padding-top: 20px;
-    animation: fadeIn 5s; /* Apply the fade animation */
+    animation: fadeIn 5s;
     height: 250px;
   }
 
   /* OVERDOSE DATA SECTION */
+
   .overdose-data-section {
     padding: 20px 10px;
     margin-top: -10px;
@@ -662,22 +753,22 @@ html, body { /* Reset the default body styles */
     margin-left: 0;
     text-align: center;
     display: flex;
-    flex-direction: row; /* Change to row direction for side-by-side layout */
+    flex-direction: row;
     justify-content: space-around;
     width: 100%;
   }
 
   .total-overdoses, .opioid-overdoses {
-    font-size: 2em; 
+    font-size: 2em;
   }
 
   .total-overdoses h3, .opioid-overdoses h3 {
-    font-size: 2.1em; 
+    font-size: 2.1em;
     margin: 0 10px;
   }
 
   .total-overdoses p, .opioid-overdoses p {
-    font-size: 1.1em;  
+    font-size: 1.1em;
     margin: 0 10px;
   }
 
@@ -701,22 +792,22 @@ html, body { /* Reset the default body styles */
   }
 
   .drug-involvement-header {
-    font-size: 2em;
+    font-size: 2.2em;
     text-align: center;
     padding-left: 0;
   }
 
   .drug-involvement-content {
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     align-items: center;
     margin-bottom: 150px;
   }
 
   .drug-involvement-text {
-    font-size: 0.9em;
+    font-size: 0.8em;
     max-width: 100%;
     text-align: center;
-    padding: 0 10px; /* Add padding for better readability */
+    padding: 0 10px;
     margin-left: 0;
   }
 
@@ -724,58 +815,124 @@ html, body { /* Reset the default body styles */
     margin-left: 0;
   }
 
-  .drug-involvement-image {
-    max-width: 100%;
-    top: 0; /* Reset the top alignment */
-    right: 0; /* Reset the right alignment */
-    margin-top: 20px; /* Add margin to separate the text and image */
+  .bubble-chart {
+    width: 100%;
+    height: auto;
     display: flex;
-    justify-content: center; /* Center the image */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
   }
 
-  .drug-involvement-image img {
-    max-height: 400px; /* Adjust the height for mobile */
+  .bubble {
+    position: relative;
+    margin: 10px;
   }
 
+  .bubble.fentanyl {
+    width: 120px;
+    height: 120px;
+    font-size: 3vw;
+    top: auto;
+    left: auto;
+  }
+
+  .bubble.heroin {
+    width: 70px;
+    height: 70px;
+    font-size: 2vw;
+    top: auto;
+    left: auto;
+  }
+
+  .bubble.oxycodone {
+    width: 80px;
+    height: 80px;
+    font-size: 2vw;
+    top: auto;
+    left: auto;
+  }
+
+  .bubble.cocaine {
+    width: 90px;
+    height: 90px;
+    font-size: 2.5vw;
+    top: auto;
+    left: auto;
+  }
+
+  .bubble.methadone {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5vw;
+    top: auto;
+    left: auto;
+  }
+
+  .bubble.benzodiazepines {
+    width: 80px;
+    height: 80px;
+    font-size: 2vw;
+    top: auto;
+    left: auto;
+  }
+
+  .bubble.psychostimulants {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5vw;
+    top: auto;
+    left: auto;
+  }
+
+  .bubble.cannabis {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5vw;
+    top: auto;
+    left: auto;
+  }
+  
   /* LETHAL STATS SECTION */
-
 
   .lethal-stats-section {
     margin-bottom: -10px;
   }
+
   .lethal-dose {
     margin-top: 0px;
   }
+
   .stat::before {
-    width: 100%; 
+    width: 100%;
   }
 
   /* MISSION SECTION */
 
   .mission-section {
     flex-direction: column;
-    height: auto; /* Allow auto height for mobile */
-    align-items: center; /* Center align items horizontally */
-    background-position: top; /* Adjust background position if needed */
-    padding: 20px 0; /* Add padding to the section */
-    height: 30vh; /* Increase the height for mobile view */
-    background-image: none; 
+    height: auto;
+    align-items: center;
+    background-position: top;
+    padding: 20px 0;
+    height: 30vh;
+    background-image: none;
     margin-bottom: 0;
-
   }
 
   .mission-left {
-    flex: none; /* Reset flex values for stacking */
+    flex: none;
     width: 100%;
-    justify-content: center; /* Center align items horizontally */
-    padding: 10px 0; /* Adjust padding for mobile */
-    background-color: transparent; /* Remove background color */
+    justify-content: center;
+    padding: 10px 0;
+    background-color: transparent;
   }
 
   .mission-header {
     font-size: 3em;
     text-align: center;
-    padding: 10px 0; /* Add padding to separate from image */
+    padding: 10px 0;
     margin-left: 0;
     margin-top: 25px;
   }
@@ -783,15 +940,14 @@ html, body { /* Reset the default body styles */
   .mission-right {
     flex: none;
     width: 100%;
-    justify-content: center; /* Center align items horizontally */
-    padding: 10px 0; /* Adjust padding for mobile */
-   
+    justify-content: center;
+    padding: 10px 0;
   }
 
   .mission-text {
     font-size: 1.2em;
     text-align: center;
-    padding: 20px; /* Adjust padding for mobile */
+    padding: 20px;
   }
 
   /* INITIATIVES SECTION */
@@ -803,10 +959,10 @@ html, body { /* Reset the default body styles */
 
   .initiative {
     max-width: 100%;
-    width: 100%; /* Ensure consistent width for each grid */
-    margin: 10px 0; /* Adjust margin for better spacing on mobile */
-    height: auto; /* Adjust height for better fit on mobile */
-    background-size: cover; /* Adjust background size to cover the whole element */
+    width: 100%;
+    margin: 10px 0;
+    height: auto;
+    background-size: cover;
   }
 
   .initiatives-section {
@@ -819,11 +975,9 @@ html, body { /* Reset the default body styles */
 
   .initiative-description {
     font-size: 0.9em;
-    padding: 0 5px; /* Adjust padding for mobile */
+    padding: 0 5px;
   }
   
-  /* IMPACT SECTION */
-
   .initiatives-content {
     flex-direction: column;
   }
@@ -832,6 +986,8 @@ html, body { /* Reset the default body styles */
     max-width: 100%;
     margin: 20px 0;
   }
+
+  /* IMPACT SECTION */
 
   .impact-section {
     padding: 10px;
@@ -855,8 +1011,6 @@ html, body { /* Reset the default body styles */
     display: none;
   }
 
-  
-
   /* CLOSING SECTION */
 
   .closing-section {
@@ -879,36 +1033,32 @@ html, body { /* Reset the default body styles */
     height: 1px;
     background-color: white;
     margin: 0 auto 75px auto;
-    
   }
 
   .arrow {
-    position: relative; /* Ensure position context for absolutely positioned arrow */
-    display: flex; /* Enable flexbox layout */
+    position: relative;
+    display: flex;
     justify-content: center;
     width: 50px;
     height: 50px;
     cursor: pointer;
-    animation: bounce 1s infinite alternate; /* Apply bounce animation */
+    animation: bounce 1s infinite alternate;
     opacity: 1;
   }
 
 }
-  
 
 @keyframes fadeInButtonEffect {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-
-
 /* Keyframes for the bounce animation */
 @keyframes bounce {
   0% {
-      transform: translateX(0%) translateY(0); /* Start position */
+    transform: translateX(0%) translateY(0);
   }
   100% {
-      transform: translateX(0%) translateY(10px); /* End position */
+    transform: translateX(0%) translateY(10px);
   }
 }
