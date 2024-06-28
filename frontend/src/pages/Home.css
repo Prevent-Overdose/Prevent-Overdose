@@ -831,40 +831,40 @@ html, body {
   }
 
   .bubble.fentanyl {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     font-size: 3vw;
     top: auto;
     left: auto;
   }
 
   .bubble.heroin {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     font-size: 2vw;
     top: auto;
     left: auto;
   }
 
   .bubble.oxycodone {
-    width: 80px;
-    height: 80px;
+    width: 82px;
+    height: 82px;
     font-size: 2vw;
     top: auto;
     left: auto;
   }
 
   .bubble.cocaine {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     font-size: 2.5vw;
     top: auto;
     left: auto;
   }
 
   .bubble.methadone {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 1.5vw;
     top: auto;
     left: auto;
@@ -879,16 +879,16 @@ html, body {
   }
 
   .bubble.psychostimulants {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     font-size: 2.5vw;
     top: auto;
     left: auto;
   }
 
   .bubble.cannabis {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     font-size: 1.5vw;
     top: auto;
     left: auto;
