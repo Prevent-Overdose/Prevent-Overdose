@@ -17,7 +17,7 @@ const ReportOverdose = ()=>{
     return (
         <div>
             <div className="container">
-            <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '30px', fontFamily: 'Bebas neue, Lucida Console, Courier New, monospace'}}>MAKE A DIFFERENCE</h1>
+            <h1 style={{fontSize: '50px', textAlign: 'center', paddingTop: '30px', fontFamily: 'Bebas neue, Lucida Console, Courier New, monospace'}}>MAKE A DIFFERENCE</h1>
             <div >
 
                 <div className="preamble">Our overdose reporting form is a three 
