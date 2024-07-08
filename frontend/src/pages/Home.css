@@ -193,13 +193,14 @@ html, body {
   overflow: hidden;
   margin-top: -200px;
   margin-bottom: 100px;
+  transform: scale(0.9);
 }
 
 .bubble {
   position: absolute;
   display: flex;
   flex-direction: column;
-  font-family: 'Arial', sans-serif;
+  font-family:'Times New Roman', Times, serif;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -450,7 +451,7 @@ html, body {
   position: absolute;
   text-align: center;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family:'Times New Roman', Times, serif;
   font-size: 1.5em;
   max-width: 80%;
 }
