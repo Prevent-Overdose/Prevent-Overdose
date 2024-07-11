@@ -1,43 +1,42 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 .formcontainer {
   flex: 1;
   display: flex;
   flex-direction: column;
   background: black;
   border: 4px solid #ff23fd;
-  padding: 20px; 
+  padding-left: 40px; /* Adds 20 pixels of padding to the left */
+  padding-right: 35px; /* Adds 20 pixels of padding to the right */
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: 22px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   margin: 100px auto 20px; 
-  width: 50%;
+  width: 60%;
 }
 
-.formcontainer h4, .form-info ,.confirmation-message {
+.formcontainer h1,.confirmation-message {
 text-align: center;
 }
 
+
+
 .formcontainer .form-info{
   margin-bottom: 0px;
-  font-size: larger;
+  letter-spacing: 0.5px;
+  line-height: 1.4; /* Adjust line height as needed */
+  font-size: 21px;
+  font-family: 'Montserrat';
 }
 .formcontainer h4{
   font-size: x-large;
 }
 
 
-
-.formcontainer .MuiInputBase-input {
-  border-bottom: 2px solid white;
-  color: #ff23fd;
-  padding: 0;
-
-}
-
-a {
-  color: white ;
-}
-
 .formcontainer span{
+  letter-spacing: 0.5px;
   display: block;
   flex-direction: column;
   align-items: center;
@@ -50,6 +49,10 @@ a {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+}
+
+form span {
+  font-size: 25px;
 }
  
 
@@ -81,6 +84,10 @@ a {
   margin-right: 0;
   padding: 3px;
   width: 60%;
+}
+
+.text-field {
+  color: white
 }
 
 
