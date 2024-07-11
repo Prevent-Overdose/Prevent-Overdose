@@ -381,13 +381,6 @@
 
 @media (max-width: 768px) {
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    overflow-x: visible !important;
-  }
-
   /* HERO SECTION */
 
   .hero-background {
