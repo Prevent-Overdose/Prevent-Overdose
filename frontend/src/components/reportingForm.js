@@ -23,6 +23,7 @@ const ReportingForm = () => {
   const [isZipValid, setIsZipValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [tooltipOpen, setTooltipOpen] = useState(false)
 
   const formatPhoneNumber = (value) => {
     if (!value) return value;
@@ -61,7 +62,10 @@ const ReportingForm = () => {
     }
   };
 
+  const handleToggle = () =>{
+    setTooltipOpen((prev)=> !prev)
 
+  };
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -82,6 +86,8 @@ const handleSubmit = async (e) => {
     ...formData,
     phoneNumber: formData.phoneNumber.replace(/[^\d]/g, '')
   };
+
+  
     
 
   try {
@@ -137,8 +143,11 @@ return (
         <Tooltip title="Nearest park location is a way
                      to maintain reporter anonymity and give nonprofit 
                      organizations location-specific information to 
-                     help communities in-need.">
-                        <IconButton color="inherit">
+                     help communities in-need."
+                     open={tooltipOpen}
+                     onClose={()=> setTooltipOpen(false)}
+                     disableHoverListener>
+                        <IconButton color="inherit" onClick={handleToggle}>
                             <HelpIcon fontSize="small" className='custom-icon'/>
                         </IconButton>
                     </Tooltip>
