@@ -7,7 +7,7 @@ const axios = require('axios')
 
 const narcanRoutes = require('./routes/narcanRoutes')
 const reductionRoutes = require('./routes/reductionRoutes')
-const reporting = require('./sms/reporting')
+const smsRoutes = require('./routes/smsRoutes')
 const dummyRoutes = require('./routes/dummyRoutes')
 const refillRoutes = require('./routes/refillRoutes')
 
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 //routes
 app.use('/api/narcan', narcanRoutes)
 app.use('/api/otherforms', reductionRoutes)
-app.use('/api/reporting', reporting)
+app.use('/api/sms', smsRoutes)
 app.use('/api/dummy', dummyRoutes)
 app.use('/api/refill',refillRoutes)
 
