@@ -10,7 +10,11 @@ header {
   
 }
 
-.navbar2 {
+.navbar:hover {
+  text-decoration: underline;
+}
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
