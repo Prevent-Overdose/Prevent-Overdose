@@ -10,6 +10,7 @@ const orgSchema = new Schema({
     },
     phone_number: {
         type: String,
+        unique: true,
         required: true
     },
     zip_code: {
