@@ -10,11 +10,7 @@ header {
   
 }
 
-.navbar:hover {
-  text-decoration: underline;
-}
-
-.navbar {
+.navbar2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,6 +18,7 @@ header {
   height: 100%; /* Makes the navbar fill the header */
   background-color: black;
   margin-right: 1em;
+  width: 100%;
 }
 
 .left-section {
