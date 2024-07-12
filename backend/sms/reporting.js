@@ -118,7 +118,11 @@ Prevent Overdose - Thank you for signing up for your three question monthly over
     res.status(200).json({zipcode, address, phoneNumber, createdAt: Date.now()})
 
    } catch(error){
-    res.status(400).json({error:error.message})
+    if (error.code === 11000 && error.keyPattern.phone_number) {
+        // Duplicate key error (phoneNumber already exists)
+        return res.status(400).json({ error: 'Phone number already exists.' });
+      }
+      return res.status(500).json({ error: 'Failed to add phone number.' });
    }
 }
 
