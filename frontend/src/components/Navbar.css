@@ -2,7 +2,7 @@
 
 header {
   width: 100%; /* Ensures the header is the full width of the viewport */
-  position: absolute; /* Fixes the navbar at the top */
+  position: fixed; /* Fixes the navbar at the top */
   top: 0; /* Aligns the navbar at the top of the viewport */
   left: 0; /* Aligns the navbar to the left edge of the viewport */
   z-index: 1000; /* Ensures the navbar stays on top of other content */
@@ -10,7 +10,11 @@ header {
   
 }
 
-.navbar2 {
+.navbar:hover {
+  text-decoration: underline;
+}
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
