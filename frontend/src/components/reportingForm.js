@@ -67,6 +67,73 @@ const ReportingForm = () => {
 
   };
 
+const getUserLocation = () => {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    } else {
+      reject(new Error("Geolocation is not supported by this browser."));
+    }
+  });
+};
+
+const getNearbyParks = async (latitude, longitude) => {
+const response = await fetch(
+  `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=park&inputtype=textquery&locationbias=circle:20000@${latitude},${longitude}&fields=formatted_address,name,geometry&key=AIzaSyAXZL0ylBAuEosZUB-jhNIryOcpximmU6A`
+);
+
+const data = await response.json();
+console.log(data)
+return data.results;
+};
+
+const getAddressFromLatLng = async (latitude, longitude) => {
+  const response = await fetch(
+    `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAXZL0ylBAuEosZUB-jhNIryOcpximmU6A`
+  );
+  const data = await response.json();
+  return data.results[0];
+};
+
+const autofillAddressAndZipcode = async () => {
+  try {
+    const location = await getUserLocation();
+   
+    const parks = await getNearbyParks(location.latitude, location.longitude);
+    console.log('here')
+    if (parks) {
+      
+      const parkLocation = parks[0].geometry.location;
+      const address = await getAddressFromLatLng(parkLocation.lat, parkLocation.lng);
+
+      const parkAddress = address.formatted_address;
+      const zipcode = address.address_components.find((component) =>
+        component.types.includes("postal_code")
+      ).long_name;
+      
+      setFormData({
+        ...formData,
+        address: parkAddress,
+        zipcode: zipcode,
+      });
+    } else {
+      console.error("No parks found nearby.", parks);
+    }
+  } catch (error) {
+    console.error("Error getting user location or nearby parks:", error);
+  }
+};
+
 const handleSubmit = async (e) => {
   e.preventDefault();
   
@@ -118,6 +185,7 @@ const handleSubmit = async (e) => {
   } catch (error) {
     setError(error.message);
   }
+
 };
 
 return (
@@ -146,7 +214,8 @@ return (
                      help communities in-need."
                      open={tooltipOpen}
                      onClose={()=> setTooltipOpen(false)}
-                     disableHoverListener>
+                     disableHoverListener
+                     >
                         <IconButton color="inherit" onClick={handleToggle}>
                             <HelpIcon fontSize="small" className='custom-icon'/>
                         </IconButton>
@@ -169,6 +238,9 @@ return (
         }}
       />
       </div>
+      <button variant="contained" onClick={autofillAddressAndZipcode} style = {{marginTop: '10px'}}>
+        Autofill Address & Zipcode
+      </button>
       <br/>
       <div>
         <span>Zipcode:</span>
