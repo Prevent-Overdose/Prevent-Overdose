@@ -97,17 +97,17 @@ const getUserLocation = () => {
 
 const getNearbyParks = async (latitude, longitude) => {
 const response = await fetch(
-  `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=park&inputtype=textquery&locationbias=circle:20000@${latitude},${longitude}&fields=formatted_address,name,geometry&key=AIzaSyAXZL0ylBAuEosZUB-jhNIryOcpximmU6A`
+  `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=park&inputtype=textquery&locationbias=circle:20000@${latitude},${longitude}&fields=formatted_address,name,geometry&key=${process.env.REACT_APP_API_KEY}`
 );
 
 const data = await response.json();
-console.log(data)
+console.log(process.env.REACT_APP_API)
 return data.results;
 };
 
 const getAddressFromLatLng = async (latitude, longitude) => {
   const response = await fetch(
-    `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAXZL0ylBAuEosZUB-jhNIryOcpximmU6A`
+    `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.REACT_APP_API_KEY}`
   );
   const data = await response.json();
   return data.results[0];
