@@ -22,6 +22,7 @@ const ReportingForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isZipValid, setIsZipValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
+  const [phoneErrorMessage, setphoneErrorMessage] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false)
 
@@ -45,7 +46,14 @@ const ReportingForm = () => {
 
     if (name === 'phoneNumber') {
       const formattedPhoneNumber = formatPhoneNumber(value);
-      setIsPhoneValid(value.length >= 12)
+      if (formattedPhoneNumber.length >= 12) {
+        setIsPhoneValid(true)
+      
+      }
+      else {
+        setIsPhoneValid(false)
+        setphoneErrorMessage("Phone number must have 10 digits.")
+      }
       setFormData({ ...formData, [name]: formattedPhoneNumber });
     
     } 
@@ -165,12 +173,26 @@ const handleSubmit = async (e) => {
       },
       body: JSON.stringify(dataToSend)
     });
+
+    console.log(response.status)
+    
     if (!response.ok) {
-      toast.error("Failed to submit the form.");
+      console.log(response.status)
       
-    }
+      // Handle specific HTTP error statuses
+      if (response.status === 400) {
+          toast.error('Phone number already exists.');
+          setIsPhoneValid(false)
+          setphoneErrorMessage("Phone number has already been added.")
+      } else {
+          // Handle other error statuses (like 500 Internal Server Error)
+          toast.error("Failed to submit the form.");
+      }
+      setSubmitted(false);
+      return; // Exit the function to prevent further execution
+  }
     else {
-      toast.success("Successfully requested Narcan!")
+      toast.success("Successfully signed up for overdose reporting!")
       console.log(response)
     }
     const result = await response.json();
@@ -180,6 +202,7 @@ const handleSubmit = async (e) => {
         zipcode: '',
         phoneNumber: '',
       });
+      setAgreedToTerms(false);
     setError(null);
     setSubmitted(true);
   } catch (error) {
@@ -277,7 +300,7 @@ return (
         onChange={handleChange}
         required
         error={!isPhoneValid}
-        helperText="Phone number must have 10 digits."
+        helperText={phoneErrorMessage}
         placeholder=" Enter phone number" 
         InputProps={{
           style: { color: 'white', backgroundColor: 'black' }  
@@ -302,10 +325,7 @@ return (
       </div>
       {submitted && (
         <p className='confirmation-message'>
-          We will send a text message to confirm 
-          that your order has been received and 
-          will update you with the progress of the order 
-          through the phone number provided. 
+          You will receive a text message to start the overdose reporting survey. Thank you!
         </p>
       )}
       {error && <div className="error">{error}</div>}
