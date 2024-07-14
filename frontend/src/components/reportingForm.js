@@ -12,6 +12,7 @@ import HelpIcon from '@mui/icons-material/Help';
 
 
 
+
 const ReportingForm = () => {
   const [formData, setFormData] = useState({
     address: '',
@@ -74,6 +75,78 @@ const ReportingForm = () => {
     setTooltipOpen((prev)=> !prev)
 
   };
+
+const getUserLocation = () => {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    } else {
+      reject(new Error("Geolocation is not supported by this browser."));
+    }
+  });
+};
+
+const getNearbyParks = async (latitude, longitude) => {
+  try {
+    const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/places?latitude=${latitude}&longitude=${longitude}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching nearby parks:", error);
+    return null;
+  }
+};
+
+const getAddressFromLatLng = async (latitude, longitude) => {
+  try {
+    const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/geocode?latitude=${latitude}&longitude=${longitude}`);
+    const data = await response.json();
+    return data.results[0];
+  } catch (error) {
+    console.error("Error fetching address from latlng:", error);
+    return null;
+  }
+};
+
+const autofillAddressAndZipcode = async () => {
+  try {
+    const location = await getUserLocation();
+   
+    const parks = await getNearbyParks(location.latitude, location.longitude);
+    
+    
+    if (parks.candidates && parks.candidates.length > 0) { 
+      const parkLocation = parks.candidates[0].geometry.location; 
+      const address = await getAddressFromLatLng(parkLocation.lat, parkLocation.lng);
+
+      const parkAddress = address.formatted_address;
+      const zipcode = address.address_components.find((component) =>
+        component.types.includes("postal_code")
+      ).long_name;
+      
+      setFormData({
+        ...formData,
+        address: parkAddress,
+        zipcode: zipcode,
+      });
+    } else {
+      console.error("No parks found nearby.");
+    }
+  } catch (error) {
+    console.error("Error getting user location or nearby parks:", error);
+  }
+};
+
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -141,6 +214,7 @@ const handleSubmit = async (e) => {
   } catch (error) {
     setError(error.message);
   }
+
 };
 
 return (
@@ -169,7 +243,8 @@ return (
                      help communities in-need."
                      open={tooltipOpen}
                      onClose={()=> setTooltipOpen(false)}
-                     disableHoverListener>
+                     disableHoverListener
+                     >
                         <IconButton color="inherit" onClick={handleToggle}>
                             <HelpIcon fontSize="small" className='custom-icon'/>
                         </IconButton>
@@ -192,6 +267,9 @@ return (
         }}
       />
       </div>
+      <button variant="contained" onClick={autofillAddressAndZipcode} style = {{marginTop: '10px', marginBottom: '5px'}}>
+        Autofill Address & Zipcode
+      </button>
       <br/>
       <div>
         <span>Zipcode:</span>
