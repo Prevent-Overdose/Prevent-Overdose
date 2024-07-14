@@ -29,6 +29,41 @@ app.use('/api/sms', smsRoutes)
 app.use('/api/dummy', dummyRoutes)
 app.use('/api/refill',refillRoutes)
 
+app.get('/api/places', async (req, res) => {
+    const { latitude, longitude } = req.query;
+    try {
+        const response = await axios.get('https://maps.googleapis.com/maps/api/place/findplacefromtext/json', {
+            params: {
+                input: 'park',
+                inputtype: 'textquery',
+                locationbias: `circle:200@${latitude},${longitude}`,
+                fields: 'formatted_address,name,geometry',
+                key: process.env.REACT_APP_API
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+// New route to proxy requests to the Google Geocoding API
+app.get('/api/geocode', async (req, res) => {
+    const { latitude, longitude } = req.query;
+    try {
+        const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+            params: {
+                latlng: `${latitude},${longitude}`,
+                key: process.env.REACT_APP_API
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+
 //connect to db 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {

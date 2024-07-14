@@ -12,6 +12,7 @@ import HelpIcon from '@mui/icons-material/Help';
 
 
 
+
 const ReportingForm = () => {
   const [formData, setFormData] = useState({
     address: '',
@@ -96,21 +97,25 @@ const getUserLocation = () => {
 };
 
 const getNearbyParks = async (latitude, longitude) => {
-const response = await fetch(
-  `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=park&inputtype=textquery&locationbias=circle:20000@${latitude},${longitude}&fields=formatted_address,name,geometry&key=${process.env.REACT_APP_API_KEY}`
-);
-
-const data = await response.json();
-console.log(process.env.REACT_APP_API)
-return data.results;
+  try {
+    const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/places?latitude=${latitude}&longitude=${longitude}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching nearby parks:", error);
+    return null;
+  }
 };
 
 const getAddressFromLatLng = async (latitude, longitude) => {
-  const response = await fetch(
-    `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.REACT_APP_API_KEY}`
-  );
-  const data = await response.json();
-  return data.results[0];
+  try {
+    const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/geocode?latitude=${latitude}&longitude=${longitude}`);
+    const data = await response.json();
+    return data.results[0];
+  } catch (error) {
+    console.error("Error fetching address from latlng:", error);
+    return null;
+  }
 };
 
 const autofillAddressAndZipcode = async () => {
@@ -118,10 +123,10 @@ const autofillAddressAndZipcode = async () => {
     const location = await getUserLocation();
    
     const parks = await getNearbyParks(location.latitude, location.longitude);
-    console.log('here')
-    if (parks) {
-      
-      const parkLocation = parks[0].geometry.location;
+    
+    
+    if (parks.candidates && parks.candidates.length > 0) { 
+      const parkLocation = parks.candidates[0].geometry.location; 
       const address = await getAddressFromLatLng(parkLocation.lat, parkLocation.lng);
 
       const parkAddress = address.formatted_address;
@@ -135,12 +140,13 @@ const autofillAddressAndZipcode = async () => {
         zipcode: zipcode,
       });
     } else {
-      console.error("No parks found nearby.", parks);
+      console.error("No parks found nearby.");
     }
   } catch (error) {
     console.error("Error getting user location or nearby parks:", error);
   }
 };
+
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -261,7 +267,7 @@ return (
         }}
       />
       </div>
-      <button variant="contained" onClick={autofillAddressAndZipcode} style = {{marginTop: '10px'}}>
+      <button variant="contained" onClick={autofillAddressAndZipcode} style = {{marginTop: '10px', marginBottom: '5px'}}>
         Autofill Address & Zipcode
       </button>
       <br/>
