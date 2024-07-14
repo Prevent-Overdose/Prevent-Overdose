@@ -267,9 +267,11 @@ return (
         }}
       />
       </div>
+      {/*
       <button variant="contained" onClick={autofillAddressAndZipcode} style = {{marginTop: '10px', marginBottom: '5px'}}>
         Autofill Address & Zipcode
       </button>
+      */}
       <br/>
       <div>
         <span>Zipcode:</span>
