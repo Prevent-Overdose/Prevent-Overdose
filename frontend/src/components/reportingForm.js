@@ -88,7 +88,8 @@ const getUserLocation = () => {
         },
         (error) => {
           reject(error);
-        }
+        },
+        {enableHighAccuracy: true}
       );
     } else {
       reject(new Error("Geolocation is not supported by this browser."));
@@ -121,24 +122,32 @@ const getAddressFromLatLng = async (latitude, longitude) => {
 const autofillAddressAndZipcode = async () => {
   try {
     const location = await getUserLocation();
-   
     const parks = await getNearbyParks(location.latitude, location.longitude);
-    
     
     if (parks.candidates && parks.candidates.length > 0) { 
       const parkLocation = parks.candidates[0].geometry.location; 
       const address = await getAddressFromLatLng(parkLocation.lat, parkLocation.lng);
 
-      const parkAddress = address.formatted_address;
-      const zipcode = address.address_components.find((component) =>
-        component.types.includes("postal_code")
-      ).long_name;
-      
-      setFormData({
-        ...formData,
-        address: parkAddress,
-        zipcode: zipcode,
-      });
+      if (address) {
+        const parkAddress = address.formatted_address;
+        const zipcodeComponent = address.address_components.find((component) =>
+          component.types.includes("postal_code")
+        );
+
+        if (zipcodeComponent) {
+          const zipcode = zipcodeComponent.long_name;
+
+          setFormData({
+            ...formData,
+            address: parkAddress,
+            zipcode: zipcode,
+          });
+        } else {
+          console.error("Zipcode not found in the address components.");
+        }
+      } else {
+        console.error("Address not found for the park location.");
+      }
     } else {
       console.error("No parks found nearby.");
     }
@@ -267,11 +276,11 @@ return (
         }}
       />
       </div>
-      {/*
+      
       <button variant="contained" onClick={autofillAddressAndZipcode} style = {{marginTop: '10px', marginBottom: '5px'}}>
         Autofill Address & Zipcode
       </button>
-      */}
+      
       <br/>
       <div>
         <span>Zipcode:</span>
