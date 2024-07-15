@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap'); /* Nunito Sans */
+
 /* HOME PAGE BACKGROUND */
 
 .home-container {
@@ -168,7 +170,7 @@
   position: absolute;
   text-align: center;
   color: white;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1.5em;
   max-width: 80%;
 }
@@ -337,7 +339,7 @@
 }
 
 .impact-number {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 4em;
   color: #ff23fd;
   font-style: italic;
@@ -346,7 +348,7 @@
 }
 
 .impact-text {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1.2em;
   margin-top: 10px;
 }
@@ -361,7 +363,7 @@
 }
 
 .closing-text {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1.2em;
   max-width: 800px;
   margin: 0 auto 20px auto;
@@ -443,7 +445,6 @@
     align-items: center;
     background-position: top;
     padding: 20px 0;
-    height: 30vh;
     background-image: none;
     margin-bottom: 0;
   }
