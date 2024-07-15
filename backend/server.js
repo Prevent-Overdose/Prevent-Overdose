@@ -36,7 +36,7 @@ app.get('/api/places', async (req, res) => {
             params: {
                 input: 'park',
                 inputtype: 'textquery',
-                locationbias: `circle:0@${latitude},${longitude}`,
+                locationbias: `circle:1@${latitude},${longitude}`,
                 fields: 'formatted_address,name,geometry',
                 key: process.env.REACT_APP_API
             }
