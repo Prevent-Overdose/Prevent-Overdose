@@ -144,15 +144,20 @@ const autofillAddressAndZipcode = async () => {
           });
         } else {
           console.error("Zipcode not found in the address components.");
+          setError("Zipcode not found. Please Enter Manually")
         }
       } else {
         console.error("Address not found for the park location.");
+        setError("Address not found for the park location. please enter address manually")
+
       }
     } else {
       console.error("No parks found nearby.");
+      setError("No parks found nearby. please enter address manually")
     }
   } catch (error) {
     console.error("Error getting user location or nearby parks:", error);
+    setError("Error getting user location or nearby parks. Enable Location or enter adress manually")
   }
 };
 
