@@ -259,9 +259,12 @@ return (
                      onClose={()=> setTooltipOpen(false)}
                      disableHoverListener
                      >
-                        <IconButton color="inherit" onClick={handleToggle}>
+                        <IconButton color="inherit" onClick={handleToggle}  >
                             <HelpIcon fontSize="small" className='custom-icon'/>
                         </IconButton>
+                        <Button color="inherit" variant="outlined" onClick={autofillAddressAndZipcode} >Autofill</Button>
+                        
+
                     </Tooltip>
         </div>
         <TextField
@@ -282,9 +285,7 @@ return (
       />
       </div>
       
-      <button variant="contained" onClick={autofillAddressAndZipcode} style = {{marginTop: '10px', marginBottom: '5px'}}>
-        Autofill Address & Zipcode
-      </button>
+      
       
       <br/>
       <div>
@@ -300,7 +301,6 @@ return (
         onChange={handleChange}
         required
         error={!isZipValid}
-        helperText="Zip code must be 5 digits."
         inputProps={{ maxLength: 5, pattern: '[0-9]*' }}
         placeholder=" Enter zip code" 
         InputProps={{
