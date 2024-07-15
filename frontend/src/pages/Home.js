@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Home.css';
 import 'font-awesome/css/font-awesome.min.css';
-import Footer from '../components/Footer';
 
 const Home = () => {
   const motto = "A DIRECT RESPONSE TO A DEADLY PROBLEM.";
   const [displayText, setDisplayText] = useState(motto);
   const [showButton, setShowButton] = useState(false);
+  const [showArrow, setShowArrow] = useState(false);
   const [impactAnimationTriggered, setImpactAnimationTriggered] = useState(false);
   const impactRefs = {
     kitsDistributed: useRef(null),
@@ -16,24 +16,18 @@ const Home = () => {
 
   useEffect(() => {
     document.title = "Home | Prevent Overdose Inc.";
-    let currentIndex = 0;
-
-    if (window.innerWidth < 768) {
-      setDisplayText(motto);
-      setShowButton(true);
-      return;
-    } else {
-      const typeMottoEffect = () => {
-        if (currentIndex < motto.length) {
-          setDisplayText(motto.substring(0, currentIndex + 1));
-          currentIndex++;
-          setTimeout(typeMottoEffect, 80);
-        } else {
-          setShowButton(true);
-        }
-      };
-      typeMottoEffect();
-    }
+    let currentIndex = 0;    
+    const typeMottoEffect = () => {
+      if (currentIndex < motto.length) {
+        setDisplayText(motto.substring(0, currentIndex + 1));
+        currentIndex++;
+        setTimeout(typeMottoEffect, 80);
+      } else {
+        setShowButton(true);
+        setShowArrow(true);
+      }
+    };
+    typeMottoEffect();
   }, []);
 
   useEffect(() => {
@@ -107,13 +101,11 @@ const Home = () => {
       <div className="hero-section">
         <div className="hero-background"></div>
         <div className="hero-content">
-          <h1 className={`motto ${window.innerWidth < 768 ? "fade-in" : ""}`}>{renderMotto()}</h1>
-          {showButton && (
-            <a href="/request-narcan" className="request-narcan">
-              <img src="Request Narcan.png" alt="Request Narcan" />
-            </a>
-          )}
-          <div className="arrow"> ↓</div>
+        <h1 className={`motto`}>{renderMotto()}</h1>
+          <a href="/request-narcan" className="request-narcan">
+            <img src="Request Narcan.png" alt="Request Narcan" />
+          </a>
+          <div className="arrow">➢</div>
         </div>
       </div>
       <div className="mission-section">
