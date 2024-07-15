@@ -47,7 +47,6 @@ app.get('/api/places', async (req, res) => {
     }
 });
 
-// New route to proxy requests to the Google Geocoding API
 app.get('/api/geocode', async (req, res) => {
     const { latitude, longitude } = req.query;
     try {
