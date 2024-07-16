@@ -201,6 +201,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .initiative {
@@ -217,7 +218,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  transition: transform 0.5s;
+  transition: all 0.5s ease;
 }
 
 .initiative-1 {
@@ -280,15 +281,6 @@
 .initiative:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-@media only screen and (max-width: 600px) {
-  .initiative-description {
-    display: none;
-  }
-  .initiative:hover .initiative-title {
-    opacity: 1;
-  }
 }
 
 /* IMPACT SECTION */
@@ -486,15 +478,11 @@
   }
 
   .initiative {
+    height: auto;
     max-width: 100%;
     width: 100%;
     margin: 10px 0;
-    height: auto;
-    background-size: cover;
-  }
-
-  .initiatives-section {
-    margin-top: 25px;
+    background-size: 100%;
   }
 
   .initiative-title {
@@ -502,17 +490,31 @@
   }
 
   .initiative-description {
-    font-size: 0.9em;
+    font-size: 1.3em;
     padding: 0 5px;
-  }
-  
-  .initiatives-content {
-    flex-direction: column;
+    display: none; /* Initially hide descriptions */
+    transition: all 0.3s ease;
   }
 
-  .initiative {
-    max-width: 100%;
-    margin: 20px 0;
+  .initiative:hover {
+    height: 40vh; /* Expand to full viewport height */
+    position: absolute; /* Position the expanded initiative absolutely */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    z-index: 10; /* Bring to front */
+    margin: 0;
+    background-size: cover;
+  }
+
+  .initiative:hover .initiative-description {
+    display: flex; /* Show descriptions on hover */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .initiative:hover .initiative-title {
+    display: none; /* Hide title on hover */
   }
 
   /* IMPACT SECTION */
