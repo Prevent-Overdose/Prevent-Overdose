@@ -256,15 +256,12 @@ return (
                      organizations location-specific information to 
                      help communities in-need."
                      open={tooltipOpen}
-                     onClose={()=> setTooltipOpen(false)}
                      disableHoverListener
                      >
                         <IconButton color="inherit" onClick={handleToggle}  >
                             <HelpIcon fontSize="small" className='custom-icon'/>
                         </IconButton>
                         <Button color="inherit" variant="outlined" onClick={autofillAddressAndZipcode} >Autofill</Button>
-                        
-
                     </Tooltip>
         </div>
         <TextField
@@ -284,8 +281,6 @@ return (
         }}
       />
       </div>
-      
-      
       
       <br/>
       <div>
