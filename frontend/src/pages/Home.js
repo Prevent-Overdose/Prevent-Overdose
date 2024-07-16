@@ -135,6 +135,7 @@ const Home = () => {
                 pain management clinics, and addiction treatment facilities.
               </p>
             </div>
+            <i className="fa-regular fa-circle-dot icon-hover"></i>
           </div>
           <div className="initiative initiative-2">
             <p className="initiative-title">EDUCATION</p>
