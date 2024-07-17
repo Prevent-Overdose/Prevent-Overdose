@@ -491,6 +491,10 @@
     align-items: center;
   }
 
+  .initiatives-header {
+    margin-bottom: 30px;
+  }
+
   .initiative {
     height: auto;
     max-width: 100%;
@@ -506,29 +510,29 @@
   .initiative-description {
     font-size: 1.3em;
     padding: 0 5px;
-    display: none; /* Initially hide descriptions */
+    display: none; 
     transition: all 0.3s ease;
   }
 
   .initiative:hover {
-    height: 40vh; /* Expand to full viewport height */
-    position: absolute; /* Position the expanded initiative absolutely */
+    height: 40vh; 
+    position: absolute; 
     top: 0;
     left: 0;
-    width: 100vw; /* Full width of the viewport */
-    z-index: 10; /* Bring to front */
+    width: 100vw;
+    z-index: 10; 
     margin: 0;
     background-size: cover;
   }
 
   .initiative:hover .initiative-description {
-    display: flex; /* Show descriptions on hover */
+    display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .initiative:hover .initiative-title {
-    display: none; /* Hide title on hover */
+    display: none; 
   }
 
   /* IMPACT SECTION */
@@ -539,7 +543,7 @@
   }
 
   .impact-content {
-    margin-top: -30px;
+    margin-top: -40px;
     flex-direction: column;
   }
 
