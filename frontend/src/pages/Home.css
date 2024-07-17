@@ -539,11 +539,11 @@
   }
 
   .impact-content {
+    margin-top: -30px;
     flex-direction: column;
   }
 
   .impact-item {
-    margin-top: -20px;
     max-width: 100%;
   }
 
