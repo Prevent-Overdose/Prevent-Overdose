@@ -544,16 +544,13 @@
 
   .impact-item {
     max-width: 100%;
-    margin: 20px 0;
   }
 
   .impact-item::before {
     display: none;
   }
 
-  .impact-item::after {
-    display: none;
-  }
+
 
   /* CLOSING SECTION */
 
