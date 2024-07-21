@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import {Link} from 'react-router-dom';
-import './Resources.css'
+import './oldResources.css'
 
 
 

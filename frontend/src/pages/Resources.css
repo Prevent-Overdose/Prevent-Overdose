@@ -12,7 +12,7 @@
   
   .overdose-data-section {
     margin-top: 20px;
-    background-color: silver;
+    background-color: black;
     color: black;
     padding: 40px 20px;
     padding-left: 100px;
@@ -31,7 +31,7 @@
   }
   
   .data {
-    color: black;
+    color: white;
   }
   
   .overdose-statistics {
@@ -70,8 +70,8 @@
   /* DRUG INVOLVEMENT SECTION */
   
   .drug-involvement-section {
-    background-color: silver;
-    color: black;
+    background-color: black;
+    color: white;
     padding: 40px 20px;
     padding-left: 100px;
   }
@@ -89,7 +89,7 @@
   }
   
   .drug-involvement-text {
-    flex: 1;;
+    flex: 1;
     text-align:center;
     margin-left: -40px;
   
@@ -228,8 +228,8 @@
   .lethal-stats-section {
     margin-top: -100px;
     margin-bottom: 100px;
-    background-color: silver;
-    color: black;
+    background-color: black;
+    color: white;
     padding: 40px 20px;
     text-align: center;
     overflow: hidden;
@@ -330,7 +330,7 @@
   
     .overdose-data-section {
       padding: 20px 10px;
-      margin-top: -10px;
+      margin-top: 50px;
       padding-bottom: 0;
     }
   
@@ -381,6 +381,7 @@
     /* DRUG INVOLVEMENT SECTION */
   
     .drug-involvement-section {
+      margin-bottom: -250px;
       padding-left: 20px;
       padding-right: 20px;
       padding-top: 0;

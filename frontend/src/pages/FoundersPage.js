@@ -33,7 +33,7 @@ const FoundersPage = () => {
             Founded by three passionate University of South Florida undergraduates 
              Prevent Overdose embodies the vision of empowering students to enact
              meaningful change within their communities. With a shared commitment to
-             addressing the critical issue of overdose prevention through education
+             addressing the critical issue of overdose prevention through education,
              advocacy, and community engagement, our founders lead a diverse team
              of individuals to be active in the welfare of their communities.
             
