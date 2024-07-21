@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); /* Link Font Style, can be changed if a more aesthetic font is found */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap'); /* Nunito Sans */
 
 header {
   width: 100%; /* Ensures the header is the full width of the viewport */
@@ -48,7 +48,7 @@ header {
   margin: 0 15px;
   text-decoration: none;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 18px; 
   text-align: center;
 }
@@ -69,19 +69,33 @@ header {
 .navbar-request-narcan {
   display: flex;
   align-items: center;
-
 }
 
 .navbar-request-narcan img {
   height: 200px; 
   width: auto;
   vertical-align: middle;
-  margin-left: 15px;
-  margin-right: 15px; 
   transition: filter 0.4s;
 }
 
 .navbar-request-narcan img:hover {
+  filter: brightness(2); /* Light up effect on hover */
+}
+
+.navbar-report-overdose {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-report-overdose img {
+  height: 115px; 
+  width: auto;
+  vertical-align: middle;
+  margin-right: 15px; 
+  transition: filter 0.4s;
+}
+
+.navbar-report-overdose img:hover {
   filter: brightness(2); /* Light up effect on hover */
 }
 
@@ -128,7 +142,7 @@ header {
   padding: 10px 20px; 
   text-decoration: none;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -164,8 +178,5 @@ header {
   .dropdown-toggle { 
     padding: 0 0 0 0;
   }
-
-  
-
   
 }
