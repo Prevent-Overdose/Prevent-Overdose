@@ -165,7 +165,7 @@ const BoardPage = () => {
                                 <div className="box">
                                     <img src={board3} alt="Board Member 3" />
                                     <div className="description">
-                                        Gain real-world experience by applying my technical skills to developing a platform with resources for those who are struggling with or combating.
+                                        Gain real-world experience by applying my technical skills to developing a platform with resources for those who are struggling with or combating addiction.
                                     </div>
                                 </div>
                                 <div className="additional-image-container">
