@@ -37,7 +37,6 @@
 }
 
 .sidenav .sidenav-logo img {
-    margin-top: 20px;
     height: 50px;
     width: auto;
     transition: opacity 0.2s; /* Smooth fade effect on hover */
