@@ -44,7 +44,7 @@ function App() {
             <Route path="/request-narcan" element={<RequestNarcan/>}></Route>
             <Route path="/report-overdose" element={<ReportOverdose/>}></Route>
             <Route path="/about" element={<AboutUs />} />
-            {<Route path="/resources" element={<Resources />} />}
+            <Route path="/resources" element={<Resources />} />
                     
             <Route path="/founders" element={<FoundersPage />} /> {/* Route for Founders page */}
             <Route path="/board" element={<BoardPage />} /> {/* Route for Board page */}
