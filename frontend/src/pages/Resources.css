@@ -1,65 +1,512 @@
+/* RESOURCES PAGE BACKGROUND */
 
-
-/*Resources page recognition section*/
-
-.Resources-page{
-  text-align: center;
-  margin: auto auto;
-}
-
-.recognition  {
-  margin: 0 auto;
-  width: 70%;
-  text-align: center;
-  margin-top: 20px;
-  max-width: 50%;
-  margin-bottom: 20px;
-  border: 1px solid black;
-  border-radius:  10px; ;
-  padding: 10px;
-  box-shadow:5px 5px 5px grey ;
-  display: flex;
-  font-family: sans-serif;
-  background-color: rgba(128, 128, 128, 0.185);
+.resources-container {
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
   
-}
-.recognition p{
-  color: #ff23fd;
-}
-
-/*Resources page Cards*/
-.card{
-  border: 1px solid #ff23fd;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px #ff23fd;
-  padding: 10px;
-  margin: 10px;
-  text-align: center;
-  max-width: 250px;
-  display: inline-block;
+ 
   
-}
-
-.card .card-image{
-  max-width: 90%;
-  height:auto;
-  margin-bottom: 10px;
-}
-.card .card-image:hover  {
-  cursor: pointer;
-  transform: scale(1.1);
-  height: 150x;
-  transition: transform .5s;
-}
-
-.card .card-title{
-  font-family: Arial, sans-serif;
-  margin-top: 0 ;
-  font-size: 13pt;
-  color: white;
-}
-.card .card-text{
-  font-family: Arial, sans-serif;
-  color: black;
-}
-
+  /* OVERDOSE DATA SECTION */
+  
+  .overdose-data-section {
+    margin-top: 20px;
+    background-color: black;
+    color: black;
+    padding: 40px 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+  }
+  
+  .overdose-data-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .overdose {
+    color: #e80f07;
+  }
+  
+  .data {
+    color: white;
+  }
+  
+  .overdose-statistics {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .statistics-left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 210px;
+  }
+  
+  .total-overdoses, .opioid-overdoses {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #e80f07;
+    font-size: 2em;
+  }
+  
+  .total-overdoses p, .opioid-overdoses p {
+    opacity: 0.7;
+  }
+  
+  .overdose-chart {
+    margin-right: 40px;
+    margin-top: -25px;
+  }
+  
+  .overdose-chart img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+  
+  /* DRUG INVOLVEMENT SECTION */
+  
+  .drug-involvement-section {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+    padding-left: 100px;
+  }
+  
+  .drug-involvement-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    color: #e80f07;
+  }
+  
+  .drug-involvement-content {
+    display: flex;
+  }
+  
+  .drug-involvement-text {
+    flex: 1;
+    text-align:center;
+    margin-left: -40px;
+  
+  }
+  
+  .drug-involvement-text p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+  }
+  
+  .bubble-chart {
+    flex: 1;
+    max-width: 60%;
+    position: relative;
+    height: 550px;
+    overflow: hidden;
+    margin-top: -200px;
+    margin-bottom: 100px;
+    transform: scale(0.9);
+  }
+  
+  .bubble {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-family:'Times New Roman', Times, serif;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: black;
+    background-color: white;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  
+  .bubble.opioid {
+    background-color: red;
+  }
+  
+  .bubble.non-opioid {
+    background-color: white;
+  }
+  
+  .bubble-name {
+    display: block;
+    font-size: 1em;
+  }
+  
+  .bubble-number {
+    display: none; /* Initially hidden */
+    font-size: 0.8em;
+  }
+  
+  .bubble:hover {
+    opacity: 1;
+  }
+  .bubble:hover .bubble-number {
+    display: flex; /* Show number on hover */
+    font-style: oblique;
+  }
+  
+  
+  .bubble:hover::after {
+    opacity: 1;
+    position: absolute;
+    bottom: -20px;
+  }
+  
+  .bubble.fentanyl { 
+    width: 300px; 
+    height: 300px; 
+    top: 115px; 
+    left: 75px;
+    font-size: 3vw;
+  }
+  
+  .bubble.heroin { 
+    width: 90px; 
+    height: 90px; 
+    top: 425px; 
+    left: 200px;
+    font-size: 1.0vw;
+  }
+  
+  .bubble.oxycodone { 
+    width: 115px; 
+    height: 115px; 
+    top: 60px; 
+    left: 340px; 
+    font-size: 1.0vw;
+  }
+  
+  .bubble.cocaine { 
+    width: 175px; 
+    height: 175px; 
+    top: 370px; 
+    left: 310px; 
+    font-size: 1.7vw;
+  }
+  
+  .bubble.methadone { 
+    width: 60px; 
+    height: 60px; 
+    top: 100px; 
+    left: 470px; 
+    font-size: 0.8vw; 
+  }
+  
+  .bubble.benzodiazepines { 
+    width: 110px; 
+    height: 110px; 
+    top: 0px; 
+    left: 230px; 
+    font-size: 1.0vw;
+  }
+  
+  .bubble.psychostimulants { 
+    width: 200px; 
+    height: 200px; 
+    top: 168px; 
+    left: 400px; 
+    font-size: 1.7vw;
+  }
+  
+  .bubble.cannabis { 
+    width: 45px; 
+    height: 45px; 
+    top: 380px; 
+    left: 490px; 
+    font-size: 0.7vw;
+  }
+  
+  
+  /* LETHAL STATS SECTION */
+  
+  .lethal-stats-section {
+    margin-top: -100px;
+    margin-bottom: 100px;
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .conveyor {
+    height: 300px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  
+  .conveyor-belt {
+    display: flex;
+    width: 100%;
+    animation: scroll 30s linear infinite;
+  }
+  
+  .conveyor-belt:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% / 2));
+    }
+  }
+  
+  .lethal-item {
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    perspective: 100px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .lethal-dose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -25px;
+  }
+  
+  .lethal-dose-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5em;
+    color: #e80f07;
+    margin-bottom: 20px;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+  
+  .lethal-dose-image img {
+    width: 150px;
+    height: auto;
+  }
+  
+  .stat {
+    margin: 10px;
+  }
+  
+  .stat::before {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 2px;
+    background-color: black;
+    margin: 0 auto 10px auto;
+  }
+  
+  .stat h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 4em;
+    color: #e80f07;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  
+  .stat p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+  }
+  
+  /* MEDIA QUERY FOR MOBILE DEVICES */
+  
+  @media (max-width: 768px) {
+    
+    /* OVERDOSE DATA SECTION */
+  
+    .overdose-data-section {
+      padding: 20px 10px;
+      margin-top: 50px;
+      padding-bottom: 0;
+    }
+  
+    .overdose-data-header {
+      font-size: 3em;
+      margin-bottom: 50px;
+    }
+  
+    .overdose-statistics {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .statistics-left {
+      margin-left: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+    }
+  
+    .total-overdoses, .opioid-overdoses {
+      font-size: 2em;
+    }
+  
+    .total-overdoses h3, .opioid-overdoses h3 {
+      font-size: 2.1em;
+      margin: 0 10px;
+    }
+  
+    .total-overdoses p, .opioid-overdoses p {
+      font-size: 1.1em;
+      margin: 0 10px;
+    }
+  
+    .overdose-chart {
+      margin: 20px 0;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  
+    .overdose-chart img {
+      margin-top: 20px;
+      max-width: 100%;
+    }
+    
+    /* DRUG INVOLVEMENT SECTION */
+  
+    .drug-involvement-section {
+      margin-bottom: -250px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 0;
+    }
+  
+    .drug-involvement-header {
+      font-size: 2.2em;
+      text-align: center;
+      padding-left: 0;
+    }
+  
+    .drug-involvement-content {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 150px;
+    }
+  
+    .drug-involvement-text {
+      font-size: 0.8em;
+      max-width: 100%;
+      text-align: center;
+      padding: 0 10px;
+      margin-left: 0;
+    }
+  
+    .drug-involvement-text p{
+      margin-left: 0;
+    }
+  
+    .bubble-chart {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+  
+    .bubble {
+      position: relative;
+      margin: 10px;
+    }
+  
+    .bubble.fentanyl {
+      width: 200px;
+      height: 200px;
+      font-size: 3vw;
+      top: auto;
+      left: auto;
+    }
+  
+    .bubble.heroin {
+      width: 60px;
+      height: 60px;
+      font-size: 2vw;
+      top: auto;
+      left: auto;
+    }
+  
+    .bubble.oxycodone {
+      width: 82px;
+      height: 82px;
+      font-size: 2vw;
+      top: auto;
+      left: auto;
+    }
+  
+    .bubble.cocaine {
+      width: 120px;
+      height: 120px;
+      font-size: 2.5vw;
+      top: auto;
+      left: auto;
+    }
+  
+    .bubble.methadone {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5vw;
+      top: auto;
+      left: auto;
+    }
+  
+    .bubble.benzodiazepines {
+      width: 80px;
+      height: 80px;
+      font-size: 2vw;
+      top: auto;
+      left: auto;
+    }
+  
+    .bubble.psychostimulants {
+      width: 150px;
+      height: 150px;
+      font-size: 2.5vw;
+      top: auto;
+      left: auto;
+    }
+  
+    .bubble.cannabis {
+      width: 45px;
+      height: 45px;
+      font-size: 1.5vw;
+      top: auto;
+      left: auto;
+    }
+    
+    /* LETHAL STATS SECTION */
+  
+    .lethal-stats-section {
+      margin-bottom: -10px;
+    }
+  
+    .lethal-dose {
+      margin-top: 0px;
+    }
+  
+    .stat::before {
+      width: 100%;
+    }
+  }
+  
+  @keyframes fadeInButtonEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  

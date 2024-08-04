@@ -27,7 +27,7 @@ const Sidenav = ({ isOpen, toggle }) => {
     <div ref={sidenavRef} className={`sidenav ${isOpen ? 'open' : ''}`}>
       <div className="sidenav-header">
         <Link to="/" className="sidenav-logo" onClick={toggle}>
-          <img src="/preventOD white logo.png" alt="PreventOD Logo" />
+          <img src="/preventOD logo.png" alt="PreventOD Logo" />
         </Link>
         <button className="closebtn" onClick={toggle}>×</button>
       </div>
@@ -37,8 +37,8 @@ const Sidenav = ({ isOpen, toggle }) => {
         <div className="sidenav-about-children">
             <Link to="/founders" onClick={toggle}>Founders</Link>
             <Link to="/board" onClick={toggle}>Board</Link>
-            {/*<Link to="/resources" onClick={toggle}>Resources</Link>*/}
         </div>
+      {<Link to="/resources" onClick={toggle}>Resources</Link>}
       </div>
         <Link to="/request-narcan" className="navbar-request-narcan2" onClick={toggle}>
             <img src="Request Narcan.png" alt="Request Narcan" />

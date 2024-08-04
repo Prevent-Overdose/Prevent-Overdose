@@ -4,6 +4,8 @@
   import moment from 'moment';
   import './narcanForm.css';
   import { TextField } from '@mui/material/';
+  import Button from '@mui/material/Button';
+  import AddIcon from '@mui/icons-material/Add';
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import Radio from '@mui/material/Radio';
@@ -11,6 +13,7 @@
   import FormControlLabel from '@mui/material/FormControlLabel';
   import FormControl from '@mui/material/FormControl';
   import FormLabel from '@mui/material/FormLabel';
+  import Checkbox from '@mui/material/Checkbox';
 
 
   
@@ -37,6 +40,7 @@
     const [submitted, setSubmitted] = useState(false);
     const [isFormValid, setIsFormValid] = useState(true);
     const [pick, setPick] = useState('');
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
   
     const formatPhoneNumber = (value) => {
       if (!value) return value;
@@ -48,6 +52,10 @@
       }
       return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
     };
+
+    const handleTermsChange = (event) => {
+      setAgreedToTerms(event.target.checked);
+  };
   
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -125,12 +133,18 @@
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if(!agreedToTerms){
+      setError('Please agree to Terms of Service')
+      return
+    }
     
     if(formData.availability.length < 3){
       setError('Please provide at least 3 dates of availability.')
       return
     }
     
+
    if(!isFormValid){
       setError('Please enter valid numbers in the numeric fields.');
       return;
@@ -199,12 +213,12 @@
   };
 
   return (
-    <div className="formcontainer">
+    <div className="formcontainer" style={{ backgroundColor: '#171a1d', border: '3px solid #ccc' }}>
       <ToastContainer position="bottom-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
 
       <form className="create" onSubmit={handleSubmit}>
-        <h4><strong>Send a Request</strong></h4>
-        <div>
+        <h1 style={{ marginBottom: "0px"}}><strong style={{ fontSize: "50px"}}>Send a Narcan Request</strong></h1>
+        <div >
           <p className='form-info'>
             This is a form to receive bulk shipments of free 
             Narcan, monthly. Our Narcan is supplied by state-specific government agencies. 
@@ -217,100 +231,144 @@
           </p>
         </div>
         <div>
-          <br />
+          <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Organizational Information</p>
           <span>What is your organization's name?</span>
           <TextField
-            type="text"
-            name="organizationName"
-            value={formData.organizationName}
-            placeholder=" ex. Prevent Overdose Inc."
-            onChange={handleChange}
-            required
-            style={{ background: 'black' }}
-          />
+          margin="dense"
+          size="small"
+          color="secondary"
+          focused
+          name="organizationName"
+          value={formData.organizationName}
+          onChange={handleChange}
+          required
+          placeholder=" ex. Prevent Overdose Inc." 
+          InputProps={{
+            style: { color: 'white', backgroundColor: 'black' }  
+          }}
+        />
         </div>
         <br />
         <div>
           <span>What state is your organization located in?</span>
           <TextField
-            type="text"
-            name="state"
-            value={formData.state}
-            placeholder=" ex. Florida"
-            onChange={handleChange}
-            required
-            style={{ background: 'black' }}
-          />
+          margin="dense"
+          size="small"
+          className='text-field'
+          color="secondary"
+          focused
+          name="state"
+          value={formData.state}
+          onChange={handleChange}
+          required
+          placeholder=" ex. Florida" 
+          InputProps={{
+            style: { color: 'white', backgroundColor: 'black' }  
+          }}
+        />
         </div>
         <br />
         <div>
           <span>What county is your organization located in?</span>
           <TextField
-            type="text"
-            name="county"
-            value={formData.county}
-            placeholder=" ex. Hillsborough"
-            onChange={handleChange}
-            required
-            style={{ background: 'black' }}
-          />
+          margin="dense"
+          size="small"
+          className='text-field'
+          color="secondary"
+          focused
+          name="county"
+          value={formData.county}
+          onChange={handleChange}
+          required
+          placeholder=" ex. Hillsborough" 
+          InputProps={{
+            style: { color: 'white', backgroundColor: 'black' }  
+          }}
+        />
         </div>
-        <br />
+        <br/>
+        <div>
+          <span>Provide an email to contact the organization:</span>
+          <TextField
+          margin="dense"
+          size="small"
+          className='text-field'
+          color="secondary"
+          focused
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          placeholder=" ex. example@gmail.com" 
+          InputProps={{
+            style: { color: 'white', backgroundColor: 'black' }  
+          }}
+        />
+        </div>
+        <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Narcan Shipment Information</p> 
         <div>
           <span>Provide an address that can serve as the meeting point to receive Narcan shipments:</span>
           <TextField
-            type="text"
-            name="address"
-            value={formData.address}
-            placeholder=" Enter address"
-            onChange={handleChange}
-            required
-            style={{ background: 'black' }}
-          />
+          margin="dense"
+          size="small"
+          className='text-field'
+          fullWidth
+          color="secondary"
+          focused
+          name="address"
+          value={formData.address}
+          onChange={handleChange}
+          required
+          placeholder=" Enter Address" 
+          InputProps={{
+            style: { color: 'white', backgroundColor: 'black' }  
+          }}
+        />
         </div>
         <br />
         <div>
           <span>Provide a phone number within your organization that can respond to monthly Narcan:</span>
           <TextField
-            type="text"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            placeholder=" Enter phone number"
-            onChange={handleChange}
-            required
-            style={{ background: 'black' }}
-          />
-        </div>
-        <br />
-        <div>
-          <span>Provide an email to contact the organization:</span>
-          <TextField
-            type="email"
-            name="email"
-            value={formData.email}
-            placeholder=" ex. example@gmail.com"
-            onChange={handleChange}
-            required
-            style={{ background: 'black' }}
-          />
+          margin="dense"
+          size="small"
+          className='text-field'
+          color="secondary"
+          focused
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          required
+          placeholder=" Enter phone number" 
+          InputProps={{
+            style: { color: 'white', backgroundColor: 'black' }  
+          }}
+        />
         </div>
         <br />
         <div>
           <span>How many boxes of Narcan do you need?</span>
+          
           <TextField
+            margin="dense"
+            size="small"
             type="number"
             name="boxesOfNarcan"
+            color="secondary"
+            focused
             value={formData.boxesOfNarcan}
             placeholder=" Enter number"
             onChange={handleChange}
             min="0"
             required
             style={{ background: 'black' }}
+            InputProps={{
+              style: { color: 'white', backgroundColor: 'black' }  
+            }}
           />
         </div>
         <br />
         <div>
-          <label>What is your availability this month? (add at least three dates)</label>
+          <label style={{fontSize: "25px"}}>What is your availability this month? (add at least three dates)</label>
           <br />
           
           {formData.availability.map((avail, index) => (
@@ -350,13 +408,78 @@
               
             </div>
           ))}
-          <button type="button" onClick={addAvailability} >Add Availability</button>
+          <Button size="small" color="inherit"  variant="outlined" aria-label="add" onClick={addAvailability}>
+            <AddIcon />
+          </Button>
+           </div>
+           <br/>
+
+           <span>Receive monthly deliveries?</span>
+        <div>
+        <FormControl >
+          <FormLabel id="radio-buttons"></FormLabel>
+          <RadioGroup row aria-label="options" name="row-radio-buttons-group"
+           value={pick} onChange={handlePick}> 
+            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+            <FormControlLabel value="no" control={<Radio />} label="No" />
+          </RadioGroup>
+
+        
+        </FormControl>
+        </div>
+           
+        <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Overdose Reporting Survey</p>
+        <div>
+          <span>How many overdoses have you reversed with Narcan in the past month?</span>
+          <TextField
+            margin="dense"
+            size="small"
+            type="number"
+            name="reversedOverdoses"
+            color="secondary"
+            focused
+            value={formData.reversedOverdoses}
+            placeholder=" Enter number"
+            onChange={handleChange}
+            min="0"
+            required
+            style={{ background: 'black' }}
+            InputProps={{
+              style: { color: 'white', backgroundColor: 'black' }  
+            }}
+          />
+        </div>
+        
+        <br />
+        <div>
+          <span>How many non-fatal overdoses have you seen in the past month?</span>
+          <TextField
+            placeholder=" Enter number"
+            margin="dense"
+            size="small"
+            type="number"
+            color="secondary"
+            focused
+            name="nonFatalOverdoses"
+            value={formData.nonFatalOverdoses}
+            onChange={handleChange}
+            min="0"
+            required
+            style={{ background: 'black' }}
+            InputProps={{
+              style: { color: 'white', backgroundColor: 'black' }  
+            }}
+          />
         </div>
         <br />
         <div>
           <span>How many fatal overdoses have you seen in the past month?</span>
           <TextField
+            margin="dense"
+            size="small"
             type="number"
+            color="secondary"
+            focused
             name="fatalOverdoses"
             value={formData.fatalOverdoses}
             placeholder=" Enter number"
@@ -364,62 +487,25 @@
             min="0"
             required
             style={{ background: 'black' }}
+            InputProps={{
+              style: { color: 'white', backgroundColor: 'black' }  
+            }}
           />
         </div>
         <br />
-        <div>
-          <span>How many non-fatal overdoses have you seen in the past month?</span>
-          <TextField
-            type="number"
-            name="nonFatalOverdoses"
-            value={formData.nonFatalOverdoses}
-            placeholder=" Enter number"
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-          />
-        </div>
-        <br />
-        <div>
-          <span>How many overdoses have you reversed with Narcan in the past month?</span>
-          <TextField
-            type="number"
-            name="reversedOverdoses"
-            value={formData.reversedOverdoses}
-            placeholder=" Enter number"
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-          />
-        </div>
-        <br />
+
+       
+        <FormControlLabel
+          control={<Checkbox checked={agreedToTerms} onChange={handleTermsChange} />}
+          label={<span style={{fontSize: '15px'}}>I agree to the <a href='https://drive.google.com/file/d/1H38HhxQW_29faTN6PRfW0w8XkIPpuwDX/view' target='blank' rel="noopener noreferrer"> Terms of Service</a></span>}
+          
+          sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
+        />
+
         
-        <span>Receive monthly deliveries?</span>
-        <div>
-        <FormControl >
-          <FormLabel id="radio-buttons"></FormLabel>
-          <RadioGroup className='options'
-            row
-            aria-labelledby="radio-buttons-group"
-            name="controlled-radio-buttons-group"
-            value={pick}
-            onChange={handlePick}
-            
-            >
-            <FormControlLabel  value="yes" control={<Radio />} label="Yes"  sx={{
-              '& .MuiSvgIcon-root': {
-                fontSize: 20,}, }} />
-            <FormControlLabel  value="no" control={<Radio />} label="No" sx={{
-              '& .MuiSvgIcon-root': {
-                fontSize: 20,}, }} />
-          </RadioGroup>
-        </FormControl>
-        </div>
 
         <div className="submit-button">
-          <button type="submit" >Submit Request</button>
+          <Button color="inherit" variant="outlined" type="submit">Submit Request</Button>
         </div>
         {submitted && (
           <p className='confirmation-message'>

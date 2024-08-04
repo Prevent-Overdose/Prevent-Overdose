@@ -1,95 +1,130 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cron = require('node-cron');
-const client = require('twilio')(process.env.TWILIO_SID, process.env.SMS_AUTH);
+const { parse } = require('date-fns');
+const { postReporter, getOrg, updateOrg } = require('../database/organizationHelper');
+const { createOverdoseReport } = require('../database/overdoseReportingHelper');
+const { sendRefillForm, sendSurvey, questions, switchMessage1, switchMessage2, startMessage1, startMessage2, finishMessage, sendMessage, generateDateString} = require('./smsHelper');
+const { cronJob } = require('./cronHelper');
 
 const router = express.Router();
-// const client = twilio(process.env.TWILIO_SID, process.env.SMS_AUTH);
+const userResponses = {};
+
+const stop_commands = new Set([
+    'STOP',
+    'STOPALL',
+    'UNSUBSCRIBE',
+    'CANCEL',
+    'END',
+    'QUIT'
+]);
+
+const start_commands = new Set([
+    'UNSTOP',
+    'START'
+]);
 
 // Middleware
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-// Define the survey questions
-const questions = [
-    'How many fatal overdoses have you seen in the past month?',
-    'How many non-fatal overdoses have you seen in the past month?',
-    'How many overdoses have you reversed with our Narcan in the past month?'
-];
-
-// Object to store user responses
-const userResponses = {};
-
-cron.schedule('4 17 * * *', () => {
-    // Retrieve phone numbers from a database or another source
-    const phoneNumbers = [];
-
-    const intro = 'Hello from Prevent Overdose Inc. Thank you for joining our monthly overdose reporting survey. Your participation helps us make a difference. Please respond to the following three questions with positive numbers only: ';
-
-    phoneNumbers.forEach((phoneNumber) => {
-        sendSurvey(phoneNumber, 0, intro, true);
-    });
+// Schedule cron job
+cron.schedule('0 9 1 * *', () => {
+    cronJob(userResponses);
 });
-
-// Function to send the survey
-function sendSurvey(phoneNumber, questionIndex, customMessage = '', start = false) {
-    client.messages.create({
-        body: customMessage+questions[questionIndex],
-        from: process.env.SMS_NUM,
-        to: phoneNumber
-    })
-    .then(message => {
-        console.log(`Survey question ${questionIndex + 1} sent to ${phoneNumber}: ${message.sid} | ${phoneNumber} ${process.env.SMS_NUM}`);
-        // Store the phone number and current question index for handling responses
-        if (start){
-            userResponses[phoneNumber] = { questionIndex: 0, responses: [] };
-        }
-        else{
-            userResponses[phoneNumber] = { questionIndex }; 
-        }
-
-    })
-    .catch(error => console.error(`Error sending survey question ${questionIndex + 1} to ${phoneNumber}:`, error));
-}
 
 // Endpoint to handle user responses
-router.post('/sms', (req, res) => {
-    const { From: phoneNumber, Body: response } = req.body;
+const handleMessage = async(req,res)=> {
+    let { From: phoneNumber, Body: response } = req.body;
+    console.log(req.body)
+    phoneNumber = phoneNumber.slice(-10);
 
-    // userResponses['+18504591972'].questionIndex = 0;
-
-    if (true) { //userResponses[phoneNumber]
-        //const { questionIndex } = userResponses[phoneNumber];
-
-        // Check if the response is a number
-        const parsedResponse = parseInt(response);
-        const isPositiveInteger = !isNaN(parsedResponse) && parsedResponse > 0;
-        if (response === 'END'){
-            console.log('User terminated monthly surveys.');
-        }
-        else if (!isPositiveInteger) {
-            // If the response is not a number, resend the current question
-            //sendSurvey(phoneNumber, questionIndex, 'Please enter a positive number. ');
-        } else {
-            // Store the response
-            userResponses[phoneNumber].responses.push(response);
-
-            // If there is another question to send, send it
-            const nextQuestionIndex = questionIndex + 1;
-            if (nextQuestionIndex < questions.length) {
-                //sendSurvey(phoneNumber, nextQuestionIndex);
-            } else {
-                // If all questions have been answered, process the responses
-                console.log('All questions answered by', phoneNumber);
-                console.log('Responses:', userResponses[phoneNumber]);
-                // Clear the user's responses
-                delete userResponses[phoneNumber];
+    const org = await getOrg(phoneNumber);
+    if (org) {
+        if (org.monthly_narcan) {
+            if (stop_commands.has(response.toUpperCase())) {
+                updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: false });
+            } else if (response.toUpperCase() === 'SWITCH') {
+                sendMessage(switchMessage1, phoneNumber);
+                updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: true, last_service: "reporting" });
             }
+        } else if (org.monthly_reporting) {
+            console.log(response.toUpperCase())
+            if (stop_commands.has(response.toUpperCase())) {
+                updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: false });
+                delete userResponses[phoneNumber];
+            } else if (response.toUpperCase() === 'SWITCH') {
+                sendMessage(switchMessage2, phoneNumber);
+                delete userResponses[phoneNumber];
+                updateOrg(phoneNumber, { monthly_narcan: true, monthly_reporting: false, last_service: "narcan" });
+            }
+
+            if (userResponses[phoneNumber]) {
+                const { questionIndex } = userResponses[phoneNumber];
+                const parsedResponse = parseInt(response);
+                const isPositiveInteger = !isNaN(parsedResponse) && parsedResponse >= 0;
+
+                if (!isPositiveInteger) {
+                    sendSurvey(userResponses, phoneNumber, questionIndex, 'Please strictly enter a non-negative number. ');
+                } else {
+                    userResponses[phoneNumber].responses.push(parsedResponse);
+                    const nextQuestionIndex = questionIndex + 1;
+
+                    if (nextQuestionIndex < questions.length) {
+                        sendSurvey(userResponses, phoneNumber, nextQuestionIndex);
+                    } else {
+                        sendMessage(finishMessage, phoneNumber);
+                        createOverdoseReport(phoneNumber, Date.now(), userResponses[phoneNumber].responses[0], userResponses[phoneNumber].responses[1], userResponses[phoneNumber].responses[2]);
+                        delete userResponses[phoneNumber];
+                    }
+                }
+            }
+        } else {
+            if (start_commands.has(response.toUpperCase())) {
+                if (org.last_service === "narcan") {
+                    sendMessage(startMessage1, phoneNumber);
+                    updateOrg(phoneNumber, { monthly_narcan: true, monthly_reporting: false });
+                }
+                else 
+                {
+                    sendMessage(startMessage2, phoneNumber);
+                    updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: true });
+                }
+            } 
         }
     }
-
-    // res.sendStatus(200);
-});
+};
 
 
-module.exports = router
+const createReporter = async(req,res)=>{
+    const reporting_intro = `
+Prevent Overdose - Thank you for signing up for your three question monthly overdose report!
+
+`;
+    const {zipcode, address, phoneNumber} = req.body
+
+   
+   try{
+    
+    const form = await postReporter(zipcode, address, phoneNumber)
+
+    //format date
+
+    sendSurvey(userResponses, phoneNumber, 0, reporting_intro, true);
+    
+    
+
+
+    res.status(200).json({zipcode, address, phoneNumber, createdAt: Date.now()})
+
+   } catch(error){
+    if (error.code === 11000 && error.keyPattern.phone_number) {
+        // Duplicate key error (phoneNumber already exists)
+        return res.status(400).json({ error: 'Phone number already exists.' });
+      }
+      return res.status(500).json({ error: 'Failed to add phone number.' });
+   }
+}
+
+// module.exports = router;
+module.exports = {handleMessage, createReporter}

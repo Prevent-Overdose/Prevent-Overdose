@@ -7,8 +7,9 @@ const axios = require('axios')
 
 const narcanRoutes = require('./routes/narcanRoutes')
 const reductionRoutes = require('./routes/reductionRoutes')
-const reporting = require('./sms/reporting')
+const smsRoutes = require('./routes/smsRoutes')
 const dummyRoutes = require('./routes/dummyRoutes')
+const refillRoutes = require('./routes/refillRoutes')
 
 //express app
 const app = express()
@@ -24,8 +25,43 @@ app.use((req, res, next) => {
 //routes
 app.use('/api/narcan', narcanRoutes)
 app.use('/api/otherforms', reductionRoutes)
-app.use('/api/reporting', reporting)
+app.use('/api/sms', smsRoutes)
 app.use('/api/dummy', dummyRoutes)
+app.use('/api/refill',refillRoutes)
+
+app.get('/api/places', async (req, res) => {
+    const { latitude, longitude } = req.query;
+    try {
+        const response = await axios.get('https://maps.googleapis.com/maps/api/place/findplacefromtext/json', {
+            params: {
+                input: 'park',
+                inputtype: 'textquery',
+                locationbias: `circle:1@${latitude},${longitude}`,
+                fields: 'formatted_address,name,geometry',
+                key: process.env.REACT_APP_API
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+app.get('/api/geocode', async (req, res) => {
+    const { latitude, longitude } = req.query;
+    try {
+        const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+            params: {
+                latlng: `${latitude},${longitude}`,
+                key: process.env.REACT_APP_API
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
 
 //connect to db 
 mongoose.connect(process.env.MONGO_URI)

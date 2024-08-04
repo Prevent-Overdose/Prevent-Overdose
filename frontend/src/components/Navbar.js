@@ -20,15 +20,18 @@ const Navbar = ({ isSideNavOpen, toggleSideNav }) => {
             </button>
           </div>
           <Link to="/" className="navbar-logo">
-            <img src="/preventOD white logo.png" alt="PreventOD Logo" />
+            <img src="/preventOD logo.png" alt="PreventOD Logo" />
           </Link>
         </div>
         <nav className="navbar-links">
           <Link to="/">Home</Link>
           <Link to="/about">About Us</Link>
-          {/*<Link to="/resources">Resources</Link>*/}
+          {<Link to="/resources">Resources</Link>}
           <Link to="/request-narcan" className="navbar-request-narcan">
             <img src="Request Narcan.png" alt="Request Narcan" />
+          </Link>
+          <Link to="/report-overdose" className="navbar-report-overdose">
+            <img src="Report Overdose CG.png" alt="Report Overdose" />
           </Link>
         </nav>
       </div>

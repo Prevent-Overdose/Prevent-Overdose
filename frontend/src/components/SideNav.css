@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap'); /* Nunito Sans */
 
 .sidenav {
   height: 100%;
@@ -11,7 +11,7 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .sidenav.open {
@@ -26,7 +26,7 @@
   display: block;
   white-space: nowrap;
   text-overflow: clip;
-  margin-right: 100px; /* Add margin to avoid full-width selection */
+
 }
 
 .sidenav .sidenav-elements a:hover {
@@ -37,15 +37,15 @@
 }
 
 .sidenav .sidenav-logo img {
-    padding-left: 20px;
-    height: 50px; /* Adjusted height to make the logo smaller */
+    margin-bottom: -80px;
+    height: 200px;
     width: auto;
     transition: opacity 0.2s; /* Smooth fade effect on hover */
   }
 
-  .sidenav .sidenav-logo img:hover {
-    opacity: 0.9;
-  }
+.sidenav .sidenav-logo img:hover {
+  opacity: 0.9;
+}
 
 .sidenav .closebtn {
   position: absolute;
@@ -107,14 +107,14 @@
 
 .sidenav-elements {
     padding-left: 30px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
   
 }
 
 .sidenav-about-children a {
     margin-left: 20px;
     font-size: 20px !important;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     color: lightgrey;
 }
 
@@ -144,19 +144,10 @@
   .navbar-request-narcan2 img {
       color: #ff23fd;
       display: block;
-      width: 240px;
-      padding: 0;
-      margin: 0 auto;
-      clip-path: inset(20% 0 0 0); /* Crop the top 20% of the image */
-      margin-top: -60px; /* Adjust top margin to reduce space */
-      height: 240px;
-      max-width: 500px; /* Set a max width to prevent scaling beyond this size */
-      transition: none;
-      position: absolute;
-
-      
-
-
+      width: 175px;
+      margin-top: -40px; /* Adjust top margin to reduce space */
+      margin-left: -10px;
+      height: 200px;
     }
 
     .sidenav a.navbar-request-narcan2 {

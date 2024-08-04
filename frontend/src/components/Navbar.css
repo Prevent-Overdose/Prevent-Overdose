@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); /* Link Font Style, can be changed if a more aesthetic font is found */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap'); /* Nunito Sans */
 
 header {
   width: 100%; /* Ensures the header is the full width of the viewport */
-  position: absolute; /* Fixes the navbar at the top */
+  position: fixed; /* Fixes the navbar at the top */
   top: 0; /* Aligns the navbar at the top of the viewport */
   left: 0; /* Aligns the navbar to the left edge of the viewport */
   z-index: 1000; /* Ensures the navbar stays on top of other content */
@@ -18,6 +18,7 @@ header {
   height: 100%; /* Makes the navbar fill the header */
   background-color: black;
   margin-right: 1em;
+  width: 100%;
 }
 
 .left-section {
@@ -26,10 +27,10 @@ header {
 }
 
 .navbar-logo img {
-  height: 49px;
+  height: 230px; 
   width: auto;
-  margin-left: 15px;
-  margin-top: 5px;
+  margin-top: 15px;
+  vertical-align: middle;
   transition: opacity 0.2s; /* Smooth fade effect on hover */
 }
 
@@ -47,13 +48,10 @@ header {
   margin: 0 15px;
   text-decoration: none;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 18px; 
   text-align: center;
 }
-
-
-
 
 .navbar-links a:hover {
   background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8); /* Gradient colors */
@@ -71,15 +69,12 @@ header {
 .navbar-request-narcan {
   display: flex;
   align-items: center;
-
 }
 
 .navbar-request-narcan img {
   height: 200px; 
   width: auto;
   vertical-align: middle;
-  margin-left: 15px;
-  margin-right: 15px; 
   transition: filter 0.4s;
 }
 
@@ -87,10 +82,29 @@ header {
   filter: brightness(2); /* Light up effect on hover */
 }
 
+.navbar-report-overdose {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-report-overdose img {
+  height: 115px; 
+  width: auto;
+  vertical-align: middle;
+  margin-right: 15px; 
+  transition: filter 0.4s;
+}
+
+.navbar-report-overdose img:hover {
+  filter: brightness(2); /* Light up effect on hover */
+}
+
 .dropdown {
   position: relative;
   margin-right: 20px; 
-  margin-left: 10px 
+  margin-left: 10px; 
+  margin-bottom: 1px;
+  align-items: center;
 }
 
 .dropdown-toggle { 
@@ -119,7 +133,6 @@ header {
   padding: 10px 0;
   display: flex;
   flex-direction: column;
-  z-index: 1001; /* Ensure dropdown is above other elements */
   min-width: 150px; 
 }
 
@@ -129,7 +142,7 @@ header {
   padding: 10px 20px; 
   text-decoration: none;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -165,8 +178,5 @@ header {
   .dropdown-toggle { 
     padding: 0 0 0 0;
   }
-
-  
-
   
 }
