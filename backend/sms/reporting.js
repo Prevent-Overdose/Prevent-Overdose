@@ -6,6 +6,7 @@ const { postReporter, getOrg, updateOrg } = require('../database/organizationHel
 const { createOverdoseReport } = require('../database/overdoseReportingHelper');
 const { sendRefillForm, sendSurvey, questions, switchMessage1, switchMessage2, startMessage1, startMessage2, finishMessage, sendMessage, generateDateString} = require('./smsHelper');
 const { cronJob } = require('./cronHelper');
+const UserReport = require('../models/user_reportModel')
 
 const router = express.Router();
 const userResponses = {};
@@ -108,14 +109,14 @@ Prevent Overdose - Thank you for signing up for your three question monthly over
     
     const form = await postReporter(zipcode, address, phoneNumber)
 
-    //format date
+    const data = await UserReport.create({zipcode,address, phoneNumber})
 
     sendSurvey(userResponses, phoneNumber, 0, reporting_intro, true);
     
     
 
 
-    res.status(200).json({zipcode, address, phoneNumber, createdAt: Date.now()})
+    res.status(200).json(data)
 
    } catch(error){
     if (error.code === 11000 && error.keyPattern.phone_number) {
