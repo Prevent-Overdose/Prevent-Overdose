@@ -21,7 +21,7 @@ const Home = () => {
       if (currentIndex < motto.length) {
         setDisplayText(motto.substring(0, currentIndex + 1));
         currentIndex++;
-        setTimeout(typeMottoEffect, 80);
+        setTimeout(typeMottoEffect, 60); // Motto duration
       } else {
         setShowButton(true);
         setShowArrow(true);
