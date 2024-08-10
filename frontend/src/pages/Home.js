@@ -13,6 +13,7 @@ const Home = () => {
     overdosesReversed: useRef(null),
     carePackagesDispensed: useRef(null),
   };
+  const missionSectionRef = useRef(null);
 
   useEffect(() => {
     document.title = "Home | Prevent Overdose Inc.";
@@ -96,6 +97,19 @@ const Home = () => {
     });
   };
 
+  const handleArrowClick = () => {
+    if (missionSectionRef.current) {
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const missionSectionTop = missionSectionRef.current.getBoundingClientRect().top;
+      const offsetPosition = missionSectionTop + window.pageYOffset - headerHeight;
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="home-container">
       <div className="hero-section">
@@ -105,10 +119,10 @@ const Home = () => {
           <a href="/request-narcan" className="request-narcan">
             <img src="Request Narcan.png" alt="Request Narcan" />
           </a>
-          <div className="arrow">➢</div>
+          <div className="arrow" onClick={handleArrowClick}>➢</div>
         </div>
       </div>
-      <div className="mission-section">
+      <div className="mission-section" ref={missionSectionRef}>
         <div className="mission-left">
           <h2 className="mission-header">
             OUR <span className="mission-highlight">MISSION</span>
