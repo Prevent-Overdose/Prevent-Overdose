@@ -66,8 +66,8 @@
 .request-narcan {
   visibility: hidden;
   opacity: 0;
-  animation: fadeInButton 3s forwards;
-  animation-delay: 3.3s; /* Built-in delay to match motto typing effect */
+  animation: fadeInButton 2s forwards;
+  animation-delay: 2.5s; /* Built-in delay to match motto typing effect */
 }
 
 .request-narcan img {
@@ -92,8 +92,8 @@
   cursor: pointer;
   font-size: 3em;
   transform: rotate(90deg);
-  animation: fadeInArrow 3s forwards, bounce 1s infinite alternate;
-  animation-delay: 3.3s; /* Built-in delay to display after motto typing effect */
+  animation: fadeInArrow 2s forwards, bounce 0.75s infinite alternate;
+  animation-delay: 2.5s; /* Built-in delay to display after motto typing effect */
 }
 
 @keyframes fadeInButton {
@@ -136,7 +136,7 @@
   background-image: url('/public/overdose_hand_ribbon.png');
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 85vh;
 }
 
 .mission-left {
@@ -430,7 +430,6 @@
 
   .request-narcan img {
     padding-top: 20px;
-    animation: fadeIn 5s;
     height: 250px;
   }
   
