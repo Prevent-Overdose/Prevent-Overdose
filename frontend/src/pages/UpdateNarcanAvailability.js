@@ -5,7 +5,7 @@ import NarcanForm from "../components/NarcanForm"
 const RequestNarcan = ()=>{
 
     useEffect(()=>{
-        document.title = 'Request Narcan | Prevent Overdose Inc.'
+        document.title = 'Update Availability | Prevent Overdose Inc.'
     },[])
 
     

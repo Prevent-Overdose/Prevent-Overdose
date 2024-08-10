@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ReportingForm from "../components/reportingForm"
+import ReportingForm from "../components/ReportingForm"
 
 const RequestNarcan = ()=>{
 

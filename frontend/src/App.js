@@ -14,8 +14,8 @@ import './styles.css'
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Resources from "./pages/Resources";
-import RequestNarcan from "./pages/requestNarcanPage";
-import ReportOverdose from "./pages/reportOverdosePage"
+import RequestNarcan from "./pages/RequestNarcanPage";
+import ReportOverdose from "./pages/ReportOverdosePage"
 
 import FoundersPage from "./pages/FoundersPage";
 import BoardPage from "./pages/BoardPage";

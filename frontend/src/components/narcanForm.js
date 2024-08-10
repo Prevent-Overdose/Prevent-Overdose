@@ -2,7 +2,7 @@
   import DatePicker from 'react-datepicker';
   import 'react-datepicker/dist/react-datepicker.css';
   import moment from 'moment';
-  import './narcanForm.css';
+  import './NarcanForm.css';
   import { TextField } from '@mui/material/';
   import Button from '@mui/material/Button';
   import AddIcon from '@mui/icons-material/Add';
@@ -242,7 +242,7 @@
           value={formData.organizationName}
           onChange={handleChange}
           required
-          placeholder=" ex. Prevent Overdose Inc." 
+          placeholder="ex. Prevent Overdose Inc." 
           InputProps={{
             style: { color: 'white', backgroundColor: 'black' }  
           }}
@@ -261,7 +261,7 @@
           value={formData.state}
           onChange={handleChange}
           required
-          placeholder=" ex. Florida" 
+          placeholder="ex. Florida" 
           InputProps={{
             style: { color: 'white', backgroundColor: 'black' }  
           }}
@@ -280,7 +280,7 @@
           value={formData.county}
           onChange={handleChange}
           required
-          placeholder=" ex. Hillsborough" 
+          placeholder="ex. Hillsborough" 
           InputProps={{
             style: { color: 'white', backgroundColor: 'black' }  
           }}
@@ -299,7 +299,7 @@
           value={formData.email}
           onChange={handleChange}
           required
-          placeholder=" ex. example@gmail.com" 
+          placeholder="ex. example@gmail.com" 
           InputProps={{
             style: { color: 'white', backgroundColor: 'black' }  
           }}
@@ -319,7 +319,7 @@
           value={formData.address}
           onChange={handleChange}
           required
-          placeholder=" Enter Address" 
+          placeholder="Enter Address" 
           InputProps={{
             style: { color: 'white', backgroundColor: 'black' }  
           }}
@@ -338,7 +338,7 @@
           value={formData.phoneNumber}
           onChange={handleChange}
           required
-          placeholder=" Enter phone number" 
+          placeholder="Enter phone number" 
           InputProps={{
             style: { color: 'white', backgroundColor: 'black' }  
           }}
@@ -356,7 +356,7 @@
             color="secondary"
             focused
             value={formData.boxesOfNarcan}
-            placeholder=" Enter number"
+            placeholder="Enter number"
             onChange={handleChange}
             min="0"
             required
@@ -439,7 +439,7 @@
             color="secondary"
             focused
             value={formData.reversedOverdoses}
-            placeholder=" Enter number"
+            placeholder="Enter number"
             onChange={handleChange}
             min="0"
             required
@@ -454,7 +454,7 @@
         <div>
           <span>How many non-fatal overdoses have you seen in the past month?</span>
           <TextField
-            placeholder=" Enter number"
+            placeholder="Enter number"
             margin="dense"
             size="small"
             type="number"
@@ -482,7 +482,7 @@
             focused
             name="fatalOverdoses"
             value={formData.fatalOverdoses}
-            placeholder=" Enter number"
+            placeholder="Enter number"
             onChange={handleChange}
             min="0"
             required
@@ -497,7 +497,7 @@
        
         <FormControlLabel
           control={<Checkbox checked={agreedToTerms} onChange={handleTermsChange} />}
-          label={<span style={{fontSize: '15px'}}>I agree to the <a href='https://drive.google.com/file/d/1H38HhxQW_29faTN6PRfW0w8XkIPpuwDX/view' target='blank' rel="noopener noreferrer"> Terms of Service</a></span>}
+          label={<span style={{fontSize: '15px'}}>I agree to the <a href="Electronic Accountability Agreement Requirements.pdf" target='blank' rel="noopener noreferrer"> Terms of Service</a></span>}
           
           sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
         />
