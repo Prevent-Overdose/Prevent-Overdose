@@ -256,7 +256,7 @@
             This is a form to cancel your monthly shipments of Narcan. If you do not want to cancel your shipments, <strong> do not fill out this form</strong>.
           </p>
           <p className='form-info'>
-              If you would like to <strong> update your current availability </strong> to receive monthly 
+              <strong> If you would like to update your current availability </strong> to receive monthly 
               deliveries, please visit the <a href="/update-availability" style={{ color: 'green' }}>Update Availability</a> page.
           </p>
         </div>
