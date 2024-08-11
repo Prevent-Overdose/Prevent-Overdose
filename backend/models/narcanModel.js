@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+/* 
+schema for collection/database structure for Starter Narcanforms
+*/
+
 const narcanSchema = new Schema({
 
     organizationName: {

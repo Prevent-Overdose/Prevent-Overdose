@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+/* 
+schema for collection/database structure for individual OD reporting 
+*/
+
 const userSchema = new Schema({
     address:{
         type: String, 

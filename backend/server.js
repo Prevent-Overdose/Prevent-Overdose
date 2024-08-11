@@ -29,6 +29,8 @@ app.use('/api/sms', smsRoutes)
 app.use('/api/dummy', dummyRoutes)
 app.use('/api/refill',refillRoutes)
 
+
+// send req to google places api to find nearest park
 app.get('/api/places', async (req, res) => {
     const { latitude, longitude } = req.query;
     try {
@@ -47,6 +49,7 @@ app.get('/api/places', async (req, res) => {
     }
 });
 
+//send request to google places geocode to return longitude and latitude of user 
 app.get('/api/geocode', async (req, res) => {
     const { latitude, longitude } = req.query;
     try {
