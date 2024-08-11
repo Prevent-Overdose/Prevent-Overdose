@@ -9,6 +9,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Tooltip, IconButton } from '@mui/material/';
 import HelpIcon from '@mui/icons-material/Help';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 const ReportingForm = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +27,9 @@ const ReportingForm = () => {
   const [phoneErrorMessage, setPhoneErrorMessage] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [pick, setPick] = useState('');
+  const [choose,setChoose] = useState('')
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -79,6 +86,15 @@ const ReportingForm = () => {
   const handleToggle = () => {
     setTooltipOpen((prev) => !prev);
   };
+
+  const handlePick = (event)=>{
+    setPick(event.target.value)
+  }
+
+  const handleChoose = (event)=>{
+    setChoose(event.target.value)
+  }
+  
 
   const getUserLocation = () => {
     return new Promise((resolve, reject) => {
@@ -167,6 +183,10 @@ const ReportingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(!pick){
+      setError('Please choose whether reporting as Individual or as representative of Organziation')
+      return;
+    }
     if (!agreedToTerms) {
       setError('Please agree to the Terms of Service.');
       return;
@@ -214,6 +234,8 @@ const ReportingForm = () => {
       setAgreedToTerms(false);
       setError(null);
       setSubmitted(true);
+      setPick(null);
+      setChoose(null);
     } catch (error) {
       setError(error.message);
     }
@@ -222,7 +244,7 @@ const ReportingForm = () => {
   return (
     <div className="formcontainer" style={{ backgroundColor: '#171a1d', border: '3px solid #ccc' }}>
       <ToastContainer position="bottom-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-
+  
       <form className="create" onSubmit={handleSubmit}>
         <h1 style={{ marginBottom: '0px' }}>
           <strong style={{ fontSize: '50px' }}>Overdose Reporting Survey</strong>
@@ -233,88 +255,198 @@ const ReportingForm = () => {
           </p>
         </div>
         <br />
+        <span>Are you filling out this survey while in your community?</span>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span>Provide an address of the nearest park in your area:</span>
-            <Tooltip
-              title="Nearest park location is a way to maintain reporter anonymity and give nonprofit organizations location-specific information to help communities in-need."
-              open={tooltipOpen}
-              onClose={() => setTooltipOpen(false)}
-              disableHoverListener
-            >
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Button color="inherit" variant="outlined" onClick={autofillAddressAndZipcode} style={{ marginLeft: 10 }}>
-                  Autofill
-                </Button>
-                <IconButton color="inherit" onClick={handleToggle}>
-                  <HelpIcon fontSize="small" className="custom-icon" />
-                </IconButton>
-              </div>
-            </Tooltip>
+            <FormControl  >
+              <FormLabel id="radio-buttons"></FormLabel>
+              <RadioGroup row aria-label="options" name="row-radio-buttons-group"
+                value={choose} onChange={handleChoose} > 
+                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                <FormControlLabel value="no" control={<Radio />} label="No" />
+              </RadioGroup>
+            </FormControl>
           </div>
-          <TextField
-            margin="dense"
-            size="small"
-            className="text-field"
-            fullWidth
-            color="secondary"
-            focused
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-            placeholder="Enter Address"
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' },
-            }}
-          />
-        </div>
-
         <br />
         <div>
-          <span>Zipcode:</span>
-          <TextField
-            margin="dense"
-            size="small"
-            className="text-field"
-            color="secondary"
-            focused
-            name="zipcode"
-            value={formData.zipcode}
-            onChange={handleChange}
-            required
-            error={!isZipValid}
-            inputProps={{ maxLength: 5, pattern: '[0-9]*' }}
-            placeholder="Enter zip code"
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' },
-            }}
-          />
+          {choose && <span>Are you a representative/employee/volunteer reporting for an organization?</span>}
+          {choose &&(
+          <div>
+            <FormControl  >
+              <FormLabel id="radio-buttons"></FormLabel>
+              <RadioGroup row aria-label="options" name="row-radio-buttons-group"
+                value={pick} onChange={handlePick} > 
+                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                <FormControlLabel value="no" control={<Radio />} label="No" />
+              </RadioGroup>
+            </FormControl>
+          </div>
+          )}
+          {pick === 'yes' && (
+            <div>
+              <br />
+              <span>What is your organization's name?</span>
+              <TextField
+                margin="dense"
+                size="small"
+                color="secondary"
+                focused
+                name="organizationName"
+                value={formData.organizationName}
+                onChange={handleChange}
+                required
+                placeholder="ex. Prevent Overdose Inc." 
+                InputProps={{
+                  style: { color: 'white', backgroundColor: 'black' }  
+                }}
+              />
+              <br />
+              <br />
+              <div>
+                <span>What state is your organization located in?</span>
+                <TextField
+                  margin="dense"
+                  size="small"
+                  className='text-field'
+                  color="secondary"
+                  focused
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  required
+                  placeholder="ex. Florida" 
+                  InputProps={{
+                    style: { color: 'white', backgroundColor: 'black' }  
+                  }}
+                />
+              </div>
+              <br />
+              <div>
+                <span>What county is your organization located in?</span>
+                <TextField
+                  margin="dense"
+                  size="small"
+                  className='text-field'
+                  color="secondary"
+                  focused
+                  name="county"
+                  value={formData.county}
+                  onChange={handleChange}
+                  required
+                  placeholder="ex. Hillsborough" 
+                  InputProps={{
+                    style: { color: 'white', backgroundColor: 'black' }  
+                  }}
+                />
+              </div>
+              <br />
+              <div>
+                <span>Provide an email to contact the organization:</span>
+                <TextField
+                  margin="dense"
+                  size="small"
+                  className='text-field'
+                  color="secondary"
+                  focused
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="ex. example@gmail.com" 
+                  InputProps={{
+                    style: { color: 'white', backgroundColor: 'black' }  
+                  }}
+                />
+              </div>
+              <br />
+            </div>
+          )}
         </div>
-        <br />
+      {(pick === 'yes' || pick ==='no') && (
         <div>
-          <span>What is your phone number?:</span>
-          <TextField
-            margin="dense"
-            size="small"
-            className="text-field"
-            color="secondary"
-            focused
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            required
-            error={!isPhoneValid}
-            helperText={phoneErrorMessage}
-            placeholder="Enter phone number"
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' },
-            }}
-          />
-        </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              {pick === 'yes' ? <span>Provide Your Organization's Address:</span> : <span>Provide an address of the nearest park in your area:</span>}
+              <Tooltip
+                title="Nearest park location is a way to maintain reporter anonymity and give nonprofit organizations location-specific information to help communities in-need."
+                open={tooltipOpen}
+                onClose={() => setTooltipOpen(false)}
+                disableHoverListener
+              >
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                {(pick === 'no' && choose === 'yes') && <Button color="inherit" variant="outlined" onClick={autofillAddressAndZipcode} style={{ marginLeft: 10 }}>
+                    Autofill
+                  </Button>
+                  }
+                  <IconButton color="inherit" onClick={handleToggle}>
+                    <HelpIcon fontSize="small" className="custom-icon" />
+                  </IconButton>
+                </div>
+              </Tooltip>
+            </div>
+            <TextField
+              margin="dense"
+              size="small"
+              className="text-field"
+              fullWidth
+              color="secondary"
+              focused
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              required
+              placeholder="Enter Address"
+              InputProps={{
+                style: { color: 'white', backgroundColor: 'black' },
+              }}
+            />
+          </div>
+    
+          <br />
+          <div>
+            <span>Zipcode:</span>
+            <TextField
+              margin="dense"
+              size="small"
+              className="text-field"
+              color="secondary"
+              focused
+              name="zipcode"
+              value={formData.zipcode}
+              onChange={handleChange}
+              required
+              error={!isZipValid}
+              inputProps={{ maxLength: 5, pattern: '[0-9]*' }}
+              placeholder="Enter zip code"
+              InputProps={{
+                style: { color: 'white', backgroundColor: 'black' },
+              }}
+            />
+          </div>
+          <br />
+          <div>
+            <span>What is your phone number?:</span>
+            <TextField
+              margin="dense"
+              size="small"
+              className="text-field"
+              color="secondary"
+              focused
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              required
+              error={!isPhoneValid}
+              helperText={phoneErrorMessage}
+              placeholder="Enter phone number"
+              InputProps={{
+                style: { color: 'white', backgroundColor: 'black' },
+              }}
+            />
+          </div>
+        
 
         <br />
-
+  
         <FormControlLabel
           control={<Checkbox checked={agreedToTerms} onChange={handleTermsChange} />}
           label={
@@ -331,6 +463,8 @@ const ReportingForm = () => {
           }      
           sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
         />
+        </div>
+        )}
 
         <div className="submit-button">
           <Button color="inherit" variant="outlined" type="submit">
@@ -346,6 +480,5 @@ const ReportingForm = () => {
       </form>
     </div>
   );
-};
-
+}  
 export default ReportingForm;
