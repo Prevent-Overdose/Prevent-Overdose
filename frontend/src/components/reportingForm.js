@@ -317,7 +317,18 @@ const ReportingForm = () => {
 
         <FormControlLabel
           control={<Checkbox checked={agreedToTerms} onChange={handleTermsChange} />}
-          label={<span style={{ fontSize: '15px' }}>I agree to the <a href="Electronic Accountability Agreement Requirements.pdf" target="blank" rel="noopener noreferrer">Terms of Service</a></span>}
+          label={
+            <span style={{ fontSize: '15px' }}>
+              I agree to the <a 
+                href="Electronic Accountability Agreement Requirements.pdf" 
+                target="blank" 
+                rel="noopener noreferrer" 
+                style={{ color: '#9226f0' }}
+              > 
+                Terms of Service
+              </a>
+            </span>
+          }      
           sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
         />
 

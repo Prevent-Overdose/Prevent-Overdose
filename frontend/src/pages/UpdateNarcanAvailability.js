@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 //narcanform 
-import NarcanForm from "../components/NarcanForm"
+import NarcanForm from "../components/UpdateAvailabilityForm"
 
-const RequestNarcan = ()=>{
+const UpdateNarcanAvailability = ()=>{
 
     useEffect(()=>{
         document.title = 'Update Availability | Prevent Overdose Inc.'
@@ -16,4 +16,4 @@ const RequestNarcan = ()=>{
     )
 }
 
-export default RequestNarcan
+export default UpdateNarcanAvailability

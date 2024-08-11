@@ -17,7 +17,7 @@
 
 
   
-  const NarcanForm = () => {
+  const UpdateAvailabilityForm = () => {
     const [formData, setFormData] = useState({
       organizationName: '',
       state: '',
@@ -131,11 +131,34 @@
     }));
   };
 
+
+    const verifyNumber = () => {
+      // Your custom function logic here
+      
+
+
+
+
+
+
+      //            TBD -- verify phone number exists in the database and send toast message
+      
+
+      // ex. toast.success("Phone number verified successfully!");
+      // or toast.error("Failed to locate phone number in the database!.");
+
+
+
+
+
+      // Add any other logic you want to execute
+    };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if(!agreedToTerms){
-      setError('Please agree to Terms of Service')
+      setError('Please agree to the Terms of Service')
       return
     }
     
@@ -169,6 +192,22 @@
     
 
     try {
+      //
+
+
+
+
+      // TBD -- check phone number exists and send the form data to the backend to update the availability of the organization
+
+      // create new backend route to handle this form submissions
+
+
+
+      //
+
+
+
+
       const response = await fetch("https://prevent-overdose-github-io.onrender.com/api/narcan", {
         method: 'POST',
         headers: {
@@ -177,11 +216,11 @@
         body: JSON.stringify(formattedFormData)
       });
       if (!response.ok) {
-        toast.error("Failed to submit the form.");
+        toast.error("Failed to update availability.");
         
       }
       else {
-        toast.success("Successfully requested Narcan!")
+        toast.success("Updated availability!")
       }
       const result = await response.json();
       console.log('Form submitted successfully:', result);
@@ -217,117 +256,23 @@
       <ToastContainer position="bottom-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
 
       <form className="create" onSubmit={handleSubmit}>
-        <h1 style={{ marginBottom: "0px"}}><strong style={{ fontSize: "50px"}}>Send a Narcan Request</strong></h1>
+        <h1 style={{ marginBottom: "0px"}}><strong style={{ fontSize: "50px"}}>Update Narcan Shipment Availability</strong></h1>
         <div >
           <p className='form-info'>
-            This is a form to receive bulk shipments of free 
-            Narcan, monthly. Our Narcan is supplied by state-specific government agencies. 
-            Currently available in <strong>Allegheny county, PA;
-            Hillsborough county, FL; 
-            Pinellas county, FL; 
-            Alachua county, FL. </strong>
-            If not available in your area, 
-            contact us through our website. 
+            This is a form to update your current availability to receive monthly shipments of 
+            Narcan. If your current availability has not changed, <strong> do not fill out this form</strong>.
+          </p>
+          <p className='form-info'>
+              <strong>If you would like to cancel your monthly Narcan deliveries</strong>, please visit the <a href="/cancel-shipments" style={{ color: '#ff0000' }}>Cancel Shipments</a> page.
           </p>
         </div>
         <div>
           <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Organizational Information</p>
-          <span>What is your organization's name?</span>
-          <TextField
-          margin="dense"
-          size="small"
-          color="secondary"
-          focused
-          name="organizationName"
-          value={formData.organizationName}
-          onChange={handleChange}
-          required
-          placeholder="ex. Prevent Overdose Inc." 
-          InputProps={{
-            style: { color: 'white', backgroundColor: 'black' }  
-          }}
-        />
+  
         </div>
-        <br />
+        
         <div>
-          <span>What state is your organization located in?</span>
-          <TextField
-          margin="dense"
-          size="small"
-          className='text-field'
-          color="secondary"
-          focused
-          name="state"
-          value={formData.state}
-          onChange={handleChange}
-          required
-          placeholder="ex. Florida" 
-          InputProps={{
-            style: { color: 'white', backgroundColor: 'black' }  
-          }}
-        />
-        </div>
-        <br />
-        <div>
-          <span>What county is your organization located in?</span>
-          <TextField
-          margin="dense"
-          size="small"
-          className='text-field'
-          color="secondary"
-          focused
-          name="county"
-          value={formData.county}
-          onChange={handleChange}
-          required
-          placeholder="ex. Hillsborough" 
-          InputProps={{
-            style: { color: 'white', backgroundColor: 'black' }  
-          }}
-        />
-        </div>
-        <br/>
-        <div>
-          <span>Provide an email to contact the organization:</span>
-          <TextField
-          margin="dense"
-          size="small"
-          className='text-field'
-          color="secondary"
-          focused
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          placeholder="ex. example@gmail.com" 
-          InputProps={{
-            style: { color: 'white', backgroundColor: 'black' }  
-          }}
-        />
-        </div>
-        <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Narcan Shipment Information</p> 
-        <div>
-          <span>Provide an address that can serve as the meeting point to receive Narcan shipments:</span>
-          <TextField
-          margin="dense"
-          size="small"
-          className='text-field'
-          fullWidth
-          color="secondary"
-          focused
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-          required
-          placeholder="Enter Address" 
-          InputProps={{
-            style: { color: 'white', backgroundColor: 'black' }  
-          }}
-        />
-        </div>
-        <br />
-        <div>
-          <span>Provide a phone number within your organization that can respond to monthly Narcan:</span>
+          <span>Enter your registered phone number:</span>
           <TextField
           margin="dense"
           size="small"
@@ -343,32 +288,31 @@
             style: { color: 'white', backgroundColor: 'black' }  
           }}
         />
+        <Button 
+        color="inherit" 
+        variant="outlined" 
+        onClick={verifyNumber}  // Call the custom function on click
+        sx={{
+          marginTop: '10px',
+          marginLeft: '10px',
+          '&:hover': {
+            color: 'green', // Change text color on hover (optional)
+            borderColor: 'green', // Change border color on hover (optional)
+          },
+        }}
+      >
+        Verify Number
+      </Button>
+       
         </div>
-        <br />
+
         <div>
-          <span>How many boxes of Narcan do you need?</span>
           
-          <TextField
-            margin="dense"
-            size="small"
-            type="number"
-            name="boxesOfNarcan"
-            color="secondary"
-            focused
-            value={formData.boxesOfNarcan}
-            placeholder="Enter number"
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' }  
-            }}
-          />
+       
         </div>
         <br />
         <div>
-          <label style={{fontSize: "25px"}}>What is your availability this month? (add at least three dates)</label>
+          <label style={{fontSize: "25px"}}>Enter your new monthly availability (add at least three dates):</label>
           <br />
           
           {formData.availability.map((avail, index) => (
@@ -413,6 +357,7 @@
           </Button>
            </div>
            <br/>
+           <br />
 
            <span>Receive monthly deliveries?</span>
         <div>
@@ -428,71 +373,7 @@
         </FormControl>
         </div>
            
-        <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Overdose Reporting Survey</p>
-        <div>
-          <span>How many overdoses have you reversed with Narcan in the past month?</span>
-          <TextField
-            margin="dense"
-            size="small"
-            type="number"
-            name="reversedOverdoses"
-            color="secondary"
-            focused
-            value={formData.reversedOverdoses}
-            placeholder="Enter number"
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' }  
-            }}
-          />
-        </div>
-        
-        <br />
-        <div>
-          <span>How many non-fatal overdoses have you seen in the past month?</span>
-          <TextField
-            placeholder="Enter number"
-            margin="dense"
-            size="small"
-            type="number"
-            color="secondary"
-            focused
-            name="nonFatalOverdoses"
-            value={formData.nonFatalOverdoses}
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' }  
-            }}
-          />
-        </div>
-        <br />
-        <div>
-          <span>How many fatal overdoses have you seen in the past month?</span>
-          <TextField
-            margin="dense"
-            size="small"
-            type="number"
-            color="secondary"
-            focused
-            name="fatalOverdoses"
-            value={formData.fatalOverdoses}
-            placeholder="Enter number"
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' }  
-            }}
-          />
-        </div>
-        <br />
+        <br />       
 
        
         <FormControlLabel
@@ -508,7 +389,7 @@
                 Terms of Service
               </a>
             </span>
-          }      
+          }          
           sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
         />
 
@@ -520,9 +401,7 @@
         {submitted && (
           <p className='confirmation-message'>
             We will send a text message to confirm 
-            that your order has been received and 
-            will update you with the progress of the order 
-            through the phone number provided. 
+            your updated availability. Thank you!
           </p>
         )}
         {error && <div className="error">{error}</div>}
@@ -531,4 +410,4 @@
   );
 };
 
-export default NarcanForm;
+export default UpdateAvailabilityForm;

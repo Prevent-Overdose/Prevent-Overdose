@@ -16,7 +16,8 @@ import AboutUs from "./pages/AboutUs";
 import Resources from "./pages/Resources";
 import RequestNarcan from "./pages/RequestNarcanPage";
 import ReportOverdose from "./pages/ReportOverdosePage"
-
+import UpdateNarcanAvailability from "./pages/UpdateNarcanAvailability";
+import CancelShipmentsForm from "./components/CancelShipmentsForm";
 import FoundersPage from "./pages/FoundersPage";
 import BoardPage from "./pages/BoardPage";
 
@@ -52,6 +53,8 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/request-narcan" element={<RequestNarcan/>} />
             <Route path="/report-overdose" element={<ReportOverdose/>} />
+            <Route path="/update-availability" element={<UpdateNarcanAvailability />} />
+            <Route path="/cancel-shipments" element={<CancelShipmentsForm />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/founders" element={<FoundersPage />} />
