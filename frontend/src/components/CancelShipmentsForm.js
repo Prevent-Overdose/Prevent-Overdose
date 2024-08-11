@@ -250,7 +250,7 @@
       <ToastContainer position="bottom-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
 
       <form className="create" onSubmit={handleSubmit}>
-        <h1 style={{ marginBottom: "0px"}}><strong style={{ fontSize: "50px"}}>Cancel Narcan Shipments</strong></h1>
+        <h1 style={{ marginBottom: "0px"}}><strong style={{ fontSize: "50px", color: "red"}}>Cancel Narcan Shipments</strong></h1>
         <div >
           <p className='form-info'>
             This is a form to cancel your monthly shipments of Narcan. If you do not want to cancel your shipments, <strong> do not fill out this form</strong>.

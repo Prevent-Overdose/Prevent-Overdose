@@ -256,7 +256,7 @@
       <ToastContainer position="bottom-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
 
       <form className="create" onSubmit={handleSubmit}>
-        <h1 style={{ marginBottom: "0px"}}><strong style={{ fontSize: "50px"}}>Update Narcan Shipment Availability</strong></h1>
+        <h1 style={{ marginBottom: "0px"}}><strong style={{ fontSize: "50px", color: "green"}}>Update Narcan Shipment Availability</strong></h1>
         <div >
           <p className='form-info'>
             This is a form to update your current availability to receive monthly shipments of 
