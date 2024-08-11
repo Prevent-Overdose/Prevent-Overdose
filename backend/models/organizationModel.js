@@ -8,9 +8,21 @@ const orgSchema = new Schema({
         type: String,
         required: false
     },
+    state:{
+        type: String, 
+        required: true
+    },
+    county:{
+        type: String,
+        required: true
+    },
     phone_number: {
         type: String,
         unique: true,
+        required: true
+    },
+    email:{
+        type: String, 
         required: true
     },
     zip_code: {
