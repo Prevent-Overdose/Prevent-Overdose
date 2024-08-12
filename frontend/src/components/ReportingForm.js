@@ -268,7 +268,7 @@ const ReportingForm = () => {
           </div>
         <br />
         <div>
-          {choose && <span>Are you a representative/employee/volunteer reporting for an organization?</span>}
+          {choose && <span>Are you a representative/employee reporting for an organization?</span>}
           {choose &&(
           <div>
             <FormControl  >
