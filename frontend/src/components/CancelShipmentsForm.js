@@ -1,18 +1,11 @@
   import React, { useState } from 'react';
-  import DatePicker from 'react-datepicker';
   import 'react-datepicker/dist/react-datepicker.css';
-  import moment from 'moment';
   import './NarcanForm.css';
   import { TextField } from '@mui/material/';
   import Button from '@mui/material/Button';
-  import AddIcon from '@mui/icons-material/Add';
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-  import Radio from '@mui/material/Radio';
-  import RadioGroup from '@mui/material/RadioGroup';
   import FormControlLabel from '@mui/material/FormControlLabel';
-  import FormControl from '@mui/material/FormControl';
-  import FormLabel from '@mui/material/FormLabel';
   import Checkbox from '@mui/material/Checkbox';
 
 
@@ -79,57 +72,7 @@
       }
     };
 
-  const handlePick = (event)=>{
-    setPick(event.target.value)
-    setFormData({...formData, monthly_narcan: event.target.value === "yes"})
-  }
-
-  const handleDateChange = (index, date) => {
-    const newAvailability = formData.availability.map((avail, i) => {
-      if (i === index) {
-        return { ...avail, date };
-      }
-      return avail;
-    });
-    setFormData({ ...formData, availability: newAvailability });
-  };
-
-
-  const handleTimeChange = (index, time, timeType) => {
-    const newAvailability = formData.availability.map((avail, i) => {
-      if (i === index) {
-        if (timeType === 'startTime' && avail.endTime && time > avail.endTime) {
-          setError('Start time cannot be after end time');
-          return avail;
-        }
-        if (timeType === 'endTime' && avail.startTime && time < avail.startTime) {
-          setError('End time cannot be before start time');
-          return avail;
-        }
-        setError(null);
-        return { ...avail, [timeType]: time };
-      }
-      return avail;
-    });
-    setFormData({ ...formData, availability: newAvailability });
-  };
-
-  const addAvailability = () => {
-    setFormData({
-      ...formData,
-      availability: [...formData.availability, { date: null, startTime: null, endTime: null }]
-    });
-  };
-
-
-  const formatAvailabilityForBackend = (availability) => {
-    return availability.map((avail) => ({
-      ...avail,
-      date: moment(avail.date).format('YYYY-MM-DD'),
-      startTime: moment(avail.startTime).format('h:mm A'),
-      endTime: moment(avail.endTime).format('h:mm A')
-    }));
-  };
+  
 
 
     const verifyNumber = () => {
@@ -179,10 +122,7 @@
       }
     }
 
-    const formattedFormData = {...formData, 
-      availability: formatAvailabilityForBackend(formData.availability)
     
-    };
 
     
 
