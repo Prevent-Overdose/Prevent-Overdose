@@ -14,6 +14,8 @@
   import FormControl from '@mui/material/FormControl';
   import FormLabel from '@mui/material/FormLabel';
   import Checkbox from '@mui/material/Checkbox';
+  import { Tooltip, IconButton } from '@mui/material/';
+  import HelpIcon from '@mui/icons-material/Help';
 
 
   
@@ -31,9 +33,7 @@
         { date: null, startTime: null, endTime: null },
         { date: null, startTime: null, endTime: null }
       ],
-      fatalOverdoses: '',
-      nonFatalOverdoses: '',
-      reversedOverdoses: '',
+      
       monthly_narcan: false
     });
     const [error, setError] = useState(null);
@@ -41,6 +41,9 @@
     const [isFormValid, setIsFormValid] = useState(true);
     const [pick, setPick] = useState('');
     const [agreedToTerms, setAgreedToTerms] = useState(false);
+    const [tooltipOpen, setTooltipOpen] = useState(false);
+    const [choose,setChoose] = useState('')
+
   
     const formatPhoneNumber = (value) => {
       if (!value) return value;
@@ -55,6 +58,100 @@
 
     const handleTermsChange = (event) => {
       setAgreedToTerms(event.target.checked);
+  };
+
+ 
+
+  const handleChoose = (event)=>{
+    setChoose(event.target.value)
+  }
+
+  const getUserLocation = () => {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            resolve({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            });
+          },
+          (error) => {
+            reject(error);
+          },
+          { enableHighAccuracy: true }
+        );
+      } else {
+        reject(new Error('Geolocation is not supported by this browser.'));
+      }
+    });
+  };
+
+  const getNearbyParks = async (latitude, longitude) => {
+    try {
+      const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/places?latitude=${latitude}&longitude=${longitude}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching nearby parks:', error);
+      return null;
+    }
+  };
+
+  const getAddressFromLatLng = async (latitude, longitude) => {
+    try {
+      const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/geocode?latitude=${latitude}&longitude=${longitude}`);
+      const data = await response.json();
+      return data.results[0];
+    } catch (error) {
+      console.error('Error fetching address from latlng:', error);
+      return null;
+    }
+  };
+
+  const autofillAddressAndZipcode = async () => {
+    try {
+      const location = await getUserLocation();
+      const parks = await getNearbyParks(location.latitude, location.longitude);
+
+      if (parks.candidates && parks.candidates.length > 0) {
+        const parkLocation = parks.candidates[0].geometry.location;
+        const address = await getAddressFromLatLng(parkLocation.lat, parkLocation.lng);
+
+        if (address) {
+          const parkAddress = address.formatted_address;
+          const zipcodeComponent = address.address_components.find((component) =>
+            component.types.includes('postal_code')
+          );
+
+          if (zipcodeComponent) {
+            const zipcode = zipcodeComponent.long_name;
+
+            setFormData({
+              ...formData,
+              address: parkAddress,
+              zipcode: zipcode,
+            });
+          } else {
+            console.error('Zipcode not found in the address components.');
+            setError('Zipcode not found. Please enter manually.');
+          }
+        } else {
+          console.error('Address not found for the park location.');
+          setError('Address not found for the park location. Please enter address manually.');
+        }
+      } else {
+        console.error('No parks found nearby.');
+        setError('No parks found nearby. Please enter address manually.');
+      }
+    } catch (error) {
+      console.error('Error getting user location or nearby parks:', error);
+      setError('Error getting user location or nearby parks. Enable location or enter address manually.');
+    }
+  };
+
+  const handleToggle = () => {
+    setTooltipOpen((prev) => !prev);
   };
   
     const handleChange = (e) => {
@@ -198,15 +295,13 @@
           { date: null, startTime: null, endTime: null },
           { date: null, startTime: null, endTime: null }
         ],
-        fatalOverdoses: '',
-        nonFatalOverdoses: '',
-        reversedOverdoses: '',
         monthly_narcan: false
 
       });
       setError(null);
       setSubmitted(true);
       setPick('');
+      setChoose(null)
     } catch (error) {
       setError(error.message);
     }
@@ -307,24 +402,54 @@
         </div>
         <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Narcan Shipment Information</p> 
         <div>
-          <span>Provide an address that can serve as the meeting point to receive Narcan shipments:</span>
-          <TextField
-          margin="dense"
-          size="small"
-          className='text-field'
-          fullWidth
-          color="secondary"
-          focused
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-          required
-          placeholder="Enter Address" 
-          InputProps={{
-            style: { color: 'white', backgroundColor: 'black' }  
-          }}
-        />
+        <span>Are you filling out this survey while in your community?</span>
+        <div>
+            <FormControl  >
+              <FormLabel id="radio-buttons"></FormLabel>
+              <RadioGroup row aria-label="options" name="row-radio-buttons-group"
+                value={choose} onChange={handleChoose} > 
+                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                <FormControlLabel value="no" control={<Radio />} label="No" />
+              </RadioGroup>
+            </FormControl>
         </div>
+
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span>Provide an address of the nearest park in your area:</span>
+              <Tooltip
+                title="Nearest park location is a way to maintain reporter anonymity and give nonprofit organizations location-specific information to help communities in-need."
+                open={tooltipOpen}
+                onClose={() => setTooltipOpen(false)}
+                disableHoverListener
+              >
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                {choose === 'yes' && <Button color="inherit" variant="outlined" onClick={autofillAddressAndZipcode} style={{ marginLeft: 10 }}>
+                    Autofill
+                  </Button>
+                  }
+                  <IconButton color="inherit" onClick={handleToggle}>
+                    <HelpIcon fontSize="small" className="custom-icon" />
+                  </IconButton>
+                </div>
+              </Tooltip>
+            </div>
+            <TextField
+              margin="dense"
+              size="small"
+              className="text-field"
+              fullWidth
+              color="secondary"
+              focused
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              required
+              placeholder="Enter Address"
+              InputProps={{
+                style: { color: 'white', backgroundColor: 'black' },
+              }}
+            />
+          </div>
         <br />
         <div>
           <span>Provide a phone number within your organization that can respond to monthly Narcan:</span>
@@ -428,73 +553,8 @@
         </FormControl>
         </div>
            
-        <p style={{ fontSize: "45px", marginBottom: "20px", marginTop: "40px"}}>Overdose Reporting Survey</p>
-        <div>
-          <span>How many overdoses have you reversed with Narcan in the past month?</span>
-          <TextField
-            margin="dense"
-            size="small"
-            type="number"
-            name="reversedOverdoses"
-            color="secondary"
-            focused
-            value={formData.reversedOverdoses}
-            placeholder="Enter number"
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' }  
-            }}
-          />
-        </div>
+    
         
-        <br />
-        <div>
-          <span>How many non-fatal overdoses have you seen in the past month?</span>
-          <TextField
-            placeholder="Enter number"
-            margin="dense"
-            size="small"
-            type="number"
-            color="secondary"
-            focused
-            name="nonFatalOverdoses"
-            value={formData.nonFatalOverdoses}
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' }  
-            }}
-          />
-        </div>
-        <br />
-        <div>
-          <span>How many fatal overdoses have you seen in the past month?</span>
-          <TextField
-            margin="dense"
-            size="small"
-            type="number"
-            color="secondary"
-            focused
-            name="fatalOverdoses"
-            value={formData.fatalOverdoses}
-            placeholder="Enter number"
-            onChange={handleChange}
-            min="0"
-            required
-            style={{ background: 'black' }}
-            InputProps={{
-              style: { color: 'white', backgroundColor: 'black' }  
-            }}
-          />
-        </div>
-        <br />
-
-       
         <FormControlLabel
           control={<Checkbox checked={agreedToTerms} onChange={handleTermsChange} />}
           label={

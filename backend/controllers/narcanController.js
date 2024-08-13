@@ -3,7 +3,9 @@ const mongoose = require('mongoose')
 const {format } = require('date-fns')
 
 
-
+/* 
+functions for CRUD operations for starter Narcan collection
+*/
 
 const getNarcan = async(req,res)=>{
     const forms = await Narcan.find({}).sort({createdAt: -1})
@@ -11,16 +13,14 @@ const getNarcan = async(req,res)=>{
 }
 
 const createNarcan = async(req,res)=>{
-    const {organizationName, state, county, address, phoneNumber, email, 
-        boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
-        reversedOverdoses, monthly_narcan} = req.body
+    const {organizationName, state, county, address, phoneNumber,email, 
+        boxesOfNarcan, availability, monthly_narcan} = req.body
 
    
    try{
     
     const form = await Narcan.create({organizationName, state, county, address, phoneNumber,email, 
-        boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
-        reversedOverdoses, monthly_narcan})
+        boxesOfNarcan, availability, monthly_narcan})
 
         
     //format date
@@ -35,9 +35,6 @@ const createNarcan = async(req,res)=>{
         email: form.email,
         boxesOfNarcan: form.boxesOfNarcan,
         availability: form.availability,
-        fatalOverdoses: form.fatalOverdoses,
-        nonFatalOverdoses: form.nonFatalOverdoses,
-        reversedOverdoses: form.reversedOverdoses,
         monthly_narcan: form.monthly_narcan,
         createdAt: formattedCreatedAt
     }

@@ -1,6 +1,9 @@
 const harmReduction = require('../models/otherHarmModel')
 const mongoose = require('mongoose')
 
+/* 
+functions for CRUD operations for harm reduction collection
+*/
 
 const getHarmforms = async(req,res)=>{
     const forms = await harmReduction.find({}).sort({createdAt: -1})

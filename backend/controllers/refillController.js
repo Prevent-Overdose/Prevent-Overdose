@@ -1,6 +1,10 @@
 const Refill = require('../models/refillModel')
 const mongoose = require('mongoose')
 
+/* 
+functions for CRUD operations for Narcan refill collection
+*/
+
 const getRefill = async(req,res)=>{
     const forms = await Refill.find({}).sort({createdAt: -1})
     res.status(200).json(forms)

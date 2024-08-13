@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+/* 
+schema for collection/database structure for Starter Narcanforms
+*/
+
 const narcanSchema = new Schema({
 
     organizationName: {
@@ -47,18 +51,6 @@ const narcanSchema = new Schema({
                 required: true
             }
         }],
-        required: true
-    },
-    fatalOverdoses: {
-        type: Number,
-        required: true
-    },
-    nonFatalOverdoses: {
-        type: Number,
-        required: true
-    },
-    reversedOverdoses: {
-        type: Number,
         required: true
     },
     monthly_narcan:{
