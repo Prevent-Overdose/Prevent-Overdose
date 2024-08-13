@@ -16,6 +16,10 @@ import FormLabel from '@mui/material/FormLabel';
 
 const ReportingForm = () => {
   const [formData, setFormData] = useState({
+    organizationName:'',
+    state: '',
+    email: '',
+    county: '',
     address: '',
     zipcode: '',
     phoneNumber: '',
@@ -26,6 +30,7 @@ const ReportingForm = () => {
   const [isPhoneValid, setIsPhoneValid] = useState(true);
   const [phoneErrorMessage, setPhoneErrorMessage] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [optIn, setOpt] = useState(false)
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const [pick, setPick] = useState('');
   const [choose,setChoose] = useState('')
@@ -58,6 +63,10 @@ const ReportingForm = () => {
 
   const handleTermsChange = (event) => {
     setAgreedToTerms(event.target.checked);
+  };
+
+  const handleTermsChange2 = (event) => {
+    setOpt(event.target.checked);
   };
 
   const handleChange = (e) => {
@@ -187,6 +196,12 @@ const ReportingForm = () => {
       setError('Please choose whether reporting as Individual or as representative of Organziation')
       return;
     }
+    
+    if(!optIn){
+      setError('Please opt in to SMS')
+      return
+    }
+
     if (!agreedToTerms) {
       setError('Please agree to the Terms of Service.');
       return;
@@ -203,6 +218,8 @@ const ReportingForm = () => {
     };
 
     try {
+      
+      
       const response = await fetch('https://prevent-overdose-github-io.onrender.com/api/sms/createReporter', {
         method: 'POST',
         headers: {
@@ -210,7 +227,7 @@ const ReportingForm = () => {
         },
         body: JSON.stringify(dataToSend),
       });
-
+      
       if (!response.ok) {
         if (response.status === 400) {
           toast.error('Phone number already exists.');
@@ -227,17 +244,23 @@ const ReportingForm = () => {
       const result = await response.json();
       console.log('Form submitted successfully:', result);
       setFormData({
+        organizationName:'',
+        state: '',
+        email: '',
+        county: '',
         address: '',
         zipcode: '',
         phoneNumber: '',
       });
       setAgreedToTerms(false);
+      setOpt(false)
       setError(null);
       setSubmitted(true);
       setPick(null);
       setChoose(null);
     } catch (error) {
       setError(error.message);
+      <div></div>
     }
   };
 
@@ -265,7 +288,7 @@ const ReportingForm = () => {
                 <FormControlLabel value="no" control={<Radio />} label="No" />
               </RadioGroup>
             </FormControl>
-          </div>
+        </div>
         <br />
         <div>
           {choose && <span>Are you a representative/employee reporting for an organization?</span>}
@@ -365,7 +388,7 @@ const ReportingForm = () => {
         <div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              {pick === 'yes' ? <span>Provide Your Organization's Address:</span> : <span>Provide an address of the nearest park in your area:</span>}
+              <span>Provide an address of the nearest park in your area:</span>
               <Tooltip
                 title="Nearest park location is a way to maintain reporter anonymity and give nonprofit organizations location-specific information to help communities in-need."
                 open={tooltipOpen}
@@ -373,7 +396,7 @@ const ReportingForm = () => {
                 disableHoverListener
               >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                {(pick === 'no' && choose === 'yes') && <Button color="inherit" variant="outlined" onClick={autofillAddressAndZipcode} style={{ marginLeft: 10 }}>
+                {choose === 'yes' && <Button color="inherit" variant="outlined" onClick={autofillAddressAndZipcode} style={{ marginLeft: 10 }}>
                     Autofill
                   </Button>
                   }
@@ -443,10 +466,18 @@ const ReportingForm = () => {
               }}
             />
           </div>
-        
-
         <br />
   
+        <FormControlLabel
+          control={<Checkbox checked={optIn} onChange={handleTermsChange2} />}
+          label={
+            <span style={{ fontSize: '15px' }}>
+              Opt in SMS 
+            </span>
+          }      
+          sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
+        />     
+        <br />
         <FormControlLabel
           control={<Checkbox checked={agreedToTerms} onChange={handleTermsChange} />}
           label={

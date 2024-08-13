@@ -53,18 +53,6 @@ const narcanSchema = new Schema({
         }],
         required: true
     },
-    fatalOverdoses: {
-        type: Number,
-        required: true
-    },
-    nonFatalOverdoses: {
-        type: Number,
-        required: true
-    },
-    reversedOverdoses: {
-        type: Number,
-        required: true
-    },
     monthly_narcan:{
         type: Boolean,
         required: true
