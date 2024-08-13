@@ -11,7 +11,7 @@ const getNarcan = async(req,res)=>{
 }
 
 const createNarcan = async(req,res)=>{
-    const {organizationName, state, county, address, phoneNumber,email, 
+    const {organizationName, state, county, address, phoneNumber, email, 
         boxesOfNarcan, availability, fatalOverdoses, nonFatalOverdoses, 
         reversedOverdoses, monthly_narcan} = req.body
 
@@ -67,8 +67,26 @@ const deleteNarcan = async(req,res)=>{
 
 }
 
+const validatePhoneNumber = async (req, res) => {
+    const { phoneNumber } = req.params;
+
+    try {
+        const form = await Narcan.findOne({ phoneNumber: "+1-"+phoneNumber });
+
+        if (form) {
+            res.status(200).json({ exists: true, message: 'Phone number exists in the dataset.' });
+        } else {
+            res.status(200).json({ exists: false, message: 'Phone number does not exist in the dataset.' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+
 module.exports = {
     getNarcan,
     createNarcan,
-    deleteNarcan
+    deleteNarcan,
+    validatePhoneNumber
 }
