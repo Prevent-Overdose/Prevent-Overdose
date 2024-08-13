@@ -258,11 +258,18 @@
       return
     }
 
+    /*
     const formattedFormData = {...formData, 
       availability: formatAvailabilityForBackend(formData.availability)
     
     };
-
+    */
+    const newRequest = {
+        
+      address: formData.address,
+      phoneNumber: formData.phoneNumber,
+      availability: formData.availability
+    }
     
 
     try {
@@ -271,17 +278,15 @@
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formattedFormData)
+        body: JSON.stringify(newRequest)
       });
       if (!response.ok) {
         toast.error("Failed to submit the form.");
         
       }
-      else {
-        toast.success("Successfully requested Narcan!")
-      }
       const result = await response.json();
       console.log('Form submitted successfully:', result);
+      toast.success("Successfully requested Narcan!")
       setFormData({
         organizationName: '',
         state: '',

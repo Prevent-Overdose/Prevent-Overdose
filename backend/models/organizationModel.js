@@ -29,10 +29,6 @@ const orgSchema = new Schema({
         type: String, 
         required: true
     },
-    zip_code: {
-        type: String,
-        required: true
-    },
     address: {
         type: String,
         required: true

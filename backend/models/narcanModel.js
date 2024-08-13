@@ -8,32 +8,13 @@ schema for collection/database structure for Starter Narcanforms
 
 const narcanSchema = new Schema({
 
-    organizationName: {
-        type: String,
-        required: true
-    },
-    state: {
-        type: String,
-        required: true
-    },
-    county: {
-        type: String,
-        required: true
-    },
-    address: {
-        type: String,
-        required: true
-    },
+    
     phoneNumber: {
         type: String,
         required: true
     },
-    email: {
+    address:{
         type: String,
-        required: true
-    },
-    boxesOfNarcan: {
-        type: Number,
         required: true
     },
     availability: {
@@ -53,16 +34,8 @@ const narcanSchema = new Schema({
         }],
         required: true
     },
-    monthly_narcan:{
-        type: Boolean,
-        required: true
-    },
-    createdAt: {
-        type: String,
-        required: false
-    }
-    
 
+ 
 }, { timestamps: true });
 
 module.exports = mongoose.model('Starter NarcanForm', narcanSchema);

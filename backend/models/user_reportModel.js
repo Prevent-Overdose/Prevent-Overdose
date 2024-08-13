@@ -18,6 +18,10 @@ const userSchema = new Schema({
     phoneNumber:{
         type: String, 
         required: true
+    },
+    monthly_reporting:{
+        type: Boolean,
+        required: true
     }
 
 
