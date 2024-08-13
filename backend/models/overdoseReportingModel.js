@@ -27,6 +27,10 @@ const orgSchema = new Schema({
     reversed: {
         type: Number,
         required: true
+    },
+    Is_org:{
+        type: Boolean,
+        required: true
     }     
 
 });
