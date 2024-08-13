@@ -1,18 +1,11 @@
   import React, { useState } from 'react';
-  import DatePicker from 'react-datepicker';
   import 'react-datepicker/dist/react-datepicker.css';
-  import moment from 'moment';
   import './NarcanForm.css';
   import { TextField } from '@mui/material/';
   import Button from '@mui/material/Button';
-  import AddIcon from '@mui/icons-material/Add';
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-  import Radio from '@mui/material/Radio';
-  import RadioGroup from '@mui/material/RadioGroup';
   import FormControlLabel from '@mui/material/FormControlLabel';
-  import FormControl from '@mui/material/FormControl';
-  import FormLabel from '@mui/material/FormLabel';
   import Checkbox from '@mui/material/Checkbox';
 
 
@@ -53,6 +46,27 @@
       return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
     };
 
+    /* if we want to format the phone number as (123) 456-7890 instead of 123-456-7890, we can uncomment the following function:
+
+    const formatPhoneNumber = (value) => {
+      if (!value) return value;
+      
+      // Remove all non-digit characters
+      const phoneNumber = value.replace(/[^\d]/g, '');
+      
+      const phoneNumberLength = phoneNumber.length;
+      
+      if (phoneNumberLength < 4) {
+          return phoneNumber;
+      } else if (phoneNumberLength < 7) {
+          return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+      } else {
+          return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+      }
+  };
+
+  */
+
     const handleTermsChange = (event) => {
       setAgreedToTerms(event.target.checked);
   };
@@ -79,80 +93,23 @@
       }
     };
 
-  const handlePick = (event)=>{
-    setPick(event.target.value)
-    setFormData({...formData, monthly_narcan: event.target.value === "yes"})
-  }
+  
 
-  const handleDateChange = (index, date) => {
-    const newAvailability = formData.availability.map((avail, i) => {
-      if (i === index) {
-        return { ...avail, date };
+
+    const verifyNumber = async () => {
+      try {
+          const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/narcan/${formData.phoneNumber}`);
+          const result = await response.json();
+  
+          if (result.exists) {
+              toast.success("Phone number verified!");
+          } else {
+              toast.error("Failed to locate phone number!");
+          }
+      } catch (error) {
+          toast.error("An error occurred while verifying the phone number.");
       }
-      return avail;
-    });
-    setFormData({ ...formData, availability: newAvailability });
   };
-
-
-  const handleTimeChange = (index, time, timeType) => {
-    const newAvailability = formData.availability.map((avail, i) => {
-      if (i === index) {
-        if (timeType === 'startTime' && avail.endTime && time > avail.endTime) {
-          setError('Start time cannot be after end time');
-          return avail;
-        }
-        if (timeType === 'endTime' && avail.startTime && time < avail.startTime) {
-          setError('End time cannot be before start time');
-          return avail;
-        }
-        setError(null);
-        return { ...avail, [timeType]: time };
-      }
-      return avail;
-    });
-    setFormData({ ...formData, availability: newAvailability });
-  };
-
-  const addAvailability = () => {
-    setFormData({
-      ...formData,
-      availability: [...formData.availability, { date: null, startTime: null, endTime: null }]
-    });
-  };
-
-
-  const formatAvailabilityForBackend = (availability) => {
-    return availability.map((avail) => ({
-      ...avail,
-      date: moment(avail.date).format('YYYY-MM-DD'),
-      startTime: moment(avail.startTime).format('h:mm A'),
-      endTime: moment(avail.endTime).format('h:mm A')
-    }));
-  };
-
-
-    const verifyNumber = () => {
-      // Your custom function logic here
-      
-
-
-
-
-
-
-      //            TBD -- verify phone number exists in the database and send toast message
-      
-
-      // ex. toast.success("Phone number verified successfully!");
-      // or toast.error("Failed to locate phone number in the database!.");
-
-
-
-
-
-      // Add any other logic you want to execute
-    };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -179,10 +136,7 @@
       }
     }
 
-    const formattedFormData = {...formData, 
-      availability: formatAvailabilityForBackend(formData.availability)
     
-    };
 
     
 

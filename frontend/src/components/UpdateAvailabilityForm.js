@@ -53,6 +53,28 @@
       return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
     };
 
+    /* if we want to format the phone number as (123) 456-7890 instead of 123-456-7890, we can uncomment the following function:
+
+    const formatPhoneNumber = (value) => {
+      if (!value) return value;
+      
+      // Remove all non-digit characters
+      const phoneNumber = value.replace(/[^\d]/g, '');
+      
+      const phoneNumberLength = phoneNumber.length;
+      
+      if (phoneNumberLength < 4) {
+          return phoneNumber;
+      } else if (phoneNumberLength < 7) {
+          return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+      } else {
+          return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+      }
+  };
+
+  */
+  
+
     const handleTermsChange = (event) => {
       setAgreedToTerms(event.target.checked);
   };
@@ -132,27 +154,20 @@
   };
 
 
-    const verifyNumber = () => {
-      // Your custom function logic here
-      
+  const verifyNumber = async () => {
+    try {
+        const response = await fetch(`https://prevent-overdose-github-io.onrender.com/api/narcan/${formData.phoneNumber}`);
+        const result = await response.json();
 
-
-
-
-
-
-      //            TBD -- verify phone number exists in the database and send toast message
-      
-
-      // ex. toast.success("Phone number verified successfully!");
-      // or toast.error("Failed to locate phone number in the database!.");
-
-
-
-
-
-      // Add any other logic you want to execute
-    };
+        if (result.exists) {
+            toast.success("Phone number verified!");
+        } else {
+            toast.error("Failed to locate phone number!");
+        }
+    } catch (error) {
+        toast.error("An error occurred while verifying the phone number.");
+    }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();

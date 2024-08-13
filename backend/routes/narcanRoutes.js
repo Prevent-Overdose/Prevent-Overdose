@@ -5,7 +5,8 @@ const router = express.Router()
 const {
     getNarcan,
     createNarcan,
-    deleteNarcan
+    deleteNarcan,
+    validatePhoneNumber
 } = require('../controllers/narcanController')
 
 
@@ -17,6 +18,9 @@ router.post('/',createNarcan)
 
 //delete a narcan request form
 router.delete('/:id',deleteNarcan)
+
+// New route to validate phone number
+router.get('/:phoneNumber', validatePhoneNumber);
 
 
 module.exports = router
