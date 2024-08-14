@@ -16,7 +16,14 @@ const HeroSection = ({ handleArrowClick }) => {
         setShowContent(true);
       }
     };
+    // Start the typing effect immediately
     typeMottoEffect();
+
+    // Cleanup function
+    return () => {
+      setDisplayText('');
+      setShowContent(false);
+    };
   }, []);
 
   const renderMotto = () => {
