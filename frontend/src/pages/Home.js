@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import './Home.css';
 import 'font-awesome/css/font-awesome.min.css';
-import HeroSection from '../components/HeroSection'; // Import HeroSection directly
+import HeroSection from '../components/HeroSection';
+import FadeInSection from '../hooks/fadeInSection';
 
 // Lazy load other components
 const MissionSection = lazy(() => import('../components/MissionSection'));
@@ -16,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     document.title = "Home | Prevent Overdose Inc.";
-    setIsLoading(false); // Set loading to false after initial render
+    setIsLoading(false);
   }, []);
 
   const handleArrowClick = () => {
@@ -33,20 +34,28 @@ const Home = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>; // You can replace this with a more attractive loading indicator
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="home-container">
       <HeroSection handleArrowClick={handleArrowClick} />
       <Suspense fallback={<div>Loading...</div>}>
-        <MissionSection ref={missionSectionRef} />
-        <InitiativesSection />
-        <ImpactSection 
-          impactAnimationTriggered={impactAnimationTriggered}
-          setImpactAnimationTriggered={setImpactAnimationTriggered}
-        />
-        <ClosingSection />
+        <FadeInSection>
+          <MissionSection ref={missionSectionRef} />
+        </FadeInSection>
+        <FadeInSection>
+          <InitiativesSection />
+        </FadeInSection>
+        <FadeInSection>
+          <ImpactSection 
+            impactAnimationTriggered={impactAnimationTriggered}
+            setImpactAnimationTriggered={setImpactAnimationTriggered}
+          />
+        </FadeInSection>
+        <FadeInSection>
+          <ClosingSection />
+        </FadeInSection>
       </Suspense>
     </div>
   );
