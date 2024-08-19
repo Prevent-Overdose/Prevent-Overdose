@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import './Home.css';
 import 'font-awesome/css/font-awesome.min.css';
-import HeroSection from '../components/HeroSection';
+import HeroSection from '../components/Home/HeroSection';
 import FadeInSection from '../hooks/fadeInSection';
 
 // Lazy load other components
-const MissionSection = lazy(() => import('../components/MissionSection'));
-const InitiativesSection = lazy(() => import('../components/InitiativesSection'));
-const ImpactSection = lazy(() => import('../components/ImpactSection'));
-const ClosingSection = lazy(() => import('../components/ClosingSection'));
+const MissionSection = lazy(() => import('../components/Home/MissionSection'));
+const InitiativesSection = lazy(() => import('../components/Home/InitiativesSection'));
+const ImpactSection = lazy(() => import('../components/Home/ImpactSection'));
+const ClosingSection = lazy(() => import('../components/Home/ClosingSection'));
 
 const Home = () => {
   const [impactAnimationTriggered, setImpactAnimationTriggered] = useState(false);
