@@ -14,15 +14,15 @@ const getNarcan = async(req,res)=>{
 }
 
 const createNarcan = async(req,res)=>{
-    const {organizationName,state,county,email, monthly_narcan,
-        phoneNumber,availability, address} = req.body
+    const {organizationName,state,county,email, monthly_reporting,
+        phone_number,availability, address} = req.body
 
    
    try{
     
-    const form = await Narcan.create({phoneNumber,availability, address})
+    const form = await Narcan.create({phone_number,availability, address})
 
-    const org = await Org.create({organizationName, state, county, email, monthly_narcan})
+    const org = await Org.create({organizationName, state, county, email, monthly_reporting})
      
    
 
