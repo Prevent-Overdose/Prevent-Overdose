@@ -30,8 +30,8 @@
       boxesOfNarcan: '',
       availability: [
         { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null }
+        //{ date: null, startTime: null, endTime: null },
+        //{ date: null, startTime: null, endTime: null }
       ],
       
       monthly_narcan: false
@@ -235,11 +235,12 @@
       setError('Please agree to Terms of Service')
       return
     }
-    
+    /*
     if(formData.availability.length < 3){
       setError('Please provide at least 3 dates of availability.')
       return
     }
+    */
     
 
    if(!isFormValid){
@@ -265,7 +266,12 @@
     };
     */
     const newRequest = {
-        
+      organizationName: formData.organizationName,
+      state: formData.state,
+      county: formData.county,
+      email: formData.email,
+      //boxesOfNarcan: formData.boxesOfNarcan,
+      monthly_narcan: formData.monthly_narcan,
       address: formData.address,
       phoneNumber: formData.phoneNumber,
       availability: formData.availability
@@ -297,8 +303,8 @@
         boxesOfNarcan: '',
         availability: [
           { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null }
+          //{ date: null, startTime: null, endTime: null },
+          //{ date: null, startTime: null, endTime: null }
         ],
         monthly_narcan: false
 
