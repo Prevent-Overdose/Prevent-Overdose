@@ -14,20 +14,20 @@ const getNarcan = async(req,res)=>{
 }
 
 const createNarcan = async(req,res)=>{
-    const {organizationName,state,county,email, monthly_reporting,
+    const {organizationName,state,county,email, monthly_narcan,
         phone_number,availability, address} = req.body
 
    
    try{
     
-    const form = await Narcan.create({phone_number,availability, address})
+    const narc = await Narcan.create({phone_number,availability, address})
 
-    const org = await Org.create({organizationName, state, county, email, monthly_reporting})
+    const org = await Org.create({organizationName, phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
      
    
 
 
-    res.status(200).json(form, org)
+    res.status(200).json(narc, org)
 
    } catch(error){
     res.status(400).json({error:error.message})
