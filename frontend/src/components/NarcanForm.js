@@ -271,7 +271,7 @@
       county: formData.county,
       email: formData.email,
       //boxesOfNarcan: formData.boxesOfNarcan,
-      monthly_reporting: formData.monthly_narcan,
+      monthly_narcan: formData.monthly_narcan,
       address: formData.address,
       phone_number: formData.phoneNumber,
       availability: formData.availability

@@ -8,7 +8,7 @@ schema for collection/database structure for Organizations
 
 const orgSchema = new Schema({
 
-    org_name: {
+    organizationName: {
         type: String,
         required: false
     },
