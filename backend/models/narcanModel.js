@@ -9,7 +9,7 @@ schema for collection/database structure for Starter Narcanforms
 const narcanSchema = new Schema({
 
     
-    phoneNumber: {
+    phone_number: {
         type: String,
         required: true
     },
