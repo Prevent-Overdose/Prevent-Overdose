@@ -218,7 +218,7 @@
     });
   };
 
-  /*
+  
   const formatAvailabilityForBackend = (availability) => {
     return availability.map((avail) => ({
       ...avail,
@@ -227,7 +227,7 @@
       endTime: moment(avail.endTime).format('h:mm A')
     }));
   };
-  */
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -260,12 +260,12 @@
       return
     }
 
-    /*
+    
     const formattedFormData = {...formData, 
       availability: formatAvailabilityForBackend(formData.availability)
     
     };
-    */
+    
     const newRequest = {
       organizationName: formData.organizationName,
       state: formData.state,
