@@ -27,7 +27,8 @@ const createNarcan = async(req,res)=>{
    
 
 
-    res.status(200).json(narc, org)
+    res.status(200).json(org)
+
 
    } catch(error){
     res.status(400).json({error:error.message})
