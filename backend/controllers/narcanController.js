@@ -56,7 +56,7 @@ const validatePhoneNumber = async (req, res) => {
     const { phoneNumber } = req.params;
 
     try {
-        const form = await Narcan.findOne({ phoneNumber: "+1-"+phoneNumber });
+        const form = await Org.findOne({ phone_number: phoneNumber });
 
         if (form) {
             res.status(200).json({ exists: true, message: 'Phone number exists in the dataset.' });
