@@ -22,12 +22,20 @@ const createNarcan = async(req,res)=>{
     
     const narc = await Narcan.create({phone_number,availability, address})
 
-    const org = await Org.create({organizationName, phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
-     
-   
+    const existingOrg = await Org.findOne({ phone_number })
+    let org = null
+
+    if (existingOrg) {
+        org = await org_db.findOneAndUpdate({ phone_number: phoneNumber }, {monthly_narcan: true });
+    }
+    else {
+        org = await Org.create({organizationName, phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
+    }
+
+      
 
 
-    res.status(200).json(org)
+    res.status(200).json(narc)
 
 
    } catch(error){

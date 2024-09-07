@@ -27,9 +27,13 @@ async function updateOrg(phoneNumber, updates) {
     }
 }
 
-async function postReporter(zipcode, address, phoneNumber) {
+async function postReporter(address, phoneNumber, name, state, county, email) {
     try {
-        return await org_db.create({zip_code: zipcode, address, phone_number: phoneNumber, monthly_narcan: false, monthly_reporting: true});
+        const existingOrg = await org_db.findOne({ phone_number: phoneNumber })
+        if (existingOrg) {
+            return await org_db.findOneAndUpdate({ phone_number: phoneNumber }, {monthly_reporting: true });
+        }
+        return await org_db.create({organizationName: name, phone_number: phoneNumber, state, county, email, monthly_reporting: true, monthly_narcan: false, address})
     } catch (error) {
         console.error('Error adding reporter:', error);
         throw error;

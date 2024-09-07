@@ -102,14 +102,19 @@ const createReporter = async(req,res)=>{
 Prevent Overdose - Thank you for signing up for your three question monthly overdose report!
 
 `;
-    const {zipcode, address, phoneNumber} = req.body
+    const {zipcode, address, phoneNumber, orgRep, name, state, county, email} = req.body
 
    
    try{
     
-    const form = await postReporter(zipcode, address, phoneNumber)
+    let data = null
 
-    const data = await UserReport.create({zipcode,address, phoneNumber})
+    if (orgRep) {
+        data = await postReporter(address, phoneNumber, name, state, county, email)
+    }
+    else {
+        data = await UserReport.create({zipcode, address, phoneNumber, monthly_reporting: true})        
+    }
 
     sendSurvey(userResponses, phoneNumber, 0, reporting_intro, true);
     
