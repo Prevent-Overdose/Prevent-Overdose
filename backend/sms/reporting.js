@@ -44,7 +44,7 @@ const handleMessage = async(req,res)=> {
     phoneNumber = phoneNumber.slice(-10);
 
     const org = await getOrg(phoneNumber);
-    const indiv = await Indiv.findOne({phone_number: phoneNumber})
+    const indiv = await Indiv.findOne({phoneNumber})
     if (org || indiv) {
         if (org && org.monthly_narcan) {
             if (stop_commands.has(response.toUpperCase())) {
