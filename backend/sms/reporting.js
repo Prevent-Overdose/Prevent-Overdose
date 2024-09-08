@@ -8,6 +8,7 @@ const { sendRefillForm, sendSurvey, questions, switchMessage1, switchMessage2, s
 const { cronJob } = require('./cronHelper');
 const UserReport = require('../models/user_reportModel')
 const Org = require('../models/organizationModel')
+const Indiv = require('../models/user_reportModel')
 
 
 const router = express.Router();
@@ -43,20 +44,26 @@ const handleMessage = async(req,res)=> {
     phoneNumber = phoneNumber.slice(-10);
 
     const org = await getOrg(phoneNumber);
-    if (org) {
-        if (org.monthly_narcan) {
+    const indiv = await Indiv.findOne({phone_number: phoneNumber})
+    if (org || indiv) {
+        if (org && org.monthly_narcan) {
             if (stop_commands.has(response.toUpperCase())) {
                 updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: false });
             } else if (response.toUpperCase() === 'SWITCH') {
                 sendMessage(switchMessage1, phoneNumber);
                 updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: true, last_service: "reporting" });
             }
-        } else if (org.monthly_reporting) {
+        } else if (indiv || org.monthly_reporting) {
             console.log(response.toUpperCase())
             if (stop_commands.has(response.toUpperCase())) {
-                updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: false });
+                if (org) {
+                    updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: false });
+                } 
+                else {
+                    await indiv.findOneAndUpdate({ phone_number: phoneNumber }, {monthly_reporting: false});
+                }
                 delete userResponses[phoneNumber];
-            } else if (response.toUpperCase() === 'SWITCH') {
+            } else if (response.toUpperCase() === 'SWITCH' && org) {
                 sendMessage(switchMessage2, phoneNumber);
                 delete userResponses[phoneNumber];
                 updateOrg(phoneNumber, { monthly_narcan: true, monthly_reporting: false, last_service: "narcan" });
@@ -77,8 +84,7 @@ const handleMessage = async(req,res)=> {
                         sendSurvey(userResponses, phoneNumber, nextQuestionIndex);
                     } else {
                         sendMessage(finishMessage, phoneNumber);
-                        const isOrg = await Org.findOne({ phone_number })
-                        createOverdoseReport(phoneNumber, Date.now(), userResponses[phoneNumber].responses[0], userResponses[phoneNumber].responses[1], userResponses[phoneNumber].responses[2], isOrg != null);
+                        createOverdoseReport(phoneNumber, Date.now(), userResponses[phoneNumber].responses[0], userResponses[phoneNumber].responses[1], userResponses[phoneNumber].responses[2], org != null);
                         delete userResponses[phoneNumber];
                     }
                 }
