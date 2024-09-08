@@ -28,7 +28,7 @@ const orgSchema = new Schema({
         type: Number,
         required: true
     },
-    Is_org:{
+    is_org:{
         type: Boolean,
         required: true
     }     
