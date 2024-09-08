@@ -101,8 +101,9 @@ const ReportingForm = () => {
     setPick(event.target.value)
     setFormData({
       ...formData,
-      orgRep: pick === 'yes',
+      orgRep: event.target.value === 'yes' ? true : false,
     });
+    console.log(formData)
   }
 
   const handleChoose = (event)=>{
@@ -232,7 +233,7 @@ const ReportingForm = () => {
         },
         body: JSON.stringify(dataToSend),
       });
-      
+
       if (!response.ok) {
         if (response.status === 400) {
           toast.error('Phone number already exists.');

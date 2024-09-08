@@ -50,7 +50,7 @@ Prevent Overdose Inc.
 const finishMessage = `
 Thank you for completing your monthly overdose survey!
 
-Type ‘SWITCH’ if you want to receive monthly orders of Narcan.
+Type ‘SWITCH’ if you want to receive monthly orders of Narcan (organizations only).
 
 Type ‘STOP’ if you want to stop receiving these messages. 
 
@@ -59,8 +59,8 @@ Type ‘HELP’ if you want to contact Prevent Overdose tech support.
 
 const questions = [
     '1. How many overdoses have you reversed with Narcan from ',
-    '2. How many non-fatal overdoses are you aware of that occurred in your community from ',
-    '3. How many fatal overdoses are you aware of that occurred in your community from '
+    '2. How many non-fatal overdoses that are you aware of occurred in your community from ',
+    '3. How many fatal overdoses that are you aware of occurred in your community from '
 ];
 
 
