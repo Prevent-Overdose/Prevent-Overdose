@@ -26,7 +26,7 @@ const createNarcan = async(req,res)=>{
     let org = null
 
     if (existingOrg) {
-        org = await org_db.findOneAndUpdate({ phone_number: phoneNumber }, {monthly_narcan: true });
+        org = await Org.findOneAndUpdate({ phone_number }, {monthly_narcan: true });
     }
     else {
         org = await Org.create({organizationName, phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
