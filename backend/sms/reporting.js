@@ -2,11 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cron = require('node-cron');
 const { parse } = require('date-fns');
-const { postReporter, getOrg, updateOrg } = require('../database/organizationHelper');
-const { createOverdoseReport } = require('../database/overdoseReportingHelper');
+const { postReporter, getOrg, updateOrg } = require('../controllers/organizationHelper');
+const { createOverdoseReport } = require('../controllers/overdoseReportingHelper');
 const { sendRefillForm, sendSurvey, questions, switchMessage1, switchMessage2, startMessage1, startMessage2, finishMessage, sendMessage, generateDateString} = require('./smsHelper');
 const { cronJob } = require('./cronHelper');
 const UserReport = require('../models/user_reportModel')
+const Org = require('../models/organizationModel')
+
 
 const router = express.Router();
 const userResponses = {};
@@ -75,7 +77,8 @@ const handleMessage = async(req,res)=> {
                         sendSurvey(userResponses, phoneNumber, nextQuestionIndex);
                     } else {
                         sendMessage(finishMessage, phoneNumber);
-                        createOverdoseReport(phoneNumber, Date.now(), userResponses[phoneNumber].responses[0], userResponses[phoneNumber].responses[1], userResponses[phoneNumber].responses[2]);
+                        const isOrg = await Org.findOne({ phone_number })
+                        createOverdoseReport(phoneNumber, Date.now(), userResponses[phoneNumber].responses[0], userResponses[phoneNumber].responses[1], userResponses[phoneNumber].responses[2], isOrg != null);
                         delete userResponses[phoneNumber];
                     }
                 }
@@ -102,14 +105,19 @@ const createReporter = async(req,res)=>{
 Prevent Overdose - Thank you for signing up for your three question monthly overdose report!
 
 `;
-    const {zipcode, address, phoneNumber} = req.body
+    const {zipcode, address, phoneNumber, orgRep, name, state, county, email} = req.body
 
    
    try{
     
-    const form = await postReporter(zipcode, address, phoneNumber)
+    let data = null
 
-    const data = await UserReport.create({zipcode,address, phoneNumber})
+    if (orgRep) {
+        data = await postReporter(address, phoneNumber, name, state, county, email)
+    }
+    else {
+        data = await UserReport.create({zipcode, address, phoneNumber, monthly_reporting: true})        
+    }
 
     sendSurvey(userResponses, phoneNumber, 0, reporting_intro, true);
     

@@ -22,12 +22,21 @@ const createNarcan = async(req,res)=>{
     
     const narc = await Narcan.create({phone_number,availability, address})
 
-    const org = await Org.create({organizationName, phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
-     
-   
+    const existingOrg = await Org.findOne({ phone_number })
+    let org = null
+
+    if (existingOrg) {
+        org = await Org.findOneAndUpdate({ phone_number }, {monthly_narcan: true });
+    }
+    else {
+        org = await Org.create({organizationName, phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
+    }
+
+      
 
 
-    res.status(200).json(narc, org)
+    res.status(200).json(narc)
+
 
    } catch(error){
     res.status(400).json({error:error.message})
@@ -55,7 +64,7 @@ const validatePhoneNumber = async (req, res) => {
     const { phoneNumber } = req.params;
 
     try {
-        const form = await Narcan.findOne({ phoneNumber: "+1-"+phoneNumber });
+        const form = await Org.findOne({ phone_number: phoneNumber });
 
         if (form) {
             res.status(200).json({ exists: true, message: 'Phone number exists in the dataset.' });

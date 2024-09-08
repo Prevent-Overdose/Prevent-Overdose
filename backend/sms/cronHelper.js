@@ -1,4 +1,4 @@
-const { getAllOrgs } = require('../database/organizationHelper');
+const { getAllOrgs } = require('../controllers/organizationHelper');
 const { sendRefillForm, sendSurvey } = require('./smsHelper');
 
 async function cronJob(userResponses) {

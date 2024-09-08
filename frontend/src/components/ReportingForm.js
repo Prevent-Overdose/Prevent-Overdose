@@ -23,6 +23,7 @@ const ReportingForm = () => {
     address: '',
     zipcode: '',
     phoneNumber: '',
+    orgRep: null
   });
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
@@ -98,6 +99,10 @@ const ReportingForm = () => {
 
   const handlePick = (event)=>{
     setPick(event.target.value)
+    setFormData({
+      ...formData,
+      orgRep: pick === 'yes',
+    });
   }
 
   const handleChoose = (event)=>{
@@ -143,7 +148,7 @@ const ReportingForm = () => {
       const data = await response.json();
       return data.results[0];
     } catch (error) {
-      console.error('Error fetching address from latlng:', error);
+      console.error('Error fetching address from your location:', error);
       return null;
     }
   };
@@ -193,7 +198,7 @@ const ReportingForm = () => {
     e.preventDefault();
 
     if(!pick){
-      setError('Please choose whether reporting as Individual or as representative of Organziation')
+      setError('Please choose whether you\'re reporting as an individual or as representative of an organization.')
       return;
     }
     
@@ -472,7 +477,7 @@ const ReportingForm = () => {
           control={<Checkbox checked={optIn} onChange={handleTermsChange2} />}
           label={
             <span style={{ fontSize: '15px' }}>
-              Opt in SMS 
+              Opt in to SMS 
             </span>
           }      
           sx={{ '& .MuiFormControlLabel-label': { fontSize: '12px' } }}
