@@ -25,6 +25,7 @@
       state: '',
       county: '',
       address: '',
+      zipcode: '',
       phoneNumber: '',
       email: '',
       boxesOfNarcan: '',
@@ -271,11 +272,23 @@
       state: formData.state,
       county: formData.county,
       email: formData.email,
-      //boxesOfNarcan: formData.boxesOfNarcan,
+      num_boxes: formData.boxesOfNarcan,
       monthly_narcan: formData.monthly_narcan,
       address: formData.address,
       phone_number: formData.phoneNumber,
       availability: formData.availability
+    }
+
+        
+    const dataToSend = {
+      organizationName: formData.organizationName,
+      state: formData.state,
+      county: formData.county,
+      email: formData.email,
+      address: formData.address,
+      zipcode: formData.zipcode,
+      phoneNumber: formData.phoneNumber.replace(/-/g, ''),
+      orgRep: true
     }
     
 
@@ -294,6 +307,19 @@
       const result = await response.json();
       console.log('Form submitted successfully:', result);
       toast.success("Successfully requested Narcan!")
+
+      const reporting = await fetch('https://prevent-overdose-github-io.onrender.com/api/sms/createReporter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend),
+      });
+
+      const result2 = await reporting.json();
+      console.log('Form submitted successfully:', result2);
+
+
       setFormData({
         organizationName: '',
         state: '',

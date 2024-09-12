@@ -14,22 +14,22 @@ const getNarcan = async(req,res)=>{
 }
 
 const createNarcan = async(req,res)=>{
-    const {organizationName,state,county,email, monthly_narcan,
+    const {organizationName,state,county,email, num_boxes, monthly_narcan,
         phone_number,availability, address} = req.body
 
    
    try{
     
-    const narc = await Narcan.create({phone_number,availability, address})
+    const narc = await Narcan.create({phone_number, num_boxes, availability, address})
 
-    const existingOrg = await Org.findOne({ phone_number })
+    const existingOrg = await Org.findOne({ phone_number: phone_number });
     let org = null
 
     if (existingOrg) {
-        org = await Org.findOneAndUpdate({ phone_number }, {monthly_narcan: true });
+        org = await Org.findOneAndUpdate({ phone_number: phone_number }, {monthly_narcan: true }, { new: true } );
     }
     else {
-        org = await Org.create({organizationName, phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
+        org = await Org.create({organizationName, phone_number: phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
     }
 
       

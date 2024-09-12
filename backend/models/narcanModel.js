@@ -17,6 +17,10 @@ const narcanSchema = new Schema({
         type: String,
         required: true
     },
+    num_boxes: {
+        type: Number,
+        required: true
+    },
     availability: {
         type:[{
             date: {
