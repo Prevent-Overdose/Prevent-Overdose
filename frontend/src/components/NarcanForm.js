@@ -31,8 +31,7 @@
       boxesOfNarcan: '',
       availability: [
         { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null }
+        
       ],
       
       monthly_narcan: false
@@ -238,8 +237,8 @@
       return
     }
     
-    if(formData.availability.length < 3){
-      setError('Please provide at least 3 dates of availability.')
+    if(formData.availability.length < 1){
+      setError('Please provide at least 1 date of availability.')
       return
     }
     
@@ -330,8 +329,7 @@
         boxesOfNarcan: '',
         availability: [
           { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null }
+         
         ],
         monthly_narcan: false
 
