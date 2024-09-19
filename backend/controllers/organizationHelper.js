@@ -27,6 +27,7 @@ async function updateOrg(phoneNumber, updates) {
     }
 }
 
+
 async function postReporter(address, phoneNumber, name, state, county, email) {
     try {
         const existingOrg = await org_db.findOne({ phone_number: phoneNumber })
