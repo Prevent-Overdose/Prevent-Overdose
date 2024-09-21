@@ -238,7 +238,7 @@
     }
     
     if(formData.availability.length < 1){
-      setError('Please provide at least 1 date of availability.')
+      setError('Please provide at least one date of availability.')
       return
     }
     
@@ -529,7 +529,7 @@
         </div>
         <br />
         <div>
-          <label style={{fontSize: "25px"}}>What is your availability this month? (add at least three dates)</label>
+          <label style={{fontSize: "25px"}}>What is your availability this month? (add at least one date)</label>
           <br />
           
           {formData.availability.map((avail, index) => (

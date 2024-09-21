@@ -119,8 +119,8 @@
       return
     }
     
-    if(formData.availability.length < 3){
-      setError('Please provide at least 3 dates of availability.')
+    if(formData.availability.length < 1){
+      setError('Please provide at least one date of availability.')
       return
     }
     
