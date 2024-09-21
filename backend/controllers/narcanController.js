@@ -1,4 +1,4 @@
-const Narcan = require('../models/narcanModel')
+const Narcan = require('../models/narcanFulfillmentModel')
 const Org = require('../models/organizationModel')
 
 const mongoose = require('mongoose')
@@ -20,7 +20,7 @@ const createNarcan = async(req,res)=>{
    
    try{
     
-    const narc = await Narcan.create({phone_number, num_boxes, availability, address})
+    const narc = await Narcan.create({phone_number, narcan_requested: num_boxes, date: Date.now()})
 
     const existingOrg = await Org.findOne({ phone_number: phone_number });
     let org = null
@@ -29,7 +29,7 @@ const createNarcan = async(req,res)=>{
         org = await Org.findOneAndUpdate({ phone_number: phone_number }, {monthly_narcan: true }, { new: true } );
     }
     else {
-        org = await Org.create({organizationName, phone_number: phone_number, state, county, email, monthly_reporting: true, monthly_narcan, address})
+        org = await Org.create({organizationName, phone_number: phone_number, state, county, email, availability, monthly_reporting: true, monthly_narcan, address})
     }
 
       
@@ -42,6 +42,8 @@ const createNarcan = async(req,res)=>{
     res.status(400).json({error:error.message})
    }
 }
+
+// unused legacy code -- to be removed
 
 const deleteNarcan = async(req,res)=>{
     const {id} = req.params

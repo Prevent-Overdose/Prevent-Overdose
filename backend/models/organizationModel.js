@@ -57,12 +57,7 @@ const orgSchema = new Schema({
     monthly_reporting: {
         type: Boolean,
         required: true
-    },
-    last_service: {
-        type: String, 
-        enum: ['narcan', 'reporting'],
-        required: false
-    }     
+    } 
 
 }, { timestamps: true });
 

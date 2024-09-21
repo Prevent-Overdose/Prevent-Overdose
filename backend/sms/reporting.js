@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cron = require('node-cron');
 const { parse } = require('date-fns');
-const { postReporter, getOrg, updateOrg } = require('../controllers/organizationHelper');
+const { postReporter, getOrg, updateOrg, mostRecentService } = require('../controllers/organizationHelper');
 const { createOverdoseReport } = require('../controllers/overdoseReportingHelper');
 const { sendRefillForm, sendSurvey, questions, switchMessage1, switchMessage2, startMessage1, startMessage2, finishMessage, sendMessage, generateDateString} = require('./smsHelper');
 const { cronJob } = require('./cronHelper');
@@ -51,7 +51,7 @@ const handleMessage = async(req,res)=> {
                 updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: false });
             } else if (response.toUpperCase() === 'SWITCH') {
                 sendMessage(switchMessage1, phoneNumber);
-                updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: true, last_service: "reporting" });
+                updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: true });
             }
         } else if (indiv || org.monthly_reporting) {
             console.log(response.toUpperCase())
@@ -66,7 +66,7 @@ const handleMessage = async(req,res)=> {
             } else if (response.toUpperCase() === 'SWITCH' && org) {
                 sendMessage(switchMessage2, phoneNumber);
                 delete userResponses[phoneNumber];
-                updateOrg(phoneNumber, { monthly_narcan: true, monthly_reporting: false, last_service: "narcan" });
+                updateOrg(phoneNumber, { monthly_narcan: true, monthly_reporting: false });
             }
 
             if (userResponses[phoneNumber]) {
@@ -89,15 +89,23 @@ const handleMessage = async(req,res)=> {
                     }
                 }
             }
-        } else {
+        } 
+        // this else should only hit if the org is currently subbed to neither
+        else {
+            console.log('is it in yet');
             if (start_commands.has(response.toUpperCase())) {
-                if (org.last_service === "narcan") {
+                const last_service = await mostRecentService(phoneNumber);
+                if (last_service === EntryType.NARCAN) {
                     sendMessage(startMessage1, phoneNumber);
                     updateOrg(phoneNumber, { monthly_narcan: true, monthly_reporting: false });
                 }
-                else 
-                {
+                else if (last_service === EntryType.REPORTING) { 
                     sendMessage(startMessage2, phoneNumber);
+                    updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: true });
+                }
+                // this else should never actually hit, since all orgs register with at least one report or narcan request
+                else {
+                    console.error('Error: Organization has no recent service');
                     updateOrg(phoneNumber, { monthly_narcan: false, monthly_reporting: true });
                 }
             } 

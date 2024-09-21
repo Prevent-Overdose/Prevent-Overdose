@@ -6,10 +6,8 @@ const cron = require('node-cron')
 const axios = require('axios')
 
 const narcanRoutes = require('./routes/narcanRoutes')
-const reductionRoutes = require('./routes/reductionRoutes')
 const smsRoutes = require('./routes/smsRoutes')
 const dummyRoutes = require('./routes/dummyRoutes')
-const refillRoutes = require('./routes/refillRoutes')
 
 //express app
 const app = express()
@@ -24,10 +22,8 @@ app.use((req, res, next) => {
 
 //routes
 app.use('/api/narcan', narcanRoutes)
-app.use('/api/otherforms', reductionRoutes)
 app.use('/api/sms', smsRoutes)
 app.use('/api/dummy', dummyRoutes)
-app.use('/api/refill',refillRoutes)
 
 
 // send req to google places api to find nearest park
