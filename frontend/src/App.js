@@ -20,6 +20,7 @@ import UpdateNarcanAvailability from "./pages/UpdateNarcanAvailability";
 import CancelShipmentsForm from "./components/CancelShipmentsForm";
 import FoundersPage from "./pages/FoundersPage";
 import BoardPage from "./pages/BoardPage";
+import ODMap from "./pages/ODMap";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -59,6 +60,7 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/founders" element={<FoundersPage />} />
             <Route path="/board" element={<BoardPage />} />
+            <Route path="/od-map" element={<ODMap />} />
           </Routes>
         </main>
         <Footer />
