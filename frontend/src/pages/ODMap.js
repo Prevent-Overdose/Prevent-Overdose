@@ -1,7 +1,7 @@
 
 const ODMap = () => {
     
-    // Get the OD Report data for each month
+    // Get the OD Report data for given month
     const getReportData = async () => {
         //const response =  await fetch('/api/overdose_reports'); (need to update this route)
         return response.json();
@@ -12,7 +12,7 @@ const ODMap = () => {
 
     const createPins = () => {
 
-        //organize data by month (not done yet)
+        //for a given month - get report data (not done yet)
         //organize data by fatal, non-fatal, reverse, and all (not done yet)
 
         //check report data is org or ind
