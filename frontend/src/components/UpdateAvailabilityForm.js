@@ -28,8 +28,6 @@
       boxesOfNarcan: '',
       availability: [
         { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null },
-        { date: null, startTime: null, endTime: null }
       ],
       fatalOverdoses: '',
       nonFatalOverdoses: '',
