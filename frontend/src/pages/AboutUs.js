@@ -3,7 +3,8 @@ import LeadershipTitle from '../images/Leadership CG.png';
 import applyToJoin from '../images/Apply To Join.png';
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import videoFile from '../images/Black White Smoke.mp4'; // Import the video file
-import "./AboutUs.css"; // Import the CSS file
+import "./AboutUs.css"; // -Import the CSS file
+import ODMap from './ODMap.jsx';
 
 const AboutUs = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -38,6 +39,11 @@ const AboutUs = () => {
                 <div className="apply-image-container">
                         <img src={applyToJoin} alt="Apply to Join" className="apply-image" onClick={openApplyForm} />
                 </div>
+                
+
+
+
+                <ODMap /> 
         </div>
     );
 };

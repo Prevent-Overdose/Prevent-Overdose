@@ -1,0 +1,192 @@
+[
+    {
+      "id": 1,
+      "type": "Individual",
+      "location": [27.9506, -82.4572],
+      "reports": 3,
+      "park": "Curtis Hixon Waterfront Park"
+    },
+    {
+      "id": 2,
+      "type": "Organization",
+      "location": [27.9510, -82.4600],
+      "reports": 7,
+      "park": "Julian B Lane Riverfront Park"
+    },
+    {
+      "id": 3,
+      "type": "Individual",
+      "location": [27.9382, -82.4820],
+      "reports": 2,
+      "park": "Al Lopez Park"
+    },
+    {
+      "id": 4,
+      "type": "Organization",
+      "location": [27.9390, -82.4828],
+      "reports": 5,
+      "park": "Al Lopez Park"
+    },
+    {
+      "id": 5,
+      "type": "Individual",
+      "location": [27.9376, -82.4798],
+      "reports": 1,
+      "park": "Al Lopez Park"
+    },
+    {
+      "id": 6,
+      "type": "Organization",
+      "location": [27.8700, -82.5200],
+      "reports": 10,
+      "park": "Gadsden Park"
+    },
+    {
+      "id": 7,
+      "type": "Individual",
+      "location": [27.8610, -82.5132],
+      "reports": 4,
+      "park": "Ballast Point Park"
+    },
+    {
+      "id": 8,
+      "type": "Organization",
+      "location": [27.8486, -82.5850],
+      "reports": 12,
+      "park": "Picnic Island Park"
+    },
+    {
+      "id": 9,
+      "type": "Individual",
+      "location": [27.8860, -82.4856],
+      "reports": 6,
+      "park": "Palma Ceia Park"
+    },
+    {
+      "id": 10,
+      "type": "Individual",
+      "location": [27.9626, -82.4388],
+      "reports": 9,
+      "park": "Robles Park"
+    },
+    {
+      "id": 11,
+      "type": "Organization",
+      "location": [27.9725, -82.4977],
+      "reports": 7,
+      "park": "Lowry Park"
+    },
+    {
+      "id": 12,
+      "type": "Individual",
+      "location": [27.9400, -82.5700],
+      "reports": 15,
+      "park": "Cypress Point Park"
+    },
+    {
+      "id": 13,
+      "type": "Organization",
+      "location": [28.0146, -82.4773],
+      "reports": 20,
+      "park": "ZooTampa at Lowry Park"
+    },
+    {
+      "id": 14,
+      "type": "Individual",
+      "location": [27.9774, -82.7548],
+      "reports": 8,
+      "park": "Philippe Park"
+    },
+    {
+      "id": 15,
+      "type": "Organization",
+      "location": [27.9824, -82.4387],
+      "reports": 11,
+      "park": "Sulphur Springs Park"
+    },
+    {
+      "id": 16,
+      "type": "Individual",
+      "location": [27.9643, -82.4370],
+      "reports": 3,
+      "park": "Riverside Park"
+    },
+    {
+      "id": 17,
+      "type": "Organization",
+      "location": [28.0051, -82.5566],
+      "reports": 16,
+      "park": "George M. Steinbrenner Field"
+    },
+    {
+      "id": 18,
+      "type": "Individual",
+      "location": [27.9750, -82.4785],
+      "reports": 5,
+      "park": "Hillsborough River State Park"
+    },
+    {
+      "id": 19,
+      "type": "Organization",
+      "location": [28.0101, -82.5218],
+      "reports": 18,
+      "park": "Raymond James Stadium"
+    },
+    {
+      "id": 20,
+      "type": "Individual",
+      "location": [27.9901, -82.4668],
+      "reports": 2,
+      "park": "Tampa Riverwalk"
+    },
+    {
+      "id": 21,
+      "type": "Organization",
+      "location": [28.0304, -82.5829],
+      "reports": 22,
+      "park": "Lettuce Lake Park"
+    },
+    {
+      "id": 22,
+      "type": "Individual",
+      "location": [27.7680, -82.6424],
+      "reports": 4,
+      "park": "Vinoy Park"
+    },
+    {
+      "id": 23,
+      "type": "Organization",
+      "location": [27.7822, -82.6291],
+      "reports": 3,
+      "park": "Boyd Hill Nature Preserve"
+    },
+    {
+      "id": 24,
+      "type": "Individual",
+      "location": [27.8186, -82.6651],
+      "reports": 7,
+      "park": "Fort De Soto Park"
+    },
+    {
+      "id": 25,
+      "type": "Organization",
+      "location": [28.0427, -82.7994],
+      "reports": 9,
+      "park": "Honeymoon Island State Park"
+    },
+    {
+        "id": 26,
+        "type": "Individual",
+        "location": [27.9824, -82.4834], 
+        "reports": 6,
+        "park": "Al Lopez Park"
+      },
+      {
+        "id": 27,
+        "type": "Organization",
+        "location": [27.9826, -82.4836], 
+        "reports": 10,
+        "park": "Al Lopez Park"
+      }
+  ]
+  
