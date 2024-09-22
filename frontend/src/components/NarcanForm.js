@@ -274,7 +274,7 @@
       num_boxes: formData.boxesOfNarcan,
       monthly_narcan: formData.monthly_narcan,
       address: formData.address,
-      phone_number: formData.phoneNumber,
+      phone_number: formData.phoneNumber.replace(/-/g, ''),
       availability: formData.availability
     }
 

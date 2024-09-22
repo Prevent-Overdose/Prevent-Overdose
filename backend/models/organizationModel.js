@@ -27,7 +27,24 @@ const orgSchema = new Schema({
     },
     email:{
         type: String, 
-        required: true
+        required: true  
+    },
+    availability: {
+        type:[{
+            date: {
+                type: String, 
+                required: true
+            },
+            startTime:{
+                type: String, 
+                required: true 
+            },
+            endTime:{
+                type: String, 
+                required: true
+            }
+        }],
+        required: false
     },
     address: {
         type: String,
@@ -40,12 +57,7 @@ const orgSchema = new Schema({
     monthly_reporting: {
         type: Boolean,
         required: true
-    },
-    last_service: {
-        type: String, 
-        enum: ['narcan', 'reporting'],
-        required: false
-    }     
+    } 
 
 }, { timestamps: true });
 
