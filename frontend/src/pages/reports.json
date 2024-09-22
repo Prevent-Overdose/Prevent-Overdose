@@ -1,192 +1,552 @@
 [
-    {
-      "id": 1,
-      "type": "Individual",
-      "location": [27.9506, -82.4572],
-      "reports": 3,
-      "park": "Curtis Hixon Waterfront Park"
-    },
-    {
-      "id": 2,
-      "type": "Organization",
-      "location": [27.9510, -82.4600],
-      "reports": 7,
-      "park": "Julian B Lane Riverfront Park"
-    },
-    {
-      "id": 3,
-      "type": "Individual",
-      "location": [27.9382, -82.4820],
-      "reports": 2,
-      "park": "Al Lopez Park"
-    },
-    {
-      "id": 4,
-      "type": "Organization",
-      "location": [27.9390, -82.4828],
-      "reports": 5,
-      "park": "Al Lopez Park"
-    },
-    {
-      "id": 5,
-      "type": "Individual",
-      "location": [27.9376, -82.4798],
-      "reports": 1,
-      "park": "Al Lopez Park"
-    },
-    {
-      "id": 6,
-      "type": "Organization",
-      "location": [27.8700, -82.5200],
-      "reports": 10,
-      "park": "Gadsden Park"
-    },
-    {
-      "id": 7,
-      "type": "Individual",
-      "location": [27.8610, -82.5132],
-      "reports": 4,
-      "park": "Ballast Point Park"
-    },
-    {
-      "id": 8,
-      "type": "Organization",
-      "location": [27.8486, -82.5850],
-      "reports": 12,
-      "park": "Picnic Island Park"
-    },
-    {
-      "id": 9,
-      "type": "Individual",
-      "location": [27.8860, -82.4856],
-      "reports": 6,
-      "park": "Palma Ceia Park"
-    },
-    {
-      "id": 10,
-      "type": "Individual",
-      "location": [27.9626, -82.4388],
-      "reports": 9,
-      "park": "Robles Park"
-    },
-    {
-      "id": 11,
-      "type": "Organization",
-      "location": [27.9725, -82.4977],
-      "reports": 7,
-      "park": "Lowry Park"
-    },
-    {
-      "id": 12,
-      "type": "Individual",
-      "location": [27.9400, -82.5700],
-      "reports": 15,
-      "park": "Cypress Point Park"
-    },
-    {
-      "id": 13,
-      "type": "Organization",
-      "location": [28.0146, -82.4773],
-      "reports": 20,
-      "park": "ZooTampa at Lowry Park"
-    },
-    {
-      "id": 14,
-      "type": "Individual",
-      "location": [27.9774, -82.7548],
-      "reports": 8,
-      "park": "Philippe Park"
-    },
-    {
-      "id": 15,
-      "type": "Organization",
-      "location": [27.9824, -82.4387],
-      "reports": 11,
-      "park": "Sulphur Springs Park"
-    },
-    {
-      "id": 16,
-      "type": "Individual",
-      "location": [27.9643, -82.4370],
-      "reports": 3,
-      "park": "Riverside Park"
-    },
-    {
-      "id": 17,
-      "type": "Organization",
-      "location": [28.0051, -82.5566],
-      "reports": 16,
-      "park": "George M. Steinbrenner Field"
-    },
-    {
-      "id": 18,
-      "type": "Individual",
-      "location": [27.9750, -82.4785],
-      "reports": 5,
-      "park": "Hillsborough River State Park"
-    },
-    {
-      "id": 19,
-      "type": "Organization",
-      "location": [28.0101, -82.5218],
-      "reports": 18,
-      "park": "Raymond James Stadium"
-    },
-    {
-      "id": 20,
-      "type": "Individual",
-      "location": [27.9901, -82.4668],
-      "reports": 2,
-      "park": "Tampa Riverwalk"
-    },
-    {
-      "id": 21,
-      "type": "Organization",
-      "location": [28.0304, -82.5829],
-      "reports": 22,
-      "park": "Lettuce Lake Park"
-    },
-    {
-      "id": 22,
-      "type": "Individual",
-      "location": [27.7680, -82.6424],
-      "reports": 4,
-      "park": "Vinoy Park"
-    },
-    {
-      "id": 23,
-      "type": "Organization",
-      "location": [27.7822, -82.6291],
-      "reports": 3,
-      "park": "Boyd Hill Nature Preserve"
-    },
-    {
-      "id": 24,
-      "type": "Individual",
-      "location": [27.8186, -82.6651],
-      "reports": 7,
-      "park": "Fort De Soto Park"
-    },
-    {
-      "id": 25,
-      "type": "Organization",
-      "location": [28.0427, -82.7994],
-      "reports": 9,
-      "park": "Honeymoon Island State Park"
-    },
-    {
-        "id": 26,
-        "type": "Individual",
-        "location": [27.9824, -82.4834], 
-        "reports": 6,
-        "park": "Al Lopez Park"
-      },
-      {
-        "id": 27,
-        "type": "Organization",
-        "location": [27.9826, -82.4836], 
-        "reports": 10,
-        "park": "Al Lopez Park"
-      }
-  ]
+  {
+    "id": 1,
+    "type": "individual",
+    "location": [27.9506, -82.4572],
+    "reports": 1,
+    "category": "death",
+    "park": "Curtis Hixon Waterfront Park",
+    "park_address": "600 N Ashley Dr, Tampa, FL 33602"
+  },
+  {
+    "id": 2,
+    "type": "individual",
+    "location": [27.9510, -82.4600],
+    "reports": 3,
+    "category": "reversal",
+    "park": "Julian B Lane Riverfront Park",
+    "park_address": "1001 N Blvd, Tampa, FL 33606"
+  },
+  {
+    "id": 3,
+    "type": "organization",
+    "location": [27.9382, -82.4820],
+    "reports": 0,
+    "category": "death",
+    "park": "Al Lopez Park",
+    "park_address": "4810 N Himes Ave, Tampa, FL 33614"
+  },
+  {
+    "id": 4,
+    "type": "organization",
+    "location": [27.9390, -82.4828],
+    "reports": 2,
+    "category": "reversal",
+    "park": "Al Lopez Park",
+    "park_address": "4810 N Himes Ave, Tampa, FL 33614"
+  },
+  {
+    "id": 5,
+    "type": "individual",
+    "location": [27.9376, -82.4798],
+    "reports": 0,
+    "category": "death",
+    "park": "Al Lopez Park",
+    "park_address": "4810 N Himes Ave, Tampa, FL 33614"
+  },
+  {
+    "id": 6,
+    "type": "organization",
+    "location": [27.8700, -82.5200],
+    "reports": 7,
+    "category": "death",
+    "park": "Gadsden Park",
+    "park_address": "6901 S MacDill Ave, Tampa, FL 33611"
+  },
+  {
+    "id": 7,
+    "type": "individual",
+    "location": [27.8610, -82.5132],
+    "reports": 2,
+    "category": "reversal",
+    "park": "Ballast Point Park",
+    "park_address": "5300 Interbay Blvd, Tampa, FL 33611"
+  },
+  {
+    "id": 8,
+    "type": "organization",
+    "location": [27.8486, -82.5850],
+    "reports": 1,
+    "category": "reversal",
+    "park": "Picnic Island Park",
+    "park_address": "7409 Picnic Island Blvd, Tampa, FL 33616"
+  },
+  {
+    "id": 9,
+    "type": "individual",
+    "location": [27.8860, -82.4856],
+    "reports": 4,
+    "category": "death",
+    "park": "Palma Ceia Park",
+    "park_address": "2200 Marti St, Tampa, FL 33629"
+  },
+  {
+    "id": 10,
+    "type": "organization",
+    "location": [27.9626, -82.4388],
+    "reports": 5,
+    "category": "reversal",
+    "park": "Robles Park",
+    "park_address": "3305 N Avon Ave, Tampa, FL 33603"
+  },
+  {
+    "id": 11,
+    "type": "individual",
+    "location": [27.9725, -82.4977],
+    "reports": 3,
+    "category": "death",
+    "park": "Lowry Park",
+    "park_address": "7525 N Boulevard, Tampa, FL 33604"
+  },
+  {
+    "id": 12,
+    "type": "organization",
+    "location": [27.9400, -82.5700],
+    "reports": 0,
+    "category": "reversal",
+    "park": "Cypress Point Park",
+    "park_address": "5620 W Cypress St, Tampa, FL 33607"
+  },
+  {
+    "id": 13,
+    "type": "individual",
+    "location": [28.0146, -82.4773],
+    "reports": 4,
+    "category": "death",
+    "park": "ZooTampa at Lowry Park",
+    "park_address": "1101 W Sligh Ave, Tampa, FL 33604"
+  },
+  {
+    "id": 14,
+    "type": "organization",
+    "location": [27.9774, -82.7548],
+    "reports": 3,
+    "category": "reversal",
+    "park": "Philippe Park",
+    "park_address": "2525 Philippe Pkwy, Safety Harbor, FL 34695"
+  },
+  {
+    "id": 15,
+    "type": "individual",
+    "location": [27.9824, -82.4387],
+    "reports": 5,
+    "category": "death",
+    "park": "Sulphur Springs Park",
+    "park_address": "713 E Bird St, Tampa, FL 33604"
+  },
+  {
+    "id": 16,
+    "type": "organization",
+    "location": [27.9643, -82.4370],
+    "reports": 2,
+    "category": "reversal",
+    "park": "Riverside Park",
+    "park_address": "300 S Ashley Dr, Tampa, FL 33602"
+  },
+  {
+    "id": 17,
+    "type": "individual",
+    "location": [28.0051, -82.5566],
+    "reports": 1,
+    "category": "death",
+    "park": "George M. Steinbrenner Field",
+    "park_address": "1 Steinbrenner Dr, Tampa, FL 33614"
+  },
+  {
+    "id": 18,
+    "type": "organization",
+    "location": [27.9750, -82.4785],
+    "reports": 3,
+    "category": "reversal",
+    "park": "Hillsborough River State Park",
+    "park_address": "15402 US-301, Thonotosassa, FL 33592"
+  },
+  {
+    "id": 19,
+    "type": "individual",
+    "location": [28.0101, -82.5218],
+    "reports": 4,
+    "category": "death",
+    "park": "Raymond James Stadium",
+    "park_address": "4201 N Dale Mabry Hwy, Tampa, FL 33607"
+  },
+  {
+    "id": 20,
+    "type": "organization",
+    "location": [27.9901, -82.4668],
+    "reports": 0,
+    "category": "reversal",
+    "park": "Tampa Riverwalk",
+    "park_address": "Ashley Dr, Tampa, FL 33602"
+  },
+  {
+    "id": 21,
+    "type": "individual",
+    "location": [28.0304, -82.5829],
+    "reports": 2,
+    "category": "death",
+    "park": "Lettuce Lake Park",
+    "park_address": "6920 E Fletcher Ave, Tampa, FL 33637"
+  },
+  {
+    "id": 22,
+    "type": "organization",
+    "location": [27.7680, -82.6424],
+    "reports": 1,
+    "category": "reversal",
+    "park": "Vinoy Park",
+    "park_address": "701 Bayshore Dr NE, St. Petersburg, FL 33701"
+  },
+  {
+    "id": 23,
+    "type": "individual",
+    "location": [27.7822, -82.6291],
+    "reports": 3,
+    "category": "death",
+    "park": "Boyd Hill Nature Preserve",
+    "park_address": "1101 Country Club Way S, St. Petersburg, FL 33705"
+  },
+  {
+    "id": 24,
+    "type": "individual",
+    "location": [27.8186, -82.6651],
+    "reports": 4,
+    "category": "reversal",
+    "park": "Fort De Soto Park",
+    "park_address": "3500 Pinellas Bayway S, Tierra Verde, FL 33715"
+  },
+  {
+    "id": 25,
+    "type": "organization",
+    "location": [28.0427, -82.7994],
+    "reports": 5,
+    "category": "death",
+    "park": "Honeymoon Island State Park",
+    "park_address": "1 Causeway Blvd, Dunedin, FL 34698"
+  }, 
+  {
+    "id": 26,
+    "type": "individual",
+    "location": [28.0175, -82.7136],
+    "reports": 3,
+    "category": "death",
+    "park": "Cliff Stephens Park",
+    "park_address": "600 Fairwood Ave, Clearwater, FL 33759"
+  },
+  {
+    "id": 27,
+    "type": "organization",
+    "location": [27.9367, -82.2859],
+    "reports": 5,
+    "category": "reversal",
+    "park": "Brandon Regional Park",
+    "park_address": "502 E Sadie St, Brandon, FL 33510"
+  },
+  {
+    "id": 28,
+    "type": "individual",
+    "location": [27.9502, -82.8001],
+    "reports": 1,
+    "category": "death",
+    "park": "Sand Key Park",
+    "park_address": "1060 Gulf Blvd, Clearwater, FL 33767"
+  },
+  {
+    "id": 29,
+    "type": "organization",
+    "location": [27.9633, -82.7435],
+    "reports": 2,
+    "category": "reversal",
+    "park": "Eagle Lake Park",
+    "park_address": "1800 Keene Rd, Largo, FL 33771"
+  },
+  {
+    "id": 30,
+    "type": "individual",
+    "location": [27.8902, -82.8245],
+    "reports": 0,
+    "category": "death",
+    "park": "Indian Rocks Beach Park",
+    "park_address": "1700 Gulf Blvd, Indian Rocks Beach, FL 33785"
+  },
+  {
+    "id": 31,
+    "type": "organization",
+    "location": [28.0329, -82.6401],
+    "reports": 4,
+    "category": "reversal",
+    "park": "Safety Harbor Waterfront Park",
+    "park_address": "110 Veterans Memorial Ln, Safety Harbor, FL 34695"
+  },
+  {
+    "id": 32,
+    "type": "individual",
+    "location": [28.0495, -82.7842],
+    "reports": 2,
+    "category": "death",
+    "park": "Dunedin Hammock Park",
+    "park_address": "1900 San Mateo Dr, Dunedin, FL 34698"
+  },
+  {
+    "id": 33,
+    "type": "organization",
+    "location": [27.9926, -82.7801],
+    "reports": 1,
+    "category": "reversal",
+    "park": "Edgewater Park",
+    "park_address": "51 Main St, Dunedin, FL 34698"
+  },
+  {
+    "id": 34,
+    "type": "individual",
+    "location": [28.0883, -82.7604],
+    "reports": 0,
+    "category": "death",
+    "park": "Honeymoon Island State Park",
+    "park_address": "1 Causeway Blvd, Dunedin, FL 34698"
+  },
+  {
+    "id": 35,
+    "type": "organization",
+    "location": [27.9047, -82.7874],
+    "reports": 4,
+    "category": "reversal",
+    "park": "Walsingham Park",
+    "park_address": "12615 102nd Ave, Largo, FL 33778"
+  },
+  {
+    "id": 36,
+    "type": "individual",
+    "location": [27.8625, -82.7087],
+    "reports": 3,
+    "category": "death",
+    "park": "Lake Seminole Park",
+    "park_address": "10015 Park Blvd N, Seminole, FL 33777"
+  },
+  {
+    "id": 37,
+    "type": "organization",
+    "location": [27.8833, -82.7366],
+    "reports": 1,
+    "category": "reversal",
+    "park": "Seminole City Park",
+    "park_address": "7464 Ridge Rd, Seminole, FL 33772"
+  },
+  {
+    "id": 38,
+    "type": "individual",
+    "location": [27.8913, -82.7741],
+    "reports": 5,
+    "category": "death",
+    "park": "Boca Ciega Millennium Park",
+    "park_address": "12410 74th Ave N, Seminole, FL 33772"
+  },
+  {
+    "id": 39,
+    "type": "organization",
+    "location": [27.8544, -82.6396],
+    "reports": 2,
+    "category": "reversal",
+    "park": "Maximo Park",
+    "park_address": "34th St S, St. Petersburg, FL 33711"
+  },
+  {
+    "id": 40,
+    "type": "individual",
+    "location": [27.8765, -82.6688],
+    "reports": 0,
+    "category": "death",
+    "park": "Clam Bayou Nature Preserve",
+    "park_address": "34th Ave S, St. Petersburg, FL 33705"
+  },
+  {
+    "id": 41,
+    "type": "organization",
+    "location": [27.8287, -82.6376],
+    "reports": 1,
+    "category": "reversal",
+    "park": "St. Pete Pier",
+    "park_address": "800 2nd Ave NE, St. Petersburg, FL 33701"
+  },
+  {
+    "id": 42,
+    "type": "individual",
+    "location": [28.1213, -82.5123],
+    "reports": 2,
+    "category": "death",
+    "park": "Lutz Nature Park",
+    "park_address": "6209 Lutz Lake Fern Rd W, Lutz, FL 33558"
+  },
+  {
+    "id": 43,
+    "type": "organization",
+    "location": [28.0753, -82.4612],
+    "reports": 3,
+    "category": "reversal",
+    "park": "Carrollwood Village Park",
+    "park_address": "4680 W Village Dr, Tampa, FL 33624"
+  },
+  {
+    "id": 44,
+    "type": "individual",
+    "location": [27.8473, -82.4959],
+    "reports": 0,
+    "category": "death",
+    "park": "Apollo Beach Nature Preserve",
+    "park_address": "6760 Surfside Blvd, Apollo Beach, FL 33572"
+  },
+  {
+    "id": 45,
+    "type": "organization",
+    "location": [28.1847, -82.3485],
+    "reports": 5,
+    "category": "reversal",
+    "park": "Wesley Chapel District Park",
+    "park_address": "7727 Boyette Rd, Wesley Chapel, FL 33545"
+  },
+  {
+    "id": 46,
+    "type": "individual",
+    "location": [28.2332, -82.1861],
+    "reports": 4,
+    "category": "death",
+    "park": "Zephyr Park",
+    "park_address": "5039 4th St, Zephyrhills, FL 33542"
+  },
+  {
+    "id": 47,
+    "type": "organization",
+    "location": [27.9210, -82.6906],
+    "reports": 3,
+    "category": "reversal",
+    "park": "Del Holmes Park",
+    "park_address": "2741 22nd St S, St. Petersburg, FL 33712"
+  },
+  {
+    "id": 48,
+    "type": "individual",
+    "location": [28.0502, -82.5154],
+    "reports": 2,
+    "category": "death",
+    "park": "Lake Park",
+    "park_address": "17302 N Dale Mabry Hwy, Lutz, FL 33548"
+  },
+  {
+    "id": 49,
+    "type": "organization",
+    "location": [27.9657, -82.7357],
+    "reports": 1,
+    "category": "reversal",
+    "park": "Largo Central Park",
+    "park_address": "101 Central Park Dr, Largo, FL 33771"
+  },
+  {
+    "id": 50,
+    "type": "individual",
+    "location": [27.9481, -82.5433],
+    "reports": 0,
+    "category": "death",
+    "park": "Cypress Creek Nature Preserve",
+    "park_address": "6203 W Hillsborough Ave, Tampa, FL 33634"
+  }, 
+  {
+    "id": 51,
+    "type": "individual",
+    "location": [27.9631, -82.4821],
+    "reports": 1,
+    "category": "reversal",   
+    "park": "River Tower Park",
+    "park_address": "401 E Bird St, Tampa, FL 33604"
+  },
+  {
+    "id": 52,
+    "type": "organization",
+    "location": [27.9336, -82.4539],
+    "reports": 3,
+    "category": "death",    
+    "park": "McKay Bay Nature Park",
+    "park_address": "134 N 34th St, Tampa, FL 33605"
+  },
+  {
+    "id": 53,
+    "type": "individual",
+    "location": [27.9823, -82.4657],
+    "reports": 2,
+    "category": "reversal",   
+    "park": "Sulphur Springs Water Tower",
+    "park_address": "4553 River Hills Dr, Tampa, FL 33617"
+  },
+  {
+    "id": 54,
+    "type": "organization",
+    "location": [27.8902, -82.5081],
+    "reports": 0,
+    "category": "death",    
+    "park": "Gadsden Park",
+    "park_address": "6901 S MacDill Ave, Tampa, FL 33611"
+  },
+  {
+    "id": 55,
+    "type": "individual",
+    "location": [27.9459, -82.4617],
+    "reports": 5,
+    "category": "death",
+    "park": "DeSoto Park",
+    "park_address": "2617 Corrine St, Tampa, FL 33605"
+  },
+  {
+    "id": 56,
+    "type": "organization",
+    "location": [27.9717, -82.4983],
+    "reports": 3,
+    "category": "death",    
+    "park": "Lowry Park",
+    "park_address": "7525 N Boulevard, Tampa, FL 33604"
+  },
+  {
+    "id": 57,
+    "type": "individual",
+    "location": [27.9351, -82.4429],
+    "reports": 4,
+    "category": "reversal",   
+    "park": "18th Avenue Park",
+    "park_address": "E 18th Ave & N 15th St, Tampa, FL 33605"
+  },
+  {
+    "id": 58,
+    "type": "organization",
+    "location": [27.8839, -82.5164],
+    "reports": 2,
+    "category": "death",    
+    "park": "Ballast Point Park",
+    "park_address": "5300 Interbay Blvd, Tampa, FL 33611"
+  },
+  {
+    "id": 59,
+    "type": "individual",
+    "location": [27.9956, -82.4721],
+    "reports": 1,
+    "category": "reversal",   
+    "park": "Riverside Garden Park",
+    "park_address": "201 S Riverhills Dr, Tampa, FL 33617"
+  },
+  {
+    "id": 60,
+    "type": "organization",
+    "location": [27.9762, -82.4413],
+    "reports": 3,
+    "category": "death",    
+    "park": "Rowlett Park",
+    "park_address": "2401 E Yukon St, Tampa, FL 33604"
+  },
+  {
+    "id": 61,
+    "type": "individual",
+    "location": [27.9118, -82.4846],
+    "reports": 0,
+    "category": "reversal",   
+    "park": "Picnic Island Park",
+    "park_address": "7409 Picnic Island Blvd, Tampa, FL 33616"
+  }
+]
   
