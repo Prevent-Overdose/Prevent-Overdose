@@ -1,6 +1,7 @@
 const org_db = require('../models/organizationModel');
 const narcanCollection = require('../models/narcanFulfillmentModel');
 const reportsCollection = require('../models/overdoseReportingModel');
+const indivs_db = require('../models/user_reportModel');
 
 const mongoose = require('mongoose')   
 
@@ -9,6 +10,24 @@ async function getAllOrgs() {
         return await org_db.find();
     } catch (error) {
         console.error('Error retrieving documents:', error);
+        throw error;
+    }
+}
+
+async function getAllIndivs() {
+    try {
+        return await indivs_db.find();
+    } catch (error) {
+        console.error('Error retrieving documents:', error);
+        throw error;
+    }
+}
+
+async function updateIndiv(phoneNumber, updates) {
+    try {
+        await indivs_db.findOneAndUpdate({ phone_number: phoneNumber }, updates);
+    } catch (error) {
+        console.error('Error updating organization:', error);
         throw error;
     }
 }
@@ -38,6 +57,7 @@ async function postReporter(address, phoneNumber, name, state, county, email) {
         if (existingOrg) {
             return await org_db.findOneAndUpdate({ phone_number: phoneNumber }, {monthly_reporting: true });
         }
+        console.log("WE ARE HERE")
         return await org_db.create({organizationName: name, phone_number: phoneNumber, state, county, email, availability: null, monthly_reporting: true, monthly_narcan: false, address});
     } catch (error) {
         console.error('Error adding reporter:', error);
@@ -80,5 +100,7 @@ module.exports = {
     getOrg,
     updateOrg,
     postReporter,
-    mostRecentService
+    mostRecentService, 
+    getAllIndivs,
+    updateIndiv
 };
