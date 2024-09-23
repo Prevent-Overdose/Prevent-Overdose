@@ -130,7 +130,7 @@
             setFormData({
               ...formData,
               address: parkAddress,
-              zipcode: zipcode,
+              zipcode: null,
             });
           } else {
             console.error('Zipcode not found in the address components.');
@@ -285,7 +285,7 @@
       county: formData.county,
       email: formData.email,
       address: formData.address,
-      zipcode: formData.zipcode,
+      zipcode: null,
       phoneNumber: formData.phoneNumber.replace(/-/g, ''),
       orgRep: true
     }

@@ -16,20 +16,20 @@ const userResponses = {};
 
 
 const allQuestions = [
-    'How many boxes of Narcan do you need this month?',
-    'How many overdoses have you reversed with Narcan from ',
+    'How many boxes of Narcan do you need this month',
+    'How many fatal overdoses that you are aware of occurred in your community from ',
     'How many non-fatal overdoses that you are aware of occurred in your community from ',
-    'How many fatal overdoses that you are aware of occurred in your community from '
+    'How many overdoses have you reversed with Narcan from ',
 ];
 
 const narcQuestion = [
-    'How many boxes of Narcan do you need this month?'
+    'How many boxes of Narcan do you need this month'
 ];
 
 const odQuestions = [
-    '1. How many overdoses have you reversed with Narcan from ',
-    '2. How many non-fatal overdoses that you are aware of occurred in your community from ',
-    '3. How many fatal overdoses that you are aware of occurred in your community from '
+    'How many fatal overdoses that you are aware of occurred in your community from ',
+    'How many non-fatal overdoses that you are aware of occurred in your community from ',
+    'How many overdoses have you reversed with Narcan from '
 ];
 
 const stop_commands = new Set([
@@ -266,7 +266,7 @@ Prevent Overdose - Thank you for signing up for your monthly overdose and narcan
     let data = null
 
     if (orgRep) {
-        if (zipcode) {
+        if (zipcode != null) {
             data = await postReporter(address, phoneNumber, name, state, county, email)
             sendSurvey(userResponses, phoneNumber, 0, reporting_intro, true, odQuestions);
         }
