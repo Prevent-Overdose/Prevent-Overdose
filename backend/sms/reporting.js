@@ -51,7 +51,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 // Schedule cron job
-cron.schedule('0 9 3 * *', () => {
+cron.schedule('0 9 6 * *', () => {
     cronJob(userResponses);
 });
 
