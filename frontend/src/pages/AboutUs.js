@@ -27,18 +27,25 @@ const AboutUs = () => {
 
     return (
         <div className="AboutUs-page">            
-            <div className="leadership-image-container">
+            <div className="leadership-image-container" >
                 <Link to="/founders" className="button-left">FOUNDERS</Link>
                 <h1>LEADERSHIP</h1>
                 <Link to="/board" className="button-right">BOARD</Link> 
             </div>
-            <p style={{ fontSize: '23px', marginTop: '40px', fontFamily: 'nunito sans'}}>Empowering Change: Student Leaders Committed to the Equitable <br /> Distribution of Harm Reduction Service Nationwide</p>
+            <br>
+            </br>
+            <p style={{ fontSize: '40px', marginTop: '40px'}}> Empowering Change:</p>
+            <p style={{ fontSize: '23px', marginTop: '-40px', fontFamily: 'nunito sans'}}> Student Leaders Committed to the Equitable <br /> Distribution of Harm Reduction Service Nationwide</p>
+            
+            <br>
+            </br>
             
             {/* Conditionally render the apply image container */}
                 <div className="apply-image-container">
                         <img src={applyToJoin} alt="Apply to Join" className="apply-image" onClick={openApplyForm} />
                 </div>
         </div>
+        
     );
 };
 

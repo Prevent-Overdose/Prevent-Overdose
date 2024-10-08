@@ -28,8 +28,8 @@ const FoundersPage = () => {
     return (
         <div className="founders-page-container">
 
-            <h1 style={{fontSize: '55px', textAlign: 'center', paddingTop: '90px', fontFamily: 'Bebas Neue'}}>FOUNDERS</h1>
-            <p>
+            <h1 className="founders-title" >FOUNDERS</h1>
+            <p className="founders-description">
             Founded by three passionate University of South Florida undergraduates 
              Prevent Overdose embodies the vision of empowering students to enact
              meaningful change within their communities. With a shared commitment to
@@ -49,7 +49,7 @@ const FoundersPage = () => {
                     </div>
                     <div className="additional-image-container">
                             <h2>COLE OLSON</h2>
-                            <h3 style={{fontSize: '12px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
+                            <h3 className="role" style={{fontSize: '12px', fontFamily: 'nunito sans', letterSpacing: '0px'}}><i>Co-Executive Director</i></h3>
                         <div className="position-container">
                             <a href="https://www.linkedin.com/in/cole-olson-47b881262/" target="_blank " class="fa fa-linkedin">
                             </a>
@@ -66,7 +66,7 @@ const FoundersPage = () => {
                     </div>
                     <div className="additional-image-container">
                         <h2>Samay Shah</h2>
-                        <h3 style={{fontSize: '12px', fontFamily: 'nunito sans'}}>Co-Executive Director</h3>
+                        <h3 style={{fontSize: '12px', fontFamily: 'nunito sans', letterSpacing: '0px'}}> <i>Co-Executive Director</i></h3>
                         <div className="position-container">
                             <a href="https://www.linkedin.com/in/samay-shah-9946011b6/" target="_blank " class="fa fa-linkedin">
                             </a>
@@ -83,7 +83,7 @@ const FoundersPage = () => {
                     </div>
                     <div className="additional-image-container">
                         <h2>SAIFULLAH KHAN</h2>
-                        <h3 style={{fontFamily: 'nunito sans', fontSize: '12px'}}>Chief Financial Officer</h3>
+                        <h3 style={{fontFamily: 'nunito sans', fontSize: '12px', letterSpacing: '0px'}}> <i>Chief Financial Officer</i></h3>
                         <div className="position-container">
                             <a href="https://www.linkedin.com/in/saif-khan-80395630a/" target="_blank " class="fa fa-linkedin">
                             </a>

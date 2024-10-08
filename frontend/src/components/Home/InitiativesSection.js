@@ -36,8 +36,7 @@ const Initiative = ({ title, description }) => (
   <div className={`initiative initiative-${title.toLowerCase().replace(/[^a-z0-9]/g, '')}`}>
     <p className="initiative-title">{title}</p>
     <div className="initiative-description">
-      <h3>What is {title}?</h3>
-      <p>{description}</p>
+      <p style={{fontFamily : 'nunito sans', fontSize : '15px'}}>{description}</p>
     </div>
   </div>
 );

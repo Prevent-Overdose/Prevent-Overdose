@@ -5,7 +5,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh; 
+    height: 120vh; 
     font-family: 'Bebas Neue', sans-serif;
     overflow: hidden; /* Remove scroll feature */
     position: relative; /* Ensure absolute positioned children are contained */
@@ -17,12 +17,28 @@ html, body {
     height: 100%;
 }
 
+.founders-title {
+    text-align: center;
+    font-size: 65px;
+    background: linear-gradient(90deg, #6a00f4, #ff60f6); /* Purple to pink gradient */
+    color: white; /* Ensure the text color is white */
+    height: 3.1em;
+    margin-top: 20px;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-top: 90px;
+    font-family: 'Bebas Neue';
+}
+
 .founders-page-container p {
     margin-left: 350px; 
     margin-right: 350px; 
     text-align: center;
     font-family: 'nunito sans', sans-serif;
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .position-container {
@@ -35,6 +51,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: flex-start; 
+    margin-top: 50px;
 }
 
 .box-wrapper {
@@ -91,17 +108,17 @@ html, body {
     width: 200px; 
     margin: 0 10px; 
     margin-bottom: 10px; /* Add space between position title and LinkedIn icon */
-
 }
 
-.additional-image-container h2, .additional-image-container h3 {
+.additional-image-container h2, h3 {
     margin: 0;
+    letter-spacing: 0.1rem;
+
 }
 
 .linkedin-logo {
     width: 15px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    
+    height: auto; /* Maintain aspect ratio */ 
 }
 
 
@@ -111,6 +128,8 @@ html, body {
     font-size: 18px; /* Adjust icon size */
     transition: color 0.3s; /* Add transition effect for color change */
     text-decoration: none;
+    margin-top: 10px;
+    margin-left: 2px;
   }
   
   .position-container a:hover {

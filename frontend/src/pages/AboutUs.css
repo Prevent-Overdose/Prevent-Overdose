@@ -21,25 +21,27 @@ main {
     text-align: center;
     margin: 0;
     padding: 0;
-    height: 100vh; 
+    height: 125vh; 
     overflow: hidden; /* Prevents scrolling */
 }
-
 
 .leadership-image-container h1{
     font-family: 'Bebas Neue', sans-serif; /* Apply the Economica font */
     color: white;
-    padding-top: 30px;
-    font-size: 100px;
-
+    font-size: 65px;
 }
 
 .leadership-image-container {
-    position: relative;
+    text-align: center;
+    font-size: 65px;
+    background: linear-gradient(90deg, #6a00f4, #ff60f6); /* Purple to pink gradient */
+    color: white; /* Ensure the text color is white */
+    margin-top: 1.5em;
+    align-content: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    padding: 32.5px;
 }
 
 .leadership-image-container img {
@@ -51,31 +53,39 @@ main {
 
 /*Founders and board buttons style*/
 .button-left,
-.button-right {
+.button-right { 
     position: relative;
-    padding: 5px 10px;
+    padding: 10px 50px;
     background-color: transparent;
-    top: 350px;
-    right: 30px;
+    top: 8.5em;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 100px;
     transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
     text-decoration: none;
+    width: 150px;
     font-size: 45px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.01); /* Drop shadow */
-    z-index: 1; /* Ensure the button content is above the background image */
-    overflow: visible; /* Ensure the shadow is visible */
+    color: white; /* Button text color */
+    background-color: black; /* Button background */
+    border: 5px solid transparent; /* Transparent border to house the gradient */
+    border-radius: 10000px; /* Rounded corners for pill-shaped button */
+    background-image: linear-gradient(black, black), 
+                        linear-gradient(to right, #6a00f4, #ff60f6); /* Inner black and outer gradient */
+    background-origin: border-box;
+    background-clip: padding-box, border-box; /* Ensures the gradient is only on the outline */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: transform 0.1s, box-shadow 0.1s; /* Added transition for hover effect */
+}
+
+.button-right {
+    margin-left: 2;
 }
 
 .button-left:hover,
 .button-right:hover {
-    color: white; /* Keep the text color white */
-    box-shadow: 
-    3px 3px 8px rgba(106, 0, 244, 0.7), 
-    5px 5px 15px rgba(146, 38, 240, 0.6), 
-    7px 7px 20px rgba(255, 95, 168, 0.5); /* Larger gradient shadow shifted right */
+    background-color: #6a00f4; /* Background color change on hover */
+    color: white; /* Ensure text remains visible on hover */
+    transform: scale(1.1);
 }
 
 /*Apply To Join Button Style*/
@@ -90,7 +100,7 @@ main {
     max-width: 30%;
     height: auto;
     border-radius: 10px;
-    top: 70px;
+    top: 50px;
     position: relative;
     cursor: pointer;
     transition: transform 0.1s, box-shadow 0.1s; /* Added transition for hover effect */
