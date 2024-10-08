@@ -1,13 +1,11 @@
 .board-container {
-    background: linear-gradient(to bottom, #000000, #690078);
+    background: black;
     padding-top: 100px; /* Ensure enough space for the heading */
     min-height: 100vh; /* Ensure it covers the entire viewport height */
     color: white; /* Make text white for better readability on dark background */
     position: relative;
     overflow-y: none; /* Enable vertical scrolling */  
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-  
-
 }
 
 html, body {
@@ -18,11 +16,15 @@ html, body {
 .board-heading {
     text-align: center;
     font-size: 65px;
-    margin-top: 50px;
-    background: linear-gradient(to bottom, #000000, #690078);
-    -webkit-background-clip: text;
-    background-clip: text;
-    border-radius: 50px; /* Make the heading more rounded */
+    background: linear-gradient(90deg, #6a00f4, #ff60f6); /* Purple to pink gradient */
+    color: white; /* Ensure the text color is white */
+    height: 3em;
+    margin-top: 0;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .team-section {
@@ -34,25 +36,13 @@ html, body {
 
 .team-heading {
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     background-color: transparent;
     color: white;
     border: none;
-    font-size: 30px;
-    cursor: pointer;
+    font-size: 45px;
     transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
-    box-shadow: 
-        3px 3px 8px rgba(106, 0, 244, 0.7), 
-        5px 5px 15px rgba(146, 38, 240, 0.6), 
-        7px 7px 20px rgba(255, 95, 168, 0.5); /* Larger gradient shadow shifted right */
-}
-
-.team-heading:hover {
-    color: white; /* Keep the text color white */
-    box-shadow: 
-        3px 3px 8px rgba(106, 0, 244, 0.7), 
-        5px 5px 15px rgba(146, 38, 240, 0.6), 
-        7px 7px 20px rgb(247, 246, 246); /* Larger gradient shadow shifted right */
+    letter-spacing: .1rem;
 }
 
 .box-container {
@@ -60,8 +50,11 @@ html, body {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    overflow-x: auto; 
+    overflow-x: auto;
+    background-color: black; /* Background behind all boxes */
+    padding: 20px;
 }
+
 
 .board1-container {
     display: flex;
@@ -76,18 +69,14 @@ html, body {
     display: inline-block;
     overflow: hidden;
     flex: 0 0 auto;
-    
+    box-shadow: -6px -6px 0px 0px rgba(106, 0, 244, 1), /* Purple offset top-left */
+                6px 6px 0px 0px rgba(255, 96, 246, 1); /* Pink offset bottom-right */
 }
 
 .box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.box:hover img {
-    transform: scale(1.1);
 }
 
 .description {
@@ -103,12 +92,13 @@ html, body {
     justify-content: center; 
     align-items: center; 
     opacity: 0;
-    transition: opacity 0.3s ease;
-    padding: 1px;
+    padding: 10px;
     box-sizing: border-box;
     text-align: center;
     font-family:'nunito sans';
+    font-size: 14px;
 }
+
 .name {
     font-weight: bold;
     margin-top: 50px;
@@ -129,86 +119,48 @@ html, body {
     margin-top: 1px; 
 }
 
+.box:hover img {
+    transform: none;
+}
+
 .box:hover .description {
     opacity: 1;
 }
-
-@keyframes sparkle {
-    0%, 100% { opacity: 0; transform: translate(0, 0); }
-    50% { opacity: 1; transform: translate(5px, -5px); }
-}
-
-.sparkle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: white;
-    border-radius: 50%;
-    animation: sparkle 1.5s infinite;
-    pointer-events: none;
-}
-
-.sparkle:nth-child(2) { animation-delay: 0.2s; }
-.sparkle:nth-child(3) { animation-delay: 0.4s; }
-.sparkle:nth-child(4) { animation-delay: 0.6s; }
-.sparkle:nth-child(5) { animation-delay: 0.8s; }
-.sparkle:nth-child(6) { animation-delay: 1s; }
-.sparkle:nth-child(7) { animation-delay: 1.2s; }
-.sparkle:nth-child(8) { animation-delay: 1.4s; }
-.sparkle:nth-child(9) { animation-delay: 1.6s; }
-.sparkle:nth-child(10) { animation-delay: 1.8s; }
 
 .box-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px; /* Space between the boxes */
+    margin-right: 5em; /* Space to the left/right of boxes */
+    margin-left: 5em;  /* ^^ */
 }
 
 .additional-image-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin-top: -10px; /* Reduce space between the box and the name/position */
+}
+
+.additional-image-container h3 {
+    font-size: 30px;
+    white-space: nowrap;
+    margin-bottom: -5px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.1rem;
 }
 
 .name {
     font-weight: bold;
     margin: 5px 0; /* Space between the name and the position */
+    font-size: 36px;
 }
 
 .position {
     font-style: italic;
     font-size: smaller;
 }
-
-
-.button {
-    position: relative;
-    padding: 5px 10px;
-    background-color: transparent;
-    top: 350px;
-    right: 30px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
-    text-decoration: none;
-    font-size: 45px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.01); /* Drop shadow */
-    z-index: 1; /* Ensure the button content is above the background image */
-    overflow: visible; /* Ensure the shadow is visible */
-}
-
-.button:hover {
-    color: white; /* Keep the text color white */
-    box-shadow: 
-        3px 3px 8px rgba(106, 0, 244, 0.7), 
-        5px 5px 15px rgba(146, 38, 240, 0.6), 
-        7px 7px 20px rgba(255, 95, 168, 0.5); /* Larger gradient shadow shifted right */
-}
-
 
 /* Styles for mobile screens */
 @media (max-width: 600px) {
