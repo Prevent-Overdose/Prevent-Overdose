@@ -112,7 +112,22 @@ html, body {
     font-size: 10px;
     margin-top: 1px;
     font-family: 'nunito sans', sans-serif;
+}
 
+.past-contributors {
+    font-size: 20px;
+    margin-top: 1px;
+    font-family: 'nunito sans', sans-serif;
+    font-weight: normal; 
+    text-transform: none;
+}
+
+.name-columns {
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+    margin-left: 75px;
+    margin-right: 75px;
 }
 
 .description-text {
