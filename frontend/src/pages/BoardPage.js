@@ -80,8 +80,23 @@ const BoardPage = () => {
           </div>
         </div>
       ))}
+
         <div className="team-section">
           <h2 className="team-heading">Past Contributors</h2>
+          <p className="past-contributors">Acknowledging the contributions of all members who played a role in shaping Prevent Overdose Inc.</p>
+          <p className="name-columns">
+            <div className="past-contributors">
+              <p>Name 1</p>
+              <p>Name 2</p>
+              <p>Name 3</p>
+            </div>
+
+            <div className="past-contributors">
+              <p>Name 4</p>
+              <p>Name 5</p>
+              <p>Name 6</p>
+            </div>
+          </p>
         </div>
     </div>
   );
