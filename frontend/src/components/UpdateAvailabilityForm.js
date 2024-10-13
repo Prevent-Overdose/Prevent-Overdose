@@ -197,9 +197,10 @@
       return
     }
 
-    const formattedFormData = {...formData, 
-      availability: formatAvailabilityForBackend(formData.availability)
-    
+    const formattedFormData = {
+      phoneNumber: formData.phoneNumber.replace(/-/g, ''), // Remove dashes from phone number
+      availability: formatAvailabilityForBackend(formData.availability),
+      monthly_narcan: formData.monthly_narcan,
     };
 
     
@@ -238,22 +239,9 @@
       const result = await response.json();
       console.log('Form submitted successfully:', result);
       setFormData({
-        organizationName: '',
-        state: '',
-        county: '',
-        address: '',
         phoneNumber: '',
-        email: '',
-        boxesOfNarcan: '',
-        availability: [
-          { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null }
-        ],
-        fatalOverdoses: '',
-        nonFatalOverdoses: '',
-        reversedOverdoses: '',
-        monthly_narcan: false
+        availability: [{ date: null, startTime: null, endTime: null }],
+        monthly_narcan: false,
 
       });
       setError(null);

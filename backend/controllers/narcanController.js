@@ -78,10 +78,52 @@ const validatePhoneNumber = async (req, res) => {
     }
 }
 
+const updateAvailability = async (req, res) => {
+    const { phoneNumber, availability, monthly_narcan } = req.body;
+  
+    try {
+      const existingOrg = await Org.findOne({ phone_number: phoneNumber });
+  
+      if (!existingOrg) {
+        return res.status(404).json({ error: 'Organization not found' });
+      }
+  
+      existingOrg.availability = availability;
+      existingOrg.monthly_narcan = monthly_narcan;
+      
+      await existingOrg.save();
+  
+      res.status(200).json({ message: 'Availability updated successfully', organization: existingOrg });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+  
+  const cancelShipments = async (req, res) => {
+    const { phoneNumber } = req.body;
+
+    try {
+        const currentMonth = new Date().getMonth() + 1;
+        await Narcan.deleteMany({
+            phone_number: phoneNumber,
+            createdAt: { $gte: new Date(new Date().getFullYear(), currentMonth - 1, 1) }
+        });
+
+        await Org.findOneAndUpdate({ phone_number: phoneNumber }, { monthly_refill: false });
+
+        res.status(200).json({ message: "Shipments canceled successfully" });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+
 
 module.exports = {
     getNarcan,
     createNarcan,
     deleteNarcan,
-    validatePhoneNumber
+    validatePhoneNumber,
+    updateAvailability,
+    cancelShipments
 }

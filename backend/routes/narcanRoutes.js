@@ -6,7 +6,9 @@ const {
     getNarcan,
     createNarcan,
     deleteNarcan,
-    validatePhoneNumber
+    validatePhoneNumber,
+    updateAvailability,
+    cancelShipments
 } = require('../controllers/narcanController')
 
 
@@ -21,6 +23,12 @@ router.delete('/:id',deleteNarcan)
 
 // New route to validate phone number
 router.get('/:phoneNumber', validatePhoneNumber);
+
+// update availability
+router.post('/update-availability', updateAvailability);
+
+// cancel shipments
+router.post('/cancel-shipments', cancelShipments);
 
 
 module.exports = router

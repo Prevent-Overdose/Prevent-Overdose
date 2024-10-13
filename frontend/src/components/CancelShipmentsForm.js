@@ -114,31 +114,17 @@
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!agreedToTerms){
-      setError('Please agree to the Terms of Service')
-      return
-    }
-    
-    if(formData.availability.length < 1){
-      setError('Please provide at least one date of availability.')
-      return
-    }
     
 
    if(!isFormValid){
       setError('Please enter valid numbers in the numeric fields.');
       return;
    }
-    for (const avail of formData.availability) {
-      if (avail.startTime && avail.endTime && avail.startTime >= avail.endTime) {
-        setError('End time cannot be earlier than or the same as start time.');
-        return;
-      }
-    }
 
-    
+   const formattedFormData = {
+    phoneNumber: formData.phoneNumber.replace(/-/g, ''),
+    };
 
-    
 
     try {
       //
@@ -162,38 +148,22 @@
         headers: {
           'Content-Type': 'application/json'
         },
+        body: JSON.stringify(formattedFormData),
       });
       if (!response.ok) {
-        toast.error("Failed to update availability.");
+        toast.error("Failed to cancel shipments.");
         
       }
       else {
-        toast.success("Successfully unsubscribed!")
+        toast.success("Successfully unsubscribed from Narcan shipments!!")
       }
       const result = await response.json();
       console.log('Form submitted successfully:', result);
       setFormData({
-        organizationName: '',
-        state: '',
-        county: '',
-        address: '',
         phoneNumber: '',
-        email: '',
-        boxesOfNarcan: '',
-        availability: [
-          { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null },
-          { date: null, startTime: null, endTime: null }
-        ],
-        fatalOverdoses: '',
-        nonFatalOverdoses: '',
-        reversedOverdoses: '',
-        monthly_narcan: false
-
       });
       setError(null);
       setSubmitted(true);
-      setPick('');
     } catch (error) {
       setError(error.message);
     }
