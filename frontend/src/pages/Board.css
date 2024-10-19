@@ -180,15 +180,13 @@ html, body {
 /* Styles for mobile screens */
 @media (max-width: 600px) {
     .box-container {
-        flex-direction: column; 
-        align-items: center;
-        padding-top: 20px; /* Add padding to move content down */
+        overflow: hidden;
+        max-width: -webkit-fill-available;
     }
 
     .box {
-        width: 80%; 
-        max-width: 300px; 
-        height: auto; 
+        max-width: 200px;
+        height: 200px;
         margin: 20px 0;
     }
 
@@ -204,8 +202,3 @@ html, body {
     }
 }
 
-@media (min-width: 400px) and (max-width: 600px) {
-    .box-container {
-        flex-direction: column; 
-    }
-}
