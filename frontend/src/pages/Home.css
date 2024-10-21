@@ -515,6 +515,12 @@
     position: absolute; 
   }
 
+  .initiative-1 { background-position: 0% 0%; }
+  .initiative-2 { background-position: 0% 25%; }
+  .initiative-3 { background-position: 0% 50%; }
+  .initiative-4 { background-position: 0% 75%; }
+  .initiative-5 { background-position: 0% 100%; }
+
   .initiative:hover {
     height: auto; 
     min-height: 250px; 
