@@ -14,152 +14,551 @@ body {
 
 main {
     flex: 1;
-  }
+}
 
 .AboutUs-page {
     position: relative;
     text-align: center;
     margin: 0;
     padding: 0;
-    height: 100vh; 
+    height: 100%;
+    width: 100%;
     overflow: hidden; /* Prevents scrolling */
 }
 
 
-.leadership-image-container h1{
-    font-family: 'Bebas Neue', sans-serif; /* Apply the Economica font */
-    color: white;
-    padding-top: 30px;
-    font-size: 100px;
+/* STORY SECTION */
 
+.story-container {
+    padding-top: 175px;
+    display: absolute;
+    justify-content: space-between;
+}
+ 
+ .story-banner {
+    position: relative; /* To position text over the image */
+    height: 66vh;
+    margin-top: 35px;
+    width: 100%;
+   
 }
 
-.leadership-image-container {
-    position: relative;
+.banner-image {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    z-index: 1; /* Ensures the image is behind the text */
+}
+
+.story-images-container { 
     display: flex;
+    position: relative;
+    width: 500px;
+    height: 800px;
+    margin-top: -450px;
+}
+
+.story-images-container img {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    transform-origin: center;
+    border: 20px solid #ffffff; 
+    z-index: 2; 
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s linear forwards;
+    opacity: 0; 
+}
+
+/* Below are the group images */
+.group1 {
+    top: -3%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-7deg);
+    animation-delay: 0s;
+}
+
+.group2 {
+    bottom: 10%;
+    left: 15%;
+    transform: translateY(-75%) rotate(6deg); 
+    animation-delay: 1s;
+}
+
+.group3 {
+    top: 36%;
+    right: -335px;
+    transform: translateY(-57%) rotate(3deg);
+    animation-delay: 2s;
+}
+
+.story-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation:  moveText 3s linear forwards;
+    opacity: 0;
+    z-index: 2; /* Ensures the header is above the banner image */
+    color: #000;
+}
+
+.story-text {
+    display: flex;
+    width: 38%;
+    margin-top: -16px;
+    flex-direction: column;
+    text-align: left; 
+    padding-left: 57%; 
+    position: relative; 
+    z-index: 2; /* Ensures the text is above the banner image */
+    margin-top: 20px; 
+}
+  
+
+/* QUOTE SECTION */
+
+.quote-section {
+    text-align: left;
+    margin-top: 210px;
+    width: 100%;
+}
+
+.gradient-container {
+    position: relative;
+    display: flex; 
+    align-items: flex-start; 
+    background: black;
+    padding: 40px;    
+}
+
+.gradient-container::before, .gradient-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px; /* border thickness */
+}
+
+.gradient-container::before {
+    top: 0; /* Position at the top */
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
+}
+
+.gradient-container::after {
+    bottom: 0; /* Position at the bottom */
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
+}
+
+.quote-text {
+    font-size: 1.5em;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    padding: 0 5%;
+}
+
+
+/* JOURNEY SECTION */
+
+.journey-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 50px auto;  
+}
+
+.journey-container {
+    padding: 10px 50px;
+    position: relative;
+    width: 42%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease; 
+}
+
+.journey-title {
+    margin-top: 150px;
+    text-align: center;
+    font-family: 'Bebas Neue';
+    font-size: 3em;
+    animation:  moveText 3s linear forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+@keyframes moveText {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.journey-text-box {
+    padding: 20px 30px;
+    background: #9226f0;
+    position: relative;
+    border-radius: 10px; 
+    font-size: 15px;
+    text-align: left;
+    border: 3px solid white; 
+}
+
+.journey-text-box h2 {
+    margin-bottom: -15px;
+}
+
+.journey-text-box small {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.left-container-arrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #9226f0;
+    right: -14px;
+}
+
+.right-container-arrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 22px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #9226f0;
+    left: -14px;
+}
+
+/* alternating the placement of the timeline text box */
+.left-container {
+    left: 0;
+}
+
+.right-container {
+    left: 50%;
+}
+
+.journey-container img {
+    position: absolute;
+    width: 30px;
+    right: -11px;
+    top: 32px;
+    z-index: 10;
+}
+
+/* reposition the image (sphere) to face the journey-timeline */
+.right-container img {
+    left: -15px;
+}
+
+/* This is the center line for the timeline */
+.journey-timeline::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background: #c7a02a;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+}
+
+.journey-title.in-view {
+    animation: moveText 1s forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Start smaller and lower */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End at original size and position */
+    }
+}
+
+.journey-container.in-view {
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+
+/* VISION SECTION */
+
+.vision-section {
+    position: relative;
+    margin-top: 170px;
+    width: 100%;
+    height: 530px;
+}
+
+.vision-gradient-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 2; 
+}
+
+.vision-gradient-container::before, .vision-gradient-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px; 
+}
+
+.vision-gradient-container::before {
+    top: 0; 
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
+}
+
+.vision-gradient-container::after {
+    bottom: 0; 
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
+}
+
+.vision-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-family: "Nunito Sans";
+    text-align: left;
+    padding: 0 275px;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    
 }
 
-.leadership-image-container img {
-    max-width: 30%;
+.vision-heading {
+    font-family: 'Bebas Neue';
+    font-size: 3em;
+    margin-bottom: 25px; 
+    animation:  moveText 3s linear forwards;
+}
+
+/* .vision-image {
     height: auto;
-    border-radius: 10px;
-    padding-top: 115px;
+    padding-right: 100px;
+} */
+
+video {
+    height: 50%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    object-fit: cover;
 }
 
-/*Founders and board buttons style*/
-.button-left,
-.button-right {
-    position: relative;
-    padding: 5px 10px;
-    background-color: transparent;
-    top: 350px;
-    right: 30px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
-    text-decoration: none;
-    font-size: 45px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.01); /* Drop shadow */
-    z-index: 1; /* Ensure the button content is above the background image */
-    overflow: visible; /* Ensure the shadow is visible */
+
+/* ENDING SECTION */
+
+.help-heading {
+    margin-top: -145px;
+    margin-bottom: 0;
+    font-family: 'Bebas Neue';
+    font-size: 3em;
+    animation:  moveText 3s linear forwards;
 }
 
-.button-left:hover,
-.button-right:hover {
-    color: white; /* Keep the text color white */
-    box-shadow: 
-    3px 3px 8px rgba(106, 0, 244, 0.7), 
-    5px 5px 15px rgba(146, 38, 240, 0.6), 
-    7px 7px 20px rgba(255, 95, 168, 0.5); /* Larger gradient shadow shifted right */
+.help-highlight {
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 23px;
+    margin-right: 5px;
 }
 
-/*Apply To Join Button Style*/
-.apply-image-container {
+.help-text {
+    font-size: 20px;
+    font-family: "Nunito Sans";
+    text-align: left;
+    padding: 0 100px;
+}
+
+.bulletpoint {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    gap: 10px;
 }
 
-.apply-image {
-    max-width: 30%;
-    height: auto;
-    border-radius: 10px;
-    top: 70px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.1s, box-shadow 0.1s; /* Added transition for hover effect */
+.bulletpoint::before {
+    content: '';
+    display: inline-block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: #6a00f4;
+    margin-right: 10px;
 }
 
-.apply-image:hover {
-    transform: scale(1.1); /* Scale image slightly */
+.meet-the-team-button {
+    background-color: black;
+    color: white;
+    margin-top: 90px;
+    margin-bottom: 40px;
 }
 
-/*Mobile View*/
-@media (max-width: 480px) {
-    .leadership-image-container {
-        text-align: center; /* Center align text and buttons */
-        margin-top: 100px; /* Increase top margin to shift everything down */
+
+/*MOBILE VIEW*/
+
+@media (max-width: 768px) {
+
+    .story-container {
+        padding-top: 90px;
+        overflow: hidden;
     }
 
-    .leadership-image-container h1 {
-        font-size: 50px; /* Adjust font size of h1 */
-        padding-top: 40px; /* Adjust padding top if needed */
-        font-family: 'Bebas Neue', sans-serif;
-        
+    .story-banner {
+        padding-bottom: 20px;
+        height: 100%;
     }
 
-    p {
-        font-size: 18px; /* Adjust font size of paragraph text */
-        margin-top: 20px; /* Ensure space between paragraph and buttons */
-        font-family: 'Bebas Neue', sans-serif;
+    .story-banner {
+    background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
+    width: 100%;
+    padding-bottom: 20px;
+    height: 100%;
     }
 
-    .button-left,
-    .button-right {
-        display: inline-block; /* Ensure buttons are displayed inline */
-        padding: 10px 20px;
-        font-size: 18px; /* Adjust font size of buttons */
-        background-color: transparent;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        margin: -15px; /* Adjust margin for spacing between buttons */
-        margin-left: 50px;
-        box-shadow: 
-            3px 3px 8px rgba(106, 0, 244, 0.7), 
-            5px 5px 15px rgba(146, 38, 240, 0.6), 
-            7px 7px 20px rgba(255, 95, 168, 0.5); /* Box shadow applied */
+    .story-images-container {
+        display: none;
     }
 
-    .button-left{
-        margin-right: -68px;
+    .story-text {
+        width: 92%;   
+        text-align: left;
+        padding-left: 20px;
+        color: black;
+        font-weight: 525;
     }
 
-    .apply-image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px; /* Adjust top margin for apply image */
-        margin-bottom: 40px; /* Increase bottom margin to shift apply image further down */
+    .quote-section {
+        margin-top: 115px;
     }
 
-    .apply-image {
-        max-width: 90%; /* Adjusted to 90% for better visibility */
-        height: auto;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: transform 0.1s, box-shadow 0.1s; /* Added transition for hover effect */
+    .quote-text {
+        font-size: 1.25em;
     }
 
-    .apply-image:hover {
-        transform: scale(1.1); /* Scale image slightly */
+    .journey-title {
+        margin-top: 100px;
+    }
+
+    .journey-timeline {
+        margin: 50px auto;
+    }
+
+    .journey-timeline::after {
+        left: 31px;
+    }
+
+    .journey-container {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 25px;
+    }
+
+    .journey-text-box {
+        font-size: 14px;
+        width: 225px;
+    }
+
+    .journey-text-box small {
+        margin-bottom: 10px;
+    }
+
+    .right-container {
+        left: 0;
+    }
+
+    .left-container img, .right-container img {
+        left: 15px;
+    }
+
+    .left-container-arrow, .right-container-arrow {
+        border-right: 15px solid #9226f0;
+        border-left: 0;
+        left: -14px;
+    }  
+    
+    .vision-section {
+        margin-top: 115px;
+        max-width: 100%; 
+        overflow: hidden;
+    }
+
+    .vision-gradient-container {
+        height: 50%;
+    }
+
+    .vision-text {
+        overflow-wrap: break-word; 
+        word-break: break-word;
+        max-width: 100%;
+        padding: 7px 20px;
+    }
+
+    .vision-heading {
+        font-size: 48px;
+    }
+
+    .help-highlight {
+        font-size: 24px;
+        padding: 0;
+    }
+
+    .help-text {
+        width: 100%;
+        font-size: 16px;
+        padding-right: 87px;
+    }
+
+    .bulletpoint::before {
+        display: none;
+    }
+
+    .bulletpoint {
+        flex-direction: column;
+        gap: 3px;
+        padding-bottom: 20px;
+    }
+
+    .meet-the-team-button {
+        margin-top: 60px;
     }
 }
