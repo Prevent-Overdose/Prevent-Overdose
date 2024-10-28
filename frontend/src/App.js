@@ -7,7 +7,6 @@ import {
     Route,
     useLocation
 } from "react-router-dom";
-import { useSwipeable } from "react-swipeable";
 
 import './styles.css'
 
@@ -38,15 +37,9 @@ function App() {
     setIsSideNavOpen(!isSideNavOpen);
   };
 
-  const handlers = useSwipeable({
-    onSwipedRight: () => !isSideNavOpen ? toggleSideNav() : void(0),
-    onSwipedLeft: () => isSideNavOpen ? toggleSideNav() : void(0)
-  });
-
   return (
     <Router>
       <ScrollToTop />
-      <div {...handlers}>
         <Navbar isSideNavOpen={isSideNavOpen} toggleSideNav={toggleSideNav}/>
         <main>
           <Routes>
@@ -62,7 +55,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </div>
     </Router>
   );
 }
