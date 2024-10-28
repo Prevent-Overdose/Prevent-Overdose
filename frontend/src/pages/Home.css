@@ -71,8 +71,9 @@
 }
 
 .request-narcan img {
-  height: 200px;
-  width: auto;
+  height: auto;
+  width: 200px;
+  padding: 69px;
   vertical-align: middle;
   transition: filter 0.4s;
 }
@@ -429,8 +430,8 @@
   }
 
   .request-narcan img {
-    padding-top: 20px;
-    height: 250px;
+    padding-top: 100px;
+    width: 250px;
   }
   
   /* MISSION SECTION */

@@ -143,10 +143,12 @@
   .navbar-request-narcan2 img {
       color: #ff23fd;
       display: block;
-      width: 175px;
-      margin-top: -40px; /* Adjust top margin to reduce space */
+      width: 200px;
+      margin-top: 20px; /* Adjust top margin to reduce space */
       margin-left: -10px;
-      height: 200px;
+      padding: 0%;
+      height: auto;
+  
     }
 
     .sidenav a.navbar-request-narcan2 {

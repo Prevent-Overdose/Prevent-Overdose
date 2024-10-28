@@ -71,8 +71,8 @@ header {
 }
 
 .navbar-request-narcan img {
-  height: 200px; 
-  width: auto;
+  height: auto; 
+  width: 200px;
   vertical-align: middle;
   transition: filter 0.4s;
 }
