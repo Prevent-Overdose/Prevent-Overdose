@@ -10,6 +10,7 @@ const reductionRoutes = require('./routes/reductionRoutes')
 const smsRoutes = require('./routes/smsRoutes')
 const dummyRoutes = require('./routes/dummyRoutes')
 const refillRoutes = require('./routes/refillRoutes')
+const odmapRoutes = require('./routes/odmapRoutes'); // For the OD map
 
 //express app
 const app = express()
@@ -28,6 +29,7 @@ app.use('/api/otherforms', reductionRoutes)
 app.use('/api/sms', smsRoutes)
 app.use('/api/dummy', dummyRoutes)
 app.use('/api/refill',refillRoutes)
+app.use('/api/odmap', odmapRoutes); // again, for the od map
 
 
 // send req to google places api to find nearest park

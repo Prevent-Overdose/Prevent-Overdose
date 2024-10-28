@@ -1,94 +1,87 @@
+// ODMap.jsx
+
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import reportsData from './reports.json';
+import axios from 'axios';
 
 const ODMap = () => {
   const [reports, setReports] = useState([]);
-  const [hoveredCircle, setHoveredCircle] = useState(null);  // State to track which circle is hovered
-  const [showDeaths, setShowDeaths] = useState(true);
-  const [showReversals, setShowReversals] = useState(true);
+  const [selectedMonth, setSelectedMonth] = useState('2024-09');
 
   useEffect(() => {
-    setReports(reportsData);
-  }, []);
+    // Fetch overdose data based on the selected month
+    const fetchReports = async () => {
+      try {
+        const response = await axios.get(`http://localhost:4000/api/odmap/${selectedMonth}`);
+        console.log('API Response:', response.data); // Log to verify data
+        setReports(response.data.reports);
+      } catch (error) {
+        console.error('Error fetching reports:', error);
+      }
+    };
+    fetchReports();
+  }, [selectedMonth]);
 
-  // Function to get color based on number of reports, not transparency but actual color shade
-  const getColor = (category, reports) => {
-    // More defined shades for deaths and reversals
-    const deathColors = ['#FFD6D6', '#FF9999', '#FF5050', '#FF3333', '#CC0000']; // Lighter to darker reds
-    const reversalColors = ['#D6FFD6', '#99FF99', '#66FF66', '#33CC33', '#009900']; // Lighter to darker greens
-
-    let color = '';
-    if (category === 'death') {
-      color = reports >= 4 ? deathColors[4] : deathColors[reports];
-    } else if (category === 'reversal') {
-      color = reports >= 4 ? reversalColors[4] : reversalColors[reports];
-    }
-    return color;
+  const getColor = (type) => {
+    return type === 'organization' ? 'red' : 'green';
   };
 
-  const renderCircles = () => {
-    return reports
-      .filter(report => (showDeaths && report.category === 'death') || (showReversals && report.category === 'reversal'))
-      .map(report => {
-        const { id, location, reports, category, park, park_address, type } = report;
-        const color = getColor(category, reports);
-
-        // Updated fixed radius: 600 for individuals, 1200 for organizations
-        const radius = type === 'individual' ? 600 : 1200;
-
-        // Check if the current circle is being hovered
-        const isHovered = hoveredCircle === id;
-
-        return (
-          <Circle
-            key={id}
-            center={location}
-            radius={radius}
-            pathOptions={{
-              color: color,
-              fillColor: color,
-              fillOpacity: isHovered ? 0.2 : 1, // More transparent when hovered
-            }}
-            eventHandlers={{
-              mouseover: () => setHoveredCircle(id),  // On hover, set the current circle as hovered
-              mouseout: () => setHoveredCircle(null),  // On mouse out, reset the hover state
-            }}
-          >
-            <Popup>
-              <div>
-                <strong>Type:</strong> {type.charAt(0).toUpperCase() + type.slice(1)} <br />
-                <strong>Reports:</strong> {category === 'death' ? 'Overdose Deaths' : 'Overdose Reversals'} - {reports} <br />
-                <strong>Nearest Park:</strong> {park} <br />
-                <strong>Park Address:</strong> {park_address}
-              </div>
-            </Popup>
-          </Circle>
-        );
-      });
+  const getRadius = (type) => {
+    return type === 'organization' ? 1200 : 600;
   };
+
+  const renderCircles = () =>
+    reports.map((report, index) => {
+      const { address, fatal, nonfatal, reversed, coordinates, type } = report;
+      const color = getColor(type);
+      const radius = getRadius(type);
+
+      return (
+        <Circle
+          key={index}
+          center={coordinates}
+          radius={radius}
+          pathOptions={{
+            color,
+            fillColor: color,
+            fillOpacity: 0.6,
+          }}
+        >
+          <Popup>
+            <div>
+              <strong>Address:</strong> {address} <br />
+              <strong>Fatal:</strong> {fatal} <br />
+              <strong>Nonfatal:</strong> {nonfatal} <br />
+              <strong>Reversed:</strong> {reversed}
+            </div>
+          </Popup>
+        </Circle>
+      );
+    });
 
   return (
     <div style={{ position: 'relative' }}>
-      {/* Toggle Buttons */}
+      {/* Month Selector */}
       <div style={toggleContainerStyle}>
         <label style={checkboxStyle}>
-          <input type="checkbox" checked={showDeaths} onChange={() => setShowDeaths(!showDeaths)} />
-          Show Deaths
-        </label>
-        <label style={checkboxStyle}>
-          <input type="checkbox" checked={showReversals} onChange={() => setShowReversals(!showReversals)} />
-          Show Reversals
+          Month:
+          <input
+            type="month"
+            value={selectedMonth}
+            onChange={(e) => setSelectedMonth(e.target.value)}
+            style={{ marginLeft: '5px' }}
+          />
         </label>
       </div>
 
       {/* Map Container */}
-      <MapContainer center={[27.9506, -82.4572]} zoom={13} style={{ height: '500px', width: '100%' }}>
+      <MapContainer center={[27.9506, -82.4572]} zoom={12} style={{ height: '500px', width: '100%' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
+        {/* Render Circles */}
         {renderCircles()}
       </MapContainer>
     </div>
@@ -106,8 +99,8 @@ const toggleContainerStyle = {
   boxShadow: '0px 2px 6px rgba(0,0,0,0.2)',
   zIndex: 1000,
   display: 'flex',
-  flexDirection: 'column', // Ensures the checkboxes stack vertically
-  alignItems: 'flex-start', // Align to the left within the box
+  flexDirection: 'column',
+  alignItems: 'flex-start',
 };
 
 const checkboxStyle = {
@@ -115,7 +108,7 @@ const checkboxStyle = {
   marginBottom: '6px',
   fontFamily: 'Arial, sans-serif',
   fontSize: '14px',
-  color: '#333'
+  color: '#333',
 };
 
 export default ODMap;
