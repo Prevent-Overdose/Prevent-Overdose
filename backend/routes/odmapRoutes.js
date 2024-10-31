@@ -4,6 +4,11 @@ const express = require('express');
 const router = express.Router();
 const { OverdoseReport, Organization, IndividualReport } = require('../models/odmapModel');
 
+const addressToCoords = {
+  '123 Main St': [27.9510, -82.4584],
+  '456 Oak Ave': [27.9453, -82.4560],
+  // Add more address mappings here
+};
 
 // Route: GET /api/odmap/:month
 router.get('/:month', async (req, res) => {
