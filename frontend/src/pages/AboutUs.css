@@ -30,17 +30,16 @@ main {
 /* STORY SECTION */
 
 .story-container {
-    padding-top: 175px;
+    padding-top: 25vh;
     display: absolute;
     justify-content: space-between;
 }
  
- .story-banner {
+.story-banner {
     position: relative; /* To position text over the image */
     height: 66vh;
     margin-top: 35px;
-    width: 100%;
-   
+    width: 100%;   
 }
 
 .banner-image {
@@ -66,7 +65,7 @@ main {
     height: auto;
     position: absolute;
     transform-origin: center;
-    border: 20px solid #ffffff; 
+    border: 20px solid white; 
     z-index: 2; 
 }
 
@@ -113,7 +112,8 @@ main {
     animation:  moveText 3s linear forwards;
     opacity: 0;
     z-index: 2; /* Ensures the header is above the banner image */
-    color: #000;
+    color: white;
+    text-shadow: 0 0 3px black;
 }
 
 .story-text {
@@ -181,6 +181,8 @@ main {
 }
 
 .journey-container {
+    /* first padding value moves the text box up or down the line on timeline 
+       while second value moves it left or right on the timeline*/
     padding: 10px 50px;
     position: relative;
     width: 42%;
@@ -357,8 +359,7 @@ main {
     text-align: left;
     padding: 0 275px;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;    
 }
 
 .vision-heading {
@@ -384,6 +385,14 @@ video {
 
 /* ENDING SECTION */
 
+.ending-container {
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
 .help-heading {
     margin-top: -145px;
     margin-bottom: 0;
@@ -406,6 +415,7 @@ video {
     font-family: "Nunito Sans";
     text-align: left;
     padding: 0 100px;
+    justify-content: center;
 }
 
 .bulletpoint {
@@ -427,19 +437,218 @@ video {
 }
 
 .meet-the-team-button {
-    background-color: black;
-    color: white;
-    margin-top: 90px;
-    margin-bottom: 40px;
+    background-color: black; 
+    color: white;   /* text color */      
+    margin-top: 85px;       
+    margin-bottom: 120px;   
+    position: relative;      
+}
+
+.meet-the-team-button .dropdown-arrow {
+    color: #9226f0;
+    cursor: pointer;
+}
+
+.meet-the-team-button .dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute; 
+    z-index: 100; /* Ensure it appears above other elements */
+    padding: 0; 
+    border-radius: 25px; 
+    left: 50%; 
+    transform: translateX(-50%); /* Center dropdown horizontally */
+    background-color: black; 
+    width: 220px; 
+    margin-top: 5px; 
+}
+
+.meet-the-team-button .dropdown-item {
+    color: white; 
+    display: block; /* Make links block-level */
+    margin: 0; 
+    padding: 10px 0; /* Vertical padding for dropdown items */
+    border-radius: 25px; 
+    font-family: 'Bebas Neue', sans-serif; 
+    text-align: center; 
+    width: 220px; 
+}
+
+.meet-the-team-button .dropdown-item:hover {
+    background-color: white; 
+    color: black; 
 }
 
 
-/*MOBILE VIEW*/
+/*RESPONSIVE DISPLAY TO DIFFERENT SCREEN SIZES*/
+
+@media (max-width: 1440px) {
+    .story-banner {
+        position: relative; 
+        height: 75vh;  
+        margin-top: 25px; 
+    }
+    .story-images-container {
+        width: 100%;
+        height: auto; /* Adjust height automatically */
+        margin-top: -150px; /* Adjust margin if needed */
+    }
+
+    .story-images-container img {
+        width: 27%;
+        height: auto;
+        border: 12px solid white;
+    }
+
+    .group1 { 
+        transform: translateX(-150%) translateY(-135%) rotate(-8deg);
+    }
+
+    .group2 {
+        transform: translateX(-43%) translateY(68%) rotate(5deg);
+    }
+
+    .group3 {
+        transform: translateX(-238%) translateY(-62%) rotate(3deg);
+    }
+
+    .quote-section {
+        margin-top: 165px;
+    }
+
+    .vision-text {
+        padding: 0 223px;
+    }
+
+    .journey-title {
+        margin-top: 130px;
+    }
+
+    .help-heading {
+        margin-top: -162px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .story-banner {
+        position: relative; 
+        height: 75vh;  
+        margin-top: 25px; 
+    }
+    .story-images-container {
+        width: 100%;
+        height: auto; 
+        margin-top: -190px; 
+    }
+
+    .story-images-container img {
+        width: 28%;
+        height: auto;
+        border: 12px solid white;
+    }
+
+    .group1 { 
+        transform: translateX(-150%) translateY(-135%) rotate(-8deg);
+    }
+
+    .group2 {
+        transform: translateX(-43%) translateY(68%) rotate(5deg);
+    }
+
+    .group3 {
+        transform: translateX(-238%) translateY(-62%) rotate(3deg);
+    }
+
+    .quote-section {
+        margin-top: 165px;
+    }
+
+    .vision-text {
+        padding: 0 140px;
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .story-container {
+        padding-top: 21vh;
+    }
+
+    .story-banner {
+        position: relative; 
+        height: 85vh;  
+        margin-top: 15px; 
+    }
+    .story-images-container {
+        width: 100%;
+        height: auto; 
+        margin-top: -250px; 
+    }
+
+    .story-images-container img {
+        width: 26%;
+        height: auto;
+        border: 12px solid white;
+    }
+
+    .group1 { 
+        transform: translateX(-158%) translateY(-135%) rotate(-8deg);
+    }
+
+    .group2 {
+        transform: translateX(-43%) translateY(68%) rotate(5deg);
+    }
+
+    .group3 {
+        transform: translateX(-273%) translateY(-52%);
+    }
+
+    .quote-section {
+        margin-top: 142px;
+    }
+
+    .journey-title {
+        margin-top: 130px;
+    }
+
+    .journey-container {
+        padding: 10px 43px;
+    }
+
+    .vision-section {
+        margin-top: 142px;
+    }
+
+    .vision-gradient-container {
+        height: 235px;
+    }
+
+    .help-highlight {
+        font-size: 25px;
+        padding: 0;
+    }
+
+    .help-text {
+        width: 100%;
+        font-size: 20px;
+        padding-right: 87px;
+    }
+
+    .bulletpoint::before {
+        display: none;
+    }
+
+    .bulletpoint {
+        flex-direction: column;
+        gap: 3px;
+        padding-bottom: 20px;
+    }   
+}
+
+/* MOBILE VIEW */
 
 @media (max-width: 768px) {
-
     .story-container {
-        padding-top: 90px;
+        padding-top: 130px;
         overflow: hidden;
     }
 
@@ -453,6 +662,83 @@ video {
     width: 100%;
     padding-bottom: 20px;
     height: 100%;
+    }
+
+    .story-images-container {
+        display: none;
+    }
+
+    .story-text {
+        width: 92%;   
+        text-align: left;
+        padding-left: 20px;
+        color: black;
+        font-weight: 525;
+    }
+
+    .quote-section {
+        margin-top: 115px;
+    }
+
+    .quote-text {
+        font-size: 1.25em;
+    }
+
+    .journey-title {
+        margin-top: 100px;
+    }
+
+    .journey-container {
+        padding: 10px 33px;
+    }
+
+    .help-highlight {
+        font-size: 24px;
+        padding: 0;
+    }
+
+    .help-text {
+        width: 100%;
+        font-size: 16px;
+        padding-right: 87px;
+    }
+
+    .bulletpoint::before {
+        display: none;
+    }
+
+    .bulletpoint {
+        flex-direction: column;
+        gap: 3px;
+        padding-bottom: 20px;
+    }
+
+    .vision-gradient-container {
+        height: 263px;
+    }
+
+    .meet-the-team-button {
+        margin-top: 60px;
+    }
+}
+
+/* sm */
+@media (max-width: 640px) {
+    .story-container {
+        padding-top: 90px;
+        overflow: hidden;
+    }
+
+    .story-banner {
+        padding-bottom: 20px;
+        height: 100%;
+    }
+
+    .story-banner {
+        background: linear-gradient(to right, #6a00f4, #9226f0, #ff5fa8);
+        width: 100%;
+        padding-bottom: 20px;
+        height: 100%;
     }
 
     .story-images-container {
