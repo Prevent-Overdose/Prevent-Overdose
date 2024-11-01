@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const EndingSection = () => {
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!isDropdownOpen);
+    }
+
     return (
-        <div className="closing-buttons">
+        <div className="ending-container">
             <h1 className="help-heading">HOW YOU CAN HELP</h1>
             <div className="help-text">
                 <div className="bulletpoint">
@@ -16,9 +22,13 @@ const EndingSection = () => {
                     {/* <span style={{ marginLeft: '7px', color: '#ff5fa8'}}>Contact Us.</span> */}
                 </div>     
             </div>
-            <a href="/board" className="closing-button meet-the-team-button">
-                MEET THE TEAM
-            </a>
+            <div className="closing-button meet-the-team-button" onClick={toggleDropdown}>
+                MEET THE TEAM <span className="dropdown-arrow">{isDropdownOpen ? '▲' : '▼'}</span>
+                <div className="dropdown-menu" style={{ display: isDropdownOpen ? 'block' : 'none' }}>
+                    <a href="/founders" className="dropdown-item">FOUNDERS</a>
+                    <a href="/board" className="dropdown-item">BOARD</a>
+                </div>
+            </div>
         </div>
     );
 };
