@@ -58,13 +58,13 @@
   .statistics-left {
     display: flex;
     flex-direction: column;
-    margin-left: 210px;
+    margin-left: 75px;
   }
   
   .total-overdoses, .opioid-overdoses {
     font-family: 'Bebas Neue', sans-serif;
     color: #e80f07;
-    font-size: 2em;
+    font-size: 2.5em;
   }
   
   .total-overdoses p, .opioid-overdoses p {
@@ -72,13 +72,14 @@
   }
   
   .overdose-chart {
-    margin-right: 40px;
+    margin-right: 325px;
     margin-top: -25px;
+    padding-top: 50px;
   }
   
   .overdose-chart img {
-    width: 100%;
-    max-width: 600px;
+    width: 150%;
+    max-width: 800px;
     height: auto;
   }
   
@@ -95,7 +96,6 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.3em;
     margin-bottom: 20px;
-    margin-top: 0;
     color: white;
     background: #e80f07;
     text-align: center;
