@@ -24,7 +24,7 @@ const BoardPage = () => {
 
   const teamData = [
     {
-      section: "EXECUTIVE",
+      section: "EXECUTIVE BOARD",
       members: [
         { name: "COLE OLSON", role: "Co-Executive Director", image: founder1, description: "My experience of losing both friends and family members due to drug use fueled my desire for change and inspired me to found this organization." },
         { name: "SAMAY SHAH", role: "Co-Executive Director", image: founder2, description: "Seeing people fight addiction while volunteering at my local harm reduction clinic inspired me to do everything I can to make the fight easier." },
@@ -47,7 +47,7 @@ const BoardPage = () => {
         { name: "KHUSHI CHITALIA", role: "Software Development Intern", image: intern1, description: "" },
         { name: "NITISH GOEL", role: "Software Development Intern", image: "", description: "" },
         { name: "EMILY JIJI", role: "Software Development Intern", image: "", description: "" },
-        { name: "DEVNAND KUMAR", role: "Software Development Intern", image: "", description: "" },
+        { name: "ANIRUDH TAMMISETTI", role: "Software Development Intern", image: "", description: "" },
         { name: "ANANYA MUNDRATHI", role: "Software Development Intern", image: "", description: "" },
         { name: "SNOW PHAM", role: "Software Development Intern", image: "", description: "" },
         { name: "AKHIL WALIA", role: "Software Development Intern", image: "", description: "" },
