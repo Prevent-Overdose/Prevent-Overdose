@@ -6,6 +6,10 @@ import FadeInSection from '../hooks/fadeInSection';
 const OverdoseDataSection = lazy(() => import('../components/Resources/OverdoseDataSection'));
 const DrugInvolvementSection = lazy(() => import('../components/Resources/DrugInvolvementSection'));
 const LethalStatsSection = lazy(() => import('../components/Resources/LethalStatsSection'));
+const EducationalVideosSection = lazy(() => import('../components/Resources/EducationalVideosSection'));
+const CertificationsSection = lazy(() => import('../components/Resources/CertificationsSection'));
+
+
 
 const Resources = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +34,12 @@ const Resources = () => {
         </FadeInSection>
         <FadeInSection>
           <LethalStatsSection />
+        </FadeInSection>
+        <FadeInSection>
+          <EducationalVideosSection />
+        </FadeInSection>
+        <FadeInSection>
+          <CertificationsSection />
         </FadeInSection>
       </Suspense>
     </div>

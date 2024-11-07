@@ -33,7 +33,7 @@
     height: 3em;
     margin-top: 0;
     padding: 20px;
-    width: 100vw; 
+    width: 120vw; 
     position: relative; 
     left: 50%; 
     transform: translateX(-50%); 
@@ -338,6 +338,115 @@
     font-size: 1.2em;
   }
   
+  /* EDUCATIONAL VIDEOS */
+  .educational-videos-section {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+    padding-left: 100px;
+  }
+
+  .educational-videos-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 1px;
+    background: #e80f07;
+    color: white; 
+    height: 3vw;
+    margin-top: 0;
+    padding: 20px;
+    width: 120vw; 
+    position: relative; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .educational-videos-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .educational-videos-long {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 20px;
+      margin-top: 40px;
+  }
+
+  .educational-videos-short {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      width: 100%;
+  }
+
+  /* CERTIFICATIONS */
+  .certifications-section {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .certifications-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 1px;
+    background: #e80f07;
+    color: white; 
+    height: 3vw;
+    margin-top: 0;
+    padding: 20px;
+    width: 120vw; 
+    position: relative; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .certifications-content {
+    display: flex;
+    justify-content: space-around; /* Evenly space out the buttons */
+    gap: 20px;
+}
+
+  .certification-button {
+    background-color: #e80f07;
+    color: white;
+    font-family: 'nunito sans';
+    padding: 15px 20px;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 0px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 20vw;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: transform 0.1s, box-shadow 0.1s;  
+  }
+
+.certification-button:hover {
+    background-color: #e80f07;
+    transform: scale(1.1);
+}
+
+
   /* MEDIA QUERY FOR MOBILE DEVICES */
   
   @media (max-width: 768px) {
