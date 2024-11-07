@@ -119,6 +119,63 @@ const updateAvailability = async (req, res) => {
 
 
 
+// update availability
+const updateAvailability = async (req, res) => {
+    const { phoneNumber, availability, monthly_narcan } = req.body;
+
+    console.log("Received phoneNumber:", phoneNumber); // debug log
+    console.log("Received availability:", availability); // debug log
+    console.log("Received monthly_narcan:", monthly_narcan); // debug log
+
+    try {
+        const organization = await Org.findOneAndUpdate(
+            { phone_number: phoneNumber },
+            { availability, monthly_narcan },
+            { new: true }
+        );
+
+        if (!organization) {
+            console.log("Organization not found"); // debug log
+            return res.status(404).json({ message: 'Organization not found' });
+        }
+
+        console.log("Availability updated successfully:", organization); // debug log
+        res.status(200).json({ message: 'Availability updated successfully', organization });
+    } catch (error) {
+        console.log("Error updating availability:", error.message); // debug log
+        res.status(500).json({ message: 'Failed to update availability', error: error.message });
+    }
+};
+
+// cancel shipments
+
+const cancelShipments = async (req, res) => {
+    const { phoneNumber } = req.body;
+
+    try {
+        const organization = await Org.findOne({ phone_number: phoneNumber });
+        if (!organization) {
+            return res.status(404).json({ message: 'Organization not found' });
+        }
+
+        await Narcan.deleteMany({
+            phone_number: phoneNumber,
+            date: { $gte: new Date(new Date().getFullYear(), new Date().getMonth(), 1) }
+        });
+
+        await Org.findOneAndUpdate(
+            { phone_number: phoneNumber },
+            { monthly_narcan: false },
+            { new: true }
+        );
+
+        res.status(200).json({ message: 'Shipment canceled and refill status updated' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error canceling shipment', error: error.message });
+    }
+};
+
+
 module.exports = {
     getNarcan,
     createNarcan,
@@ -126,4 +183,8 @@ module.exports = {
     validatePhoneNumber,
     updateAvailability,
     cancelShipments
+<<<<<<< Updated upstream
 }
+=======
+};
+>>>>>>> Stashed changes

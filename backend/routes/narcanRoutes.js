@@ -24,11 +24,19 @@ router.delete('/:id',deleteNarcan)
 // New route to validate phone number
 router.get('/:phoneNumber', validatePhoneNumber);
 
+<<<<<<< Updated upstream
 // update availability
 router.post('/update-availability', updateAvailability);
 
 // cancel shipments
 router.post('/cancel-shipments', cancelShipments);
+=======
+// route to update availability
+router.post('/updateAvailability', updateAvailability);
+
+// route to cancel shipments
+router.post('/cancelShipments', cancelShipments);
+>>>>>>> Stashed changes
 
 
 module.exports = router
