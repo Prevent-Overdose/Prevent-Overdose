@@ -20,18 +20,30 @@
     color: black;
     padding: 40px 20px;
     padding-left: 100px;
-    padding-right: 100px;
-    text-align: center;
   }
   
   .overdose-data-header {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3em;
     margin-bottom: 20px;
+    text-align: center;
+    font-size: 65px;
+    background: #e80f07;
+    color: white; 
+    height: 3em;
+    margin-top: 0;
+    padding: 20px;
+    width: 100vw; 
+    position: relative; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .overdose {
-    color: #e80f07;
+    color: white;
   }
   
   .data {
@@ -119,7 +131,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Bebas Neue', sans-serif;
     justify-content: center;
     align-items: center;
     border-radius: 50%;

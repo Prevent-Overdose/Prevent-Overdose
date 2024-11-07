@@ -62,7 +62,7 @@ const OverdoseDataSection = () => {
   return (
     <div className="overdose-data-section">
       <h2 className="overdose-data-header">
-        <span className="overdose">NATIONAL OVERDOSE</span> <span className="data">DATA</span>
+        <span className="overdose">NATIONAL OVERDOSE DATA</span> 
       </h2>
       <div className="overdose-statistics">
         <div className="statistics-left">
