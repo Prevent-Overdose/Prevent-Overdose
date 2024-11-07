@@ -66,7 +66,7 @@ const BoardPage = () => {
             {section.members.map((member, idx) => (
               <div key={idx} className="box-wrapper">
                 <div className="box">
-                  <img src={member.image} alt={`${member.name}'s photo`} />
+                  <img src={member.image} alt={`${member.name}'s photo`}/>
                     <div className="description">
                         {member.description}
                     </div>
@@ -86,15 +86,26 @@ const BoardPage = () => {
           <p className="past-contributors">Acknowledging the contributions of all members who played a role in shaping Prevent Overdose Inc.</p>
           <p className="name-columns">
             <div className="past-contributors">
-              <p>Name 1</p>
-              <p>Name 2</p>
-              <p>Name 3</p>
+              <p>Rutvi Shukla</p>
+              <p>Amina Hassan</p>
+              <p>Diego Morales</p>
             </div>
 
             <div className="past-contributors">
-              <p>Name 4</p>
-              <p>Name 5</p>
-              <p>Name 6</p>
+              <p>Joshua Cooper</p>
+              <p>Priya Patel</p>
+              <p>Leila Zhang</p>
+            </div>
+
+            <div className="past-contributors">
+              <p>Malik Johnson</p>
+              <p>Sofia Rivera</p>
+              <p>Kofi Mensah</p>
+            </div>
+
+            <div className="past-contributors">
+              <p>Zainab Ali</p>
+              <p>Carlos Santos</p>
             </div>
           </p>
         </div>
