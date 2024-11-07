@@ -70,13 +70,13 @@ const OverdoseDataSection = () => {
             <div className="text-wrapper">
               <p>Total Overdoses:</p>
             </div>
-            <h3 ref={totalOverdosesRef}>0</h3>
+            <p ref={totalOverdosesRef} style={{ color: 'white' }}>0</p>
           </div>
           <div className="opioid-overdoses">
             <div className="text-wrapper">
               <p>Opioid Overdoses:</p>
             </div>
-            <h3 ref={opioidOverdosesRef}>0</h3>
+            <p ref={opioidOverdosesRef} style={{ color: 'white' }}>0</p>
           </div>
         </div>
         <div className="overdose-chart">
