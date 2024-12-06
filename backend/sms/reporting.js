@@ -9,6 +9,7 @@ const { cronJob } = require('./cronHelper');
 const UserReport = require('../models/user_reportModel')
 const Org = require('../models/organizationModel')
 const Indiv = require('../models/user_reportModel')
+const Requests = require('../models/narcanFulfillmentModel')
 
 
 const router = express.Router();
@@ -293,5 +294,37 @@ Prevent Overdose - Thank you for signing up for your monthly overdose and narcan
    }
 }
 
+const sendWeeklyNarcanRequests = async(req,res)=>{
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+    // Query to get all entries from the last week
+    const lastWeekEntries = await Requests.find({ date: { $gte: oneWeekAgo } });
+
+    // Format the entries into the desired string format
+    let message = "Narcan requests this week:\n\n";
+    for (const entry of lastWeekEntries) {
+        // Find the corresponding organization by phone number
+        const org = await Org.findOne({ phone_number: entry.phone_number });
+
+        // Add details to the message
+        message += `${entry.date.toLocaleDateString()}\n`;
+        message += org ? `Organization: ${org.organizationName}\n` : "Organization: Unknown\n";
+        message += `+1${entry.phone_number}\n`;
+        message += `Boxes of Narcan: ${entry.narcan_requested}\n\n`;
+    }
+
+    try {
+        // Send the message to the admin phone number
+        sendMessage(message, process.env.ADMIN_PHONE);
+    } catch (error) {
+        console.error('Error sending weekly narcan requests:', error);
+        return res.status(500).json({ error: 'Failed to send weekly narcan requests.' });
+    }
+    
+    res.status(200).json(message)
+}
+
+
 // module.exports = router;
-module.exports = {handleMessage, createReporter}
+module.exports = {handleMessage, createReporter, sendWeeklyNarcanRequests}

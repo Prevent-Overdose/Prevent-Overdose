@@ -8,7 +8,8 @@ router.use(bodyParser.json());
 
 const {
     handleMessage,
-    createReporter
+    createReporter,
+    sendWeeklyNarcanRequests
 } = require('../sms/reporting')
 
 
@@ -17,6 +18,8 @@ const {
 router.post('/message', handleMessage)
 
 router.post('/createReporter', createReporter)
+
+router.get('/sendWeeklyNarcanRequests', sendWeeklyNarcanRequests)
 
 
 
