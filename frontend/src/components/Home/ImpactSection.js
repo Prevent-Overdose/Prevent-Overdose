@@ -12,9 +12,9 @@ const ImpactSection = ({ impactAnimationTriggered, setImpactAnimationTriggered }
       entries.forEach((entry) => {
         if (entry.isIntersecting && !impactAnimationTriggered) {
           const fixedDuration = 1000;
-          startCountUpAnimationWithPlus(impactRefs.kitsDistributed.current, 1000, fixedDuration);
-          startCountUpAnimationWithPlus(impactRefs.overdosesReversed.current, 15, fixedDuration);
-          startCountUpAnimationWithPlus(impactRefs.carePackagesDispensed.current, 500, fixedDuration);
+          startCountUpAnimationWithPlus(impactRefs.kitsDistributed.current, 8000, fixedDuration);
+          startCountUpAnimationWithPlus(impactRefs.overdosesReversed.current, 100, fixedDuration);
+          startCountUpAnimationWithPlus(impactRefs.carePackagesDispensed.current, 1000, fixedDuration);
           setImpactAnimationTriggered(true);
         }
       });
